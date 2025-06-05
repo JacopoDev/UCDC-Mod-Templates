@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using UCDC_Mod_Api.GameInterfaces;
@@ -25,40 +26,65 @@ namespace ChatGptMod
         };
 
         private ISettingsDatabase _database;
-        
+        private Dictionary<string, object> _loadedSettings;
+
         public void SetDatabase(ISettingsDatabase database)
         {
             _database = database;
             Instance = this;
-            if (!CheckSetDefault());
+            if (CheckSetDefault()) return;
+            
+            _loadedSettings = _database.LoadGroupData(_settingsKeys.Values.ToArray());
+            _loadedSettings[_settingsKeys[EGptSettings.Api]] = GetApiDecoded();
+            _loadedSettings[_settingsKeys[EGptSettings.Stop]] = GetStopStrings();
+        }
+
+        public void SaveAllData()
+        {
+            var filtered = _loadedSettings
+                .Where(kv => kv.Key != "GptMod.Api" && kv.Key != "GptMod.Stop")
+                .ToDictionary(kv => kv.Key, kv => kv.Value);
+            
+            _database.SaveGroupData(filtered);
+            SetApi((string)_loadedSettings[_settingsKeys[EGptSettings.Api]]);
+            SetStopStrings((string[])_loadedSettings[_settingsKeys[EGptSettings.Stop]]);
+        }
+
+        public void SetLoaded(EGptSettings setting, object data)
+        {
+            _loadedSettings[_settingsKeys[setting]] = data;
         }
 
         public void RestoreDefaultSettings()
         {
             string savedApi = GetApiDecoded();
+
+            SetLoaded(EGptSettings.Api, savedApi);
+            SetLoaded(EGptSettings.Model, "gpt-4o-mini");
+            SetLoaded(EGptSettings.Temperature, 0.9f);
+            SetLoaded(EGptSettings.MaxTokens, 1000);
+            SetLoaded(EGptSettings.TopP, 1.0f);
+            SetLoaded(EGptSettings.FrequencyPenalty, 2.0f);
+            SetLoaded(EGptSettings.PresencePenalty, 2.0f);
+            SetLoaded(EGptSettings.Stop, new []{"Assistant:", " Unity-chan: "});
             
-            SetApi(string.Empty);
-            SetString(EGptSettings.Model, savedApi);
-            SetFloat(EGptSettings.Temperature, 0.9f);
-            SetInt(EGptSettings.MaxTokens, 1000);
-            SetFloat(EGptSettings.TopP, 1.0f);
-            SetFloat(EGptSettings.FrequencyPenalty, 2.0f);
-            SetFloat(EGptSettings.PresencePenalty, 2.0f);
-            SetStopStrings(new []{"Assistant:", " Unity-chan: "});
+            SaveAllData();
         }
 
         private bool CheckSetDefault()
         {
             if (_database.Exists(_settingsKeys[EGptSettings.Model])) return false;
+
+            SetLoaded(EGptSettings.Api, string.Empty);
+            SetLoaded(EGptSettings.Model, "gpt-4o-mini");
+            SetLoaded(EGptSettings.Temperature, 0.9f);
+            SetLoaded(EGptSettings.MaxTokens, 1000);
+            SetLoaded(EGptSettings.TopP, 1.0f);
+            SetLoaded(EGptSettings.FrequencyPenalty, 2.0f);
+            SetLoaded(EGptSettings.PresencePenalty, 2.0f);
+            SetLoaded(EGptSettings.Stop, new []{"Assistant:", " Unity-chan: "});
             
-            SetApi(string.Empty);
-            SetString(EGptSettings.Model, "gpt-4o-mini");
-            SetFloat(EGptSettings.Temperature, 0.9f);
-            SetInt(EGptSettings.MaxTokens, 1000);
-            SetFloat(EGptSettings.TopP, 1.0f);
-            SetFloat(EGptSettings.FrequencyPenalty, 2.0f);
-            SetFloat(EGptSettings.PresencePenalty, 2.0f);
-            SetStopStrings(new []{"Assistant:", " Unity-chan: "});
+            SaveAllData();
             return true;
         }
 

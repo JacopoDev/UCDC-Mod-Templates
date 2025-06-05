@@ -71,19 +71,19 @@ namespace ChatGptMod
 
         public void SetApi(string value)
         {
-            GptSettings.Instance.SetApi(value);
+            GptSettings.Instance.SetLoaded(EGptSettings.Api, value);
         }
 
         public void SetModel(string value)
         {
-            GptSettings.Instance.SetString(EGptSettings.Model, value);
+            GptSettings.Instance.SetLoaded(EGptSettings.Model, value);
         }
 
         public void SetTemperature(string value)
         {
             if (float.TryParse(value, out float parsed))
             {
-                GptSettings.Instance.SetFloat(EGptSettings.Temperature, parsed);
+                GptSettings.Instance.SetLoaded(EGptSettings.Temperature, parsed);
             }
         }
 
@@ -91,7 +91,7 @@ namespace ChatGptMod
         {
             if (int.TryParse(value, out int parsed))
             {
-                GptSettings.Instance.SetInt(EGptSettings.MaxTokens, parsed);
+                GptSettings.Instance.SetLoaded(EGptSettings.MaxTokens, parsed);
             }
         }
 
@@ -99,7 +99,7 @@ namespace ChatGptMod
         {
             if (float.TryParse(value, out float parsed))
             {
-                GptSettings.Instance.SetFloat(EGptSettings.TopP, parsed);
+                GptSettings.Instance.SetLoaded(EGptSettings.TopP, parsed);
             }
         }
 
@@ -107,7 +107,7 @@ namespace ChatGptMod
         {
             if (float.TryParse(value, out float parsed))
             {
-                GptSettings.Instance.SetFloat(EGptSettings.FrequencyPenalty, parsed);
+                GptSettings.Instance.SetLoaded(EGptSettings.FrequencyPenalty, parsed);
             }
         }
 
@@ -115,7 +115,7 @@ namespace ChatGptMod
         {
             if (float.TryParse(value, out float parsed))
             {
-                GptSettings.Instance.SetFloat(EGptSettings.PresencePenalty, parsed);
+                GptSettings.Instance.SetLoaded(EGptSettings.PresencePenalty, parsed);
             }
         }
 
@@ -127,7 +127,7 @@ namespace ChatGptMod
                 .Where(s => !string.IsNullOrEmpty(s))
                 .ToArray();
 
-            GptSettings.Instance.SetStopStrings(stops);
+            GptSettings.Instance.SetLoaded(EGptSettings.Stop, stops);
         }
     }
 }
