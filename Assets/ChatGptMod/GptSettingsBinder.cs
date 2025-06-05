@@ -63,12 +63,6 @@ namespace ChatGptMod
             stopSequences.SetTextWithoutNotify(string.Join("|", GptSettings.Instance.GetStopStrings())); 
         }
 
-        // Save All settings after closing settings window
-        private void OnDisable()
-        {
-            GptSettings.SaveAllSettings();
-        }
-
         public void SwitchMod(bool value)
         {
             GptMessageSender.AIDatabase.SetApiActive(GptMessageSender.MainModule); // set this mod module as currently active (or deactivate)
@@ -82,14 +76,14 @@ namespace ChatGptMod
 
         public void SetModel(string value)
         {
-            GptSettings.GetAllSettings()[GptSettings.SettingsKeys[EGptSettings.Model]] = value;
+            GptSettings.Instance.SetString(EGptSettings.Model, value);
         }
 
         public void SetTemperature(string value)
         {
             if (float.TryParse(value, out float parsed))
             {
-                GptSettings.GetAllSettings()[GptSettings.SettingsKeys[EGptSettings.Temperature]] = parsed;
+                GptSettings.Instance.SetFloat(EGptSettings.Temperature, parsed);
             }
         }
 
@@ -97,7 +91,7 @@ namespace ChatGptMod
         {
             if (int.TryParse(value, out int parsed))
             {
-                GptSettings.GetAllSettings()[GptSettings.SettingsKeys[EGptSettings.MaxTokens]] = parsed;
+                GptSettings.Instance.SetInt(EGptSettings.MaxTokens, parsed);
             }
         }
 
@@ -105,7 +99,7 @@ namespace ChatGptMod
         {
             if (float.TryParse(value, out float parsed))
             {
-                GptSettings.GetAllSettings()[GptSettings.SettingsKeys[EGptSettings.TopP]] = parsed;
+                GptSettings.Instance.SetFloat(EGptSettings.TopP, parsed);
             }
         }
 
@@ -113,7 +107,7 @@ namespace ChatGptMod
         {
             if (float.TryParse(value, out float parsed))
             {
-                GptSettings.GetAllSettings()[GptSettings.SettingsKeys[EGptSettings.FrequencyPenalty]] = parsed;
+                GptSettings.Instance.SetFloat(EGptSettings.FrequencyPenalty, parsed);
             }
         }
 
@@ -121,7 +115,7 @@ namespace ChatGptMod
         {
             if (float.TryParse(value, out float parsed))
             {
-                GptSettings.GetAllSettings()[GptSettings.SettingsKeys[EGptSettings.PresencePenalty]] = parsed;
+                GptSettings.Instance.SetFloat(EGptSettings.PresencePenalty, parsed);
             }
         }
 
