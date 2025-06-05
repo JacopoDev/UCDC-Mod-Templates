@@ -39,14 +39,14 @@ namespace ChatGptMod
 
             OpenAiRequestData requestData = new OpenAiRequestData()
             {
-                model = GptSettings.GetString(EGptSettings.Model, "gpt-4o-mini"),
+                model = GptSettings.Instance.GetString(EGptSettings.Model, "gpt-4o-mini"),
                 messages = gptMessages,
-                temperature = GptSettings.GetFloat(EGptSettings.Temperature, 0.9f),
-                max_tokens = GptSettings.GetInt(EGptSettings.MaxTokens, 1000),
-                top_p = GptSettings.GetFloat(EGptSettings.TopP, 1.0f),
-                frequency_penalty = GptSettings.GetFloat(EGptSettings.FrequencyPenalty, 2.0f),
-                presence_penalty = GptSettings.GetFloat(EGptSettings.PresencePenalty, 2.0f),
-                stop = GptSettings.GetStopStrings()
+                temperature = GptSettings.Instance.GetFloat(EGptSettings.Temperature, 0.9f),
+                max_tokens = GptSettings.Instance.GetInt(EGptSettings.MaxTokens, 1000),
+                top_p = GptSettings.Instance.GetFloat(EGptSettings.TopP, 1.0f),
+                frequency_penalty = GptSettings.Instance.GetFloat(EGptSettings.FrequencyPenalty, 2.0f),
+                presence_penalty = GptSettings.Instance.GetFloat(EGptSettings.PresencePenalty, 2.0f),
+                stop = GptSettings.Instance.GetStopStrings()
             };
 
             return requestData;
@@ -57,7 +57,7 @@ namespace ChatGptMod
             Result apiResult = new Result();
             apiResult.Code = (int)HttpStatusCode.NotFound;
 
-            string api = GptSettings.GetApiDecoded();
+            string api = GptSettings.Instance.GetApiDecoded();
             if (api == string.Empty)
             {
                 apiResult.Code = (int)HttpStatusCode.BadRequest;
