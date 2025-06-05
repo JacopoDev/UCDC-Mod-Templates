@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ec48e15fce9a35846964f190f066079d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9
+  assetPath: Assets/UMod/Resources/ModToolsSecurityRestrictions.asset
+  uploadId: 737480

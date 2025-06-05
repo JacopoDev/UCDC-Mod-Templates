@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 0782ffa5e2c6755428701d3d9743299b
+timeCreated: 1556615058
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9
+  assetPath: Assets/UMod/Resources/Editor/ModToolsSettings.asset
+  uploadId: 737480

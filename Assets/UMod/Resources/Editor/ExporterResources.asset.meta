@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d482af1c76c424a41b948bb308a26d23
+timeCreated: 1549361590
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9
+  assetPath: Assets/UMod/Resources/Editor/ExporterResources.asset
+  uploadId: 737480
