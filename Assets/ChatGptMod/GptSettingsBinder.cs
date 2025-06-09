@@ -43,6 +43,11 @@ namespace ChatGptMod
             RefreshData();
         }
 
+        private void OnDisable()
+        {
+            GptSettings.Instance.SaveAllData();
+        }
+
         private void RestoreDefaults()
         {
             GptSettings.Instance.RestoreDefaultSettings();

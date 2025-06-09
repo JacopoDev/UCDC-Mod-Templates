@@ -1,28 +1,33 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using UCDC_Mod_Api.GameInterfaces;
 using UCDC_Mod_Api.ModInterfaces;
 using UMod;
 
-namespace ChatGptMod
+namespace OpenWebUiMod
 {
-    public class GptSettings : ModScript, ISettingsAccessor 
+    public class WebUiSettings : ModScript, ISettingsAccessor
     {
-        public static GptSettings Instance;
+        public static WebUiSettings Instance;
         
-        private readonly Dictionary<EGptSettings, string> _settingsKeys = new Dictionary<EGptSettings, string>()
+        private readonly Dictionary<EWebUiSettings, string> _settingsKeys = new Dictionary<EWebUiSettings, string>()
         {
-            {EGptSettings.Api, "GptMod.Api"},
-            {EGptSettings.Model, "GptMod.Model"},
-            {EGptSettings.Temperature, "GptMod.Temperature"},
-            {EGptSettings.MaxTokens, "GptMod.MaxTokens"},
-            {EGptSettings.TopP, "GptMod.TopP"},
-            {EGptSettings.FrequencyPenalty, "GptMod.FrequencyPenalty"},
-            {EGptSettings.PresencePenalty, "GptMod.PresencePenalty"},
-            {EGptSettings.Stop, "GptMod.Stop"},
+            {EWebUiSettings.Api, "OpenWebUiMod.Api"},
+            {EWebUiSettings.Model, "OpenWebUiMod.Model"},
+            {EWebUiSettings.Ip, "OpenWebUiMod.Ip"},
+            {EWebUiSettings.Port, "OpenWebUiMod.Port"},
+        };
+        
+        private readonly Dictionary<EWebUiSettings, object> _settingDefaults = new Dictionary<EWebUiSettings, object>()
+        {
+            {EWebUiSettings.Api, string.Empty},
+            {EWebUiSettings.Model, "llama3.2:latest"},
+            {EWebUiSettings.Ip, IPAddress.Loopback.ToString()},
+            {EWebUiSettings.Port, 8080},
         };
 
         private ISettingsDatabase _database;
@@ -35,22 +40,20 @@ namespace ChatGptMod
             if (CheckSetDefault()) return;
             
             _loadedSettings = _database.LoadGroupData(_settingsKeys.Values.ToArray());
-            _loadedSettings[_settingsKeys[EGptSettings.Api]] = GetApiDecoded();
-            _loadedSettings[_settingsKeys[EGptSettings.Stop]] = GetStopStrings();
+            _loadedSettings[_settingsKeys[EWebUiSettings.Api]] = GetApiDecoded();
         }
 
         public void SaveAllData()
         {
             var filtered = _loadedSettings
-                .Where(kv => kv.Key != "GptMod.Api" && kv.Key != "GptMod.Stop")
+                .Where(kv => kv.Key != _settingsKeys[EWebUiSettings.Api])
                 .ToDictionary(kv => kv.Key, kv => kv.Value);
             
+            SetApi((string)_loadedSettings[_settingsKeys[EWebUiSettings.Api]]);
             _database.SaveGroupData(filtered);
-            SetApi((string)_loadedSettings[_settingsKeys[EGptSettings.Api]]);
-            SetStopStrings((string[])_loadedSettings[_settingsKeys[EGptSettings.Stop]]);
         }
 
-        public void SetLoaded(EGptSettings setting, object data)
+        public void SetLoaded(EWebUiSettings setting, object data)
         {
             if (!_loadedSettings.ContainsKey(_settingsKeys[setting]))
             {
@@ -62,34 +65,32 @@ namespace ChatGptMod
             }
         }
 
+        public object GetDefaultValue(EWebUiSettings key)
+        {
+            return _settingDefaults[key];
+        }
+
         public void RestoreDefaultSettings()
         {
             string savedApi = GetApiDecoded();
 
-            SetLoaded(EGptSettings.Api, savedApi);
-            SetLoaded(EGptSettings.Model, "gpt-4o-mini");
-            SetLoaded(EGptSettings.Temperature, 0.9f);
-            SetLoaded(EGptSettings.MaxTokens, 1000);
-            SetLoaded(EGptSettings.TopP, 1.0f);
-            SetLoaded(EGptSettings.FrequencyPenalty, 2.0f);
-            SetLoaded(EGptSettings.PresencePenalty, 2.0f);
-            SetLoaded(EGptSettings.Stop, new []{"Assistant:", " Unity-chan: "});
+            SetLoaded(EWebUiSettings.Api, savedApi);
+            SetLoaded(EWebUiSettings.Model, _settingDefaults[EWebUiSettings.Model]);
+            SetLoaded(EWebUiSettings.Ip, _settingDefaults[EWebUiSettings.Ip]);
+            SetLoaded(EWebUiSettings.Port, _settingDefaults[EWebUiSettings.Port]);
             
             SaveAllData();
         }
 
         private bool CheckSetDefault()
         {
-            if (_database.Exists(_settingsKeys[EGptSettings.Model])) return false;
+            if (_database.Exists(_settingsKeys[EWebUiSettings.Model])) return false;
+            _loadedSettings = new Dictionary<string, object>();
 
-            SetLoaded(EGptSettings.Api, string.Empty);
-            SetLoaded(EGptSettings.Model, "gpt-4o-mini");
-            SetLoaded(EGptSettings.Temperature, 0.9f);
-            SetLoaded(EGptSettings.MaxTokens, 1000);
-            SetLoaded(EGptSettings.TopP, 1.0f);
-            SetLoaded(EGptSettings.FrequencyPenalty, 2.0f);
-            SetLoaded(EGptSettings.PresencePenalty, 2.0f);
-            SetLoaded(EGptSettings.Stop, new []{"Assistant:", " Unity-chan: "});
+            SetLoaded(EWebUiSettings.Api, string.Empty);
+            SetLoaded(EWebUiSettings.Model, _settingDefaults[EWebUiSettings.Model]);
+            SetLoaded(EWebUiSettings.Ip, _settingDefaults[EWebUiSettings.Ip]);
+            SetLoaded(EWebUiSettings.Port, _settingDefaults[EWebUiSettings.Port]);
             
             SaveAllData();
             return true;
@@ -104,43 +105,36 @@ namespace ChatGptMod
                 SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(baseSalt)));
             
             string encoded = XorEncoder.Encode(decodedValue, key);
-            _database.SaveString(_settingsKeys[EGptSettings.Api], encoded);
+            _database.SaveString(_settingsKeys[EWebUiSettings.Api], encoded);
         }
 
-        public void SetInt(EGptSettings setting, int value)
+        public void SetInt(EWebUiSettings setting, int value)
         {
             ValidateSetting(setting);
             string key = _settingsKeys[setting];
             _database.SaveInt(key, value);
         }
 
-        public void SetFloat(EGptSettings setting, float value)
+        public void SetFloat(EWebUiSettings setting, float value)
         {
             ValidateSetting(setting);
             string key = _settingsKeys[setting];
             _database.SaveFloat(key, value);
         }
 
-        public void SetBool(EGptSettings setting, bool value)
+        public void SetBool(EWebUiSettings setting, bool value)
         {
             ValidateSetting(setting);
             string key = _settingsKeys[setting];
             _database.SaveBool(key, value);
         }
 
-        public void SetString(EGptSettings setting, string value)
+        public void SetString(EWebUiSettings setting, string value)
         {
             ValidateSetting(setting);
             string key = _settingsKeys[setting];
             _database.SaveString(key, value);
         }
-        
-        public void SetStopStrings(string[] values)
-        {
-            string encoded = string.Join("|", values);
-            _database.SaveString(_settingsKeys[EGptSettings.Stop], encoded);
-        }
-
         #endregion
 
         #region getters
@@ -151,7 +145,7 @@ namespace ChatGptMod
             string baseSalt = Environment.MachineName + "_" + Environment.UserName;
             string key = Convert.ToBase64String(
                 SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(baseSalt)));
-            string encodedValue = _database.LoadString(_settingsKeys[EGptSettings.Api], string.Empty);
+            string encodedValue = _database.LoadString(_settingsKeys[EWebUiSettings.Api], string.Empty);
 
             if (encodedValue == string.Empty) return encodedValue;
             
@@ -159,56 +153,42 @@ namespace ChatGptMod
             return decodedValue;
         }
 
-        public int GetInt(EGptSettings setting, int defaultValue)
+        public int GetInt(EWebUiSettings setting, int defaultValue)
         {
             ValidateSetting(setting);
             string key = _settingsKeys[setting];
             return _database.LoadInt(key, defaultValue);
         }
 
-        public float GetFloat(EGptSettings setting, float defaultValue)
+        public float GetFloat(EWebUiSettings setting, float defaultValue)
         {
             ValidateSetting(setting);
             string key = _settingsKeys[setting];
             return _database.LoadFloat(key, defaultValue);
         }
 
-        public bool GetBool(EGptSettings setting, bool defaultValue)
+        public bool GetBool(EWebUiSettings setting, bool defaultValue)
         {
             ValidateSetting(setting);
             string key = _settingsKeys[setting];
             return _database.LoadBool(key, defaultValue);
         }
 
-        public string GetString(EGptSettings setting, string defaultValue)
+        public string GetString(EWebUiSettings setting, string defaultValue)
         {
             ValidateSetting(setting);
             string key = _settingsKeys[setting];
             return _database.LoadString(key, defaultValue);
         }
 
-        public string[] GetStopStrings()
-        {
-            string raw = _database.LoadString(_settingsKeys[EGptSettings.Stop], string.Empty);
-            return string.IsNullOrEmpty(raw)
-                ? Array.Empty<string>()
-                : raw.Split('|');
-        }
-
         #endregion
 
-        private void ValidateSetting(EGptSettings setting)
+        private void ValidateSetting(EWebUiSettings setting)
         {
-            if (setting == EGptSettings.Api)
+            if (setting == EWebUiSettings.Api)
             {
                 throw new ArgumentException(
                     "Don't get/set Api via regular method - Use SetApi(string decodedValue) or GetApiDecoded instead!");
-            }
-
-            if (setting == EGptSettings.Stop)
-            {
-                throw new ArgumentException(
-                    "Stop parameter uses different get/set method - use SetStopStrings or GetStopStrings instead!");
             }
         }
     }

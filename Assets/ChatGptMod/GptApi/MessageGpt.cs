@@ -96,13 +96,6 @@ namespace ChatGptMod.GptApi
         [CanBeNull] public string[] stop;
     }
     
-    public struct OpenAiTaskStatus
-    {
-        public bool IsSuccessful { get; set; }
-        public string text { get; set; }
-        public Message message { get; set; }
-        public string code;
-    }
     public static class KnownCodes
     {
         public const string TextExceeded = "context_length_exceeded";
