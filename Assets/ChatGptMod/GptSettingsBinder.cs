@@ -57,7 +57,7 @@ namespace ChatGptMod
         private void RefreshData()
         {
             // Refreshing UI values in case those were changed from other sources
-            modToggle.SetIsOnWithoutNotify(GptMessageSender.AIDatabase.GetActive() == GptMessageSender.MainModule);
+            modToggle.SetIsOnWithoutNotify(GptMessageSender.AIDatabase.GetActiveTextAccessor() == GptMessageSender.MainModule);
             api.SetTextWithoutNotify(GptSettings.Instance.GetApiDecoded());
             model.SetTextWithoutNotify(GptSettings.Instance.GetString(EGptSettings.Model, "gpt-4o-mini"));
             temperature.SetTextWithoutNotify(GptSettings.Instance.GetFloat(EGptSettings.Temperature, 0.9f).ToString("0.##"));
@@ -70,8 +70,8 @@ namespace ChatGptMod
 
         public void SwitchMod(bool value)
         {
-            GptMessageSender.AIDatabase.SetApiActive(GptMessageSender.MainModule); // set this mod module as currently active (or deactivate)
-            modToggle.SetIsOnWithoutNotify(GptMessageSender.AIDatabase.GetActive() == GptMessageSender.MainModule);
+            GptMessageSender.AIDatabase.SetActiveTextAccessor(GptMessageSender.MainModule); // set this mod module as currently active (or deactivate)
+            modToggle.SetIsOnWithoutNotify(GptMessageSender.AIDatabase.GetActiveTextAccessor() == GptMessageSender.MainModule);
         }
 
         public void SetApi(string value)

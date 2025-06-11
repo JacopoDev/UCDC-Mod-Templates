@@ -3,26 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using GoogleCloudVoiceMod.Utility;
 using UCDC_Mod_Api.GameInterfaces;
 using UCDC_Mod_Api.ModInterfaces;
 using UMod;
 
-namespace ChatGptMod
+namespace GoogleCloudVoiceMod
 {
-    public class GptSettings : ModScript, ISettingsAccessor 
+    public class GoogleSettings : ModScript, ISettingsAccessor 
     {
-        public static GptSettings Instance;
+        public static GoogleSettings Instance;
         
-        private readonly Dictionary<EGptSettings, string> _settingsKeys = new Dictionary<EGptSettings, string>()
+        private readonly Dictionary<EGoogleSettings, string> _settingsKeys = new Dictionary<EGoogleSettings, string>()
         {
-            {EGptSettings.Api, "GptMod.Api"},
-            {EGptSettings.Model, "GptMod.Model"},
-            {EGptSettings.Temperature, "GptMod.Temperature"},
-            {EGptSettings.MaxTokens, "GptMod.MaxTokens"},
-            {EGptSettings.TopP, "GptMod.TopP"},
-            {EGptSettings.FrequencyPenalty, "GptMod.FrequencyPenalty"},
-            {EGptSettings.PresencePenalty, "GptMod.PresencePenalty"},
-            {EGptSettings.Stop, "GptMod.Stop"},
+            {EGoogleSettings.Api, "GoogleCloud.Api"},
+            {EGoogleSettings.LanguageCode, "GoogleCloud.LangCode"},
+            {EGoogleSettings.VoiceName, "GoogleCloud.VoiceName"},
+            {EGoogleSettings.Speed, "GoogleCloud.Speed"},
+            {EGoogleSettings.Pitch, "GoogleCloud.Pitch"},
+        };
+        
+        private readonly Dictionary<EGoogleSettings, object> _settingDefaults = new Dictionary<EGoogleSettings, object>()
+        {
+            {EGoogleSettings.Api, string.Empty},
+            {EGoogleSettings.LanguageCode, "en-GB"},
+            {EGoogleSettings.VoiceName, "en-GB-Wavenet-A"},
+            {EGoogleSettings.Speed, 1f},
+            {EGoogleSettings.Pitch, 0f},
         };
 
         private ISettingsDatabase _database;
@@ -35,22 +42,20 @@ namespace ChatGptMod
             if (CheckSetDefault()) return;
             
             _loadedSettings = _database.LoadGroupData(_settingsKeys.Values.ToArray());
-            _loadedSettings[_settingsKeys[EGptSettings.Api]] = GetApiDecoded();
-            _loadedSettings[_settingsKeys[EGptSettings.Stop]] = GetStopStrings();
+            _loadedSettings[_settingsKeys[EGoogleSettings.Api]] = GetApiDecoded();
         }
 
         public void SaveAllData()
         {
             var filtered = _loadedSettings
-                .Where(kv => kv.Key != "GptMod.Api" && kv.Key != "GptMod.Stop")
+                .Where(kv => kv.Key != _settingsKeys[EGoogleSettings.Api])
                 .ToDictionary(kv => kv.Key, kv => kv.Value);
             
             _database.SaveGroupData(filtered);
-            SetApi((string)_loadedSettings[_settingsKeys[EGptSettings.Api]]);
-            SetStopStrings((string[])_loadedSettings[_settingsKeys[EGptSettings.Stop]]);
+            SetApi((string)_loadedSettings[_settingsKeys[EGoogleSettings.Api]]);
         }
 
-        public void SetLoaded(EGptSettings setting, object data)
+        public void SetLoaded(EGoogleSettings setting, object data)
         {
             if (!_loadedSettings.ContainsKey(_settingsKeys[setting]))
             {
@@ -62,35 +67,35 @@ namespace ChatGptMod
             }
         }
 
+        public object GetDefaultValue(EGoogleSettings key)
+        {
+            return _settingDefaults[key];
+        }
+
+
         public void RestoreDefaultSettings()
         {
             string savedApi = GetApiDecoded();
 
-            SetLoaded(EGptSettings.Api, savedApi);
-            SetLoaded(EGptSettings.Model, "gpt-4o-mini");
-            SetLoaded(EGptSettings.Temperature, 0.9f);
-            SetLoaded(EGptSettings.MaxTokens, 1000);
-            SetLoaded(EGptSettings.TopP, 1.0f);
-            SetLoaded(EGptSettings.FrequencyPenalty, 2.0f);
-            SetLoaded(EGptSettings.PresencePenalty, 2.0f);
-            SetLoaded(EGptSettings.Stop, new []{"Assistant:", " Unity-chan: "});
+            SetLoaded(EGoogleSettings.Api, savedApi);
+            SetLoaded(EGoogleSettings.LanguageCode, _settingDefaults[EGoogleSettings.LanguageCode]);
+            SetLoaded(EGoogleSettings.VoiceName, _settingDefaults[EGoogleSettings.VoiceName]);
+            SetLoaded(EGoogleSettings.Speed, _settingDefaults[EGoogleSettings.Speed]);
+            SetLoaded(EGoogleSettings.Pitch, _settingDefaults[EGoogleSettings.Pitch]);
             
             SaveAllData();
         }
 
         private bool CheckSetDefault()
         {
-            if (_database.Exists(_settingsKeys[EGptSettings.Model])) return false;
+            if (_database.Exists(_settingsKeys[EGoogleSettings.VoiceName])) return false;
 
             _loadedSettings = new Dictionary<string, object>();
-            SetLoaded(EGptSettings.Api, string.Empty);
-            SetLoaded(EGptSettings.Model, "gpt-4o-mini");
-            SetLoaded(EGptSettings.Temperature, 0.9f);
-            SetLoaded(EGptSettings.MaxTokens, 1000);
-            SetLoaded(EGptSettings.TopP, 1.0f);
-            SetLoaded(EGptSettings.FrequencyPenalty, 2.0f);
-            SetLoaded(EGptSettings.PresencePenalty, 2.0f);
-            SetLoaded(EGptSettings.Stop, new []{"Assistant:", " Unity-chan: "});
+            SetLoaded(EGoogleSettings.Api, string.Empty);
+            SetLoaded(EGoogleSettings.LanguageCode, _settingDefaults[EGoogleSettings.LanguageCode]);
+            SetLoaded(EGoogleSettings.VoiceName, _settingDefaults[EGoogleSettings.VoiceName]);
+            SetLoaded(EGoogleSettings.Speed, _settingDefaults[EGoogleSettings.Speed]);
+            SetLoaded(EGoogleSettings.Pitch, _settingDefaults[EGoogleSettings.Pitch]);
             
             SaveAllData();
             return true;
@@ -105,41 +110,35 @@ namespace ChatGptMod
                 SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(baseSalt)));
             
             string encoded = XorEncoder.Encode(decodedValue, key);
-            _database.SaveString(_settingsKeys[EGptSettings.Api], encoded);
+            _database.SaveString(_settingsKeys[EGoogleSettings.Api], encoded);
         }
 
-        public void SetInt(EGptSettings setting, int value)
+        public void SetInt(EGoogleSettings setting, int value)
         {
             ValidateSetting(setting);
             string key = _settingsKeys[setting];
             _database.SaveInt(key, value);
         }
 
-        public void SetFloat(EGptSettings setting, float value)
+        public void SetFloat(EGoogleSettings setting, float value)
         {
             ValidateSetting(setting);
             string key = _settingsKeys[setting];
             _database.SaveFloat(key, value);
         }
 
-        public void SetBool(EGptSettings setting, bool value)
+        public void SetBool(EGoogleSettings setting, bool value)
         {
             ValidateSetting(setting);
             string key = _settingsKeys[setting];
             _database.SaveBool(key, value);
         }
 
-        public void SetString(EGptSettings setting, string value)
+        public void SetString(EGoogleSettings setting, string value)
         {
             ValidateSetting(setting);
             string key = _settingsKeys[setting];
             _database.SaveString(key, value);
-        }
-        
-        public void SetStopStrings(string[] values)
-        {
-            string encoded = string.Join("|", values);
-            _database.SaveString(_settingsKeys[EGptSettings.Stop], encoded);
         }
 
         #endregion
@@ -152,7 +151,7 @@ namespace ChatGptMod
             string baseSalt = Environment.MachineName + "_" + Environment.UserName;
             string key = Convert.ToBase64String(
                 SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(baseSalt)));
-            string encodedValue = _database.LoadString(_settingsKeys[EGptSettings.Api], string.Empty);
+            string encodedValue = _database.LoadString(_settingsKeys[EGoogleSettings.Api], string.Empty);
 
             if (encodedValue == string.Empty) return encodedValue;
             
@@ -160,56 +159,42 @@ namespace ChatGptMod
             return decodedValue;
         }
 
-        public int GetInt(EGptSettings setting, int defaultValue)
+        public int GetInt(EGoogleSettings setting, int defaultValue)
         {
             ValidateSetting(setting);
             string key = _settingsKeys[setting];
             return _database.LoadInt(key, defaultValue);
         }
 
-        public float GetFloat(EGptSettings setting, float defaultValue)
+        public float GetFloat(EGoogleSettings setting, float defaultValue)
         {
             ValidateSetting(setting);
             string key = _settingsKeys[setting];
             return _database.LoadFloat(key, defaultValue);
         }
 
-        public bool GetBool(EGptSettings setting, bool defaultValue)
+        public bool GetBool(EGoogleSettings setting, bool defaultValue)
         {
             ValidateSetting(setting);
             string key = _settingsKeys[setting];
             return _database.LoadBool(key, defaultValue);
         }
 
-        public string GetString(EGptSettings setting, string defaultValue)
+        public string GetString(EGoogleSettings setting, string defaultValue)
         {
             ValidateSetting(setting);
             string key = _settingsKeys[setting];
             return _database.LoadString(key, defaultValue);
         }
 
-        public string[] GetStopStrings()
-        {
-            string raw = _database.LoadString(_settingsKeys[EGptSettings.Stop], string.Empty);
-            return string.IsNullOrEmpty(raw)
-                ? Array.Empty<string>()
-                : raw.Split('|');
-        }
-
         #endregion
 
-        private void ValidateSetting(EGptSettings setting)
+        private void ValidateSetting(EGoogleSettings setting)
         {
-            if (setting == EGptSettings.Api)
+            if (setting == EGoogleSettings.Api)
             {
                 throw new ArgumentException(
                     "Don't get/set Api via regular method - Use SetApi(string decodedValue) or GetApiDecoded instead!");
-            }
-
-            if (setting == EGptSettings.Stop)
-            {
-                throw new ArgumentException(
-                    "Stop parameter uses different get/set method - use SetStopStrings or GetStopStrings instead!");
             }
         }
     }

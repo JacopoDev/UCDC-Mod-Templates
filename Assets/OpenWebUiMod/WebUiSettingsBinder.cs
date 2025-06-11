@@ -55,7 +55,7 @@ namespace OpenWebUiMod
         private void RefreshData()
         {
             // Refreshing UI values in case those were changed from other sources
-            modToggle.SetIsOnWithoutNotify(WebUiMessageSender.AIDatabase.GetActive() == WebUiMessageSender.MainModule);
+            modToggle.SetIsOnWithoutNotify(WebUiMessageSender.AIDatabase.GetActiveTextAccessor() == WebUiMessageSender.MainModule);
             api.SetTextWithoutNotify(WebUiSettings.Instance.GetApiDecoded());
             model.SetTextWithoutNotify(WebUiSettings.Instance.GetString(
                 EWebUiSettings.Model, 
@@ -70,8 +70,8 @@ namespace OpenWebUiMod
 
         public void SwitchMod(bool value)
         {
-            WebUiMessageSender.AIDatabase.SetApiActive(WebUiMessageSender.MainModule); // set this mod module as currently active (or deactivate)
-            modToggle.SetIsOnWithoutNotify(WebUiMessageSender.AIDatabase.GetActive() == WebUiMessageSender.MainModule);
+            WebUiMessageSender.AIDatabase.SetActiveTextAccessor(WebUiMessageSender.MainModule); // set this mod module as currently active (or deactivate)
+            modToggle.SetIsOnWithoutNotify(WebUiMessageSender.AIDatabase.GetActiveTextAccessor() == WebUiMessageSender.MainModule);
         }
 
         public void SetApi(string value)

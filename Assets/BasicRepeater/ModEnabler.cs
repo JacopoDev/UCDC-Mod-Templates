@@ -25,7 +25,7 @@ namespace Repeater
         {
             // Refreshing UI values in case those were changed from other sources
             phrase.SetTextWithoutNotify(RepeaterSettings.Phrase);
-            modToggle.SetIsOnWithoutNotify(Repeater.AIApiDatabase.GetActive() == Repeater.MainModule);
+            modToggle.SetIsOnWithoutNotify(Repeater.AIApiDatabase.GetActiveTextAccessor() == Repeater.MainModule);
         }
 
         // This method runs when the object becomes deactivated, in this case once we close the settings panel
@@ -37,8 +37,8 @@ namespace Repeater
 
         public void SwitchMod(bool value)
         {
-            Repeater.AIApiDatabase.SetApiActive(Repeater.MainModule); // set this mod module as currently active (or deactivate)
-            modToggle.SetIsOnWithoutNotify(Repeater.AIApiDatabase.GetActive() == Repeater.MainModule);
+            Repeater.AIApiDatabase.SetActiveTextAccessor(Repeater.MainModule); // set this mod module as currently active (or deactivate)
+            modToggle.SetIsOnWithoutNotify(Repeater.AIApiDatabase.GetActiveVoiceAccessor() == Repeater.MainModule);
         }
 
         public void SetPhrase(string value)
