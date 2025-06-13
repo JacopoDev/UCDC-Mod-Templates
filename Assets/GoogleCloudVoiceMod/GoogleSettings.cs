@@ -7,6 +7,7 @@ using GoogleCloudVoiceMod.Utility;
 using UCDC_Mod_Api.GameInterfaces;
 using UCDC_Mod_Api.ModInterfaces;
 using UMod;
+using UnityEngine;
 
 namespace GoogleCloudVoiceMod
 {
@@ -39,7 +40,7 @@ namespace GoogleCloudVoiceMod
         {
             _database = database;
             Instance = this;
-            if (CheckSetDefault()) return;
+            if (IsNeedToInitDefaults()) return;
             
             _loadedSettings = _database.LoadGroupData(_settingsKeys.Values.ToArray());
             _loadedSettings[_settingsKeys[EGoogleSettings.Api]] = GetApiDecoded();
@@ -86,10 +87,9 @@ namespace GoogleCloudVoiceMod
             SaveAllData();
         }
 
-        private bool CheckSetDefault()
+        private bool IsNeedToInitDefaults()
         {
             if (_database.Exists(_settingsKeys[EGoogleSettings.VoiceName])) return false;
-
             _loadedSettings = new Dictionary<string, object>();
             SetLoaded(EGoogleSettings.Api, string.Empty);
             SetLoaded(EGoogleSettings.LanguageCode, _settingDefaults[EGoogleSettings.LanguageCode]);
@@ -108,7 +108,6 @@ namespace GoogleCloudVoiceMod
             string baseSalt = Environment.MachineName + "_" + Environment.UserName;
             string key = Convert.ToBase64String(
                 SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(baseSalt)));
-            
             string encoded = XorEncoder.Encode(decodedValue, key);
             _database.SaveString(_settingsKeys[EGoogleSettings.Api], encoded);
         }
@@ -152,7 +151,6 @@ namespace GoogleCloudVoiceMod
             string key = Convert.ToBase64String(
                 SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(baseSalt)));
             string encodedValue = _database.LoadString(_settingsKeys[EGoogleSettings.Api], string.Empty);
-
             if (encodedValue == string.Empty) return encodedValue;
             
             string decodedValue = XorEncoder.Decode(encodedValue, key);

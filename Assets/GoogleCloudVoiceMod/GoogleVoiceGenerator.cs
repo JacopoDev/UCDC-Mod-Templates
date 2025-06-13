@@ -1,11 +1,13 @@
 using System;
 using System.Threading.Tasks;
 using GoogleCloudVoiceMod.Api;
+using GoogleCloudVoiceMod.Api.Data;
 using UCDC_Mod_Api.GameInterfaces;
 using UCDC_Mod_Api.Models;
 using UCDC_Mod_Api.ModInterfaces;
 using UMod;
 using UnityEngine;
+using Input = GoogleCloudVoiceMod.Api.Data.Input;
 
 namespace GoogleCloudVoiceMod
 {
@@ -26,13 +28,47 @@ namespace GoogleCloudVoiceMod
 
         public int GenerateMessage(string text, Action<VoiceResult> finishedAction)
         {
-            int result = SendGptRequest(text, finishedAction).Result;
+            string langCode = GoogleSettings.Instance.GetString(EGoogleSettings.LanguageCode,
+                (string)GoogleSettings.Instance.GetDefaultValue(EGoogleSettings.LanguageCode));
+
+            string voiceName = GoogleSettings.Instance.GetString(EGoogleSettings.VoiceName,
+                (string)GoogleSettings.Instance.GetDefaultValue(EGoogleSettings.VoiceName));
+
+            float voicePitch = GoogleSettings.Instance.GetFloat(EGoogleSettings.Pitch,
+                (float)GoogleSettings.Instance.GetDefaultValue(EGoogleSettings.Pitch));
+
+            float voiceRate = GoogleSettings.Instance.GetFloat(EGoogleSettings.Speed,
+                (float)GoogleSettings.Instance.GetDefaultValue(EGoogleSettings.Speed));
+
+            DataToSend data = new DataToSend()
+                {
+                    input =
+                        new Input()
+                        {
+                            text = text
+                        },
+                    voice =
+                        new Voice()
+                        {
+                            languageCode = langCode,
+                            name = voiceName
+                        },
+                    audioConfig =
+                        new AudioConfig()
+                        {
+                            audioEncoding = "LINEAR16",
+                            pitch = voicePitch,
+                            speakingRate = voiceRate
+                        }
+                };
+            
+            int result = SendGoogleRequest(data, finishedAction).Result;
             return result;
         }
     
-        private async Task<int> SendGptRequest(string text, Action<VoiceResult> finishedAction)
+        private async Task<int> SendGoogleRequest(DataToSend data, Action<VoiceResult> finishedAction)
         {
-            VoiceResult result = await _api.SendPrompt(text);
+            VoiceResult result = await _api.SendPrompt(data);
             finishedAction.Invoke(result);
             return result.Code;
         }

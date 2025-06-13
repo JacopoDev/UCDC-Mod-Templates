@@ -1,35 +1,30 @@
 using System;
+using System.Threading.Tasks;
 using GoogleCloudVoiceMod.Utility;
 using UnityEngine;
 
 namespace GoogleCloudVoiceMod.Api
 {
-    public class AudioConverter : MonoBehaviour
+    public class AudioConverter
     {
-        public const string Mp3FileName = "audio.mp3";
-        public static bool isBusy;
-        
-        private string _tempPath;
-
-        private void Awake()
-        {
-            _tempPath = Application.temporaryCachePath;
-        }
-
-        public void ConvertWavBufferToClip(byte[] wavBytes, Action<AudioClip> onClipReady)
+        public async Task<AudioClip> ConvertWavBufferToClip(byte[] wavBytes, Action<AudioClip> onClipReady)
         {
             try
             {
-                var clip = ParseWav(wavBytes);
+                var clip = await ParseWav(wavBytes);
                 onClipReady?.Invoke(clip);
+                return clip;
             }
             catch (Exception ex)
             {
                 Debug.LogError("WAV parsing failed: " + ex.Message);
+                return null;
             }
+            
+            return null;
         }
         
-        public static AudioClip ParseWav(byte[] data, string clipName = "wav_clip")
+        public static async Task<AudioClip> ParseWav(byte[] data, string clipName = "wav_clip")
         {
             var reader = new ByteReader(data);
 
@@ -61,8 +56,13 @@ namespace GoogleCloudVoiceMod.Api
             float[] samples = ConvertPCMToFloats(pcmBytes, bitsPerSample);
 
             int sampleCount = samples.Length / numChannels;
-            AudioClip clip = AudioClip.Create(clipName, sampleCount, numChannels, sampleRate, false);
-            clip.SetData(samples, 0);
+            AudioClip clip = await MainThreadDispatcher.EnqueueAsync(() =>
+            {
+                AudioClip clip = AudioClip.Create(clipName, sampleCount, numChannels, sampleRate, false);
+                clip.SetData(samples, 0);
+                return clip;
+            });
+            
             return clip;
         }
 

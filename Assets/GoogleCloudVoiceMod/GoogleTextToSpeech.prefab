@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5594483707752074976}
   - component: {fileID: 1068315855364353249}
+  - component: {fileID: 70845054806703955}
   m_Layer: 0
   m_Name: GoogleTextToSpeech
   m_TagString: Untagged
@@ -42,5 +43,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dabaa499d3596084ea37c0b97a056bc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBusy: 0
+--- !u!114 &70845054806703955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3352596826452064558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad7d6538f37b7a1468144d9e59b9a201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

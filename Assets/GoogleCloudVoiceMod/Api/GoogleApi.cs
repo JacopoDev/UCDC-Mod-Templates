@@ -1,5 +1,6 @@
 using System.Net;
 using System.Threading.Tasks;
+using GoogleCloudVoiceMod.Api.Data;
 using UCDC_Mod_Api.Models;
 
 namespace GoogleCloudVoiceMod.Api
@@ -15,7 +16,7 @@ namespace GoogleCloudVoiceMod.Api
             _voiceGen = mainModule;
         }
 
-        public async Task<VoiceResult> SendPrompt(string text)
+        public async Task<VoiceResult> SendPrompt(DataToSend data)
         {
             VoiceResult result = new VoiceResult()
             {
@@ -24,7 +25,7 @@ namespace GoogleCloudVoiceMod.Api
                 Voice = null
             };
             
-            TextToSpeech.Instance.GetSpeech(text, clip =>
+            await TextToSpeech.Instance.GetSpeech(data, clip =>
                 {
                     result.Code = (int)HttpStatusCode.OK;
                     result.ErrorMessage = string.Empty;
@@ -37,13 +38,6 @@ namespace GoogleCloudVoiceMod.Api
                     result.ErrorMessage = error.error.message;
                     result.Voice = null;
                 });
-
-            _countDown = Timeout;
-            while (_countDown > 0 && TextToSpeech.Instance.isBusy)
-            {
-                _countDown--;
-                await Task.Delay(1000);
-            }
         
             return result;
         }
