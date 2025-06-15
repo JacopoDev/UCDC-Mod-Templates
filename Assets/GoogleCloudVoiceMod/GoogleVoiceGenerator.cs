@@ -68,8 +68,22 @@ namespace GoogleCloudVoiceMod
     
         private async Task<int> SendGoogleRequest(DataToSend data, Action<VoiceResult> finishedAction)
         {
-            VoiceResult result = await _api.SendPrompt(data);
-            finishedAction.Invoke(result);
+            VoiceResult result = new VoiceResult();
+            
+            try
+            {
+                result = await _api.SendPrompt(data);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"GoogleVoiceGenerator exception: {ex.Message}");
+                Debug.LogError($"GoogleVoiceGenerator faulted api call: code: {result.Code}: {result.ErrorMessage}");
+            }
+            finally
+            {
+                finishedAction.Invoke(result);
+            }
+            
             return result.Code;
         }
     }

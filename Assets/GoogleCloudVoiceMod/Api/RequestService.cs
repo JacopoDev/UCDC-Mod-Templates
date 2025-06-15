@@ -20,9 +20,25 @@ namespace GoogleCloudVoiceMod.Api
     
     public class RequestService
     {
-        public async Task<int> SendDataToGoogle(string url, DataToSend dataToSend, string apiKey, Action<string> requestReceived,
+        public async Task SendDataToGoogle(string url, DataToSend dataToSend, string apiKey, Action<string> requestReceived,
             Action<BadRequestData> errorReceived)
         {
+            if (string.IsNullOrEmpty(apiKey))
+            {
+                BadRequestData badRequestData = new BadRequestData()
+                {
+                    error = new Error()
+                    {
+                        code = 400,
+                        details = null,
+                        message = "GoogleApi: api key is not empty or not correct",
+                        status = "error",
+                    }
+                };
+                errorReceived?.Invoke(badRequestData);
+                return;
+            }
+            
             var headers = new Dictionary<string, string>();
             headers.Add("X-Goog-Api-Key", apiKey);
             PostData pd = new PostData()
@@ -34,10 +50,10 @@ namespace GoogleCloudVoiceMod.Api
                 headers = headers
             };
 
-            return await Post(pd);
+            await Post(pd);
         }
         
-        private async Task<int> Post(PostData pd)
+        private async Task Post(PostData pd)
         {
             using (var httpClient = new HttpClient())
             {
@@ -53,11 +69,10 @@ namespace GoogleCloudVoiceMod.Api
                 if (HasError(response, responseText, out var badRequest))
                 {
                     pd.errorReceived?.Invoke(badRequest);
-                    return badRequest.error.code;
+                    return;
                 }
                 
                 pd.requestReceived?.Invoke(responseText);
-                return 200;
             }
         }
 
@@ -71,11 +86,13 @@ namespace GoogleCloudVoiceMod.Api
 
             try
             {
-                badRequestData = JsonUtility.FromJson<BadRequestData>(responseText);
+                badRequestData = JsonConvert.DeserializeObject<BadRequestData>(responseText);
+
                 return true;
             }
             catch (Exception)
             {
+                // Fallback: Create a safe BadRequestData with raw text
                 badRequestData = new BadRequestData
                 {
                     error = new Error
@@ -84,6 +101,7 @@ namespace GoogleCloudVoiceMod.Api
                         message = response.ReasonPhrase
                     }
                 };
+
                 return true;
             }
         }

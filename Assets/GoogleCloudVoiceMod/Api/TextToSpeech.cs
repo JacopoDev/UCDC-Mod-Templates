@@ -26,31 +26,18 @@ namespace GoogleCloudVoiceMod.Api
             DontDestroyOnLoad(gameObject);
         }
 
-        public async Task<int> GetSpeech(DataToSend data, Action<AudioClip> audioClipReceived,  Action<BadRequestData> errorReceived)
+        public async Task GetSpeech(DataToSend data, Action<AudioClip> audioClipReceived,  Action<BadRequestData> errorReceived)
         {
-            int code;
-            _actionRequestReceived += (requestData => RequestReceived(requestData, audioClipReceived));
-            errorReceived += (requestData =>
-            {
-                Debug.LogError(requestData.error.message);
-            });
+            _actionRequestReceived += (requestData => RequestReceived(requestData, audioClipReceived).GetAwaiter().GetResult());
 
-            code = await _requestService.SendDataToGoogle("https://texttospeech.googleapis.com/v1/text:synthesize", data,
+            await _requestService.SendDataToGoogle("https://texttospeech.googleapis.com/v1/text:synthesize", data,
                 GoogleSettings.Instance.GetApiDecoded(),
                 _actionRequestReceived, errorReceived);
 
             _actionRequestReceived = null;
-
-            while (isBusy)
-            {
-                await Task.Delay(250);
-            }
-            errorReceived = null;
-                
-            return code;
         }
 
-        protected async Task RequestReceived(string requestData, Action<AudioClip> audioClipReceived)
+        private async Task RequestReceived(string requestData, Action<AudioClip> audioClipReceived)
         {
             isBusy = true;
             var audioData = JsonUtility.FromJson<AudioData>(requestData);
