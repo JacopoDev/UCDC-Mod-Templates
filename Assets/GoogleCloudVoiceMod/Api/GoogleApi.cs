@@ -7,14 +7,7 @@ namespace GoogleCloudVoiceMod.Api
 {
     public class GoogleApi
     {
-        private GoogleVoiceGenerator _voiceGen;
-        private const int Timeout = 60;
         private int _countDown;
-    
-        public GoogleApi(GoogleVoiceGenerator mainModule)
-        {
-            _voiceGen = mainModule;
-        }
 
         public async Task<VoiceResult> SendPrompt(DataToSend data)
         {

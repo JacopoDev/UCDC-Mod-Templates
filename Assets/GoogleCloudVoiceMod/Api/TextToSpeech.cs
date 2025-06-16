@@ -16,7 +16,6 @@ namespace GoogleCloudVoiceMod.Api
         private Action<AudioClip> _audioClipReceived;
 
         private RequestService _requestService;
-        public bool isBusy;
 
         private void Awake()
         {
@@ -39,13 +38,11 @@ namespace GoogleCloudVoiceMod.Api
 
         private async Task RequestReceived(string requestData, Action<AudioClip> audioClipReceived)
         {
-            isBusy = true;
             var audioData = JsonUtility.FromJson<AudioData>(requestData);
             
             byte[] wavBytes = Convert.FromBase64String(audioData.audioContent);
 
             await _audioConverter.ConvertWavBufferToClip(wavBytes, audioClipReceived);
-            isBusy = false;
         }
 
     }

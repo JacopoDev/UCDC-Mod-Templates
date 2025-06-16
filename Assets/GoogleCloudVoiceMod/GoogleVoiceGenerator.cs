@@ -23,7 +23,7 @@ namespace GoogleCloudVoiceMod
         {
             AIDatabase = database;
             MainModule = this;
-            _api = new GoogleApi(this);
+            _api = new GoogleApi();
         }
 
         public int GenerateMessage(string text, Action<VoiceResult> finishedAction)
