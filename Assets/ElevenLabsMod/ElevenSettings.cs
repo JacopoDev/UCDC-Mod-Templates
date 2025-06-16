@@ -83,6 +83,8 @@ namespace ElevenLabsMod
             SetLoaded(EElevenSettings.VoiceID, _settingDefaults[EElevenSettings.VoiceID]);
             SetLoaded(EElevenSettings.Stability, _settingDefaults[EElevenSettings.Stability]);
             SetLoaded(EElevenSettings.SimilarityBoost, _settingDefaults[EElevenSettings.SimilarityBoost]);
+            SetLoaded(EElevenSettings.Model, _settingDefaults[EElevenSettings.Model]);
+            SetLoaded(EElevenSettings.Format, _settingDefaults[EElevenSettings.Format]);
             
             
             SaveAllData();
@@ -96,6 +98,8 @@ namespace ElevenLabsMod
             SetLoaded(EElevenSettings.VoiceID, _settingDefaults[EElevenSettings.VoiceID]);
             SetLoaded(EElevenSettings.Stability, _settingDefaults[EElevenSettings.Stability]);
             SetLoaded(EElevenSettings.SimilarityBoost, _settingDefaults[EElevenSettings.SimilarityBoost]);
+            SetLoaded(EElevenSettings.Model, _settingDefaults[EElevenSettings.Model]);
+            SetLoaded(EElevenSettings.Format, _settingDefaults[EElevenSettings.Format]);
             
             SaveAllData();
             return true;

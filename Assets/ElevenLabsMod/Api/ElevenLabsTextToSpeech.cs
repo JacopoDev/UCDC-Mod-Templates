@@ -10,6 +10,7 @@ using ElevenLabsMod.Api.Model;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
+using Debug = UnityEngine.Debug;
 
 namespace ElevenLabsMod.Api
 {
@@ -29,7 +30,6 @@ namespace ElevenLabsMod.Api
 
         public async Task<int> GetSpeech(string textToConvert, Action<AudioClip> audioClipReceived, Action<BadRequestData> errorReceived)
         {
-            
             ElevenLabsData data = new ElevenLabsData
             {
                 prompt = textToConvert,
@@ -82,7 +82,6 @@ namespace ElevenLabsMod.Api
                     similarity_boost = requestData.similarityBoost
                 }
             };
-
             
             string json = JsonConvert.SerializeObject(data);
             StringContent httpContent = new StringContent(json, System.Text.Encoding.Default, "application/json");
@@ -120,10 +119,10 @@ namespace ElevenLabsMod.Api
                         code = (int)response.StatusCode,
                     }
                 };
+                
                 newResponse.Error = brd;
                 return newResponse;
             }
-
             
             newResponse.Code = (int)response.StatusCode;
             newResponse.AudioFile = await response.Content.ReadAsByteArrayAsync();

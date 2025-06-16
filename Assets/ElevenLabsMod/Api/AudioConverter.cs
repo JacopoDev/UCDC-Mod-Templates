@@ -11,7 +11,21 @@ namespace ElevenLabsMod.Api
         {
             try
             {
-                var clip = await ParseWav(wavBytes);
+                string format = ElevenSettings.Instance.GetString(EElevenSettings.Format,
+                    (string)ElevenSettings.Instance.GetDefaultValue(EElevenSettings.Format));
+                
+                int sampleRate = format switch
+                {
+                    "pcm_8000" => 8000,
+                    "pcm_16000" => 16000,
+                    "pcm_22050" => 22050,
+                    "pcm_24000" => 24000,
+                    "pcm_44100" => 44100,
+                    "pcm_48000" => 48000,
+                    _ => throw new ArgumentException($"Unknown format: {format}")
+                };
+                
+                var clip = await ParseWav(wavBytes, sampleRate);
                 onClipReady?.Invoke(clip);
                 return clip;
             }
@@ -24,41 +38,13 @@ namespace ElevenLabsMod.Api
             return null;
         }
         
-        public static async Task<AudioClip> ParseWav(byte[] data, string clipName = "wav_clip")
+        public static async Task<AudioClip> ParseWav(byte[] data, int sampleRate = 22050, string clipName = "wav_clip")
         {
-            var reader = new ByteReader(data);
-
-            if (reader.ReadString(4) != "RIFF") throw new Exception("Missing RIFF");
-            reader.ReadInt32(); // Chunk size
-            if (reader.ReadString(4) != "WAVE") throw new Exception("Missing WAVE");
-
-            if (reader.ReadString(4) != "fmt ") throw new Exception("Missing fmt ");
-            int subChunk1Size = reader.ReadInt32();
-            short audioFormat = reader.ReadInt16();
-            short numChannels = reader.ReadInt16();
-            int sampleRate = reader.ReadInt32();
-            reader.ReadInt32(); // byteRate
-            reader.ReadInt16(); // blockAlign
-            short bitsPerSample = reader.ReadInt16();
-
-            if (subChunk1Size > 16)
-                reader.Skip(subChunk1Size - 16); // Skip any extra data in fmt chunk
-
-            // Skip until we find the "data" chunk
-            while (reader.ReadString(4) != "data")
-            {
-                int chunkSize = reader.ReadInt32();
-                reader.Skip(chunkSize);
-            }
-
-            int dataSize = reader.ReadInt32();
-            byte[] pcmBytes = reader.ReadBytes(dataSize);
-            float[] samples = ConvertPCMToFloats(pcmBytes, bitsPerSample);
-
-            int sampleCount = samples.Length / numChannels;
+            float[] samples = ConvertPCMToFloats(data);
+            
             AudioClip clip = await MainThreadDispatcher.EnqueueAsync(() =>
             {
-                AudioClip clip = AudioClip.Create(clipName, sampleCount, numChannels, sampleRate, false);
+                AudioClip clip = AudioClip.Create(clipName, samples.Length, 1, sampleRate, false);
                 clip.SetData(samples, 0);
                 return clip;
             });
@@ -66,20 +52,18 @@ namespace ElevenLabsMod.Api
             return clip;
         }
 
-        private static float[] ConvertPCMToFloats(byte[] pcm, int bitsPerSample)
+        private static float[] ConvertPCMToFloats(byte[] pcm)
         {
-            int bytesPerSample = bitsPerSample / 8;
-            int sampleCount = pcm.Length / bytesPerSample;
-            float[] result = new float[sampleCount];
+            int sampleCount = pcm.Length / 2;
+            float[] floatSamples = new float[sampleCount];
 
             for (int i = 0; i < sampleCount; i++)
             {
-                int index = i * bytesPerSample;
-                short sample = (short)(pcm[index] | (pcm[index + 1] << 8));
-                result[i] = sample / 32768f;
+                short sample = (short)(pcm[i * 2] | (pcm[i * 2 + 1] << 8));
+                floatSamples[i] = sample / 32768f; // normalize to -1.0f to 1.0f
             }
 
-            return result;
+            return floatSamples;
         }
     }
 }
