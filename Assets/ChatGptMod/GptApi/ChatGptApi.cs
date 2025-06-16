@@ -24,7 +24,7 @@ namespace ChatGptMod
             _sender = messageSender;
         }
         
-        public async Task<Result> SendPrompt(List<Message> messages)
+        public async Task<TextResult> SendPrompt(List<Message> messages)
         {
             OpenAiRequestData data = LoadRequestData(messages);
 
@@ -52,9 +52,9 @@ namespace ChatGptMod
             return requestData;
         }
         
-        public virtual async Task<Result> SendPrompt(OpenAiRequestData requestData, List<Message> messages)
+        public virtual async Task<TextResult> SendPrompt(OpenAiRequestData requestData, List<Message> messages)
         {
-            Result apiResult = new Result();
+            TextResult apiResult = new TextResult();
             apiResult.Code = (int)HttpStatusCode.NotFound;
 
             string api = GptSettings.Instance.GetApiDecoded();

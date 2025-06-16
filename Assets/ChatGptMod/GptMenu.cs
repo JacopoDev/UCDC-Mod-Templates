@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ChatGptMod
 {
-    public class GptMenu : ModScript, IModPanel
+    public class GptMenu : ModScript, IModPanelCreator
     {
         private GameObject _bar;
         private GameObject _panel;

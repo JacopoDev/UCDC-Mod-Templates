@@ -30,10 +30,10 @@ namespace OpenWebUiMod
             {EWebUiSettings.Port, 8080},
         };
 
-        private ISettingsDatabase _database;
+        private ISettingsProvider _database;
         private Dictionary<string, object> _loadedSettings;
 
-        public void SetDatabase(ISettingsDatabase database)
+        public void SetProvider(ISettingsProvider database)
         {
             _database = database;
             Instance = this;

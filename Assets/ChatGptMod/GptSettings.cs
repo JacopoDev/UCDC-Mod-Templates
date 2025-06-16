@@ -25,12 +25,12 @@ namespace ChatGptMod
             {EGptSettings.Stop, "GptMod.Stop"},
         };
 
-        private ISettingsDatabase _database;
+        private ISettingsProvider _database;
         private Dictionary<string, object> _loadedSettings;
 
-        public void SetDatabase(ISettingsDatabase database)
+        public void SetProvider(ISettingsProvider provider)
         {
-            _database = database;
+            _database = provider;
             Instance = this;
             if (CheckSetDefault()) return;
             

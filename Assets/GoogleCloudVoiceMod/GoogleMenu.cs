@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GoogleCloudVoiceMod
 {
-    public class GoogleMenu : ModScript, IModPanel
+    public class GoogleMenu : ModScript, IModPanelCreator
     {
         private GameObject _bar;
         private GameObject _panel;

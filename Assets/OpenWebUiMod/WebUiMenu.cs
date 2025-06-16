@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace OpenWebUiMod
 {
-    public class WebUiMenu : ModScript, IModPanel
+    public class WebUiMenu : ModScript, IModPanelCreator
     {
         private GameObject _bar;
         private GameObject _panel;

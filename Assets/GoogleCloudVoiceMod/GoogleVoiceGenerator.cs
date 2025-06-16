@@ -15,11 +15,11 @@ namespace GoogleCloudVoiceMod
     {
     
         public static IVoiceAiAccessor MainModule;
-        public static IAiApiDatabase AIDatabase;
+        public static IAiApiProvider AIDatabase;
 
         private GoogleApi _api;
     
-        public void SetDatabase(IAiApiDatabase database)
+        public void SetProvider(IAiApiProvider database)
         {
             AIDatabase = database;
             MainModule = this;

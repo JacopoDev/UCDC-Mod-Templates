@@ -10,29 +10,30 @@ namespace ChatGptMod
     public class GptMessageSender : ModScript, ITextAiAccessor
     {
         public static ITextAiAccessor MainModule;
-        public static IAiApiDatabase AIDatabase;
+        public static IAiApiProvider AIDatabase;
 
         private ChatGptApi _api;
         
         
-        public void SetDatabase(IAiApiDatabase database)
+        public void SetProvider(IAiApiProvider provider)
         {
-            AIDatabase = database;
+            AIDatabase = provider;
             MainModule = this;
             _api = new ChatGptApi(this);
         }
 
-        public int GenerateMessage(ITextAiProcessor aiProcessor, Action<Result> finishedAction)
+        public int GenerateMessage(IChatProvider aiProcessor, Action<TextResult> finishedAction)
         {
             int result = SendGptRequest(aiProcessor, finishedAction).Result;
             return result;
         }
     
-        private async Task<int> SendGptRequest(ITextAiProcessor aiProcessor, Action<Result> finishedAction)
+        private async Task<int> SendGptRequest(IChatProvider aiProcessor, Action<TextResult> finishedAction)
         {
-            Result result = await _api.SendPrompt(aiProcessor.GetChat().Messages);
+            TextResult result = await _api.SendPrompt(aiProcessor.GetChat().Messages);
             finishedAction.Invoke(result);
             return result.Code;
         }
+
     }
 }

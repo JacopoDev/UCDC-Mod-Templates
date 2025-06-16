@@ -10,27 +10,27 @@ namespace Repeater
 {
     public class Repeater : ModScript, ITextAiAccessor
     {
-        public static IAiApiDatabase AIApiDatabase;
+        public static IAiApiProvider AIApiDatabase;
         public static ITextAiAccessor MainModule;
     
         // game will call it to provide its API database to the mod
-        public void SetDatabase(IAiApiDatabase database)
+        public void SetProvider(IAiApiProvider database)
         {
             AIApiDatabase = database;
             MainModule = this;
         }
         
-        public int GenerateMessage(ITextAiProcessor aiProcessor, Action<Result> finishedAction)
+        public int GenerateMessage(IChatProvider aiProcessor, Action<TextResult> finishedAction)
         {
             int result = SendAfterTime(finishedAction).Result;
             return result;
         }
     
-        private async Task<int> SendAfterTime(Action<Result> finishedAction)
+        private async Task<int> SendAfterTime(Action<TextResult> finishedAction)
         {
             await Task.Delay(500); // Waits for 0.5 seconds - emulate thinking
         
-            Result result = new Result()
+            TextResult result = new TextResult()
             {
                 Code = (int)HttpStatusCode.OK, 
                 Message = new Message()

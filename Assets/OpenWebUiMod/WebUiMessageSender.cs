@@ -14,27 +14,27 @@ namespace OpenWebUiMod
     public class WebUiMessageSender : ModScript, ITextAiAccessor
     {
         public static ITextAiAccessor MainModule;
-        public static IAiApiDatabase AIDatabase;
+        public static IAiApiProvider AIDatabase;
 
         private WebUiApi _api;
 
 
-        public void SetDatabase(IAiApiDatabase database)
+        public void SetProvider(IAiApiProvider database)
         {
             AIDatabase = database;
             MainModule = this;
             _api = new WebUiApi(this);
         }
 
-        public int GenerateMessage(ITextAiProcessor aiProcessor, Action<Result> finishedAction)
+        public int GenerateMessage(IChatProvider aiProcessor, Action<TextResult> finishedAction)
         {
             int result = SendWebUiRequest(aiProcessor, finishedAction).Result;
             return result;
         }
 
-        private async Task<int> SendWebUiRequest(ITextAiProcessor aiProcessor, Action<Result> finishedAction)
+        private async Task<int> SendWebUiRequest(IChatProvider aiProcessor, Action<TextResult> finishedAction)
         {
-            Result result = await _api.SendPrompt(aiProcessor.GetChat().Messages);
+            TextResult result = await _api.SendPrompt(aiProcessor.GetChat().Messages);
             finishedAction.Invoke(result);
             return result.Code;
         }

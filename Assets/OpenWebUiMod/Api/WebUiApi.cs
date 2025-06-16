@@ -20,9 +20,9 @@ namespace OpenWebUiMod.Api
             _settings = new OpenWebUiParams();
         }
 
-        public async Task<Result> SendPrompt(List<Message> messages)
+        public async Task<TextResult> SendPrompt(List<Message> messages)
         {
-            Result returnStatus = new Result();
+            TextResult returnStatus = new TextResult();
             returnStatus.Code = (int)HttpStatusCode.NotFound;
             
             _settings.settings.apiKey = WebUiSettings.Instance.GetApiDecoded();

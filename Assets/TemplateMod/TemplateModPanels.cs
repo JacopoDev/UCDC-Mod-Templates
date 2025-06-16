@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TemplateMod
 {
-    public class TemplateModPanels : ModScript, IModPanel  // game seeks for IModPanel Scripts to build menu panel settings
+    public class TemplateModPanels : ModScript, IModPanelCreator  // game seeks for IModPanelCreator Scripts to build menu panel settings
     {
         private GameObject _bar;
         private GameObject _panel;

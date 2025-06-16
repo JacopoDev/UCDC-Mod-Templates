@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Repeater
 {
-    public class SettingsProvider : ModScript, IModPanel
+    public class SettingsProvider : ModScript, IModPanelCreator
     {
         private GameObject _bar;
         private GameObject _panel;

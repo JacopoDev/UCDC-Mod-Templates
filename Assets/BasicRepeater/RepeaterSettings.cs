@@ -6,12 +6,12 @@ namespace Repeater
 {
     public class RepeaterSettings : ModScript, ISettingsAccessor
     {
-        private static ISettingsDatabase _settings;
+        private static ISettingsProvider _settings;
 
         private const string PhraseSettingKey = "Repeater.Phrase";
         public static string Phrase;
         
-        public void SetDatabase(ISettingsDatabase database)
+        public void SetProvider(ISettingsProvider database)
         {
             _settings = database;
 

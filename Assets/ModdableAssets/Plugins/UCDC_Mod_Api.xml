@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UCDC_Mod_Api</name>
+    </assembly>
+    <members>
+        <member name="T:UCDC_Mod_Api.GameInterfaces.IAiApiProvider">
+            <summary>
+            Notice: Interface is implemented by the game classes<br /><br />
+            Injected game object in <see cref="T:UCDC_Mod_Api.ModInterfaces.ITextAiAccessor"/> and  <see cref="T:UCDC_Mod_Api.ModInterfaces.IVoiceAiAccessor"/> during mod load
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.GameInterfaces.ISettingsProvider">
+            <summary>
+            Notice: Interface is implemented by the game classes <br /><br />
+            Gives access to mod settings <br />
+            To avoid mod conflicts I suggest adding mod name to all mod settings as a prefix, for example saving MagicNumber setting in a Template mod: <br />
+            <code>
+            SaveInt("TemplateMod_MagicNumber", 5);
+            </code>
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.GameInterfaces.ISkinDatabaseProvider">
+            <summary>
+            Notice: Interface is implemented by the game classes <br /><br />
+            Adds a way to access in-game skin list (not implemented yet!)
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.GameInterfaces.IChatProvider">
+            <summary>
+            Notice: Interface is implemented by the game classes <br /><br />
+            Gives current list of messages to be processed in text-gen API (chat messages, emotion analysis, user facts)
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.Models.Message">
+            <summary>
+            Basic chat structure <br /><br />
+            Message.<see cref="F:UCDC_Mod_Api.Models.Message.role"/> can take values of: "User", "Assistant", "System"
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.Models.TextResult">
+            <summary>
+            Result value from text-gen ai <br />
+            Game considers messages successful if code equals 200 (from HttpStatusCode.OK)
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.Models.VoiceResult">
+            <summary>
+            Result value from voice-gen ai <br />
+            Game considers messages successful if code equals 200 (from HttpStatusCode.OK)
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.ModInterfaces.ICreatedOnLoad">
+            <summary>
+            Implement this if you want to instantiate a GameObject during mod initialization <br /><br />
+            Game looks for any script implementing it and initializes one instance of the provided object<br />
+            May be useful for some kind of managers, permanent overlays<br />
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.ModInterfaces.IModPanelCreatorCreator">
+            <summary>
+            Implement this if you want to add mod settings to phone UI <br /><br />
+            Those buttons can be accessed in game via Menu->Settings->Mods submenu<br />
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.ModInterfaces.ISettingsAccessor">
+            <summary>
+            Implement this if you want your script to get access to global mod settings <br /> <br />
+            To avoid mod conflicts I suggest adding mod name to all mod settings as a prefix, for example saving MagicNumber setting in a Template mod: <br />
+            <code>
+            SaveInt("TemplateMod_MagicNumber", 5);
+            </code>
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.ModInterfaces.ISkinAccessor">
+            <summary>
+            Implement this if you want to add new skin to the game (no support yet!)
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.ModInterfaces.ITextAiAccessor">
+            <summary>
+            Implement this if you want to add new text-gen ai API <br /><br />
+            <remarks>Note that ITextAiAccessor.<see cref="M:UCDC_Mod_Api.ModInterfaces.ITextAiAccessor.GenerateMessage(UCDC_Mod_Api.GameInterfaces.IChatProvider,System.Action{UCDC_Mod_Api.Models.TextResult})"/> is called in game as asynchronous operation, as a consequence there may be difficulties calling some UnityEngine methods on this thread (can be fixed with i.e. using thread dispatcher)<br /></remarks>
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.ModInterfaces.IVoiceAiAccessor">
+            <summary>
+            Implement this if you want to add new voice-gen ai API <br /><br />
+            <remarks>Note that IVoiceAiAccessor.<see cref="M:UCDC_Mod_Api.ModInterfaces.IVoiceAiAccessor.GenerateMessage(System.String,System.Action{UCDC_Mod_Api.Models.VoiceResult})"/> is called in game as asynchronous operation, as a consequence there may be difficulties calling some UnityEngine methods on this thread (can be fixed with i.e. using thread dispatcher)<br /></remarks>
+            </summary>
+        </member>
+    </members>
+</doc>
