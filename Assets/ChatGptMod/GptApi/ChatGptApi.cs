@@ -61,7 +61,7 @@ namespace ChatGptMod
             if (api == string.Empty)
             {
                 apiResult.Code = (int)HttpStatusCode.BadRequest;
-                apiResult.ErrorMessage = "No API key was set up";
+                apiResult.ErrorMessage = "No API key was set";
                 return apiResult;
             }
 
@@ -69,9 +69,10 @@ namespace ChatGptMod
             
             var client = new HttpClient();
             client.DefaultRequestHeaders.Clear();
-            client.DefaultRequestHeaders.Add("Authorization", $"Bearer {api}"); 
+            client.DefaultRequestHeaders.Add("Authorization", $"Bearer {api}");
 
             var content = new StringContent(requestJson, Encoding.UTF8, "application/json");
+            
             HttpResponseMessage response = null;
             try
             {
