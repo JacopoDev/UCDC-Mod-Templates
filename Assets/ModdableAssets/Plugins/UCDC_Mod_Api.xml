@@ -23,7 +23,7 @@
         <member name="T:UCDC_Mod_Api.GameInterfaces.ISkinDatabaseProvider">
             <summary>
             Notice: Interface is implemented by the game classes <br /><br />
-            Adds a way to access in-game skin list (not implemented yet!)
+            Adds a way to access in-game skin list 
             </summary>
         </member>
         <member name="T:UCDC_Mod_Api.GameInterfaces.IChatProvider">
@@ -36,6 +36,42 @@
             <summary>
             Basic chat structure <br /><br />
             Message.<see cref="F:UCDC_Mod_Api.Models.Message.role"/> can take values of: "User", "Assistant", "System"
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.Models.TextAiInfo">
+            <summary>
+            Stores configuration flags for text generation AI behavior and capabilities.
+            Without it the game assumes all false
+            </summary>
+        </member>
+        <member name="F:UCDC_Mod_Api.Models.TextAiInfo.IsImageReading">
+            <summary>
+            Indicates whether the AI supports interpreting images as input.
+            Images are sent in base64 format
+            </summary>
+        </member>
+        <member name="F:UCDC_Mod_Api.Models.TextAiInfo.IsQuick">
+            <summary>
+            Set to true if the text generation is quick (say generating a basic sentence in seconds). 
+            Will use text-generation in game moments where timing is important (character asking for quick help).
+            Otherwise the game will use hard-coded phrases in those moments.
+            </summary>
+        </member>
+        <member name="F:UCDC_Mod_Api.Models.TextAiInfo.IsMultiLanguage">
+            <summary>
+            Indicates support for multiple languages in both input and output. If true the game will send system prompt
+            based on game language setting, otherwise always English
+            </summary>
+        </member>
+        <member name="F:UCDC_Mod_Api.Models.TextAiInfo.IsStreaming">
+            <summary>
+            Enables streaming output, where responses are returned progressively as they are generated.
+            </summary>
+        </member>
+        <member name="F:UCDC_Mod_Api.Models.TextAiInfo.IsStructured">
+            <summary>
+            Indicates support for structured outputs for fixed JSON format,
+            If it is supported it may speed up conversations (one generation instead of 3).
             </summary>
         </member>
         <member name="T:UCDC_Mod_Api.Models.TextResult">
@@ -57,7 +93,7 @@
             May be useful for some kind of managers, permanent overlays<br />
             </summary>
         </member>
-        <member name="T:UCDC_Mod_Api.ModInterfaces.IModPanelCreatorCreator">
+        <member name="T:UCDC_Mod_Api.ModInterfaces.IModPanelCreator">
             <summary>
             Implement this if you want to add mod settings to phone UI <br /><br />
             Those buttons can be accessed in game via Menu->Settings->Mods submenu<br />
@@ -74,7 +110,7 @@
         </member>
         <member name="T:UCDC_Mod_Api.ModInterfaces.ISkinAccessor">
             <summary>
-            Implement this if you want to add new skin to the game (no support yet!)
+            Implement this if you want to add new skin to the game
             </summary>
         </member>
         <member name="T:UCDC_Mod_Api.ModInterfaces.ITextAiAccessor">
@@ -87,6 +123,30 @@
             <summary>
             Implement this if you want to add new voice-gen ai API <br /><br />
             <remarks>Note that IVoiceAiAccessor.<see cref="M:UCDC_Mod_Api.ModInterfaces.IVoiceAiAccessor.GenerateMessage(System.String,System.Action{UCDC_Mod_Api.Models.VoiceResult})"/> is called in game as asynchronous operation, as a consequence there may be difficulties calling some UnityEngine methods on this thread (can be fixed with i.e. using thread dispatcher)<br /></remarks>
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.ModInterfaces.SkinLocators.IBlinkLocator">
+            <summary>
+            Implement this and add as monoBehaviour component to root skin object to add support to blinking managed by game <br /><br />
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.ModInterfaces.SkinLocators.IHeadPatLocator">
+            <summary>
+            Implement this and add as monoBehaviour component  to root skin object to add support to giving head pats! <br /><br />
+            The component should hold a transform where an object that allows headpatting should be placed and head transform. <br />
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.ModInterfaces.SkinLocators.IPropsLocator">
+            <summary>
+            Implement this and add as monoBehaviour component to root skin object to add support to dynamic props adding <br /><br />
+            The component should hold Transforms where each prop object should be placed. <br />
+            Transforms should be empty objects, you can rotate and scale them so props are properly placed on skin
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.ModInterfaces.SkinLocators.IRagDollLocator">
+            <summary>
+            Implement this and add as monoBehaviour component to root skin object to add support to ragdolling character <br /><br />
+            The component should hold Rigidbodies to turn on during ragdoll state. <br />
             </summary>
         </member>
     </members>
