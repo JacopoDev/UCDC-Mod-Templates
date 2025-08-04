@@ -38,6 +38,16 @@
             Message.<see cref="F:UCDC_Mod_Api.Models.Message.role"/> can take values of: "User", "Assistant", "System"
             </summary>
         </member>
+        <member name="T:UCDC_Mod_Api.Models.PropPlacementInfo">
+            <summary>
+            Structure for skins to fix the placement for each prop 
+            </summary>
+        </member>
+        <member name="F:UCDC_Mod_Api.Models.PropPlacementInfo.PropName">
+            <summary>
+            it has to match the prop definition name so game knows which prop position you are modifying
+            </summary>
+        </member>
         <member name="T:UCDC_Mod_Api.Models.TextAiInfo">
             <summary>
             Stores configuration flags for text generation AI behavior and capabilities.
@@ -130,6 +140,11 @@
             Implement this and add as monoBehaviour component to root skin object to add support to blinking managed by game <br /><br />
             </summary>
         </member>
+        <member name="T:UCDC_Mod_Api.ModInterfaces.SkinLocators.IExpressionsLocator">
+            <summary>
+            Implement this and add as monoBehaviour component to root skin object to add support to basic facial expressions managed by game <br /><br />
+            </summary>
+        </member>
         <member name="T:UCDC_Mod_Api.ModInterfaces.SkinLocators.IHeadPatLocator">
             <summary>
             Implement this and add as monoBehaviour component  to root skin object to add support to giving head pats! <br /><br />
@@ -139,8 +154,9 @@
         <member name="T:UCDC_Mod_Api.ModInterfaces.SkinLocators.IPropsLocator">
             <summary>
             Implement this and add as monoBehaviour component to root skin object to add support to dynamic props adding <br /><br />
-            The component should hold Transforms where each prop object should be placed. <br />
-            Transforms should be empty objects, you can rotate and scale them so props are properly placed on skin
+            <remarks>The component should hold Transforms where each prop object should be placed. <br />
+            Transforms should be empty objects, you can rotate and scale them so props are properly placed on skin <br />
+            You can add root position overrides in ITextAiAccessor.<see cref="M:UCDC_Mod_Api.ModInterfaces.SkinLocators.IPropsLocator.GetPropRootOverrides"/> to move, rotate and rescale so prop is properly attached to the skin </remarks>
             </summary>
         </member>
         <member name="T:UCDC_Mod_Api.ModInterfaces.SkinLocators.IRagDollLocator">

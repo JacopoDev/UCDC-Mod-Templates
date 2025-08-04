@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: -2028264498, guid: 4d9ac0cbb6dcbc8428255d2df10dafee, type: 3}
   m_Name: ExportSettings
   m_EditorClassIdentifier: 
-  activeProfile: 6
+  activeProfile: 8
   exportProfiles:
   - referencePaths: []
     modName: BasicRepeater
@@ -78,6 +78,14 @@ MonoBehaviour:
     modDescription: 
     modAssetPath: E:\Unity Projects\UCDC Mod Toolset\Assets\MitaMod
     modExportPath: E:\Unity Projects\UCDC Mod Toolset
+    modIcon: {fileID: 0}
+  - referencePaths: []
+    modName: Uwu prompt mod
+    modAuthor: DefaultCompany
+    modVersion: 1.0.0
+    modDescription: 
+    modAssetPath: E:\Unity Projects\UCDC Mod Toolset\Assets\Uwu prompt mod
+    modExportPath: 
     modIcon: {fileID: 0}
   logLevel: 3
   optimizeMode: 0
