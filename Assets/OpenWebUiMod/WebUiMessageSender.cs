@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using OpenWebUiMod.Api;
 using UCDC_Mod_Api.GameInterfaces;
 using UCDC_Mod_Api.Models;
+using UCDC_Mod_Api.Models.TextGen;
 using UCDC_Mod_Api.ModInterfaces;
 using UMod;
 using UnityEngine;

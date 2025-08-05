@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ChatGptMod.GptApi;
 using Newtonsoft.Json;
 using UCDC_Mod_Api.Models;
+using UCDC_Mod_Api.Models.TextGen;
 using UnityEngine;
 
 namespace ChatGptMod

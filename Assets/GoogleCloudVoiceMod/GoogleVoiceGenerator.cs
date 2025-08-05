@@ -4,6 +4,7 @@ using GoogleCloudVoiceMod.Api;
 using GoogleCloudVoiceMod.Api.Data;
 using UCDC_Mod_Api.GameInterfaces;
 using UCDC_Mod_Api.Models;
+using UCDC_Mod_Api.Models.VoiceGen;
 using UCDC_Mod_Api.ModInterfaces;
 using UMod;
 using UnityEngine;

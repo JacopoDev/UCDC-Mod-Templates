@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UCDC_Mod_Api.GameInterfaces;
 using UCDC_Mod_Api.Models;
+using UCDC_Mod_Api.Models.Skins;
 using UCDC_Mod_Api.ModInterfaces;
 using UMod;
 using UnityEngine;

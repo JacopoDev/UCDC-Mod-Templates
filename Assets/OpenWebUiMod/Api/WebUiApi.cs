@@ -3,6 +3,7 @@ using System.Net;
 using System.Threading.Tasks;
 using OpenWebUiApi.Model;
 using UCDC_Mod_Api.Models;
+using UCDC_Mod_Api.Models.TextGen;
 using UnityEngine;
 
 namespace OpenWebUiMod.Api

@@ -5,6 +5,7 @@ using ElevenLabsMod.Api;
 using ElevenLabsMod.Api.Model;
 using UCDC_Mod_Api.GameInterfaces;
 using UCDC_Mod_Api.Models;
+using UCDC_Mod_Api.Models.VoiceGen;
 using UCDC_Mod_Api.ModInterfaces;
 using UMod;
 using UnityEngine;

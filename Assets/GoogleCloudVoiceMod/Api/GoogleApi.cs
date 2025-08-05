@@ -2,6 +2,7 @@ using System.Net;
 using System.Threading.Tasks;
 using GoogleCloudVoiceMod.Api.Data;
 using UCDC_Mod_Api.Models;
+using UCDC_Mod_Api.Models.VoiceGen;
 
 namespace GoogleCloudVoiceMod.Api
 {

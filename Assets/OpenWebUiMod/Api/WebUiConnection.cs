@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using OpenWebUiApi.Model;
 using UnityEngine;
-using Message = UCDC_Mod_Api.Models.Message;
 
 namespace OpenWebUiMod.Api
 {

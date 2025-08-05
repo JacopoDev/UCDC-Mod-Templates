@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using UCDC_Mod_Api.Models;
+using UCDC_Mod_Api.Models.TextGen;
 
 namespace ChatGptMod.GptApi
 {

@@ -32,65 +32,65 @@
             Gives current list of messages to be processed in text-gen API (chat messages, emotion analysis, user facts)
             </summary>
         </member>
-        <member name="T:UCDC_Mod_Api.Models.Message">
-            <summary>
-            Basic chat structure <br /><br />
-            Message.<see cref="F:UCDC_Mod_Api.Models.Message.role"/> can take values of: "User", "Assistant", "System"
-            </summary>
-        </member>
-        <member name="T:UCDC_Mod_Api.Models.PropPlacementInfo">
+        <member name="T:UCDC_Mod_Api.Models.Skins.PropPlacementInfo">
             <summary>
             Structure for skins to fix the placement for each prop 
             </summary>
         </member>
-        <member name="F:UCDC_Mod_Api.Models.PropPlacementInfo.PropName">
+        <member name="F:UCDC_Mod_Api.Models.Skins.PropPlacementInfo.PropName">
             <summary>
             it has to match the prop definition name so game knows which prop position you are modifying
             </summary>
         </member>
-        <member name="T:UCDC_Mod_Api.Models.TextAiInfo">
+        <member name="T:UCDC_Mod_Api.Models.TextGen.Message">
+            <summary>
+            Basic chat structure <br /><br />
+            Message.<see cref="F:UCDC_Mod_Api.Models.TextGen.Message.role"/> can take values of: "User", "Assistant", "System"
+            </summary>
+        </member>
+        <member name="T:UCDC_Mod_Api.Models.TextGen.TextAiInfo">
             <summary>
             Stores configuration flags for text generation AI behavior and capabilities.
             Without it the game assumes all false
             </summary>
         </member>
-        <member name="F:UCDC_Mod_Api.Models.TextAiInfo.IsImageReading">
+        <member name="F:UCDC_Mod_Api.Models.TextGen.TextAiInfo.IsImageReading">
             <summary>
             Indicates whether the AI supports interpreting images as input.
             Images are sent in base64 format
             </summary>
         </member>
-        <member name="F:UCDC_Mod_Api.Models.TextAiInfo.IsQuick">
+        <member name="F:UCDC_Mod_Api.Models.TextGen.TextAiInfo.IsQuick">
             <summary>
             Set to true if the text generation is quick (say generating a basic sentence in seconds). 
             Will use text-generation in game moments where timing is important (character asking for quick help).
             Otherwise the game will use hard-coded phrases in those moments.
             </summary>
         </member>
-        <member name="F:UCDC_Mod_Api.Models.TextAiInfo.IsMultiLanguage">
+        <member name="F:UCDC_Mod_Api.Models.TextGen.TextAiInfo.IsMultiLanguage">
             <summary>
             Indicates support for multiple languages in both input and output. If true the game will send system prompt
             based on game language setting, otherwise always English
             </summary>
         </member>
-        <member name="F:UCDC_Mod_Api.Models.TextAiInfo.IsStreaming">
+        <member name="F:UCDC_Mod_Api.Models.TextGen.TextAiInfo.IsStreaming">
             <summary>
             Enables streaming output, where responses are returned progressively as they are generated.
             </summary>
         </member>
-        <member name="F:UCDC_Mod_Api.Models.TextAiInfo.IsStructured">
+        <member name="F:UCDC_Mod_Api.Models.TextGen.TextAiInfo.IsStructured">
             <summary>
             Indicates support for structured outputs for fixed JSON format,
             If it is supported it may speed up conversations (one generation instead of 3).
             </summary>
         </member>
-        <member name="T:UCDC_Mod_Api.Models.TextResult">
+        <member name="T:UCDC_Mod_Api.Models.TextGen.TextResult">
             <summary>
             Result value from text-gen ai <br />
             Game considers messages successful if code equals 200 (from HttpStatusCode.OK)
             </summary>
         </member>
-        <member name="T:UCDC_Mod_Api.Models.VoiceResult">
+        <member name="T:UCDC_Mod_Api.Models.VoiceGen.VoiceResult">
             <summary>
             Result value from voice-gen ai <br />
             Game considers messages successful if code equals 200 (from HttpStatusCode.OK)
@@ -126,13 +126,13 @@
         <member name="T:UCDC_Mod_Api.ModInterfaces.ITextAiAccessor">
             <summary>
             Implement this if you want to add new text-gen ai API <br /><br />
-            <remarks>Note that ITextAiAccessor.<see cref="M:UCDC_Mod_Api.ModInterfaces.ITextAiAccessor.GenerateMessage(UCDC_Mod_Api.GameInterfaces.IChatProvider,System.Action{UCDC_Mod_Api.Models.TextResult})"/> is called in game as asynchronous operation, as a consequence there may be difficulties calling some UnityEngine methods on this thread (can be fixed with i.e. using thread dispatcher)<br /></remarks>
+            <remarks>Note that ITextAiAccessor.<see cref="M:UCDC_Mod_Api.ModInterfaces.ITextAiAccessor.GenerateMessage(UCDC_Mod_Api.GameInterfaces.IChatProvider,System.Action{UCDC_Mod_Api.Models.TextGen.TextResult})"/> is called in game as asynchronous operation, as a consequence there may be difficulties calling some UnityEngine methods on this thread (can be fixed with i.e. using thread dispatcher)<br /></remarks>
             </summary>
         </member>
         <member name="T:UCDC_Mod_Api.ModInterfaces.IVoiceAiAccessor">
             <summary>
             Implement this if you want to add new voice-gen ai API <br /><br />
-            <remarks>Note that IVoiceAiAccessor.<see cref="M:UCDC_Mod_Api.ModInterfaces.IVoiceAiAccessor.GenerateMessage(System.String,System.Action{UCDC_Mod_Api.Models.VoiceResult})"/> is called in game as asynchronous operation, as a consequence there may be difficulties calling some UnityEngine methods on this thread (can be fixed with i.e. using thread dispatcher)<br /></remarks>
+            <remarks>Note that IVoiceAiAccessor.<see cref="M:UCDC_Mod_Api.ModInterfaces.IVoiceAiAccessor.GenerateMessage(System.String,System.Action{UCDC_Mod_Api.Models.VoiceGen.VoiceResult})"/> is called in game as asynchronous operation, as a consequence there may be difficulties calling some UnityEngine methods on this thread (can be fixed with i.e. using thread dispatcher)<br /></remarks>
             </summary>
         </member>
         <member name="T:UCDC_Mod_Api.ModInterfaces.SkinLocators.IBlinkLocator">

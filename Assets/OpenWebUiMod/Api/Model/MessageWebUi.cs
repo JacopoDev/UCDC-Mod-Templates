@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 using UCDC_Mod_Api.Models;
+using UCDC_Mod_Api.Models.TextGen;
 
 namespace OpenWebUiMod.Api
 {
