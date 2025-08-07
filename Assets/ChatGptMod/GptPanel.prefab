@@ -492,6 +492,7 @@ GameObject:
   - component: {fileID: 374103778524227224}
   - component: {fileID: 3667174736390374534}
   - component: {fileID: 5639205706266636608}
+  - component: {fileID: -4172039619424258177}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -557,6 +558,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-4172039619424258177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591888768840925645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1354039292, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  links:
+  - linkID: -28613
+    link: {fileID: 0}
+    component: {fileID: 5639205706266636608}
 --- !u!1 &748875618440945897
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,6 +587,7 @@ GameObject:
   - component: {fileID: 8695355813287123033}
   - component: {fileID: 1847279771919676976}
   - component: {fileID: 6117251158499381944}
+  - component: {fileID: -4415288585675248432}
   m_Layer: 5
   m_Name: FrequencyPenalty
   m_TagString: Untagged
@@ -756,6 +774,22 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &-4415288585675248432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748875618440945897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1354039292, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  links:
+  - linkID: 29278
+    link: {fileID: 0}
+    component: {fileID: 1847279771919676976}
 --- !u!1 &2206255201145161654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,6 +1064,7 @@ GameObject:
   - component: {fileID: 1592958140365714714}
   - component: {fileID: 4353780610240750776}
   - component: {fileID: 7572763108980398545}
+  - component: {fileID: -4357156740952985211}
   m_Layer: 5
   m_Name: ApiKey
   m_TagString: Untagged
@@ -1216,6 +1251,22 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &-4357156740952985211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2849193724382736508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1354039292, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  links:
+  - linkID: -30840
+    link: {fileID: 0}
+    component: {fileID: 4353780610240750776}
 --- !u!1 &2876631235215898317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,8 +1414,10 @@ GameObject:
   - component: {fileID: 6925945807569499159}
   - component: {fileID: 7626571972879653107}
   - component: {fileID: 6799292075665923662}
-  - component: {fileID: 1081596371446644152}
   - component: {fileID: 5841482327363529610}
+  - component: {fileID: -6500030199032218456}
+  - component: {fileID: 2105131272643425571}
+  - component: {fileID: -8171946449760460326}
   m_Layer: 5
   m_Name: ResetDefaultsBtn
   m_TagString: Untagged
@@ -1430,50 +1483,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1081596371446644152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2995234492067792265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 6799292075665923662}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &5841482327363529610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1494,6 +1503,585 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &-6500030199032218456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2995234492067792265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1354039292, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  links:
+  - linkID: 8435
+    link: {fileID: 2105131272643425571}
+    component: {fileID: 0}
+  - linkID: -21379
+    link: {fileID: 0}
+    component: {fileID: 6799292075665923662}
+--- !u!114 &2105131272643425571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2995234492067792265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1288623270, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeReference:
+    assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    scriptName: UnityEngine.UI.Button
+    isMonobehaviour: 1
+  instance:
+    behaviour: {fileID: 2105131272643425571}
+    scriptable: {fileID: 0}
+    reference:
+      assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+      scriptName: UnityEngine.UI.Button
+      isMonobehaviour: 1
+    instanceMembers:
+    - memberName: m_OnClick
+      memberLink:
+        rid: 4791127567586820230
+    - memberName: m_CurrentIndex
+      memberLink:
+        rid: 4791127567586820231
+    - memberName: m_Navigation
+      memberLink:
+        rid: 4791127567586820232
+    - memberName: m_Transition
+      memberLink:
+        rid: 4791127567586820233
+    - memberName: m_Colors
+      memberLink:
+        rid: 4791127567586820234
+    - memberName: m_SpriteState
+      memberLink:
+        rid: 4791127567586820235
+    - memberName: m_AnimationTriggers
+      memberLink:
+        rid: 4791127567586820236
+    - memberName: m_Interactable
+      memberLink:
+        rid: 4791127567586820237
+    - memberName: m_TargetGraphic
+      memberLink:
+        rid: 4791127567586820238
+    - memberName: m_CurrentIndex
+      memberLink:
+        rid: 4791127567586820239
+  deserializeInstance: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 4791127567586820230
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          scriptName: UnityEngine.UI.Button+ButtonClickedEvent
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_PersistentCalls
+          memberLink:
+            rid: 4791127567586820240
+    - rid: 4791127567586820231
+      type: {class: TypeHandler_PrimitiveIntV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: -1
+    - rid: 4791127567586820232
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          scriptName: UnityEngine.UI.Navigation
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_Mode
+          memberLink:
+            rid: 4791127567586820241
+        - memberName: m_WrapAround
+          memberLink:
+            rid: 4791127567586820242
+    - rid: 4791127567586820233
+      type: {class: TypeHandler_PrimitiveEnumV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        enumValue: 1
+    - rid: 4791127567586820234
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          scriptName: UnityEngine.UI.ColorBlock
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_NormalColor
+          memberLink:
+            rid: 4791127567586820243
+        - memberName: m_HighlightedColor
+          memberLink:
+            rid: 4791127567586820244
+        - memberName: m_PressedColor
+          memberLink:
+            rid: 4791127567586820245
+        - memberName: m_SelectedColor
+          memberLink:
+            rid: 4791127567586820246
+        - memberName: m_DisabledColor
+          memberLink:
+            rid: 4791127567586820247
+        - memberName: m_ColorMultiplier
+          memberLink:
+            rid: 4791127567586820248
+        - memberName: m_FadeDuration
+          memberLink:
+            rid: 4791127567586820249
+    - rid: 4791127567586820235
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          scriptName: UnityEngine.UI.SpriteState
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_HighlightedSprite
+          memberLink:
+            rid: 4791127567586820250
+        - memberName: m_PressedSprite
+          memberLink:
+            rid: 4791127567586820251
+        - memberName: m_SelectedSprite
+          memberLink:
+            rid: 4791127567586820252
+        - memberName: m_DisabledSprite
+          memberLink:
+            rid: 4791127567586820253
+    - rid: 4791127567586820236
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          scriptName: UnityEngine.UI.AnimationTriggers
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_NormalTrigger
+          memberLink:
+            rid: 4791127567586820254
+        - memberName: m_HighlightedTrigger
+          memberLink:
+            rid: 4791127567586820255
+        - memberName: m_PressedTrigger
+          memberLink:
+            rid: 4791127567586820256
+        - memberName: m_SelectedTrigger
+          memberLink:
+            rid: 4791127567586820257
+        - memberName: m_DisabledTrigger
+          memberLink:
+            rid: 4791127567586820258
+    - rid: 4791127567586820237
+      type: {class: TypeHandler_PrimitiveBoolV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820238
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        linkType: 4
+        value: {fileID: 2995234492067792265}
+        behaviourID: -21379
+    - rid: 4791127567586820239
+      type: {class: TypeHandler_PrimitiveIntV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: -1
+    - rid: 4791127567586820240
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Events.PersistentCallGroup
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_Calls
+          memberLink:
+            rid: 4791127567586820259
+    - rid: 4791127567586820241
+      type: {class: TypeHandler_PrimitiveEnumV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        enumValue: 3
+    - rid: 4791127567586820242
+      type: {class: TypeHandler_PrimitiveBoolV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 0
+    - rid: 4791127567586820243
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Color
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: r
+          memberLink:
+            rid: 4791127567586820260
+        - memberName: g
+          memberLink:
+            rid: 4791127567586820261
+        - memberName: b
+          memberLink:
+            rid: 4791127567586820262
+        - memberName: a
+          memberLink:
+            rid: 4791127567586820263
+    - rid: 4791127567586820244
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Color
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: r
+          memberLink:
+            rid: 4791127567586820264
+        - memberName: g
+          memberLink:
+            rid: 4791127567586820265
+        - memberName: b
+          memberLink:
+            rid: 4791127567586820266
+        - memberName: a
+          memberLink:
+            rid: 4791127567586820267
+    - rid: 4791127567586820245
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Color
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: r
+          memberLink:
+            rid: 4791127567586820268
+        - memberName: g
+          memberLink:
+            rid: 4791127567586820269
+        - memberName: b
+          memberLink:
+            rid: 4791127567586820270
+        - memberName: a
+          memberLink:
+            rid: 4791127567586820271
+    - rid: 4791127567586820246
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Color
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: r
+          memberLink:
+            rid: 4791127567586820272
+        - memberName: g
+          memberLink:
+            rid: 4791127567586820273
+        - memberName: b
+          memberLink:
+            rid: 4791127567586820274
+        - memberName: a
+          memberLink:
+            rid: 4791127567586820275
+    - rid: 4791127567586820247
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Color
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: r
+          memberLink:
+            rid: 4791127567586820276
+        - memberName: g
+          memberLink:
+            rid: 4791127567586820277
+        - memberName: b
+          memberLink:
+            rid: 4791127567586820278
+        - memberName: a
+          memberLink:
+            rid: 4791127567586820279
+    - rid: 4791127567586820248
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820249
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 0.10000000149011612
+    - rid: 4791127567586820250
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        linkType: 1
+        value: {fileID: 0}
+        behaviourID: -1
+    - rid: 4791127567586820251
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        linkType: 1
+        value: {fileID: 0}
+        behaviourID: -1
+    - rid: 4791127567586820252
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        linkType: 1
+        value: {fileID: 0}
+        behaviourID: -1
+    - rid: 4791127567586820253
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        linkType: 1
+        value: {fileID: 0}
+        behaviourID: -1
+    - rid: 4791127567586820254
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: Normal
+    - rid: 4791127567586820255
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: Highlighted
+    - rid: 4791127567586820256
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: Pressed
+    - rid: 4791127567586820257
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: Selected
+    - rid: 4791127567586820258
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: Disabled
+    - rid: 4791127567586820259
+      type: {class: LinkArrayV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        arrayLength: 0
+        elementLinks: []
+    - rid: 4791127567586820260
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820261
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820262
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820263
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820264
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820265
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820266
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820267
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820268
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820269
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820270
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820271
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820272
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820273
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820274
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820275
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820276
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820277
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820278
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820279
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: 2105131272643425571}
+        scriptable: {fileID: 0}
+        value: 0.501960813999176
+--- !u!114 &-8171946449760460326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2995234492067792265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 237544033, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modIdentity:
+    modName: ChatGptMod
+    modVersion: 1.0.0
+    modIdentifier:
+      friendlyIdentifier: B?Ubta%%
+      identifier: 423f556274612525
+  objectIdentifier:
+    friendlyIdentifier: "\xFF_\xFD~"
+    identifier: ff5ffd7e00000000
 --- !u!1 &3403818069876938893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,6 +2674,7 @@ GameObject:
   - component: {fileID: 1721560349275389099}
   - component: {fileID: 5528036129443182183}
   - component: {fileID: 4506189333277314170}
+  - component: {fileID: -5287803410867457635}
   m_Layer: 5
   m_Name: TopP
   m_TagString: Untagged
@@ -2272,6 +2861,22 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &-5287803410867457635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3912169764028590485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1354039292, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  links:
+  - linkID: 97
+    link: {fileID: 0}
+    component: {fileID: 5528036129443182183}
 --- !u!1 &4211129957092662983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2283,7 +2888,9 @@ GameObject:
   - component: {fileID: 5129092343911871281}
   - component: {fileID: 7177518397495644099}
   - component: {fileID: 8095959825508412661}
-  - component: {fileID: 31169253799502009}
+  - component: {fileID: -1093361342171262585}
+  - component: {fileID: -675111595069768161}
+  - component: {fileID: -4661716093643507543}
   m_Layer: 5
   m_Name: Scroll View
   m_TagString: Untagged
@@ -2349,7 +2956,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 20
---- !u!114 &31169253799502009
+--- !u!114 &-1093361342171262585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2358,27 +2965,266 @@ MonoBehaviour:
   m_GameObject: {fileID: 4211129957092662983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+  m_Script: {fileID: 1288623270, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Content: {fileID: 8773604301508984403}
-  m_Horizontal: 0
-  m_Vertical: 1
-  m_MovementType: 1
-  m_Elasticity: 0.1
-  m_Inertia: 1
-  m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 20
-  m_Viewport: {fileID: 5269378352433376225}
-  m_HorizontalScrollbar: {fileID: 0}
-  m_VerticalScrollbar: {fileID: 0}
-  m_HorizontalScrollbarVisibility: 2
-  m_VerticalScrollbarVisibility: 2
-  m_HorizontalScrollbarSpacing: 0
-  m_VerticalScrollbarSpacing: 0
-  m_OnValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
+  typeReference:
+    assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    scriptName: UnityEngine.UI.ScrollRect
+    isMonobehaviour: 1
+  instance:
+    behaviour: {fileID: -1093361342171262585}
+    scriptable: {fileID: 0}
+    reference:
+      assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+      scriptName: UnityEngine.UI.ScrollRect
+      isMonobehaviour: 1
+    instanceMembers:
+    - memberName: m_Content
+      memberLink:
+        rid: 4791127567586820159
+    - memberName: m_Horizontal
+      memberLink:
+        rid: 4791127567586820160
+    - memberName: m_Vertical
+      memberLink:
+        rid: 4791127567586820161
+    - memberName: m_MovementType
+      memberLink:
+        rid: 4791127567586820162
+    - memberName: m_Elasticity
+      memberLink:
+        rid: 4791127567586820163
+    - memberName: m_Inertia
+      memberLink:
+        rid: 4791127567586820164
+    - memberName: m_DecelerationRate
+      memberLink:
+        rid: 4791127567586820165
+    - memberName: m_ScrollSensitivity
+      memberLink:
+        rid: 4791127567586820166
+    - memberName: m_Viewport
+      memberLink:
+        rid: 4791127567586820167
+    - memberName: m_HorizontalScrollbarVisibility
+      memberLink:
+        rid: 4791127567586820168
+    - memberName: m_VerticalScrollbarVisibility
+      memberLink:
+        rid: 4791127567586820169
+    - memberName: m_HorizontalScrollbarSpacing
+      memberLink:
+        rid: 4791127567586820170
+    - memberName: m_VerticalScrollbarSpacing
+      memberLink:
+        rid: 4791127567586820171
+    - memberName: m_OnValueChanged
+      memberLink:
+        rid: 4791127567586820172
+    - memberName: m_ContentStartPosition
+      memberLink:
+        rid: 4791127567586820173
+    - memberName: m_ContentBounds
+      memberLink:
+        rid: 4791127567586820174
+  deserializeInstance: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 4791127567586820159
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        linkType: 3
+        value: {fileID: 8773604301508984403}
+        behaviourID: -1
+    - rid: 4791127567586820160
+      type: {class: TypeHandler_PrimitiveBoolV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        value: 0
+    - rid: 4791127567586820161
+      type: {class: TypeHandler_PrimitiveBoolV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820162
+      type: {class: TypeHandler_PrimitiveEnumV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        enumValue: 1
+    - rid: 4791127567586820163
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        value: 0.10000000149011612
+    - rid: 4791127567586820164
+      type: {class: TypeHandler_PrimitiveBoolV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820165
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        value: 0.13500000536441803
+    - rid: 4791127567586820166
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        value: 20
+    - rid: 4791127567586820167
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        linkType: 3
+        value: {fileID: 5269378352433376225}
+        behaviourID: -1
+    - rid: 4791127567586820168
+      type: {class: TypeHandler_PrimitiveEnumV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        enumValue: 2
+    - rid: 4791127567586820169
+      type: {class: TypeHandler_PrimitiveEnumV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        enumValue: 2
+    - rid: 4791127567586820170
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        value: 0
+    - rid: 4791127567586820171
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        value: 0
+    - rid: 4791127567586820172
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          scriptName: UnityEngine.UI.ScrollRect+ScrollRectEvent
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_PersistentCalls
+          memberLink:
+            rid: 4791127567586820175
+    - rid: 4791127567586820173
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Vector2
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: x
+          memberLink:
+            rid: 4791127567586820176
+        - memberName: y
+          memberLink:
+            rid: 4791127567586820177
+    - rid: 4791127567586820174
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Bounds
+          isMonobehaviour: 0
+        instanceMembers: []
+    - rid: 4791127567586820175
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Events.PersistentCallGroup
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_Calls
+          memberLink:
+            rid: 4791127567586820178
+    - rid: 4791127567586820176
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        value: 0
+    - rid: 4791127567586820177
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        value: 0
+    - rid: 4791127567586820178
+      type: {class: LinkArrayV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1093361342171262585}
+        scriptable: {fileID: 0}
+        arrayLength: 0
+        elementLinks: []
+--- !u!114 &-675111595069768161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4211129957092662983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1354039292, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  links:
+  - linkID: 2366
+    link: {fileID: -1093361342171262585}
+    component: {fileID: 0}
+--- !u!114 &-4661716093643507543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4211129957092662983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 237544033, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modIdentity:
+    modName: ChatGptMod
+    modVersion: 1.0.0
+    modIdentifier:
+      friendlyIdentifier: B?Ubta%%
+      identifier: 423f556274612525
+  objectIdentifier:
+    friendlyIdentifier: "\xFE\xFF\xFD7"
+    identifier: fefffd3700000000
 --- !u!1 &4408294674554989851
 GameObject:
   m_ObjectHideFlags: 0
@@ -2392,6 +3238,7 @@ GameObject:
   - component: {fileID: 3462097977123333825}
   - component: {fileID: 1669766609950219859}
   - component: {fileID: 1259926312196009268}
+  - component: {fileID: -2319957325348191634}
   m_Layer: 5
   m_Name: Temperature
   m_TagString: Untagged
@@ -2578,6 +3425,22 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &-2319957325348191634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4408294674554989851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1354039292, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  links:
+  - linkID: 1693
+    link: {fileID: 0}
+    component: {fileID: 1669766609950219859}
 --- !u!1 &4827209663761959697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2591,6 +3454,7 @@ GameObject:
   - component: {fileID: 1373445509878252189}
   - component: {fileID: 5618789883321541366}
   - component: {fileID: 8545806104301882508}
+  - component: {fileID: 3349548756490905458}
   m_Layer: 5
   m_Name: MaxTokens
   m_TagString: Untagged
@@ -2777,6 +3641,22 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &3349548756490905458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4827209663761959697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1354039292, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  links:
+  - linkID: -30119
+    link: {fileID: 0}
+    component: {fileID: 5618789883321541366}
 --- !u!1 &5046558698498352049
 GameObject:
   m_ObjectHideFlags: 0
@@ -2922,7 +3802,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 714054815099333186}
-  - component: {fileID: 2424110228459606547}
+  - component: {fileID: -7584773584346062700}
+  - component: {fileID: -1282829834177692396}
+  - component: {fileID: 6797834994309062446}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -2950,7 +3832,7 @@ RectTransform:
   m_AnchoredPosition: {x: -25, y: 10}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2424110228459606547
+--- !u!114 &-7584773584346062700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2959,45 +3841,578 @@ MonoBehaviour:
   m_GameObject: {fileID: 5358133188445953753}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Script: {fileID: 1354039292, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 5639205706266636608}
-  toggleTransition: 1
-  graphic: {fileID: 7435357810305379417}
-  m_Group: {fileID: 0}
-  onValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_IsOn: 0
+  links:
+  - linkID: -22164
+    link: {fileID: -1282829834177692396}
+    component: {fileID: 0}
+--- !u!114 &-1282829834177692396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358133188445953753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1288623270, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeReference:
+    assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    scriptName: UnityEngine.UI.Toggle
+    isMonobehaviour: 1
+  instance:
+    behaviour: {fileID: -1282829834177692396}
+    scriptable: {fileID: 0}
+    reference:
+      assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+      scriptName: UnityEngine.UI.Toggle
+      isMonobehaviour: 1
+    instanceMembers:
+    - memberName: toggleTransition
+      memberLink:
+        rid: 4791127567586820179
+    - memberName: graphic
+      memberLink:
+        rid: 4791127567586820180
+    - memberName: onValueChanged
+      memberLink:
+        rid: 4791127567586820181
+    - memberName: m_IsOn
+      memberLink:
+        rid: 4791127567586820182
+    - memberName: m_CurrentIndex
+      memberLink:
+        rid: 4791127567586820183
+    - memberName: m_Navigation
+      memberLink:
+        rid: 4791127567586820184
+    - memberName: m_Transition
+      memberLink:
+        rid: 4791127567586820185
+    - memberName: m_Colors
+      memberLink:
+        rid: 4791127567586820186
+    - memberName: m_SpriteState
+      memberLink:
+        rid: 4791127567586820187
+    - memberName: m_AnimationTriggers
+      memberLink:
+        rid: 4791127567586820188
+    - memberName: m_Interactable
+      memberLink:
+        rid: 4791127567586820189
+    - memberName: m_TargetGraphic
+      memberLink:
+        rid: 4791127567586820190
+    - memberName: m_CurrentIndex
+      memberLink:
+        rid: 4791127567586820191
+  deserializeInstance: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 4791127567586820179
+      type: {class: TypeHandler_PrimitiveEnumV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        enumValue: 1
+    - rid: 4791127567586820180
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        linkType: 4
+        value: {fileID: 6398163756850271842}
+        behaviourID: 5825
+    - rid: 4791127567586820181
+      type: {class: TypeHandler_UnityEvent_Bool_V2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        eventTypeReference:
+          assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          scriptName: UnityEngine.UI.Toggle+ToggleEvent
+          isMonobehaviour: 0
+        listeners: []
+    - rid: 4791127567586820182
+      type: {class: TypeHandler_PrimitiveBoolV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 0
+    - rid: 4791127567586820183
+      type: {class: TypeHandler_PrimitiveIntV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: -1
+    - rid: 4791127567586820184
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          scriptName: UnityEngine.UI.Navigation
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_Mode
+          memberLink:
+            rid: 4791127567586820192
+        - memberName: m_WrapAround
+          memberLink:
+            rid: 4791127567586820193
+    - rid: 4791127567586820185
+      type: {class: TypeHandler_PrimitiveEnumV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        enumValue: 1
+    - rid: 4791127567586820186
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          scriptName: UnityEngine.UI.ColorBlock
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_NormalColor
+          memberLink:
+            rid: 4791127567586820194
+        - memberName: m_HighlightedColor
+          memberLink:
+            rid: 4791127567586820195
+        - memberName: m_PressedColor
+          memberLink:
+            rid: 4791127567586820196
+        - memberName: m_SelectedColor
+          memberLink:
+            rid: 4791127567586820197
+        - memberName: m_DisabledColor
+          memberLink:
+            rid: 4791127567586820198
+        - memberName: m_ColorMultiplier
+          memberLink:
+            rid: 4791127567586820199
+        - memberName: m_FadeDuration
+          memberLink:
+            rid: 4791127567586820200
+    - rid: 4791127567586820187
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          scriptName: UnityEngine.UI.SpriteState
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_HighlightedSprite
+          memberLink:
+            rid: 4791127567586820201
+        - memberName: m_PressedSprite
+          memberLink:
+            rid: 4791127567586820202
+        - memberName: m_SelectedSprite
+          memberLink:
+            rid: 4791127567586820203
+        - memberName: m_DisabledSprite
+          memberLink:
+            rid: 4791127567586820204
+    - rid: 4791127567586820188
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          scriptName: UnityEngine.UI.AnimationTriggers
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_NormalTrigger
+          memberLink:
+            rid: 4791127567586820205
+        - memberName: m_HighlightedTrigger
+          memberLink:
+            rid: 4791127567586820206
+        - memberName: m_PressedTrigger
+          memberLink:
+            rid: 4791127567586820207
+        - memberName: m_SelectedTrigger
+          memberLink:
+            rid: 4791127567586820208
+        - memberName: m_DisabledTrigger
+          memberLink:
+            rid: 4791127567586820209
+    - rid: 4791127567586820189
+      type: {class: TypeHandler_PrimitiveBoolV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820190
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        linkType: 4
+        value: {fileID: 591888768840925645}
+        behaviourID: -28613
+    - rid: 4791127567586820191
+      type: {class: TypeHandler_PrimitiveIntV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: -1
+    - rid: 4791127567586820192
+      type: {class: TypeHandler_PrimitiveEnumV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        enumValue: 3
+    - rid: 4791127567586820193
+      type: {class: TypeHandler_PrimitiveBoolV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 0
+    - rid: 4791127567586820194
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Color
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: r
+          memberLink:
+            rid: 4791127567586820210
+        - memberName: g
+          memberLink:
+            rid: 4791127567586820211
+        - memberName: b
+          memberLink:
+            rid: 4791127567586820212
+        - memberName: a
+          memberLink:
+            rid: 4791127567586820213
+    - rid: 4791127567586820195
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Color
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: r
+          memberLink:
+            rid: 4791127567586820214
+        - memberName: g
+          memberLink:
+            rid: 4791127567586820215
+        - memberName: b
+          memberLink:
+            rid: 4791127567586820216
+        - memberName: a
+          memberLink:
+            rid: 4791127567586820217
+    - rid: 4791127567586820196
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Color
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: r
+          memberLink:
+            rid: 4791127567586820218
+        - memberName: g
+          memberLink:
+            rid: 4791127567586820219
+        - memberName: b
+          memberLink:
+            rid: 4791127567586820220
+        - memberName: a
+          memberLink:
+            rid: 4791127567586820221
+    - rid: 4791127567586820197
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Color
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: r
+          memberLink:
+            rid: 4791127567586820222
+        - memberName: g
+          memberLink:
+            rid: 4791127567586820223
+        - memberName: b
+          memberLink:
+            rid: 4791127567586820224
+        - memberName: a
+          memberLink:
+            rid: 4791127567586820225
+    - rid: 4791127567586820198
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Color
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: r
+          memberLink:
+            rid: 4791127567586820226
+        - memberName: g
+          memberLink:
+            rid: 4791127567586820227
+        - memberName: b
+          memberLink:
+            rid: 4791127567586820228
+        - memberName: a
+          memberLink:
+            rid: 4791127567586820229
+    - rid: 4791127567586820199
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820200
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 0.10000000149011612
+    - rid: 4791127567586820201
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        linkType: 1
+        value: {fileID: 0}
+        behaviourID: -1
+    - rid: 4791127567586820202
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        linkType: 1
+        value: {fileID: 0}
+        behaviourID: -1
+    - rid: 4791127567586820203
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        linkType: 1
+        value: {fileID: 0}
+        behaviourID: -1
+    - rid: 4791127567586820204
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        linkType: 1
+        value: {fileID: 0}
+        behaviourID: -1
+    - rid: 4791127567586820205
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: Normal
+    - rid: 4791127567586820206
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: Highlighted
+    - rid: 4791127567586820207
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: Pressed
+    - rid: 4791127567586820208
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: Selected
+    - rid: 4791127567586820209
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: Disabled
+    - rid: 4791127567586820210
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820211
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820212
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820213
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820214
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820215
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820216
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820217
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820218
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820219
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820220
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820221
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820222
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820223
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820224
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820225
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820226
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820227
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820228
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820229
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -1282829834177692396}
+        scriptable: {fileID: 0}
+        value: 0.501960813999176
+--- !u!114 &6797834994309062446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358133188445953753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 237544033, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modIdentity:
+    modName: ChatGptMod
+    modVersion: 1.0.0
+    modIdentifier:
+      friendlyIdentifier: B?Ubta%%
+      identifier: 423f556274612525
+  objectIdentifier:
+    friendlyIdentifier: "_\x96\xB1g"
+    identifier: 5f96b16700000000
 --- !u!1 &5382839586072228036
 GameObject:
   m_ObjectHideFlags: 0
@@ -3734,6 +5149,7 @@ GameObject:
   - component: {fileID: 7499782718665822742}
   - component: {fileID: 2933000428785412843}
   - component: {fileID: 7435357810305379417}
+  - component: {fileID: 7892225429711686992}
   m_Layer: 5
   m_Name: Checkmark
   m_TagString: Untagged
@@ -3798,6 +5214,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7892225429711686992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6398163756850271842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1354039292, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  links:
+  - linkID: 5825
+    link: {fileID: 0}
+    component: {fileID: 7435357810305379417}
 --- !u!1 &6667025861809981814
 GameObject:
   m_ObjectHideFlags: 0
@@ -4211,10 +5643,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7940250396468451768}
+  - component: {fileID: -446516024964754823}
   - component: {fileID: 2634661272457224535}
   - component: {fileID: 1206012441504958910}
   - component: {fileID: 3666795645332628993}
-  - component: {fileID: 925741690524264417}
+  - component: {fileID: 8620453625107863177}
+  - component: {fileID: 6194264444937891842}
+  - component: {fileID: -3675957862781613844}
+  - component: {fileID: 7813285113697018356}
   m_Layer: 5
   m_Name: GptPanel
   m_TagString: Untagged
@@ -4243,6 +5679,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 222, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &-446516024964754823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226027138960988837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1914845131, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &2634661272457224535
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4293,7 +5741,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &925741690524264417
+--- !u!114 &8620453625107863177
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4302,19 +5750,617 @@ MonoBehaviour:
   m_GameObject: {fileID: 7226027138960988837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5bc8e9d34d9084aa81a74e22a54583, type: 3}
+  m_Script: {fileID: 237544033, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modToggle: {fileID: 2424110228459606547}
-  api: {fileID: 4353780610240750776}
-  model: {fileID: 5267631258930597536}
-  temperature: {fileID: 1669766609950219859}
-  maxTokens: {fileID: 5618789883321541366}
-  topP: {fileID: 5528036129443182183}
-  frequencyPenalty: {fileID: 1847279771919676976}
-  presencePenalty: {fileID: 1002535133736128295}
-  stopSequences: {fileID: 8766453067758937405}
-  resetDefaultsBtn: {fileID: 1081596371446644152}
+  modIdentity:
+    modName: ChatGptMod
+    modVersion: 1.0.0
+    modIdentifier:
+      friendlyIdentifier: B?Ubta%%
+      identifier: 423f556274612525
+  objectIdentifier:
+    friendlyIdentifier: "\xFFG\xFCg"
+    identifier: ff47fc6700000000
+--- !u!114 &6194264444937891842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226027138960988837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 356042127, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dependencies:
+  - {fileID: 4211129957092662983}
+  - {fileID: 6728279653319908934}
+  - {fileID: 7331663502289834372}
+  - {fileID: 5930467125268457779}
+  - {fileID: 3878284909933094399}
+  - {fileID: 4408294674554989851}
+  - {fileID: 8405762345590240508}
+  - {fileID: 4827209663761959697}
+  - {fileID: 225755110318102024}
+  - {fileID: 2424929979037009150}
+  - {fileID: 108768178779650675}
+  - {fileID: 5046558698498352049}
+  - {fileID: 6667025861809981814}
+  - {fileID: 6168496259318749265}
+  - {fileID: 5358133188445953753}
+  - {fileID: 6223270685160029365}
+  - {fileID: 8970361190047491652}
+  - {fileID: 591888768840925645}
+  - {fileID: 5382839586072228036}
+  - {fileID: 3403818069876938893}
+  - {fileID: 9096393181366892247}
+  - {fileID: 6980791281611219810}
+  - {fileID: 8944912433044903468}
+  - {fileID: 6398163756850271842}
+  - {fileID: 8371221898333124935}
+  - {fileID: 8643961723253996951}
+  - {fileID: 6389131019100697258}
+  - {fileID: 2206255201145161654}
+  - {fileID: 209682611163308203}
+  - {fileID: 9025986015876377505}
+  - {fileID: 233759023951805084}
+  - {fileID: 3536709822236460847}
+  - {fileID: 2302866762859239545}
+  - {fileID: 2876631235215898317}
+  - {fileID: 3472037311416646857}
+  - {fileID: 3553641356506812458}
+  - {fileID: 6284611012259338413}
+  - {fileID: 8312791879125607313}
+  - {fileID: 3560340598216098658}
+  - {fileID: 3912169764028590485}
+  - {fileID: 748875618440945897}
+  - {fileID: 2995234492067792265}
+  - {fileID: 2849193724382736508}
+  - {fileID: 4211129957092662983}
+  - {fileID: 6728279653319908934}
+  - {fileID: 7331663502289834372}
+  - {fileID: 5930467125268457779}
+  - {fileID: 3878284909933094399}
+  - {fileID: 4408294674554989851}
+  - {fileID: 8405762345590240508}
+  - {fileID: 4827209663761959697}
+  - {fileID: 225755110318102024}
+  - {fileID: 2424929979037009150}
+  - {fileID: 108768178779650675}
+  - {fileID: 5046558698498352049}
+  - {fileID: 6667025861809981814}
+  - {fileID: 6168496259318749265}
+  - {fileID: 5358133188445953753}
+  - {fileID: 6223270685160029365}
+  - {fileID: 8970361190047491652}
+  - {fileID: 591888768840925645}
+  - {fileID: 5382839586072228036}
+  - {fileID: 3403818069876938893}
+  - {fileID: 9096393181366892247}
+  - {fileID: 6980791281611219810}
+  - {fileID: 8944912433044903468}
+  - {fileID: 6398163756850271842}
+  - {fileID: 8371221898333124935}
+  - {fileID: 8643961723253996951}
+  - {fileID: 6389131019100697258}
+  - {fileID: 2206255201145161654}
+  - {fileID: 209682611163308203}
+  - {fileID: 9025986015876377505}
+  - {fileID: 233759023951805084}
+  - {fileID: 3536709822236460847}
+  - {fileID: 2302866762859239545}
+  - {fileID: 2876631235215898317}
+  - {fileID: 3472037311416646857}
+  - {fileID: 3553641356506812458}
+  - {fileID: 6284611012259338413}
+  - {fileID: 8312791879125607313}
+  - {fileID: 3560340598216098658}
+  - {fileID: 3912169764028590485}
+  - {fileID: 748875618440945897}
+  - {fileID: 2995234492067792265}
+  - {fileID: 2849193724382736508}
+  - {fileID: 4211129957092662983}
+  - {fileID: 6728279653319908934}
+  - {fileID: 7331663502289834372}
+  - {fileID: 5930467125268457779}
+  - {fileID: 3878284909933094399}
+  - {fileID: 4408294674554989851}
+  - {fileID: 8405762345590240508}
+  - {fileID: 4827209663761959697}
+  - {fileID: 225755110318102024}
+  - {fileID: 2424929979037009150}
+  - {fileID: 108768178779650675}
+  - {fileID: 5046558698498352049}
+  - {fileID: 6667025861809981814}
+  - {fileID: 6168496259318749265}
+  - {fileID: 5358133188445953753}
+  - {fileID: 6223270685160029365}
+  - {fileID: 8970361190047491652}
+  - {fileID: 591888768840925645}
+  - {fileID: 5382839586072228036}
+  - {fileID: 3403818069876938893}
+  - {fileID: 9096393181366892247}
+  - {fileID: 6980791281611219810}
+  - {fileID: 8944912433044903468}
+  - {fileID: 6398163756850271842}
+  - {fileID: 8371221898333124935}
+  - {fileID: 8643961723253996951}
+  - {fileID: 6389131019100697258}
+  - {fileID: 2206255201145161654}
+  - {fileID: 209682611163308203}
+  - {fileID: 9025986015876377505}
+  - {fileID: 233759023951805084}
+  - {fileID: 3536709822236460847}
+  - {fileID: 2302866762859239545}
+  - {fileID: 2876631235215898317}
+  - {fileID: 3472037311416646857}
+  - {fileID: 3553641356506812458}
+  - {fileID: 6284611012259338413}
+  - {fileID: 8312791879125607313}
+  - {fileID: 3560340598216098658}
+  - {fileID: 3912169764028590485}
+  - {fileID: 748875618440945897}
+  - {fileID: 2995234492067792265}
+  - {fileID: 2849193724382736508}
+  - {fileID: 4211129957092662983}
+  - {fileID: 6728279653319908934}
+  - {fileID: 7331663502289834372}
+  - {fileID: 5930467125268457779}
+  - {fileID: 3878284909933094399}
+  - {fileID: 4408294674554989851}
+  - {fileID: 8405762345590240508}
+  - {fileID: 4827209663761959697}
+  - {fileID: 225755110318102024}
+  - {fileID: 2424929979037009150}
+  - {fileID: 108768178779650675}
+  - {fileID: 5046558698498352049}
+  - {fileID: 6667025861809981814}
+  - {fileID: 6168496259318749265}
+  - {fileID: 5358133188445953753}
+  - {fileID: 6223270685160029365}
+  - {fileID: 8970361190047491652}
+  - {fileID: 591888768840925645}
+  - {fileID: 5382839586072228036}
+  - {fileID: 3403818069876938893}
+  - {fileID: 9096393181366892247}
+  - {fileID: 6980791281611219810}
+  - {fileID: 8944912433044903468}
+  - {fileID: 6398163756850271842}
+  - {fileID: 8371221898333124935}
+  - {fileID: 8643961723253996951}
+  - {fileID: 6389131019100697258}
+  - {fileID: 2206255201145161654}
+  - {fileID: 209682611163308203}
+  - {fileID: 9025986015876377505}
+  - {fileID: 233759023951805084}
+  - {fileID: 3536709822236460847}
+  - {fileID: 2302866762859239545}
+  - {fileID: 2876631235215898317}
+  - {fileID: 3472037311416646857}
+  - {fileID: 3553641356506812458}
+  - {fileID: 6284611012259338413}
+  - {fileID: 8312791879125607313}
+  - {fileID: 3560340598216098658}
+  - {fileID: 3912169764028590485}
+  - {fileID: 748875618440945897}
+  - {fileID: 2995234492067792265}
+  - {fileID: 2849193724382736508}
+  - {fileID: 4211129957092662983}
+  - {fileID: 6728279653319908934}
+  - {fileID: 7331663502289834372}
+  - {fileID: 5930467125268457779}
+  - {fileID: 3878284909933094399}
+  - {fileID: 4408294674554989851}
+  - {fileID: 8405762345590240508}
+  - {fileID: 4827209663761959697}
+  - {fileID: 225755110318102024}
+  - {fileID: 2424929979037009150}
+  - {fileID: 108768178779650675}
+  - {fileID: 5046558698498352049}
+  - {fileID: 6667025861809981814}
+  - {fileID: 6168496259318749265}
+  - {fileID: 5358133188445953753}
+  - {fileID: 6223270685160029365}
+  - {fileID: 8970361190047491652}
+  - {fileID: 591888768840925645}
+  - {fileID: 5382839586072228036}
+  - {fileID: 3403818069876938893}
+  - {fileID: 9096393181366892247}
+  - {fileID: 6980791281611219810}
+  - {fileID: 8944912433044903468}
+  - {fileID: 6398163756850271842}
+  - {fileID: 8371221898333124935}
+  - {fileID: 8643961723253996951}
+  - {fileID: 6389131019100697258}
+  - {fileID: 2206255201145161654}
+  - {fileID: 209682611163308203}
+  - {fileID: 9025986015876377505}
+  - {fileID: 233759023951805084}
+  - {fileID: 3536709822236460847}
+  - {fileID: 2302866762859239545}
+  - {fileID: 2876631235215898317}
+  - {fileID: 3472037311416646857}
+  - {fileID: 3553641356506812458}
+  - {fileID: 6284611012259338413}
+  - {fileID: 8312791879125607313}
+  - {fileID: 3560340598216098658}
+  - {fileID: 3912169764028590485}
+  - {fileID: 748875618440945897}
+  - {fileID: 2995234492067792265}
+  - {fileID: 2849193724382736508}
+  - {fileID: 4211129957092662983}
+  - {fileID: 6728279653319908934}
+  - {fileID: 7331663502289834372}
+  - {fileID: 5930467125268457779}
+  - {fileID: 3878284909933094399}
+  - {fileID: 4408294674554989851}
+  - {fileID: 8405762345590240508}
+  - {fileID: 4827209663761959697}
+  - {fileID: 225755110318102024}
+  - {fileID: 2424929979037009150}
+  - {fileID: 108768178779650675}
+  - {fileID: 5046558698498352049}
+  - {fileID: 6667025861809981814}
+  - {fileID: 6168496259318749265}
+  - {fileID: 5358133188445953753}
+  - {fileID: 6223270685160029365}
+  - {fileID: 8970361190047491652}
+  - {fileID: 591888768840925645}
+  - {fileID: 5382839586072228036}
+  - {fileID: 3403818069876938893}
+  - {fileID: 9096393181366892247}
+  - {fileID: 6980791281611219810}
+  - {fileID: 8944912433044903468}
+  - {fileID: 6398163756850271842}
+  - {fileID: 8371221898333124935}
+  - {fileID: 8643961723253996951}
+  - {fileID: 6389131019100697258}
+  - {fileID: 2206255201145161654}
+  - {fileID: 209682611163308203}
+  - {fileID: 9025986015876377505}
+  - {fileID: 233759023951805084}
+  - {fileID: 3536709822236460847}
+  - {fileID: 2302866762859239545}
+  - {fileID: 2876631235215898317}
+  - {fileID: 3472037311416646857}
+  - {fileID: 3553641356506812458}
+  - {fileID: 6284611012259338413}
+  - {fileID: 8312791879125607313}
+  - {fileID: 3560340598216098658}
+  - {fileID: 3912169764028590485}
+  - {fileID: 748875618440945897}
+  - {fileID: 2995234492067792265}
+  - {fileID: 2849193724382736508}
+  - {fileID: 4211129957092662983}
+  - {fileID: 6728279653319908934}
+  - {fileID: 7331663502289834372}
+  - {fileID: 5930467125268457779}
+  - {fileID: 3878284909933094399}
+  - {fileID: 4408294674554989851}
+  - {fileID: 8405762345590240508}
+  - {fileID: 4827209663761959697}
+  - {fileID: 225755110318102024}
+  - {fileID: 2424929979037009150}
+  - {fileID: 108768178779650675}
+  - {fileID: 5046558698498352049}
+  - {fileID: 6667025861809981814}
+  - {fileID: 6168496259318749265}
+  - {fileID: 5358133188445953753}
+  - {fileID: 6223270685160029365}
+  - {fileID: 8970361190047491652}
+  - {fileID: 591888768840925645}
+  - {fileID: 5382839586072228036}
+  - {fileID: 3403818069876938893}
+  - {fileID: 9096393181366892247}
+  - {fileID: 6980791281611219810}
+  - {fileID: 8944912433044903468}
+  - {fileID: 6398163756850271842}
+  - {fileID: 8371221898333124935}
+  - {fileID: 8643961723253996951}
+  - {fileID: 6389131019100697258}
+  - {fileID: 2206255201145161654}
+  - {fileID: 209682611163308203}
+  - {fileID: 9025986015876377505}
+  - {fileID: 233759023951805084}
+  - {fileID: 3536709822236460847}
+  - {fileID: 2302866762859239545}
+  - {fileID: 2876631235215898317}
+  - {fileID: 3472037311416646857}
+  - {fileID: 3553641356506812458}
+  - {fileID: 6284611012259338413}
+  - {fileID: 8312791879125607313}
+  - {fileID: 3560340598216098658}
+  - {fileID: 3912169764028590485}
+  - {fileID: 748875618440945897}
+  - {fileID: 2995234492067792265}
+  - {fileID: 2849193724382736508}
+  - {fileID: 4211129957092662983}
+  - {fileID: 6728279653319908934}
+  - {fileID: 7331663502289834372}
+  - {fileID: 5930467125268457779}
+  - {fileID: 3878284909933094399}
+  - {fileID: 4408294674554989851}
+  - {fileID: 8405762345590240508}
+  - {fileID: 4827209663761959697}
+  - {fileID: 225755110318102024}
+  - {fileID: 2424929979037009150}
+  - {fileID: 108768178779650675}
+  - {fileID: 5046558698498352049}
+  - {fileID: 6667025861809981814}
+  - {fileID: 6168496259318749265}
+  - {fileID: 5358133188445953753}
+  - {fileID: 6223270685160029365}
+  - {fileID: 8970361190047491652}
+  - {fileID: 591888768840925645}
+  - {fileID: 5382839586072228036}
+  - {fileID: 3403818069876938893}
+  - {fileID: 9096393181366892247}
+  - {fileID: 6980791281611219810}
+  - {fileID: 8944912433044903468}
+  - {fileID: 6398163756850271842}
+  - {fileID: 8371221898333124935}
+  - {fileID: 8643961723253996951}
+  - {fileID: 6389131019100697258}
+  - {fileID: 2206255201145161654}
+  - {fileID: 209682611163308203}
+  - {fileID: 9025986015876377505}
+  - {fileID: 233759023951805084}
+  - {fileID: 3536709822236460847}
+  - {fileID: 2302866762859239545}
+  - {fileID: 2876631235215898317}
+  - {fileID: 3472037311416646857}
+  - {fileID: 3553641356506812458}
+  - {fileID: 6284611012259338413}
+  - {fileID: 8312791879125607313}
+  - {fileID: 3560340598216098658}
+  - {fileID: 3912169764028590485}
+  - {fileID: 748875618440945897}
+  - {fileID: 2995234492067792265}
+  - {fileID: 2849193724382736508}
+  - {fileID: 4211129957092662983}
+  - {fileID: 6728279653319908934}
+  - {fileID: 7331663502289834372}
+  - {fileID: 5930467125268457779}
+  - {fileID: 3878284909933094399}
+  - {fileID: 4408294674554989851}
+  - {fileID: 8405762345590240508}
+  - {fileID: 4827209663761959697}
+  - {fileID: 225755110318102024}
+  - {fileID: 2424929979037009150}
+  - {fileID: 108768178779650675}
+  - {fileID: 5046558698498352049}
+  - {fileID: 6667025861809981814}
+  - {fileID: 6168496259318749265}
+  - {fileID: 5358133188445953753}
+  - {fileID: 6223270685160029365}
+  - {fileID: 8970361190047491652}
+  - {fileID: 591888768840925645}
+  - {fileID: 5382839586072228036}
+  - {fileID: 3403818069876938893}
+  - {fileID: 9096393181366892247}
+  - {fileID: 6980791281611219810}
+  - {fileID: 8944912433044903468}
+  - {fileID: 6398163756850271842}
+  - {fileID: 8371221898333124935}
+  - {fileID: 8643961723253996951}
+  - {fileID: 6389131019100697258}
+  - {fileID: 2206255201145161654}
+  - {fileID: 209682611163308203}
+  - {fileID: 9025986015876377505}
+  - {fileID: 233759023951805084}
+  - {fileID: 3536709822236460847}
+  - {fileID: 2302866762859239545}
+  - {fileID: 2876631235215898317}
+  - {fileID: 3472037311416646857}
+  - {fileID: 3553641356506812458}
+  - {fileID: 6284611012259338413}
+  - {fileID: 8312791879125607313}
+  - {fileID: 3560340598216098658}
+  - {fileID: 3912169764028590485}
+  - {fileID: 748875618440945897}
+  - {fileID: 2995234492067792265}
+  - {fileID: 2849193724382736508}
+  - {fileID: 4211129957092662983}
+  - {fileID: 6728279653319908934}
+  - {fileID: 7331663502289834372}
+  - {fileID: 5930467125268457779}
+  - {fileID: 3878284909933094399}
+  - {fileID: 4408294674554989851}
+  - {fileID: 8405762345590240508}
+  - {fileID: 4827209663761959697}
+  - {fileID: 225755110318102024}
+  - {fileID: 2424929979037009150}
+  - {fileID: 108768178779650675}
+  - {fileID: 5046558698498352049}
+  - {fileID: 6667025861809981814}
+  - {fileID: 6168496259318749265}
+  - {fileID: 5358133188445953753}
+  - {fileID: 6223270685160029365}
+  - {fileID: 8970361190047491652}
+  - {fileID: 591888768840925645}
+  - {fileID: 5382839586072228036}
+  - {fileID: 3403818069876938893}
+  - {fileID: 9096393181366892247}
+  - {fileID: 6980791281611219810}
+  - {fileID: 8944912433044903468}
+  - {fileID: 6398163756850271842}
+  - {fileID: 8371221898333124935}
+  - {fileID: 8643961723253996951}
+  - {fileID: 6389131019100697258}
+  - {fileID: 2206255201145161654}
+  - {fileID: 209682611163308203}
+  - {fileID: 9025986015876377505}
+  - {fileID: 233759023951805084}
+  - {fileID: 3536709822236460847}
+  - {fileID: 2302866762859239545}
+  - {fileID: 2876631235215898317}
+  - {fileID: 3472037311416646857}
+  - {fileID: 3553641356506812458}
+  - {fileID: 6284611012259338413}
+  - {fileID: 8312791879125607313}
+  - {fileID: 3560340598216098658}
+  - {fileID: 3912169764028590485}
+  - {fileID: 748875618440945897}
+  - {fileID: 2995234492067792265}
+  - {fileID: 2849193724382736508}
+--- !u!114 &-3675957862781613844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226027138960988837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1288623270, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeReference:
+    assemblyName: umod-compiled-5d15b47f-d1a4-4a8f-872d-9d03a62cfd55, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    scriptName: ChatGptMod.GptSettingsBinder
+    isMonobehaviour: 1
+  instance:
+    behaviour: {fileID: -3675957862781613844}
+    scriptable: {fileID: 0}
+    reference:
+      assemblyName: umod-compiled-5d15b47f-d1a4-4a8f-872d-9d03a62cfd55, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      scriptName: ChatGptMod.GptSettingsBinder
+      isMonobehaviour: 1
+    instanceMembers:
+    - memberName: modToggle
+      memberLink:
+        rid: 4791127567586820280
+    - memberName: api
+      memberLink:
+        rid: 4791127567586820281
+    - memberName: model
+      memberLink:
+        rid: 4791127567586820282
+    - memberName: temperature
+      memberLink:
+        rid: 4791127567586820283
+    - memberName: maxTokens
+      memberLink:
+        rid: 4791127567586820284
+    - memberName: topP
+      memberLink:
+        rid: 4791127567586820285
+    - memberName: frequencyPenalty
+      memberLink:
+        rid: 4791127567586820286
+    - memberName: presencePenalty
+      memberLink:
+        rid: 4791127567586820287
+    - memberName: stopSequences
+      memberLink:
+        rid: 4791127567586820288
+    - memberName: resetDefaultsBtn
+      memberLink:
+        rid: 4791127567586820289
+  deserializeInstance: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 4791127567586820280
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -3675957862781613844}
+        scriptable: {fileID: 0}
+        linkType: 4
+        value: {fileID: 5358133188445953753}
+        behaviourID: -22164
+    - rid: 4791127567586820281
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -3675957862781613844}
+        scriptable: {fileID: 0}
+        linkType: 4
+        value: {fileID: 2849193724382736508}
+        behaviourID: -30840
+    - rid: 4791127567586820282
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -3675957862781613844}
+        scriptable: {fileID: 0}
+        linkType: 4
+        value: {fileID: 9025986015876377505}
+        behaviourID: -17924
+    - rid: 4791127567586820283
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -3675957862781613844}
+        scriptable: {fileID: 0}
+        linkType: 4
+        value: {fileID: 4408294674554989851}
+        behaviourID: 1693
+    - rid: 4791127567586820284
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -3675957862781613844}
+        scriptable: {fileID: 0}
+        linkType: 4
+        value: {fileID: 4827209663761959697}
+        behaviourID: -30119
+    - rid: 4791127567586820285
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -3675957862781613844}
+        scriptable: {fileID: 0}
+        linkType: 4
+        value: {fileID: 3912169764028590485}
+        behaviourID: 97
+    - rid: 4791127567586820286
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -3675957862781613844}
+        scriptable: {fileID: 0}
+        linkType: 4
+        value: {fileID: 748875618440945897}
+        behaviourID: 29278
+    - rid: 4791127567586820287
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -3675957862781613844}
+        scriptable: {fileID: 0}
+        linkType: 4
+        value: {fileID: 8371221898333124935}
+        behaviourID: -31099
+    - rid: 4791127567586820288
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -3675957862781613844}
+        scriptable: {fileID: 0}
+        linkType: 4
+        value: {fileID: 8643961723253996951}
+        behaviourID: 27101
+    - rid: 4791127567586820289
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -3675957862781613844}
+        scriptable: {fileID: 0}
+        linkType: 4
+        value: {fileID: 2995234492067792265}
+        behaviourID: 8435
+--- !u!114 &7813285113697018356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226027138960988837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1354039292, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  links:
+  - linkID: -14538
+    link: {fileID: -3675957862781613844}
+    component: {fileID: 0}
 --- !u!1 &7331663502289834372
 GameObject:
   m_ObjectHideFlags: 0
@@ -4516,6 +6562,7 @@ GameObject:
   - component: {fileID: 480143557407907771}
   - component: {fileID: 1002535133736128295}
   - component: {fileID: 6293629086003000579}
+  - component: {fileID: 2333888923027005660}
   m_Layer: 5
   m_Name: PresencePenalty
   m_TagString: Untagged
@@ -4702,6 +6749,22 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &2333888923027005660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8371221898333124935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1354039292, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  links:
+  - linkID: -31099
+    link: {fileID: 0}
+    component: {fileID: 1002535133736128295}
 --- !u!1 &8405762345590240508
 GameObject:
   m_ObjectHideFlags: 0
@@ -4872,6 +6935,7 @@ GameObject:
   - component: {fileID: 610383723941922471}
   - component: {fileID: 8766453067758937405}
   - component: {fileID: 8173147221726093471}
+  - component: {fileID: 5420341772208883273}
   m_Layer: 5
   m_Name: Stop
   m_TagString: Untagged
@@ -5058,6 +7122,22 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &5420341772208883273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8643961723253996951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1354039292, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  links:
+  - linkID: 27101
+    link: {fileID: 0}
+    component: {fileID: 8766453067758937405}
 --- !u!1 &8944912433044903468
 GameObject:
   m_ObjectHideFlags: 0
@@ -5364,6 +7444,7 @@ GameObject:
   - component: {fileID: 7794058072439390001}
   - component: {fileID: 5267631258930597536}
   - component: {fileID: 4408545424393152744}
+  - component: {fileID: -3547752962500377544}
   m_Layer: 5
   m_Name: Model
   m_TagString: Untagged
@@ -5550,6 +7631,22 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &-3547752962500377544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9025986015876377505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1354039292, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  links:
+  - linkID: -17924
+    link: {fileID: 0}
+    component: {fileID: 5267631258930597536}
 --- !u!1 &9096393181366892247
 GameObject:
   m_ObjectHideFlags: 0

@@ -150,9 +150,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5397100596716993358}
+  - component: {fileID: -7518674287423034247}
   - component: {fileID: 135333036697979585}
   - component: {fileID: 3045392346337186040}
-  - component: {fileID: 8273403833592541611}
+  - component: {fileID: 5608493958787026126}
+  - component: {fileID: -5982321034934864400}
+  - component: {fileID: -6919250460859194395}
+  - component: {fileID: -7365607638489677906}
   m_Layer: 0
   m_Name: GptBar
   m_TagString: Untagged
@@ -180,6 +184,18 @@ RectTransform:
   m_AnchoredPosition: {x: 224, y: 0}
   m_SizeDelta: {x: 222, y: 40}
   m_Pivot: {x: 1, y: 1}
+--- !u!114 &-7518674287423034247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824405071445049936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1914845131, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &135333036697979585
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -218,7 +234,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8273403833592541611
+--- !u!114 &5608493958787026126
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,50 +243,724 @@ MonoBehaviour:
   m_GameObject: {fileID: 1824405071445049936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 237544033, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 3045392346337186040}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI.Phone.PhoneMenuManager, Assembly-CSharp
-        m_MethodName: SwitchView
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 13
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  modIdentity:
+    modName: ChatGptMod
+    modVersion: 1.0.0
+    modIdentifier:
+      friendlyIdentifier: B?Ubta%%
+      identifier: 423f556274612525
+  objectIdentifier:
+    friendlyIdentifier: "\xAE\x7Fk/"
+    identifier: ae7f6b2f00000000
+--- !u!114 &-5982321034934864400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824405071445049936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 356042127, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dependencies:
+  - {fileID: 1778475799072694221}
+  - {fileID: 1778475799072694221}
+  - {fileID: 1778475799072694221}
+  - {fileID: 1778475799072694221}
+  - {fileID: 1778475799072694221}
+  - {fileID: 1778475799072694221}
+  - {fileID: 1778475799072694221}
+  - {fileID: 1778475799072694221}
+  - {fileID: 1778475799072694221}
+--- !u!114 &-6919250460859194395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824405071445049936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1288623270, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeReference:
+    assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    scriptName: UnityEngine.UI.Button
+    isMonobehaviour: 1
+  instance:
+    behaviour: {fileID: -6919250460859194395}
+    scriptable: {fileID: 0}
+    reference:
+      assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+      scriptName: UnityEngine.UI.Button
+      isMonobehaviour: 1
+    instanceMembers:
+    - memberName: m_OnClick
+      memberLink:
+        rid: 4791127567586820096
+    - memberName: m_CurrentIndex
+      memberLink:
+        rid: 4791127567586820097
+    - memberName: m_Navigation
+      memberLink:
+        rid: 4791127567586820098
+    - memberName: m_Transition
+      memberLink:
+        rid: 4791127567586820099
+    - memberName: m_Colors
+      memberLink:
+        rid: 4791127567586820100
+    - memberName: m_SpriteState
+      memberLink:
+        rid: 4791127567586820101
+    - memberName: m_AnimationTriggers
+      memberLink:
+        rid: 4791127567586820102
+    - memberName: m_Interactable
+      memberLink:
+        rid: 4791127567586820103
+    - memberName: m_TargetGraphic
+      memberLink:
+        rid: 4791127567586820104
+    - memberName: m_CurrentIndex
+      memberLink:
+        rid: 4791127567586820105
+  deserializeInstance: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 4791127567586820096
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          scriptName: UnityEngine.UI.Button+ButtonClickedEvent
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_PersistentCalls
+          memberLink:
+            rid: 4791127567586820106
+    - rid: 4791127567586820097
+      type: {class: TypeHandler_PrimitiveIntV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: -1
+    - rid: 4791127567586820098
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          scriptName: UnityEngine.UI.Navigation
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_Mode
+          memberLink:
+            rid: 4791127567586820107
+        - memberName: m_WrapAround
+          memberLink:
+            rid: 4791127567586820108
+    - rid: 4791127567586820099
+      type: {class: TypeHandler_PrimitiveEnumV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        enumValue: 1
+    - rid: 4791127567586820100
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          scriptName: UnityEngine.UI.ColorBlock
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_NormalColor
+          memberLink:
+            rid: 4791127567586820109
+        - memberName: m_HighlightedColor
+          memberLink:
+            rid: 4791127567586820110
+        - memberName: m_PressedColor
+          memberLink:
+            rid: 4791127567586820111
+        - memberName: m_SelectedColor
+          memberLink:
+            rid: 4791127567586820112
+        - memberName: m_DisabledColor
+          memberLink:
+            rid: 4791127567586820113
+        - memberName: m_ColorMultiplier
+          memberLink:
+            rid: 4791127567586820114
+        - memberName: m_FadeDuration
+          memberLink:
+            rid: 4791127567586820115
+    - rid: 4791127567586820101
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          scriptName: UnityEngine.UI.SpriteState
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_HighlightedSprite
+          memberLink:
+            rid: 4791127567586820116
+        - memberName: m_PressedSprite
+          memberLink:
+            rid: 4791127567586820117
+        - memberName: m_SelectedSprite
+          memberLink:
+            rid: 4791127567586820118
+        - memberName: m_DisabledSprite
+          memberLink:
+            rid: 4791127567586820119
+    - rid: 4791127567586820102
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          scriptName: UnityEngine.UI.AnimationTriggers
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_NormalTrigger
+          memberLink:
+            rid: 4791127567586820120
+        - memberName: m_HighlightedTrigger
+          memberLink:
+            rid: 4791127567586820121
+        - memberName: m_PressedTrigger
+          memberLink:
+            rid: 4791127567586820122
+        - memberName: m_SelectedTrigger
+          memberLink:
+            rid: 4791127567586820123
+        - memberName: m_DisabledTrigger
+          memberLink:
+            rid: 4791127567586820124
+    - rid: 4791127567586820103
+      type: {class: TypeHandler_PrimitiveBoolV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820104
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        linkType: 4
+        value: {fileID: 1824405071445049936}
+        behaviourID: 8968
+    - rid: 4791127567586820105
+      type: {class: TypeHandler_PrimitiveIntV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: -1
+    - rid: 4791127567586820106
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Events.PersistentCallGroup
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_Calls
+          memberLink:
+            rid: 4791127567586820125
+    - rid: 4791127567586820107
+      type: {class: TypeHandler_PrimitiveEnumV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        enumValue: 3
+    - rid: 4791127567586820108
+      type: {class: TypeHandler_PrimitiveBoolV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 0
+    - rid: 4791127567586820109
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Color
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: r
+          memberLink:
+            rid: 4791127567586820126
+        - memberName: g
+          memberLink:
+            rid: 4791127567586820127
+        - memberName: b
+          memberLink:
+            rid: 4791127567586820128
+        - memberName: a
+          memberLink:
+            rid: 4791127567586820129
+    - rid: 4791127567586820110
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Color
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: r
+          memberLink:
+            rid: 4791127567586820130
+        - memberName: g
+          memberLink:
+            rid: 4791127567586820131
+        - memberName: b
+          memberLink:
+            rid: 4791127567586820132
+        - memberName: a
+          memberLink:
+            rid: 4791127567586820133
+    - rid: 4791127567586820111
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Color
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: r
+          memberLink:
+            rid: 4791127567586820134
+        - memberName: g
+          memberLink:
+            rid: 4791127567586820135
+        - memberName: b
+          memberLink:
+            rid: 4791127567586820136
+        - memberName: a
+          memberLink:
+            rid: 4791127567586820137
+    - rid: 4791127567586820112
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Color
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: r
+          memberLink:
+            rid: 4791127567586820138
+        - memberName: g
+          memberLink:
+            rid: 4791127567586820139
+        - memberName: b
+          memberLink:
+            rid: 4791127567586820140
+        - memberName: a
+          memberLink:
+            rid: 4791127567586820141
+    - rid: 4791127567586820113
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Color
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: r
+          memberLink:
+            rid: 4791127567586820142
+        - memberName: g
+          memberLink:
+            rid: 4791127567586820143
+        - memberName: b
+          memberLink:
+            rid: 4791127567586820144
+        - memberName: a
+          memberLink:
+            rid: 4791127567586820145
+    - rid: 4791127567586820114
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820115
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 0.10000000149011612
+    - rid: 4791127567586820116
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        linkType: 1
+        value: {fileID: 0}
+        behaviourID: -1
+    - rid: 4791127567586820117
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        linkType: 1
+        value: {fileID: 0}
+        behaviourID: -1
+    - rid: 4791127567586820118
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        linkType: 1
+        value: {fileID: 0}
+        behaviourID: -1
+    - rid: 4791127567586820119
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        linkType: 1
+        value: {fileID: 0}
+        behaviourID: -1
+    - rid: 4791127567586820120
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: Normal
+    - rid: 4791127567586820121
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: Highlighted
+    - rid: 4791127567586820122
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: Pressed
+    - rid: 4791127567586820123
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: Selected
+    - rid: 4791127567586820124
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: Disabled
+    - rid: 4791127567586820125
+      type: {class: LinkArrayV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        arrayLength: 1
+        elementLinks:
+        - rid: 4791127567586820146
+    - rid: 4791127567586820126
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820127
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820128
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820129
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820130
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820131
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820132
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820133
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820134
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820135
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820136
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820137
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820138
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820139
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820140
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 0.9607843160629272
+    - rid: 4791127567586820141
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 1
+    - rid: 4791127567586820142
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820143
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820144
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 0.7843137383460999
+    - rid: 4791127567586820145
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 0.501960813999176
+    - rid: 4791127567586820146
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Events.PersistentCall
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_Target
+          memberLink:
+            rid: 4791127567586820147
+        - memberName: m_TargetAssemblyTypeName
+          memberLink:
+            rid: 4791127567586820148
+        - memberName: m_MethodName
+          memberLink:
+            rid: 4791127567586820149
+        - memberName: m_Mode
+          memberLink:
+            rid: 4791127567586820150
+        - memberName: m_Arguments
+          memberLink:
+            rid: 4791127567586820151
+        - memberName: m_CallState
+          memberLink:
+            rid: 4791127567586820152
+    - rid: 4791127567586820147
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        linkType: 1
+        value: {fileID: 0}
+        behaviourID: -1
+    - rid: 4791127567586820148
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: UI.Phone.PhoneMenuManager, Assembly-CSharp
+    - rid: 4791127567586820149
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: SwitchView
+    - rid: 4791127567586820150
+      type: {class: TypeHandler_PrimitiveEnumV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        enumValue: 3
+    - rid: 4791127567586820151
+      type: {class: LinkInstanceV2, ns: UMod.Shared.Linker, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        reference:
+          assemblyName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          scriptName: UnityEngine.Events.ArgumentCache
+          isMonobehaviour: 0
+        instanceMembers:
+        - memberName: m_ObjectArgument
+          memberLink:
+            rid: 4791127567586820153
+        - memberName: m_ObjectArgumentAssemblyTypeName
+          memberLink:
+            rid: 4791127567586820154
+        - memberName: m_IntArgument
+          memberLink:
+            rid: 4791127567586820155
+        - memberName: m_FloatArgument
+          memberLink:
+            rid: 4791127567586820156
+        - memberName: m_StringArgument
+          memberLink:
+            rid: 4791127567586820157
+        - memberName: m_BoolArgument
+          memberLink:
+            rid: 4791127567586820158
+    - rid: 4791127567586820152
+      type: {class: TypeHandler_PrimitiveEnumV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        enumValue: 2
+    - rid: 4791127567586820153
+      type: {class: TypeHandler_UnityObjectV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        linkType: 1
+        value: {fileID: 0}
+        behaviourID: -1
+    - rid: 4791127567586820154
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: UnityEngine.Object, UnityEngine
+    - rid: 4791127567586820155
+      type: {class: TypeHandler_PrimitiveIntV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 13
+    - rid: 4791127567586820156
+      type: {class: TypeHandler_PrimitiveDecimalV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 0
+    - rid: 4791127567586820157
+      type: {class: TypeHandler_PrimitiveStringV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 
+    - rid: 4791127567586820158
+      type: {class: TypeHandler_PrimitiveBoolV2, ns: UMod.Shared.Linker.TypeHandler, asm: UMod-Shared}
+      data:
+        behaviour: {fileID: -6919250460859194395}
+        scriptable: {fileID: 0}
+        value: 0
+--- !u!114 &-7365607638489677906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824405071445049936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1354039292, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  links:
+  - linkID: -13110
+    link: {fileID: -6919250460859194395}
+    component: {fileID: 0}
+  - linkID: 8968
+    link: {fileID: 0}
+    component: {fileID: 3045392346337186040}
