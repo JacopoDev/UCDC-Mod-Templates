@@ -1,0 +1,494 @@
+Key,Id,Shared Comments,English(en),English(en) Comments,Polish(pl),Polish(pl) Comments
+"PhoneUI/PhoneUI/OutLayer/Screen/MainView/MessagesIcon/Text (TMP)",6044372463616,"","Messages","","Wiadomości",""
+"PhoneUI/PhoneUI/OutLayer/Screen/MainView/VirtualHome/Text (TMP)",6134688411648,"","Kohaku's 
+Room","","Pokój Kohaku",""
+"PhoneUI/PhoneUI/OutLayer/Screen/MainView/QuitApplication/Text (TMP)",6598217723904,"","Quit","","Wyjście",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ChatView/ChatMask/ChatInput/Text Area/Placeholder",6901193273344,"","Enter text...
+Start with / to enter elevated mode...","","Wpisz tekst...
+Rozpocznij z '/' aby uruchomić tryb podwyższonych uprawnień...",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ChatView/NewAttachmentPanel/ImageFile/Text",8650188681216,"","Image File","","Plik obrazka",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ChatView/NewAttachmentPanel/Screen/Text",8718392258560,"","Screenshot","","Zrzut ekranu",""
+"PhoneUI/PhoneUI/OutLayer/Screen/QuitView/ExitConfirmText",8892715921408,"","Do you really want to quit?","","Czy na pewno chcesz wyjść?",""
+"PhoneUI/PhoneUI/OutLayer/Screen/QuitView/GoBackBtn/Text",9207129337856,"","Return","","Powrót",""
+"PhoneUI/PhoneUI/OutLayer/Screen/QuitView/ExitBtn/Text",9270085840896,"","Quit","","Wyjście",""
+"PhoneUI/PhoneUI/OutLayer/Screen/MenuView/MenuGrid/MessagesIcon/Text (TMP)",10516981116928,"","Messages","","Wiadomości",""
+"PhoneUI/PhoneUI/OutLayer/Screen/MenuView/MenuGrid/VirtualHome/Text (TMP)",10608542773248,"","Kohaku's 
+Room","","Pokój Kohaku",""
+"PhoneUI/PhoneUI/OutLayer/Screen/MenuView/MenuGrid/Reminders/Text (TMP)",11426926981120,"","Reminders","","Kalendarz",""
+"PhoneUI/PhoneUI/OutLayer/Screen/MenuView/MenuGrid/Memories/Text (TMP)",12137383358464,"","Memories","","Pamięć",""
+"PhoneUI/PhoneUI/OutLayer/Screen/MenuView/MenuGrid/Shop/Text (TMP)",12174117072896,"","Shop","","Sklep",""
+"PhoneUI/PhoneUI/OutLayer/Screen/MenuView/MenuGrid/Wizard/Text (TMP)",12246489788416,"","Wizard
+","","Kreator
+Konfiguracji",""
+"PhoneUI/PhoneUI/OutLayer/Screen/MenuView/MenuGrid/Settings/Text (TMP)",12522126864384,"","Settings","","Ustawienia",""
+"PhoneUI/PhoneUI/OutLayer/Screen/MenuView/MenuGrid/WithList/Text (TMP)",12575948173312,"","Add To
+Wishlist","","Dodaj do
+Wishlisty",""
+"PhoneUI/PhoneUI/OutLayer/Screen/RemindersView/Title",12756047392768,"","Reminders","","Kalendarz",""
+"ReminderItem/Prefab Mode in Context/ReminderItem/EditPanel/Skip/Text",12974411247616,"","Skip
+","","Pomiń",""
+"ReminderItem/Prefab Mode in Context/ReminderItem/EditPanel/Edit/Text",13041977290752,"","Edit","","Edytuj",""
+"ReminderItem/Prefab Mode in Context/ReminderItem/EditPanel/Remove/Text",13077385605120,"","Remove","","Usuń",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewReminder/CalendarController/CalendarBG/TitlePanel/Mondaytext",23765453664256,"","Mon","","Pon",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewReminder/CalendarController/CalendarBG/TitlePanel/TuesdayText",23785607294976,"","Tuesday","","Wt",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewReminder/CalendarController/CalendarBG/TitlePanel/WednesdayText",23808529166336,"","Wed","","Śr",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewReminder/CalendarController/CalendarBG/TitlePanel/ThursdayText",23872295170048,"","Thu","","Czw",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewReminder/CalendarController/CalendarBG/TitlePanel/FridayText",23896915734528,"","Fri","","Pt",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewReminder/CalendarController/CalendarBG/TitlePanel/SaturdayText",23954239287296,"","Sat","","Sob",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewReminder/CalendarController/CalendarBG/TitlePanel/SundayText",23981070249984,"","Sun
+","","Ndz",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewReminder/CalendarController/CalendarBG/YearText",24055032606720,"","Year","","Rok",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewReminder/CalendarController/CalendarBG/MonthText",24079581868032,"","Month","","Mies.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewReminder/RemindDays (1)/Text Area/Placeholder",24829645058048,"","Hour","","Godzina ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewReminder/Repeat",25349550010368,"","None","","Brak",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewReminder/Repeat 1",25382055866368,"","Weekly","","Tygodniowo",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewReminder/Repeat 2",25418529533952,"","Monthly","","Miesięcznie",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewReminder/Repeat 3",25441430433792,"","Annually","","Rocznie",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewReminder/TitleInput/Text Area/Placeholder",25845266411520,"","Event title...","","Tytuł zdarzenia...",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewReminder/DateInput/Text Area/Placeholder",26021930496000,"","Select Date with button
+","","Wybierz datę przyciskiem...",""
+"PhoneUI/PhoneUI/OutLayer/Screen/MemoryView/Title",26233398915072,"","Memory","","Pamięć",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewMemory/TagInput/Text Area/Placeholder",32229550747648,"","Enter tags (separated by ',')
+","","Wprowadź tagi (oddzielone ',')",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewMemory/ValueInput/Text Area/Placeholder",32385624993792,"","Remembered info...","","Zapamiętane informacje...",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewMemory/Title",32461713862656,"","Add new memory values","","Dodaj nową pamięć",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewMemory/TagsTxt",32582941831168,"","Tags to activate:","","Tagi do aktywacji:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewMemory/ValuesTxt",32663334055936,"","Memory value:","","Pamięć:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/SettingsView/Title",32790773788672,"","Settings","","Ustawienia",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/SettingsView/Scroll View/Viewport/Content/GeneralBar/Text (TMP)",32864199274496,"","<b><size=""11"">General</size></b>
+<i>Terms & Conditions, user name, sound settings</i>
+","","<b><size=""11"">Ustawienia</size></b>
+<i>Warunki użytkowania, nazwa gracza, głośność</i>
+",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/SettingsView/Scroll View/Viewport/Content/TextApiBar/Text (TMP)",34044728078336,"","<b><size=""11"">Text API</size></b>
+<i>Set up OpenAI and HordeAI API keys</i>","","<b><size=""11"">API tekstu</size></b>
+<i>Ustawienia kluczy API do OpenAI i AIHorde</i>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/SettingsView/Scroll View/Viewport/Content/VoiceApiBar/Text (TMP)",38500349800448,"","<b><size=""11"">Voice API</size></b>
+<i>Set up voice API keys</i>","","<b><size=""11"">API głosu</size></b>
+<i>Ustawienia kluczy API do usług głosowych</i>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/SettingsView/Scroll View/Viewport/Content/UIBar/Text (TMP)",38910363987968,"","<b><size=""11"">UI</size></b>
+<i>Skin and theme, font sizes</i>
+","","<b><size=""11"">Interfejs</size></b>
+<i>Wygląd postaci, motyw UI, rozmiary czcionek</i>
+",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/SettingsView/Scroll View/Viewport/Content/StreamerBar/Text (TMP)",39203596169216,"","<b><size=""11"">Portrait mode</size></b>
+<i>Alternate Unity-Chan display</i>
+","","<b><size=""11"">Tryb Portretu</size></b>
+<i>Alternatywny wygląd Unity-chan</i>
+",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/SettingsView/Scroll View/Viewport/Content/ModsPortBar/Text (TMP)",332698995159040,"","<b><size=""11"">External Control</size></b>
+<i>Set up a connection to control this app from other applications.</i>","","<b><size=""11"">Zewnętrzna komunikacja</size></b>
+<i>Ustawienia połączeń do kontroli poprzez inne aplikacje</i>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/SettingsView/Scroll View/Viewport/Content/ExceptionsBar/Text (TMP)",332805572423680,"","<b><size=""11"">Window Exceptions</size></b>
+<i>Exclude from collisions i.e. for recording apps</i>
+","","<b><size=""11"">Wyjątki okien</size></b>
+<i>Wyłącz kolizje innych aplikacji, np. programy do nagrywania</i>
+",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/SettingsView/Scroll View/Viewport/Content/DefaultsBar/Text (TMP)",333011932180480,"","<b><size=""11"">Restore Defaults</size></b>
+<i>Restore settings, purge save data</i>
+","","<b><size=""11"">Ustawienia domyślne</size></b>
+<i>Przywrócenie ustawień, czyszczenie plików zapisu</i>
+",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/SettingsView/Scroll View/Viewport/Content/CreditsBar/Text (TMP)",333141678780416,"","<b><size=""11"">Credits</size></b>
+<i>Creators, supporters, special thanks</i>
+","","<b><size=""11"">Twórcy gry</size></b>
+<i>Twórcy gry, wspierający, specjalne podziękowania</i>
+",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/GeneralView/Title",334028472086528,"","General Settings","","Ustawienia ogólne",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/GeneralView/Scroll View/Viewport/Content/UserName/Text (TMP)",334769408471040,"","User name: ","","Nazwa użytkownika: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/GeneralView/Scroll View/Viewport/Content/UserName/UserNameInputField/Text Area/Placeholder",334924681605120,"","User Name...
+","","Nazwa użytkownika...",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/GeneralView/Scroll View/Viewport/Content/MasterVolume/Text (TMP)",335081145921536,"","Master volume:","","Głośność ogólna:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/GeneralView/Scroll View/Viewport/Content/VoiceVolume/Text (TMP)",335175576481792,"","Voice volume:","","Głośność głosu:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/GeneralView/Scroll View/Viewport/Content/MusicVolume/Text (TMP)",335242664374272,"","Music volume:","","Głośność muzyki:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/GeneralView/Scroll View/Viewport/Content/GameSfxVolume/Text (TMP)",335305142726656,"","Game sounds volume:","","Głośność dźwięków gry:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/TextApiView/Title",344286510739456,"","Text API Settings","","Ustawienia API tekstu",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/TextApiView/Scroll View/Viewport/Content/Language/Text (TMP)",344367137845248,"","Language: ","","Język: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/TextApiView/Scroll View/Viewport/Content/SelectedLanguageApi/Text (TMP)",344509173755904,"","Text generation: ","","Generowanie tekstu: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/TextApiView/Scroll View/Viewport/Content/Horde API Key/Text (TMP)",344809708220416,"","AI Horde API Key: ","","Klucz API AIHorde: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/TextApiView/Scroll View/Viewport/Content/OpenAI API Key/Text (TMP)",344865500852224,"","OpenAI API Key: ","","Klucz API OpenAI: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/TextApiView/Scroll View/Viewport/Content/SelectedGptMode/Text (TMP)",344926494420992,"","GPT model:","","Model GPT:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/VoiceApiView/Title",346247033286656,"","Voice API Settings","","Ustawienia API głosu",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/VoiceApiView/Scroll View/Viewport/Content/Speech API/Text (TMP)",347027266105344,"","Voice API: ","","API głosu: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/VoiceApiView/Scroll View/Viewport/Content/Speech API/VoiceApiSelection",347069192368128,"","None","","Brak",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/VoiceApiView/Scroll View/Viewport/Content/NoVoiceOptions/NoVoicePitch/Text (TMP)",347573813276672,"","Pitch:","","Ton:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/VoiceApiView/Scroll View/Viewport/Content/GoogleOptions/GoogleApiKey/Text (TMP)",348731579592704,"","API Key:","","Klucz API:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/VoiceApiView/Scroll View/Viewport/Content/GoogleOptions/GooglePitch/Text (TMP)",348760054722560,"","Pitch:","","Ton:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/VoiceApiView/Scroll View/Viewport/Content/GoogleOptions/GoogleApiKey/GoogleApiInputField/Text Area/Placeholder",348871098920960,"","Google Key...","","Klucz Google...",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/VoiceApiView/Scroll View/Viewport/Content/ElevenLabsOptions/ElevenLabsApiKey/Text (TMP)",348968700375040,"","API Key:","","Klucz API:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/VoiceApiView/Scroll View/Viewport/Content/ElevenLabsOptions/ElevenLabsApiKey/ElevenLabsApiInputField/Text Area/Placeholder",349017509490688,"","ElevenLabs  Key...","","Klucz ElevenLabs...",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/VoiceApiView/Scroll View/Viewport/Content/ElevenLabsOptions/ElevenLabsVoiceId/Text (TMP)",349074614939648,"","Voice ID:","","ID głosu:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/VoiceApiView/Scroll View/Viewport/Content/ElevenLabsOptions/ElevenLabsPitch/Text (TMP)",349176083542016,"","Pitch:","","Ton:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/UiView/Title",354733737668608,"","UI Settings","","Ustawienia Interfejsu",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/UiView/Scroll View/Viewport/Content/Title",354801714753536,"","Skin and themes","","Skórka i motyw",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/UiView/Scroll View/Viewport/Content/Character Scale/Text (TMP)",354844458905600,"","Character scale:","","Rozmiar postaci:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/UiView/Scroll View/Viewport/Content/Preferred skin/Text (TMP)",354898250854400,"","Preferred skin: ","","Preferowana skórka: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/UiView/Scroll View/Viewport/Content/Preferred ui theme/Text (TMP)",354950943895552,"","Preferred theme: ","","Preferowany motyw: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/UiView/Scroll View/Viewport/Content/UserTextColor/Text (TMP)",355521537011712,"","User text color: ","","Kolor tekstu użytkownika: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/UiView/Scroll View/Viewport/Content/UnityChanColor/Text (TMP)",355608967278592,"","Unity-Chan text color:","","Kolor tekstu Unity-chan:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/UiView/Scroll View/Viewport/Content/Title (1)",355692236795904,"","UI and font sizes:","","Rozmiar interfejsu i czcionek:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/UiView/Scroll View/Viewport/Content/Global Scale/Text (TMP)",355800856686592,"","Global UI scale
+[50 - 200%]:","","Globalny rozmiar
+[50 - 200%]:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/UiView/Scroll View/Viewport/Content/NewMessagePopUp/Text (TMP)",355978821005312,"","Show new message Popup:","","Pokazuj Pop-up nowej wiadomości:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/UiView/Scroll View/Viewport/Content/PopUpFontSize/Text (TMP)",356998460502016,"","Popup font size:","","Rozmiar czcionki Pop-up:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/UiView/Scroll View/Viewport/Content/PopUpTime/Text (TMP)",357103452319744,"","Popup display time after speech:","","Opóźnienie zanikania Pop-up po wiadomości:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/UiView/Scroll View/Viewport/Content/LogFontSize/Text (TMP)",357223451357184,"","Log entry font size:","","Rozmiar czcionki w aplikacji wiadomości:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/StreamerView/Title",358518350442496,"","Portrait Mode","","Ustawienia Trybu Portretu",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/StreamerView/Scroll View/Viewport/Content/StreamerModeOnDesktopCheckbox/Text (TMP)",358634662686720,"","Use portrait mode on desktop:","","Używaj trybu portretu na pulpicie:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/StreamerView/Scroll View/Viewport/Content/StreamerModeInMinigamesCheckbox/Text (TMP)",358702706880512,"","Use portrai mode in mini games:","","Używaj trybu portretu w minigrach:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/StreamerView/Scroll View/Viewport/Content/PositionX/Text (TMP)",365029017546752,"","Horizontal position:","","Pozycja poziomo:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/StreamerView/Scroll View/Viewport/Content/PositionY/Text (TMP)",365074689323008,"","Vertical position:","","Pozycja pionowo:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/StreamerView/Scroll View/Viewport/Content/Scale/Text (TMP)",365117479612416,"","Scale:","","Rozmiar:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/StreamerView/Scroll View/Viewport/Content/Rotation/Text (TMP)",365144595787776,"","Rotation:","","Obrót:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/ModsAndPort/Title",365737523572736,"","External Control Settings","","Ustawienia Zewnętrznej Komunikacji",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/ModsAndPort/Scroll View/Viewport/Content/PortEnabled/Text (TMP)",366037516972032,"","Enabled:","","Aktywna:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/ModsAndPort/Scroll View/Viewport/Content/PortValue/Text (TMP)",366162414956544,"","Port:","","Port:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/ExceptionsView/Title",366529542385664,"","Collision Exceptions","","Ustawienia wyjątków okien",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/ExceptionsView/Scroll View/Viewport/Content/Position/WindowsExceptedTxt",366658919886848,"","Apps/windows not counted as collisions:","","Okna nie liczone jako kolizje:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/ExceptionsView/Scroll View/Viewport/Content/Position (1)/ToExceptTxt",366710803427328,"","Open Apps/windows:","","Wszystkie okna:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/DefaultsView/Title",372197955497984,"","Restore Defaults","","Ustawienia Domyślne",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/DefaultsView/Scroll View/Viewport/Content/Position/Button/Text (TMP)",372241840500736,"","Reset Position","","Reset Pozycji",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/DefaultsView/Scroll View/Viewport/Content/Position/ResetDefaults/Text (TMP)",372398141239296,"","Default Settings","","Przywróć Ustawienia",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/DefaultsView/Scroll View/Viewport/Content/Position/PurgeSaveData/Text (TMP)",372445641732096,"","Purge Save Data","","Wyczyść Dane Zapisu",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/ConfirmDefaultView/ExitConfirmText",373325149532160,"","Do you really want to reset settings?","","Czy na pewno chcesz przywrócić ustawienia?",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/ConfirmDefaultView/GoBackBtn/Text",373532629168128,"","Go back","","Powrót",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/ConfirmDefaultView/ResetBtn/Text",373569518071808,"","Reset settings","","Przywróć ustawienia",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/ConfirmSavePurgeView/ExitConfirmText",374360404422656,"","Do you really want to purge save data?","","Czy na pewno chcesz wyczyścić dane zapisu?",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/ConfirmSavePurgeView/GoBackBtn/Text",374632031744000,"","Go back","","Powrót",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/ConfirmSavePurgeView/DeleteSaveBtn/Text",374661840662528,"","Delete save data","","Usuń dane zapisu",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/CreditsView/Title",375347575812096,"","Credits","","Twórcy",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/CreditsView/Scroll View/Viewport/Content/GameCreatedByTxt",375394380050432,"","Game created by:","","Gra stworzona przez:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/CreditsView/Scroll View/Viewport/Content/UnityAssets",375470410199040,"","Original Unity-chan assets:","","Oryginalne materiały Unity-chan:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/CreditsView/Scroll View/Viewport/Content/UnityWebsite",375794755727360,"","<color=#1D7CEAFF><link=""https://unity-chan.com/"">Unity-Chan Official Website</link></color>
+","","<color=#1D7CEAFF><link=""https://unity-chan.com/"">Oficjalna strona Unity-chan</link></color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/CreditsView/Scroll View/Viewport/Content/SpecialThanks/Text (TMP)",375901219745792,"","Special Thanks","","Specjalne podziękowania",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/CreditsView/Scroll View/Viewport/Content/ThankTxt",376248516505600,"","Thank <b>You</b> for playing!","","Dziękuję <b>Ci</b> za grę!",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/SpecialThanksView/Title",385519773839360,"","Special Thanks","","Specjalne Podziękowani",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/SpecialThanksView/Scroll View/Viewport/Content/Panel/Info",385598236684288,""," <color=#ffcd5d>💖</color> Thanks to you this project came to life! <color=#ffcd5d>💖</color>",""," <color=#ffcd5d>💖</color> Dzięki Wam ten projekt zaistniał! <color=#ffcd5d>💖</color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Start/WizardPageContent/Title",385890378346496,"","Configuration Wizard 🧙‍","","Kreator Konfiguracji 🧙‍",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Start/WizardPageContent/Description",386834906247168,"","Configuration Wizard will help you get through initial application configuraiton.
+
+You can always move to previous steps using 'back' button, and all options will be open for customisations in 'Settings' app.","","Kreator Konfiguracji pomoże Ci przejść przez wstępne ustawienie aplikacji.
+
+Zawsze możesz cofnąć do poprzedniego kroku używajac przycisku 'cofnij', wszystkie opcję będą dostępne do zmiany w aplikacji 'Ustawienia'.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Start/WizardPageContent/Description (1)",386890975703040,"","Proceed?","","Kontynuować?",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Start/WizardPageContent/NextBtn/Text (TMP)",386937482145792,"","Got It!","","Wszystko Jasne!",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Start/WizardPageContent/BackBtn/Text (TMP)",386997578133504,"","Back","","Cofnij",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Start/WizardPageContent/BackBtn/Text (TMP) 1",387163785818112,"","Back","","Cofnij",""
+"WizardPageContent/Prefab Mode in Context/WizardPageContent/BackBtn/Text (TMP)",387345411764224,"","Back","","Cofnij",""
+"WizardPageContent/Prefab Mode in Context/WizardPageContent/NextBtn/Text (TMP)",387488156512256,"","Got It!","","Dalej!",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Terms/WizardPageContent/Title",390256506204160,"","Terms & Conditions","","Ustawienia Prywatności",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Terms/WizardPageContent/Panel/Info",390653115396096,"","To ensure transparency regarding data usage, below is a list of all features that process user data within the application.
+Some features are optional and can be enabled or disabled via checkboxes in the game’s settings.","","Aby zapewnić przejrzystość w kontekście używania danych przez aplikację, poniżej są wylistowane wszystkie sposoby w jakie dane użytkownika mogą myć przetworzone.
+Niektóre funkcje są opcjonalne i mogą być włączone lub wyłączone poprzez zaznaczenie checkbox'a w ustawieniach gry.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Terms/WizardPageContent/Panel/UserInput",390961811976192,"","<b>1. In-Game Chat Processing</b>: Any data the user inputs through the in-game chat may be read to generate appropriate responses during conversations.","","<b>1. Przetwarzanie czatu w grze</b>: Wszelkie dane wprowadzone przez użytkownika w czacie gry mogą być odczytywane w celu wygenerowania odpowiednich odpowiedzi w trakcie rozmowy.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Terms/WizardPageContent/Panel/Achievements",391172898713600,"","<b>2. Gameplay Tracking</b>: The game may track certain in-game actions to display statistics and unlock achievements.","","<b>2. Śledzenie postępów w grze</b>: Gra może śledzić wybrane działania gracza w celu wyświetlania statystyk i odblokowywania osiągnięć.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Terms/WizardPageContent/Panel/OpenGames",391251067957248,"","<b>3. (Optional) Application Monitoring</b>: The names of currently running applications or games may be accessed so that Unity-chan can comment on what is currently happening on the PC. Only process names are accessed; no additional data is read.","","<b>3. Monitorowanie aplikacji</b>: Nazwy aktualnie uruchomionych aplikacji lub gier mogą być odczytywane, aby Unity-chan mogła komentować to, co dzieje się na komputerze. Odczytywane są wyłącznie nazwy procesów; żadne dodatkowe dane nie są przetwarzane.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Terms/WizardPageContent/Panel/DesktopApps",391315672821760,"","<b>4. (Optional) Desktop File Names</b>: The names of files visible on the desktop may be accessed to allow Unity-chan to comment on what she ""sees."" Only file names are read; no file contents or other data are accessed.","","<b>4. Nazwy plików na pulpicie</b>: Nazwy plików widocznych na pulpicie mogą być odczytywane, by Unity-chan mogła komentować to, co „widzi”. Odczytywane są tylko nazwy plików; zawartość plików ani inne dane nie są przetwarzane.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Terms/WizardPageContent/Panel/UserFacts",391388125229056,"","<b>5. Memory of Shared Facts</b>: Unity-chan can remember facts the user shares about themselves, allowing her to refer to them in future conversations. If disabled, this feature is deactivated and previously stored facts are not used or updated.","","<b>5. Zapamiętywanie udostępnionych faktów</b>: Unity-chan może zapamiętywać fakty, które użytkownik udostępnił na swój temat, aby mogła do nich nawiązywać w przyszłych rozmowach. Po wyłączeniu tej funkcji system przestaje działać, a wcześniej zapisane fakty nie są używane ani aktualizowane.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Terms/WizardPageContent/Panel/Commands",391816527245312,"","<b>6. Elevated Mode</b>: Grants Unity-chan permission to run system commands. This feature is intended for advanced users, as improper use can potentially harm the system. It is disabled by default for safety.","","<b>6. Tryb podwyższonych uprawnień</b>: Umożliwia Unity-chan uruchamianie poleceń systemowych. Funkcja przeznaczona jest dla zaawansowanych użytkowników, ponieważ jej niewłaściwe użycie może zaszkodzić systemowi. Dla bezpieczeństwa funkcja jest domyślnie wyłączona.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/UserName/WizardPageContent/Title",392192122974208,"","User name","","Nazwa użytkownika",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/UserName/WizardPageContent/Description",392278466916352,"","Type in how you'd like to be referred as","","Jak <color=""orange"">Unity-chan</color> ma się do Ciebie zwracać",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/UserName/WizardPageContent/UserName/UserNameInputField/Text Area/Placeholder",392445731565568,"","User Name...
+","","Nazwa użytkownika...
+",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/TextApi/WizardPageContent/Title",398111439351808,"","Text Generation API","","API generowania tekstu",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/TextApi/WizardPageContent/Description",398470358528000,"","Text genereration is needed for <color=""orange"">
+Unity-Chan</color> to be able to think and respond to you.
+
+Currently there are three available options:","","<color=""orange"">Unity-Chan</color> potrzebuje generowania tekstu by mogła Ci odpowiadać.
+
+Obecnie są dostępne trzy opcje:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/TextApi/WizardPageContent/OpenAIBtn/Text (TMP)",406254319857664,"","OpenAI:
+<color=""green"">Fast, more advanced</color>, but <color=""red"">paid</color>","","OpenAI:
+<color=""green"">Szybszy, bardziej zaawansowany</color>,
+ale <color=""red"">płatny</color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/TextApi/WizardPageContent/HordeAiBtn/Text (TMP)",406392991936512,"","HordeAI:
+<color=""red"">MUCH slower, some features are disabled</color>, but <color=""green"">free</color>","","HordeAI:
+<color=""red"">DUŻO wolniejszy, brak niektórych funkcji</color>, ale <color=""green"">darmowy</color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/OpenAi_Links/WizardPageContent/Title",406621568921600,"","OpenAi Links","","Linki OpenAI",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/OpenAi_Links/WizardPageContent/Description",407235447255040,"","Here are helpful links that may be useful during the configuration. OpenAI link is needed for registration, while YouTube link may prove helpful if you get stuck.
+
+Open both and proceed to next step.","","Tutaj możesz znaleźć pomocne linki które mogą pomóc podczas konfiguracji. Link OpenAI jest potrzebny do rejestracji, a link YouTube może pomóc w przypadku trudności.
+
+Otwórz oba z nich i kontynuuj do kolejnego kroku.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/OpenAi_Links/WizardPageContent/OpenAISite/Text (TMP)",407383585878016,"","OpenAI Website
+<color=""blue"">https://openai.com/index/openai-api/</color>","","Strona OpenAI
+<color=""blue"">https://openai.com/index/openai-api/</color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/OpenAi_Links/WizardPageContent/YoutubeOpenAIHelp/Text (TMP)",407417693958144,"","YouTube Tutorial
+<color=""blue"">https://youtu.be/d2SLi7hYUY0</color>","","Poradnik YouTube
+<color=""blue"">https://youtu.be/d2SLi7hYUY0</color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/OpenAi_Account/WizardPageContent/Title",409476031868928,"","OpenAI - Create Account","","OpenAI - Utwórz ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/OpenAi_Account/WizardPageContent/Description",409573037731840,"","Click Sign Up or log in if you already have created the account.","","Naciśnij 'Sign Up' lub 'Log In' jeśli już posiadasz konto",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/OpenAi_Api/WizardPageContent/Title",409848716750848,"","OpenAI - Create API key","","OpenAI - Stwórz klucz API",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/OpenAi_Api/WizardPageContent/Description",409891020500992,"","Click on 'API Keys' tab and create new secret key","","Kliknij zakładkę 'API Keys' i stwórz nowy klucz",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/OpenAi_Billing/WizardPageContent/Title",410233057603584,"","OpenAI - Set up billing","","OpenAI - Ustaw płatności",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/OpenAi_Billing/WizardPageContent/Description",410699007029248,"","Before you can use the API, you need at least minimum amount on your account. Select 'Settings' and 'Billing', set up a payment and add any amount to the account.
+","","Zanim będziesz mógł korzystać z API, potrzebujesz posiadać przynajmniej minimalną wartość na swoim koncie. Wybierz 'Settings' i 'Billing', ustaw płatność i zasil konto dowolną wartością.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/OpenAi_Test/WizardPageContent/Title",411027244871680,"","OpenAI - Paste API and test","","OpenAI - Wklej klucz API i przetestuj",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/OpenAi_Test/WizardPageContent/Description",411364269780992,"","Paste OpenAI Key into the text box below and click 'TEST' to check if everything is correct.","","Wklej klucz OpenAI do rubryki poniżej i naciśnij 'TEST' by sprawdzić czy wszystko jest w porządku. ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/OpenAi_Test/WizardPageContent/OpenAI API Key/Text (TMP)",411536831836160,"","OpenAI API Key: ","","Klucz API OpenAI: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/OpenAi_Test/WizardPageContent/OpenAI API Key/OpenAiInputField/Text Area/Placeholder",411606339842048,"","OpenAI Key...","","Klucz OpenAI...",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/OpenAi_Test/WizardPageContent/OpenAiResultTitle",411714066345984,"","Result:","","Wynik:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/HordeAi_Links/WizardPageContent/Description",411862578262016,"","Here are helpful links that may be useful during the configuration. HordeAI link is needed for registration, while YouTube link may prove helpful if you get stuck.
+
+Open both and proceed to next step.","","Tutaj możesz znaleźć pomocne linki które mogą pomóc podczas konfiguracji. Link AIHorde jest potrzebny do rejestracji, a link YouTube może pomóc w przypadku trudności.
+
+Otwórz oba z nich i kontynuuj do kolejnego kroku.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/HordeAi_Links/WizardPageContent/Title",412155118383104,"","HordeAI Links","","Linki AIHorde",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/HordeAi_Links/WizardPageContent/HordeAISite/Text (TMP)",412252308795392,"","HordeAI Website
+<color=""blue"">https://stablehorde.net/register</color>","","Strona AIHorde
+<color=""blue"">https://stablehorde.net/register</color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/HordeAi_Links/WizardPageContent/YoutubeOpenAIHelp/Text (TMP)",412291353571328,"","YouTube Tutorial
+<color=""blue"">https://youtu.be/TcCtWsd0Xec</color>","","Poradnik YouTube
+<color=""blue"">https://youtu.be/TcCtWsd0Xec</color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/HordeAi_Account/WizardPageContent/Title",421152219230208,"","HordeAI - Create Account","","HordeAI - Utworzenie Konta",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/HordeAi_Account/WizardPageContent/Description",421190240595968,"","Register new account.","","Zarejestruj nowe konto",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/HordeAi_Api/WizardPageContent/Title",421291570786304,"","HordeAI - Create API Key","","AIHorde - Utwórz klucz API",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/HordeAi_Api/WizardPageContent/Description",421332268118016,"","Copy generated API Key to clipboard.","","Skopiuj wygenerowany klucz API do schowka",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/HordeAi_Test/WizardPageContent/Title",421527512969216,"","HordeAI - Paste API and test","","AIHorde - Wklej klucz API i przetestuj",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/HordeAi_Test/WizardPageContent/Description",421643300925440,"","Paste HordeAI Key into the text box below and click 'TEST' to check if everything is correct.","","Wklej klucz AIHorde do rubryki poniżej i naciśnij 'TEST' by sprawdzić czy wszystko jest w porządku. ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/HordeAi_Test/WizardPageContent/HordeResultTitle",421763736170496,"","Result:","","Wynik:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/HordeAi_Test/WizardPageContent/HordeAI API Key/HordeAiInputField/Text Area/Placeholder",421813367369728,"","HordeAI Key...","","Klucz AIHorde...",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/HordeAi_Test/WizardPageContent/HordeAI API Key/Text (TMP)",421859991252992,"","HordeAI API Key: ","","Klucz API AIHorde: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/VoiceApi/WizardPageContent/Title",422674013384704,"","Voice API","","API Głosu",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/VoiceApi/WizardPageContent/Description",425571413422080,"","Next step is to decide how <color=""orange"">Unity-Chan</color> is going to communicate with you; by texting you messages or talking to you using additional text-to-speech API.","","W następnym kroku musisz zdecydować w jaki sposób <color=""orange"">Unity-Chan</color> będzie się z tobą komunikować; poprzez wysyłanie tekstowej wiadomości czy mówiąc dzięki dodatkowemu API głosu",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/VoiceApi/WizardPageContent/NoVoiceApiBtn/Text (TMP)",425671338520576,"","Text Messages
+Free, fastest, less immersive","","Tylko Tekst
+Darmowe, najszybsze, najmniejsza imersja",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/VoiceApi/WizardPageContent/GoogleCloudApiBtn/Text (TMP)",426102303256576,"","Google Cloud API
+Cheap, fast, low customisation","","Google Cloud API
+Tanie, szybkie, mało modyfikacji",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/VoiceApi/WizardPageContent/ElevenLabsApiBn/Text (TMP)",426250383159296,"","ElevenLabs API
+<size=9>Pricey (but has free tokens each month)
+Slower, high quality</size>","","ElevenLabs API
+<size=9>Kosztowne (z darmowymi tokenami każdego miesiąca),
+wolniejsze, wysoka jakość</size>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/GoogleApi_Links/WizardPageContent/Title",426533398016000,"","Google API - Links","","Google API - Linki",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/GoogleApi_Links/WizardPageContent/Description",431815670919168,"","Here are helpful links that may be useful during the configuration. Google Cloud link is needed for registration, while YouTube link may prove helpful if you get stuck.
+
+Open both and proceed to next step.","","Tutaj możesz znaleźć pomocne linki które mogą pomóc podczas konfiguracji. Link Google Cloud jest potrzebny do rejestracji, a link YouTube może pomóc w przypadku trudności.
+
+Otwórz oba z nich i kontynuuj do kolejnego kroku.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Elevenapi_Links/WizardPageContent/Description",432134375108608,"","Here are helpful links that may be useful during the configuration. ElevenLabs link is needed for registration, while YouTube link may prove helpful if you get stuck.
+
+Open both and proceed to next step.","","Tutaj możesz znaleźć pomocne linki które mogą pomóc podczas konfiguracji. Link ElevenLabs jest potrzebny do rejestracji, a link YouTube może pomóc w przypadku trudności.
+
+Otwórz oba z nich i kontynuuj do kolejnego kroku.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/GoogleApi_Links/WizardPageContent/GoogleCloudApiBtn/Text (TMP)",432276696231936,"","Google Cloud API Website
+<color=""blue"">https://console.cloud.google.com</color>","","Strona Google Cloud API
+<color=""blue"">https://console.cloud.google.com</color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/GoogleApi_Links/WizardPageContent/YoutubeOpenAIHelp/Text (TMP)",432328856596480,"","YouTube Tutorial
+<color=""blue"">https://youtu.be/Xz1uWmk2wZg</color>","","Poradnik YouTube
+<color=""blue"">https://youtu.be/Xz1uWmk2wZg</color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/GoogleApi_Account/WizardPageContent/Title",434849050292224,"","Google Cloud - Create Account","","Google Cloud - Utwórz Konto",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/GoogleApi_Account/WizardPageContent/Description",434925407596544,"","Create a new Google account or log in to existing one","","Stwórz nowe konto Google lub zaloguj się do już istniejącego",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/GoogleApi_Project/WizardPageContent/Title",435086720528384,"","Google Cloud - Create Project","","Google Cloud -  Utwórz Projekt",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/GoogleApi_Project/WizardPageContent/Description",435148125138944,"","You need to create a new project. Click on the button show on animation. You can name the project however you want!","","Musisz założyć nowy projekt. Naciśnij na przycisk pokazany na animacji. Możesz nazwać projekt jakkolwiek chcesz!",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/GoogleApi_Payments/WizardPageContent/Title",435608097681408,"","Google Cloud - Set up pay method","","Google Cloud - Ustaw płatności",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/GoogleApi_Payments/WizardPageContent/Description",435665530286080,"","You may need to set up payments in this step, fill needed crenedtials and payment data. 
+
+If no prompt was shown, continue to the next step.","","W tym kroku może być wymagane ustawienie płatności, wypełnij potrzebne dane osobowe i płatnicze. 
+
+Jeśli nie było takiego zapytania, kontynuuj.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/GoogleApi_Api/WizardPageContent/Title",435951527292928,"","Google Cloud - API key","","Google Cloud - Klucz API",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/GoogleApi_Api/WizardPageContent/Description",435984477745152,"","Add text-to-speech to the project, then add new secret key to it.
+
+Copy secret key to clipboard.","","Dodaj 'text-to-speech' to projektu, następnie nadaj klucz do usługi.
+
+Skopiuj klucz API do schowka.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/GoogleApi_Test/WizardPageContent/Description",436416478474240,"","Paste Google Cloud API Key into the text box below and click 'TEST' to check if everything is correct.","","Wklej klucz Google API do rubryki poniżej i naciśnij 'TEST' by sprawdzić czy wszystko jest w porządku. ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/GoogleApi_Test/WizardPageContent/GoogleCloud API Key/Text (TMP)",436535298912256,"","Google Cloud API Key: ","","Klucz API Google Cloud: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/GoogleApi_Test/WizardPageContent/GoogleCloud API Key/GoogleCloudInputField/Text Area/Placeholder",436606337839104,"","Google Cloud Key...","","Klucz Google Cloud...",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/GoogleApi_Test/WizardPageContent/GoogleResultTitle",436699342336000,"","Result:","","Wynik:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Elevenapi_Test/WizardPageContent/Description",441529175666688,"","Paste ElevenLabs API Key into the text box below and click 'TEST' to check if everything is correct.","","Wklej klucz ElevenLabs API do rubryki poniżej i naciśnij 'TEST' by sprawdzić czy wszystko jest w porządku. ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Elevenapi_Test/WizardPageContent/ElevenLabsResultTitle",441611497271296,"","Result:","","Wynik:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Elevenapi_Test/WizardPageContent/ElevenLabs API Key/Text (TMP)",441670930558976,"","ElevenLabs API Key: ","","Klucz API ElevenLabs: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Elevenapi_Links/WizardPageContent/Title",441825239003136,"","ElevenLabs  - Links","","ElevenLabs  - Linki",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Elevenapi_Links/WizardPageContent/ElevenLabsApiBtn/Text (TMP)",441952922005504,"","ElevenLab API Website
+<color=""blue"">https://elevenlabs.io/</color>","","Strona ElevenLabs
+<color=""blue"">https://elevenlabs.io/</color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Elevenapi_Links/WizardPageContent/YoutubeOpenAIHelp/Text (TMP)",442092525219840,"","YouTube Tutorial
+<color=""blue"">https://youtu.be/5BdF-SWhTdA</color>","","Poradnik YouTube
+<color=""blue"">https://youtu.be/5BdF-SWhTdA</color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Elevenapi_Account/WizardPageContent/Title",442203745579008,"","ElevenLabs - Create Account","","ElevenLabs - Utwórz Konto",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Elevenapi_Account/WizardPageContent/Description",442265720614912,"","Create now ElevenLabs account or log in to existing one.","","Utwórz nowe konto ElevenLabs lub zaloguj się na istniejące",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Elevenapi_Api/WizardPageContent/Title",442432263843840,"","ElevenLabs - API","","ElevenLabs - API",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Elevenapi_Api/WizardPageContent/Description",442509120270336,"","Click on your profile and show your API key.
+You will need to paste it later.","","Naciśnij na swój profil by wyświetlić swój klucz API.
+Będziesz go potrzebować później.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Elevenapi_VoiceSelect/WizardPageContent/Title",442790537097216,"","ElevenLabs - Voice Selection","","ElevenLabs - Wybór Głosu",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Elevenapi_VoiceSelect/WizardPageContent/Description",443992935002112,"","Browse one of the preset voices available. Choose the one you want and add it to your lab.","","Możesz przejrzeć dostępne gotowe głosy. Wybierz ten który Ci odpowiada i dodaj go do 'lab'.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Elevenapi_VoiceKey/WizardPageContent/Title",444205527494656,"","ElevenLabs - Voice ID","","ElevenLabs - Voice ID",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Elevenapi_VoiceKey/WizardPageContent/Description",444432175099904,"","Go to your lab and show your voice key, you will need it in the next step.","","Przejdź do 'lab' i wyświetl VoiceID wybranego głosu, będziesz go potrzebować w kolejnym kroku.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Summary/WizardPageContent/Title",444713403183104,"","Summary","","Podsumowanie",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Summary/WizardPageContent/TextApiTitle",444743010775040,"","Text API:","","API Tekstu:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Summary/WizardPageContent/TextApiResultTitle",444801852665856,"","Text API Result: ","","Wynik API Tekstu: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Summary/WizardPageContent/VoiceApiTitle",444848786927616,"","Voice API:","","API Głosu:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Summary/WizardPageContent/VoiceApiResultTitle",444912582291456,"","Voice API Result: ","","Wynik API Głosu: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ShopGroup/ShopCategoryView/Title",660032684060672,"","Item Shop","","Sklep",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ShopGroup/ShopCategoryView/Scroll View/Viewport/Content/ShopTabs/GeneralCategory/Text (TMP)",660160576778240,"","General","","Ogólne",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ShopGroup/ShopCategoryView/Scroll View/Viewport/Content/ShopTabs/VirusOffenseCategory/Text (TMP)",660274829619200,"","Virus Offense","","Virus Offense",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ShopGroup/ShopGeneral/Title",660394493112320,"","Skins and Themes","","Skórki i Motywy",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ShopGroup/ShopVirusOffense/Title",660633857847296,"","Virus Offense Upgrades","","Ulepszenia w Virus Offense",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ShopGroup/ShopDetails/Button/Text (TMP)",662634113036288,"","Buy","","Kup",""
+"PhoneUI/PhoneUI/OutLayer/Screen/UserTextColorPick/Title",666432449572864,"","User Text Color","","Kolor Tekstu Użytkownika",""
+"PhoneUI/PhoneUI/OutLayer/Screen/UnityChanTextColorPick/Title",666667678724096,"","Unity-Chan Text Color","","Kolor Tekstu Unity-chan",""
+"PhoneUI/PhoneUI/OutLayer/Screen/CommandPrompt/Title",666876525703168,"","Unity-Chan wants to use command","","Unity-Chan chce użyć komendy",""
+"PhoneUI/PhoneUI/OutLayer/Screen/CommandPrompt/Warning",667066808692736,"","Be aware that commands may be harmful to your computer. If you are not sure what this command does, <b>do not</b> allow it to run!","","Miej na uwadze że komendy mogą zaszkodzić komputerowi. Jeśli nie jesteś pewien co komenda robi, <b>nie</b> zezwalaj na jej użycie!",""
+"PhoneUI/PhoneUI/OutLayer/Screen/CommandPrompt/Continue",667363585060864,"","Proceed with command?","","Kontynuować z komendą?",""
+"PhoneUI/PhoneUI/OutLayer/Screen/CommandPrompt/OkButton/Text (TMP)",667421378375680,"","OK","","OK",""
+"PhoneUI/PhoneUI/OutLayer/Screen/CommandPrompt/YesButton/Text (TMP)",667481667301376,"","Yes","","Tak",""
+"PhoneUI/PhoneUI/OutLayer/Screen/CommandPrompt/NoButton/Text (TMP)",667501690908672,"","No","","Nie",""
+"Match3Minigame/Prefab Mode in Context/Match3Minigame/MinigameEngine/Match3UiBase/Canvas/ScoresPanelOutline/ScoresPanel/ScoresTitle",1077652411412480,"","SCORES","","WYNIKI",""
+"MinigameManager/MinigameManager/Match3Minigame/MinigameEngine/Match3UiBase/Canvas/ButtonsPanelOutline/ButtonsPanel/SkipMoveTx",1077970561953792,"","Skip","","POMIŃ",""
+"MinigameManager/MinigameManager/Match3Minigame/MinigameEngine/Match3UiBase/Canvas/ButtonsPanelOutline/ButtonsPanel/ResetMoveTxt",1078071325913088,"","Reset","","Reset",""
+"MinigameManager/MinigameManager/Match3Minigame/MinigameEngine/Match3UiBase/Canvas/MovesPanelOutline/MovesPanel/SkipMoveTx",1078138422194176,"","Moves Left","","Pozostało",""
+"Preloader/FullScreenMask/Bg/LoadingSection/Loading",2889255222013952,"","<bounce> Loading... </bounce>","","<bounce> Wczytywanie... </bounce>",""
+"Preloader/FullScreenMask/Bg/Loaded/Text (TMP)",2889337661059072,"","Continue","","Kontynuuj",""
+"Phone/Settings/AiLanguageTitle",4406210286350336,"","AI Language:","","Język AI:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/TextApiView/Scroll View/Viewport/Content/AiLanguage/AiLanguageSelection",4409648156012544,"","Same as UI","","Taki jak UI",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/TextApiView/Scroll View/Viewport/Content/AiLanguage/AiLanguageSelection 1",4409794243620864,"","English","","Angielski",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/TextApiView/Scroll View/Viewport/Content/AiLanguage/AiLanguageSelection 2",4409813608722432,"","Polish","","Polski",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ChatView/ChatMask/ChatInput/Text Area/PlaceholderAlt",4983691917684736,"","Enter text...","","Wprowadź tekst...",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/TextApiView/Scroll View/Viewport/Content/OpenWebUiGroup/OpenWebUiApiKey/Text (TMP)",6871198296993792,"","API Key: ","","Klucz API: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/TextApiView/Scroll View/Viewport/Content/OpenWebUiGroup/OpenWebUiModel/Text (TMP)",6871245105426432,"","Model: ","","Model: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/TextApiView/Scroll View/Viewport/Content/OpenWebUiGroup/OpenWebUiIpAddress/Text (TMP)",6871271869280256,"","IP Address: ","","Adres IP: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/TextApiView/Scroll View/Viewport/Content/OpenWebUiGroup/OpenWebUiPort/Text (TMP)",6871302659665920,"","Port: ","","Port: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/TextApiView/Scroll View/Viewport/Content/OpenWebUiGroup/OpenWebUiApiKey/OpenWebUiApiKeyInput/Text Area/Placeholder",6871359467319296,"","API Key...","","Klucz API...",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/TextApiView/Scroll View/Viewport/Content/OpenWebUiGroup/OpenWebUiModel/OpenWebUiModelInput/Text Area/Placeholder",6871394921771008,"","Model...","","Model...",""
+"InputSecrets/Empty",7516746465177600,"","Hey, don't be shy, tell me your name~!","","Hej, nie wstydź się, zdradź mi swoje imię~!",""
+"InputSecrets/Jacopo",7517005719302144,"","No way, you have the same name as the game creator!?","","Niemożliwe, nazywasz się tak samo jak twórca gry?",""
+"InputSecrets/UnityChan",7522367474266112,"","That's me! :D","","To ja! :D",""
+"InputSecrets/Dad",7522649767702528,"","Wait, you're my dad!?","","Zaraz, jesteś moim tatą!?",""
+"InputSecrets/Friend",7522944606302208,"","Aww, you know my friends! <3","","Aww, znasz moich przyjaciół! <3",""
+"InputSecrets/OtherWorld",7523140895535104,"","This name sounds similar... As if it is from another world...","","To imię brzmi znajomo... Jakby z innego świata...",""
+"InputSecrets/Tomus",7523442415661056,"","""Ah, you're the one who made me implement this easter-egg...""","","""Ah, więc to ty sprawiłeś, że zaimplementowałem ten sekret...""",""
+"InputSecrets/CreatorFriend",7526249956929536,"","Hello, friend of the game creator~!","","Hejka, przyjacielu twórcy gry~!",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/TextApiView/Scroll View/Viewport/Content/SelfHostedGroup/SelfHostedModel/Text (TMP)",7653729862709248,"","Model:","","Model:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/TextApi/WizardPageContent/SelfHostedAiBtn/Text (TMP)",8056205594095616,"","Self Hosted AI:
+<color=""orange"">Slower, dependent on hardware</color>, but <color=""green"">free and works offline</color>","","Samodzielnie Hostowane AI:
+<color=""orange"">Wolniejsze, zależne od sprzętu</color>, ale <color=""green"">darmowe i działa offline</color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/MainView/VirtualHome/DesktopText",9634499611107328,"","Desktop","","Pulpit",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ChatView/IsTypingBg/Bg/IsTypingMessage",10001861938028544,"","Unity-chan is typing<bounce a=""1"">...</bounce>","","Unity-chan pisze<bounce a=""1"">...</bounce>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/KoboldCpp_Test/WizardPageContent/Title",11447685595308032,"","KoboldCpp - Test","","KoboldCpp - Test",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/KoboldCpp_Test/WizardPageContent/KoboldCppResultTitle",11447723570536448,"","Result:","","Wynik:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/KoboldCpp_Test/WizardPageContent/Description",11447781779087360,"","Paste KoboldCpp Model name into the text box below and click 'TEST' to check if everything is correct.","","Wklej nazwę modelu KoboldCpp do rubryki poniżej i naciśnij 'TEST' by sprawdzić czy wszystko jest poprawne",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/KoboldCpp_Test/WizardPageContent/KoboldCpp Model/Text (TMP)",11448137816776704,"","KoboldCpp Model: ","","Model KoboldCpp: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/KoboldCpp_Launch/WizardPageContent/Title",11448231974707200,"","KoboldCpp - Launch the App","","KoboldCpp - Uruchom Aplikację",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/KoboldCpp_Launch/WizardPageContent/Description",11448293308014592,"","Open the .exe program. In the config window, select to browse for the GGUF model file you downloaded. After that, simply click 'Launch'. Launching may take a while...","","Otwórz plik .exe. W oknie konfiguracji, wybierz by przszukać model pliku GGUF który pobrałeś. Następnie naciśnij 'Launch'. Uruchamianie może trochę potrwać...",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/KoboldCpp_Models/WizardPageContent/Title",11450414556291072,"","KoboldCpp - Download Model","","KoboldCpp - Pobierz model",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/KoboldCpp_Models/WizardPageContent/Description",11450451050930176,"","Download a GGUF model for the text generation. There are a lot to choose, example links are provided in the GitHub README instructions","","Pobierz model GGUF do generowania tekstu. Jest ich mnówstwo do wyboru, przykładowe linki są podane na stronie GitHub w instrukcjach w README",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/KoboldCpp_Download/WizardPageContent/Title",11457462547292160,"","KoboldCpp - Download","","KoboldCpp - Pobierz aplikację",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/KoboldCpp_Download/WizardPageContent/Description",11457515487797248,"","Enter the Github project link and head to Releases. Download version according to your Hardware and System requirements","","Otwórz link prowadzący do projektu Github i otwórz sekcję Releases. Pobierz wersję pasujacą do twojego systemu i wymagań sprzętowych",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/KoboldCpp_Links/WizardPageContent/Title",11457857805918208,"","KoboldCpp Links","","Linki KoboldCpp",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/KoboldCpp_Links/WizardPageContent/Description",11457918426193920,"","Here are helpful links that may be useful during the configuration. KoboldCpp link is needed for downloads, while YouTube link may prove helpful if you get stuck.
+
+Open both and proceed to next step.","","Poniżej są pomocne linki, które mogą być użyteczne podczas konfiguracji. Strona KoboldCpp jest potrzebna do pobrania, a link YouTube może być pomocny jeśli utkniesz 
+
+Otwórz oba linki i przejdź dalej",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/KoboldCpp_Links/WizardPageContent/KoboldCppSite/Text (TMP)",11458399936487424,"","KoboldCpp Website
+<color=""blue""><size=""9"">https://github.com/LostRuins/koboldcpp</size></color>","","Strona KoboldCpp
+<color=""blue""><size=""9"">https://github.com/LostRuins/koboldcpp</size></color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/KoboldCpp_Links/WizardPageContent/YoutubeKoboldCppHelp/Text (TMP)",11458473223561216,"","YouTube Tutorial
+<color=""blue""><size=""9"">https://youtu.be/FOTE4UtVuRA</size></color>","","YouTube Tutorial
+<color=""blue""><size=""9"">https://youtu.be/FOTE4UtVuRA</size></color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/SelfHosted_Selection/WizardPageContent/Title",11459174930620416,"","Self Hosted AI Frameworks","","Samodzielnie hostowane AI",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/SelfHosted_Selection/WizardPageContent/Description",11459233361469440,"","Self Hosted AI allows for generating text on your computer offline. While it allows for high customisation, it is also more complicated than regular API configuration.
+
+Wizard will walk you through basic configuration, for more information look up tutorials about specific Framework.","","Samodzielnie hostowane AI pozwala na generowanie tekstu na twoim komputerze. O ile daje to wiele możliwości dostosowania, jest też bardziej skomplikowane niż korzystanie z API online.
+
+Konfigurator przeprowadzi cię przez podstawowe ustawienia. po więcej informacji zerknij na tutoriale związane z danym Frameworkiem.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/SelfHosted_Selection/WizardPageContent/KoboldCppBtn/Text (TMP)",11463490210930688,"","KoboldCpp
+<color=""green"">Slightly easier to set up</color>","","KoboldCpp
+<color=""green"">Łatwiejsza konfiguracja</color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/SelfHosted_Selection/WizardPageContent/OllamaBtn/Text (TMP)",11463749829959680,"","Ollama
+<color=""green"">Downloads model on its own</color>
+","","Ollama
+<color=""green"">Samodzielnie pobiera domyślny model</color>
+",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Links/WizardPageContent/Title",11465711510134784,"","Ollama Links","","Linki Ollama",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Links/WizardPageContent/Description",11466027345420288,"","Here are helpful links that may be useful during the configuration. Ollama and OpenWebUI links are needed for downloads, while YouTube link may prove helpful if you get stuck.
+
+Open them and proceed to next step.","","Tutaj możesz znaleźć pomocne linki które mogą pomóc podczas konfiguracji. Link Ollama i OpenWebUI są potrzebne do rpobrania aplikacji, a link YouTube może pomóc w przypadku trudności.
+
+Otwórz oba z nich i kontynuuj do kolejnego kroku.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Links/WizardPageContent/OllamaSite/Text (TMP)",11466254236295168,"","Ollama Website
+<color=""blue""><size=""9"">https://ollama.com/</size></color>","","Strona Ollama
+<color=""blue""><size=""9"">https://ollama.com/</size></color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Links/WizardPageContent/WebUISite/Text (TMP)",11466299371200512,"","OpenWebUI
+<color=""blue""><size=""9"">https://github.com/open-webui/open-webui</size></color>","","Strona OpenWebUI
+<color=""blue""><size=""9"">https://github.com/open-webui/open-webui</size></color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Links/WizardPageContent/YoutubeOllamaHelp/Text (TMP)",11466354807316480,"","YouTube Tutorial
+<color=""blue""><size=""9"">https://youtu.be/_JNCpXM-Gm4</size></color>","","YouTube Tutorial
+<color=""blue""><size=""9"">https://youtu.be/_JNCpXM-Gm4</size></color>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Download/WizardPageContent/Title",11468538122903552,"","Ollama - Download","","Ollama - Pobierz",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Download/WizardPageContent/Description",11468589893197824,"","Enter the website and select 'Download for Windows' option","","Wejdź na stronę Ollama i wybierz opcję 'Download for Windows' ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Install/WizardPageContent/Title",11468710986948608,"","Ollama - Install","","Ollama - Instalacja",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Install/WizardPageContent/Description",11468748249145344,"","Open the .exe file. Follow the installation steps","","Otwórz pobrany plik .exe. Postępuj z krokami instalacj",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Webui_Download/WizardPageContent/Title",11468974255022080,"","Ollama - Download OpenWebUI","","Ollama - Pobierz OpenWebUI",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Webui_Download/WizardPageContent/Description",11469011856957440,"","OpenWebUI allows for easy access to Ollama's API.
+Open the OpenWebUI Github. You may need to download Python first.","","OpenWebUI pozwala na prosty dostęp do API programy Ollama.
+Otwórz projekt OpenWebUI na Github. Możesz potrzebować pobrać Python przed użyciem komendy.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Webui_Install/WizardPageContent/Title",11469435552964608,"","Ollama - Install OpenWebUI","","Ollama - Zainstaluj OpenWebUI",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Webui_Install/WizardPageContent/Description",11469474815844352,"","if prerequisites are installed correctly, the command 'pip install open-webui' should install it without issue. Be patient - it may take a while...","","Jeśli wstępne wymagania zostały spełnione, komenda 'pip install open-webui' powinna zainstalować OpenWebUI bez problemu. Bądź cierpliwy - to może trochę zająć...",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Webui_Command/WizardPageContent/Title",11469770208092160,"","Ollama - Run OpenWebUI","","Ollama - Uruchom OpenWebUI",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Webui_Command/WizardPageContent/Description",11469831121969152,"","After everything has downloaded and installed properly, all you need is to use the 'open-webui serve' command and wait for OpenWebUI to open in browser. Launching may take a while...","","Po pobraniu i instalacji, pozostało uruchomienie poprzez komendę 'open-webui serve' i poczekanie aż OpenWebUI uruchomi się w przeglądarce. Uruchamianie może trochę potrwać...",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Webui_Config/WizardPageContent/Title",11473103891243008,"","Ollama - OpenWebUI Config","","Ollama - Konfiguracja OpenWebUI",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Webui_Config/WizardPageContent/Description",11473180093358080,"","You can load and manage models and config via browser. For now the most important part is to copy the API key. You can access it by clicking Avatar -> Settings -> Account -> API Key and copy to clipboard.","","Możesz wczytywać i zarządzać modelami poprzez przeglądarkę. Obecnie najważniejszą sprawą jest skopiowanie klucza API. Masz do niego dostęp poprzez kliknięcie w Avatar -> Settings -> Account -> API Key i skopiowanie do schowka.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Test/WizardPageContent/Title",11473565482786816,"","Ollama - Test","","Ollama - Test",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Test/WizardPageContent/OllamaResultTitle",11473604477231104,"","Result:","","Wynik:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Test/WizardPageContent/Description",11473638723723264,"","Paste OpenWebUI API Key into the text box below and click 'TEST' to check if everything is correct.","","Wklej klucz API Ollama do rubryki poniżej oraz nazwę pobranego modelu i kliknij 'TEST' by sprawdzić czy wszystko jest dobrze skonfigurowane.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Test/WizardPageContent/OllamaApiKey/Text (TMP)",11473903401082880,"","Ollama API Key: ","","Klucz API Ollama: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Test/WizardPageContent/OllamaApiKey/Text (TMP) (1)",11474236592398336,"","Model: ","","Model: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Test/WizardPageContent/OllamaApiKey/OllamaModelInputField/Text Area/Placeholder",11474427785551872,"","Model...","","Model...",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/Ollama_Test/WizardPageContent/OllamaApiKey/OllamaInputField/Text Area/Placeholder",11474474963083264,"","API Key...","","Klucz API...",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/ExternalGroup/SettingsView/Title",25636461116694528,"","API Integrations","","Integracje API",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/ExternalGroup/SettingsView/Scroll View/Viewport/Content/GeneralBar/Text (TMP)",25637803570798592,"","<b><size=""11"">Twitch</size></b>
+<i>React to chat, gifts, subs</i>","","<b><size=""11"">Twitch</size></b>
+<i>Reakcje na czat, prezenty, suby</i>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/SettingsView/Scroll View/Viewport/Content/IntegrationsBar/Text (TMP)",25652357797289984,"","<b><size=""11"">Integrations</size></b>
+<i>Connect Unity-chan to Twitch or control her via externa commands</i>","","<b><size=""11"">Integracja</size></b>
+<i>Połączenie Unity-chan z Twitch i innymi aplikacjami</i>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ExternalGroup/TwitchIntegrations/Scroll View/Viewport/Content/ChannelName/Text (TMP)",25734783491940352,"","Channel name: ","","Nazwa kanału: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ExternalGroup/TwitchIntegrations/Scroll View/Viewport/Content/ChannelName/ChannelNameInput/Text Area/Placeholder",25734840496726016,"","Channel Name...
+","","Nazwa kanalu...
+",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ExternalGroup/TwitchIntegrations/Scroll View/Viewport/Content/TimeBetweenChat/Text (TMP)",25734924445720576,"","Response frequency (seconds):","","Częstotliwość odpowiedzi (sekundy):",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ExternalGroup/TwitchIntegrations/Scroll View/Viewport/Content/TwitchAdvanced/Text (TMP)",25735223407321088,"","Advanced:","","Zaawansowane:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ExternalGroup/TwitchIntegrations/Scroll View/Viewport/Content/TwitchExplanation/Text (TMP)",25735449237037056,"","Basic settings lets Unity-chan respond to chat.","","Ustawienia podstawowe pozwalają Unity-chan odpowiadać na czat.",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ExternalGroup/TwitchIntegrations/Scroll View/Viewport/Content/TwitchAdvancedExplanation/Text (TMP)",25735544233828352,"","Advanced settings lets Unity-chan respond to chat and other events such as new viewer greeting and new subs, but require setting up a bot.","","Ustawienia zaawansowane pozwalają Unity-chan czatować i odpowiadać na inne zdarzenia jak powitanie widza i nową subskrypcje, ale wymaga ustawienie bota. ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ExternalGroup/TwitchIntegrations/Scroll View/Viewport/Content/BotName/Text (TMP)",25735814728687616,"","Bot name: ","","Nazwa bota: ",""
+"PhoneUI/PhoneUI/OutLayer/Screen/ExternalGroup/TwitchIntegrations/Scroll View/Viewport/Content/BotName/BotNameInput/Text Area/Placeholder",25735865874030592,"","Bot Name...
+","","Nazwa bota...
+",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/CreditsView/Scroll View/Viewport/Content/Music",26998125367959552,"","Music:","","Muzyka:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/UiView/Scroll View/Viewport/Content/Monitor/Text (TMP)",27396165887107072,"","Screen:","","Ekran:",""
+"PhoneUI/PhoneUI/OutLayer/Screen/MenuView/MenuGrid/Music/Text (TMP)",30405330993717248,"","Music Player","","Odtwarzacz Muzyki",""
+"DesktopPlaylist",30706391843381248,"","Desktop playlist","","Lista odtwarzania - pulpit",""
+"RoomPlaylist",30706511561400320,"","Room playlist","","Lista odtwarzania - pokój",""
+"MinigamePlaylist",30706591240593408,"","Mini game playlist","","Lista odtwarzania - mini gry",""
+"PhoneUI/PhoneUI/OutLayer/Screen/MenuView/MenuGrid/Phone/Text (TMP)",32597637742501888,"","Phone Call","","Telefon",""
+"PhoneUI/PhoneUI/OutLayer/Screen/NewReminder/TimeInputMinute/Text Area/Placeholder",37240451520819200,"","Minute
+","","Minuta",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/TextApi/WizardPageContent/QuickStartBtn/Text (TMP)",40922145868247040,"","Quick Start:
+<size=""9"">Use preinstalled KoboldCpp + Text Only
+<color=""green"">Free, no additional setup</color>, <color=""orange"">slower</color></size>","","Szybki Start:
+<size=""9"">Preinstalowany KoboldCpp + tylko tekst
+<color=""green"">Darmowy, bez konfiguracji</color>, <color=""orange"">wolniejsze</color></size>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/KoboldCpp_Download/WizardPageContent/Shortcut",41013920603598848,"","KoboldCpp is already downloaded in the directory","","KoboldCpp jest już pobrany w folderze",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/KoboldCpp_Models/WizardPageContent/Shortcut",41014757241417728,"","Model is already downloaded in the directory","","Model jest już pobrany w folderze",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/SettingsView/Scroll View/Viewport/Content/ModsBar/Text (TMP)",49218896945508352,"","<b><size=""11"">Mods</size></b>
+<i>Installed mods custom settings</i>","","<b><size=""11"">Mody</size></b>
+<i>Ustawienia zainstalowanych modów</i>",""
+"PhoneUI/PhoneUI/OutLayer/Screen/SettingsGroup/ModsView/Title",49219278039969792,"","Mods","","Mody",""
+"Phone/Chat/BuiltIn/Init",58545029876838400,"","Initializing AI model","","Inicjalizacja modelu AI",""
+"WizardView/Prefab Mode in Context/WizardView/TextApiConfig/WizardPageContent/Title",62631284768010240,"","Text Generation Mod Settings","","Konfiguracja Moda Generowania Tekstu",""
+"WizardView/Prefab Mode in Context/WizardView/VoiceApiConfig/WizardPageContent/Title",62642377083088896,"","Voice Generation Mod Settings","","Ustawienia Moda Generowania Głosu",""
+"WizardView/Prefab Mode in Context/WizardView/TextApiTest/WizardPageContent/Title",62643381774086144,"","Text Generation Test","","Test Generowania Tekstu",""
+"WizardView/Prefab Mode in Context/WizardView/TextApiTest/WizardPageContent/TestBtn/Text (TMP)",62643683680088064,"","TEST","","TEST",""
+"WizardView/Prefab Mode in Context/WizardView/TextApiTest/WizardPageContent/Title (1)",62644332224344064,"","Please wait, generation may take a while...","","Proszę czekać, generowanie może chwilę potrwać...",""
+"WizardView/Prefab Mode in Context/WizardView/VoiceApiTest/WizardPageContent/Title",62649329875972096,"","Voice Generation Test","","Test Generowania Głosu",""
+"PhoneUI/PhoneUI/OutLayer/Screen/WizardView/TextApiTest/WizardPageContent/Description",70155549310480384,"","Click to send try out your current text generation setup. it may take a while, so please be patient!","","Naciśnij TEST aby przetestować obecne ustawienia generowania tekstu. Generowanie może trochę potrwać!",""
+"PhoneUI/PhoneUI/OutLayer/Screen/MainView/Menu/Text (TMP)",75269214917390336,"","Menu","","Menu",""

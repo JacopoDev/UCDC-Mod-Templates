@@ -1,0 +1,102 @@
+Key,Id,Shared Comments,English(en),English(en) Comments,Polish(pl),Polish(pl) Comments
+UI/UI/GamePauseMenu/VirusOffenseMainMenuInGame/GameTitle,180584476672,,VirusOffenseUI_00001,,PAUZA,
+VirusOffense/Pause/Main/Resume,464845041664,,VirusOffenseUI_00002,,KONTYNUUJ,
+VirusOffense/Pause/Main/Restart,613092716544,,VirusOffenseUI_00003,,RESTART,
+VirusOffense/Pause/Main/Options,675944361984,,VirusOffenseUI_00004,,OPCJE,
+VirusOffense/Pause/Main/Quit,1170473775104,,VirusOffenseUI_00005,,WYJDŹ,
+UI/UI/GamePauseMenu/VirusOffenseMainMenuInGame/SettingsPanel/StreamerOptions/StreamerModeInMinigamesCheckbox/Text (TMP),4721426067456,,VirusOffenseUI_00006,,"Użyj tryb Streamera w mini grach:
+",
+MainGameRest/Prefab Mode in Context/MainGameRest/RestCanvas/bg/ImageBg/NextNodeTxtBg/Title,8222357090304,,VirusOffenseUI_00007,,ODPOCZYNEK,
+MainGameRest/Prefab Mode in Context/MainGameRest/RestCanvas/bg/ImageBg/Text/Viewport/Content/Text (TMP),10758531084288,,VirusOffenseUI_00008,,"> cat ""Węzeł/Strefa wysokiej integralności.txt""
+{
+<indent=5%>Na szczęście to miejsce nie zostało całkowicie zepsute przez aktywność wirusów;
+
+Możesz zdecydować by <b>odzyskać Punkty Integralności teraz</b> lub przekonwertować je na <b>jeden Wzmacniacz Integralności</b> do użycia w trakcie walki;</indent>
+}",
+MainGameRest/Prefab Mode in Context/MainGameRest/RestCanvas/bg/ImageBg/HealBg/Text (TMP),11212577075200,,VirusOffenseUI_00009,,"> cat ""InformacjeGry/Status.txt""
+ {0}: {1}/{2}, Unity-chan: {3}/{4}, Wzmacniacze: {5}
+> start ""Węzeł/Wybierz Akcje.exe""",
+MainGameRest/Prefab Mode in Context/MainGameRest/RestCanvas/bg/ImageBg/HealBg/HealNowBtn/Text (TMP),14525884297216,,VirusOffenseUI_00010,,"ULECZ_TERAZ();
+<size=""24"">(+50 IP)</size>",
+MainGameRest/Prefab Mode in Context/MainGameRest/RestCanvas/bg/ImageBg/HealBg/GetBooster/Text (TMP),14564220235776,,VirusOffenseUI_00011,,"WEZ_WZMACNIACZ();
+<size=""24"">(+1 Wzmacniacz Integralności)</size>",
+MainGameMap/Prefab Mode in Context/MainGameMap/MapCanvas/bg/NodeBg/NextNodeTxtBg/Title,16089843789824,,VirusOffenseUI_00012,,WYBIERZ WĘZEŁ,
+LightStreamerPack/LightStreamerPack/GameplayChat/ChatView/ChatMask/ChatInput/Text Area/Placeholder,16398498426880,,VirusOffenseUI_00013,,Wpisz tekst... [esc aby zamknąć],
+LightStreamerPack/LightStreamerPack/GameplayChat/Tootip,16598709334016,,VirusOffenseUI_00014,,Wciśnij [t] by otworzyć czat,
+MinigameTable/GameStationMode/GameStation/GameStationScreen/ScreenCanvas/NewGamePanel/NewGamePanel/Title,33487900667904,,VirusOffenseUI_00015,,Zarejestruj Nową Grę,
+MinigameTable/GameStationMode/GameStation/GameStationScreen/ScreenCanvas/NewGamePanel/NewGamePanel/FormData/Name/Title,33533048156160,,VirusOffenseUI_00016,,Tytuł,
+MinigameTable/GameStationMode/GameStation/GameStationScreen/ScreenCanvas/NewGamePanel/NewGamePanel/FormData/GamePath/Title,33554317471744,,VirusOffenseUI_00017,,Ścieżka do Gry,
+MinigameTable/GameStationMode/GameStation/GameStationScreen/ScreenCanvas/NewGamePanel/NewGamePanel/FormData/PreviewPath/Title,33593450328064,,VirusOffenseUI_00018,,Ścieżka do Podglądu,
+MinigameTable/GameStationMode/GameStation/GameStationScreen/ScreenCanvas/NewGamePanel/NewGamePanel/FormData/AllowScreens/Title,33788942643200,,VirusOffenseUI_00019,,Zezwól na zrzuty ekranu,
+MinigameTable/GameStationMode/GameStation/GameStationScreen/ScreenCanvas/NewGamePanel/NewGamePanel/Description/Title,33837714010112,,VirusOffenseUI_00020,,Opis,
+MinigameTable/GameStationMode/GameStation/GameStationScreen/ScreenCanvas/NewGamePanel/NewGamePanel/Description/DescriptionInput/Text Area/Placeholder,33875001372672,,VirusOffenseUI_00021,,Opis gry...,
+MinigameTable/GameStationMode/GameStation/GameStationScreen/ScreenCanvas/NewGamePanel/NewGamePanel/FormData/GamePath/ExeInput/Text Area/Placeholder,33921340043264,,VirusOffenseUI_00022,,Wybierz plik .exe...,
+MinigameTable/GameStationMode/GameStation/GameStationScreen/ScreenCanvas/NewGamePanel/NewGamePanel/FormData/PreviewPath/PngInput/Text Area/Placeholder,33972195979264,,VirusOffenseUI_00023,,Wybierz plik .png...,
+MinigameTable/GameStationMode/GameStation/GameStationScreen/ScreenCanvas/NewGamePanel/NewGamePanel/FormData/Name/TitleInput/Text Area/Placeholder,34069151510528,,VirusOffenseUI_00024,,Tytuł gry...,
+VirusOffenseMainMenu/Prefab Mode in Context/VirusOffenseMainMenu/Buttons/PlayMainMode/Text (TMP),34496823717888,,VirusOffenseUI_00025,,TRYB GŁÓWNY,
+VirusOffenseMainMenu/Prefab Mode in Context/VirusOffenseMainMenu/Buttons/PlaySurvival/Text (TMP),34610741014528,,VirusOffenseUI_00026,,PRZETRWANIE,
+VirusOffenseMainMenu/Prefab Mode in Context/VirusOffenseMainMenu/Buttons/PlayTutorial/Text (TMP),34755004100608,,VirusOffenseUI_00027,,TUTORIAL,
+VirusOffenseMainMenu/Prefab Mode in Context/VirusOffenseMainMenu/Buttons/OpenOptions/Text (TMP),34865993773056,,VirusOffenseUI_00028,,OPCJE,
+VirusOffenseMainMenu/Prefab Mode in Context/VirusOffenseMainMenu/Buttons/QuitGame/Text (TMP),34902933008384,,VirusOffenseUI_00029,,WYJDŹ,
+IntroOverlay/Prefab Mode in Context/IntroOverlay/InfoPanel/NameData/Title,1026789877772290,,VirusOffenseUI_00030,,NAZWA_WIRUSA:,
+IntroOverlay/Prefab Mode in Context/IntroOverlay/InfoPanel/CreationData/Title,1026930466648060,,VirusOffenseUI_00031,,DATA_UTWORZENIA:,
+IntroOverlay/Prefab Mode in Context/IntroOverlay/InfoPanel/DangerData/Title,1026970564194300,,VirusOffenseUI_00032,,POZIOM_ZAGROŻENIA:,
+IntroOverlay/Prefab Mode in Context/IntroOverlay/InfoPanel/DangerData/Value,1031849923866620,,VirusOffenseUI_00033,,"<s>NISKI</s> <size=16><color=""yellow"">EKSTREMALNIE WYSOKI</size></color>",
+IntroOverlay/Prefab Mode in Context/IntroOverlay/InfoPanel/FavoriteData/Title,1032084855222270,,VirusOffenseUI_00034,,HOBBY:,
+IntroOverlay/Prefab Mode in Context/IntroOverlay/InfoPanel/FavoriteData/Value,1032111128342530,,VirusOffenseUI_00035,,GRY RETRO,
+IntroOverlay/Prefab Mode in Context/IntroOverlay/InfoPanel/Continue,1032136705208320,,VirusOffenseUI_00036,,NACIŚNIJ BY KONTYNUOWAĆ,
+FinishGameEnd/Prefab Mode in Context/FinishGameEnd/SurvivalDefeat/Stats/StatWaves/Title,1054361395163140,,VirusOffenseUI_00037,,"Przetrwano fal: 
+",
+FinishGameEnd/Prefab Mode in Context/FinishGameEnd/SurvivalDefeat/Stats/StatTime/Title,1054441162436610,,VirusOffenseUI_00038,,"Przetrwano czasu: 
+",
+FinishGameEnd/Prefab Mode in Context/FinishGameEnd/SurvivalDefeat/Stats/StatKills/Title,1054475232768000,,VirusOffenseUI_00039,,"Pokonanych przeciwników:
+",
+FinishGameEnd/Prefab Mode in Context/FinishGameEnd/SurvivalDefeat/Stats/StatReward/Title,1054522024423420,,VirusOffenseUI_00040,,Nagroda:,
+FinishGameEnd/Prefab Mode in Context/FinishGameEnd/SurvivalDefeat/Btn_Cancel/Text (TMP),1054578874019840,,VirusOffenseUI_00041,,RESTART,
+FinishGameEnd/Prefab Mode in Context/FinishGameEnd/SurvivalDefeat/Btn_Yes/Text (TMP),1054601137385470,,VirusOffenseUI_00042,,POWRÓT,
+FinishGameEnd/Prefab Mode in Context/FinishGameEnd/MainModeDefeat/Stats/StatTime/Title,1054708629008380,,VirusOffenseUI_00043,,"Czas: 
+",
+FinishGameEnd/Prefab Mode in Context/FinishGameEnd/MainModeDefeat/Stats/StatKills/Title,1054743307513860,,VirusOffenseUI_00044,,"Pokonanych Przeciwników:
+",
+FinishGameEnd/Prefab Mode in Context/FinishGameEnd/MainModeDefeat/Stats/StatReward/Title,1054798504554500,,VirusOffenseUI_00045,,Nagroda (50% Kara przegranej):,
+FinishGameEnd/Prefab Mode in Context/FinishGameEnd/MissionSuccess/Stats/StatTime/Title,1056065847062530,,VirusOffenseUI_00046,,"Czas: 
+",
+FinishGameEnd/Prefab Mode in Context/FinishGameEnd/MissionSuccess/Stats/StatKills/Title,1056097996402690,,VirusOffenseUI_00047,,"Pokonanych Przeciwników:
+",
+FinishGameEnd/Prefab Mode in Context/FinishGameEnd/MissionSuccess/Btn_Continue/Text (TMP),1056175326785540,,VirusOffenseUI_00048,,KONTYNUUJ,
+FinishGameEnd/Prefab Mode in Context/FinishGameEnd/MainModeVictory/Stats/StatKills/Title,1056303555047420,,VirusOffenseUI_00049,,"Pokonanych Przeciwników:
+",
+FinishGameEnd/Prefab Mode in Context/FinishGameEnd/MainModeVictory/Btn_Yes/Text (TMP),1056376682737660,,VirusOffenseUI_00050,,POWRÓT,
+FinishGameEnd/Prefab Mode in Context/FinishGameEnd/MainModeVictory/Btn_Cancel/Text (TMP),1056392864362500,,VirusOffenseUI_00051,,RESTAR,
+UI/UI/SurvivalWavesUi/WaveEndPanel/Text (TMP),1074669808283650,,VirusOffenseUI_00052,,Przygotuj się na kolejne fale...,
+GameplayCanvas/Prefab Mode in Context/GameplayCanvas/MainGameplay/MissionObjectives/WavesMission/Title,1074955587186690,,VirusOffenseUI_00053,,Czystka,
+GameplayCanvas/Prefab Mode in Context/GameplayCanvas/MainGameplay/MissionObjectives/WavesMission/Help,1074981000474620,,VirusOffenseUI_00054,,Pokonaj przeciwników na arenie,
+GameplayCanvas/Prefab Mode in Context/GameplayCanvas/MainGameplay/MissionObjectives/TimeMission/Title,1075150475522050,,VirusOffenseUI_00055,,Próba czasu,
+GameplayCanvas/Prefab Mode in Context/GameplayCanvas/MainGameplay/MissionObjectives/TimeMission/Help,1075196176658430,,VirusOffenseUI_00056,,Przetrwaj nadciągające fale przeciwników,
+GameplayCanvas/Prefab Mode in Context/GameplayCanvas/MainGameplay/MissionObjectives/EliteMission/Title,1076801563291650,,VirusOffenseUI_00057,,Pokonaj elitarnego wroga,
+GameplayCanvas/Prefab Mode in Context/GameplayCanvas/MainGameplay/MissionObjectives/EliteMission/Help,1076936108175360,,VirusOffenseUI_00058,,Pokonaj elitarnego wroga na tej arenie,
+GameplayCanvas/Prefab Mode in Context/GameplayCanvas/MainGameplay/MissionObjectives/BossMission/Title,1077098138333180,,VirusOffenseUI_00059,,Pokonaj ???,
+GameplayCanvas/Prefab Mode in Context/GameplayCanvas/MainGameplay/MissionObjectives/BossMission/Help,1077294561783810,,VirusOffenseUI_00060,,Wydaje się być wrażliwa gdy naprowadzane pociski są zniszczone...,
+MainGame/Nodes/Rest/Cat,1089635907039230,,VirusOffenseUI_00061,,"> cat ""Węzeł/Strefa wysokiej integralności.txt""",
+MainGame/Nodes/Rest/Message1,1104543247790080,,VirusOffenseUI_00062,,Na szczęście to miejsce nie zostało całkowicie zepsute przez aktywność wirusów;,
+MainGame/Nodes/Rest/Message2,1104545957310460,,VirusOffenseUI_00063,,Możesz zdecydować by <b>odzyskać Punkty Integralności teraz</b> lub przekonwertować je na <b>jeden Wzmacniacz Integralności</b> do użycia w trakcie walki;,
+MainGame/Nodes/Rest/HealNow,1106401236381700,,VirusOffenseUI_00064,,ULECZ_TERAZ,
+MainGame/Nodes/Rest/Get_Booster,1106403006377980,,VirusOffenseUI_00065,,WEZ_WZMACNIACZ,
+GameplayCanvas/Prefab Mode in Context/GameplayCanvas/Dialogue/DialogueLine,3999377822347260,,VirusOffenseUI_00066,,"Hi there~!
+Ha, I managed to get here before you.
+We're close near the mainfreame entrance, but before we enter you need to learn how to fight those mean viruses and to avoid their attacks, are you ready?
+Then let's go! :D",
+GameplayCanvas/Prefab Mode in Context/GameplayCanvas/Dialogue/DialogueInput/ChatInput/Text Area/Placeholder,4802422000873470,,VirusOffenseUI_00067,,Wpisz co chcesz powiedzieć...,
+CreeperTitle,4817141726212100,,VirusOffenseUI_00068,,CREEPER,
+CreeperName_Title,4817232243486720,,VirusOffenseUI_00069,,,
+CreeperDate_Value,4817459377631230,,VirusOffenseUI_00070,,1972,
+VirusOffenseTutorial/UI/FinishGameEnd/Popup_Quit/Quit title,4836966179565570,,VirusOffenseUI_00071,,Tutorial ukończony!,
+VirusOffenseTutorial/UI/FinishGameEnd/Popup_Quit/Text (TMP),4837204294397950,,VirusOffenseUI_00072,,"Udało ci się ukończyć tutorial! 
+
+Możesz teraz wrócić do pokoju Kohaku lub zagrać w tryb survival! ",
+CreeperDate_Title,24015140557463600,,VirusOffenseUI_00073,,Data_powstania:,
+CreeperDanger_Title,24015273424625700,,VirusOffenseUI_00074,,Zagrożenie:,
+CreeperDanger_Value,24016220204867600,,VirusOffenseUI_00075,,<s>niski</s> wysoki,
+CreeperFavorite_Title,24019591636754400,,VirusOffenseUI_00076,,Lubi:,
+CreeperFavorite_Value,24019594086228000,,VirusOffenseUI_00077,,"Retro, Gry Arkadowe",
+CreeperIntro_Header,24032632675803100,,VirusOffenseUI_00078,,"> cat ""Postacie/Creeper.txt""",

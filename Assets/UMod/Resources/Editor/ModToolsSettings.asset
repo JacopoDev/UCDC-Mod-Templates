@@ -15,7 +15,7 @@ MonoBehaviour:
   toolsIconSmall: {fileID: 2800000, guid: a29ca2909d70c0b4a8d3550732e0e842, type: 3}
   toolsIconLarge: {fileID: 2800000, guid: 2997d09a18e316e4f93a35cdfe826ee7, type: 3}
   toolsName: UCDC Mod Toolset
-  toolsVersion: 1.0.0
+  toolsVersion: 1.1.0
   firstRunWindow:
     assemblyQualifiedName: 
   developerName: JacopoDev
@@ -29,8 +29,8 @@ MonoBehaviour:
   targetUnityVersion: 2023.2.20f1
   allowAnyUnityVersion: 1
   developerWebsiteURL: https://discord.com/invite/UWpYYrFTuY
-  onlineDocumentationURL: https://trivialinteractive.co.uk/products/documentation/umod_20/UserGuide.pdf
-  onlineScriptingReferenceURL: https://trivialinteractive.co.uk/products/documentation/umod_20/scriptingreference
+  onlineDocumentationURL: https://github.com/JacopoDev/UCDC-Mod-Toolset
+  onlineScriptingReferenceURL: https://github.com/JacopoDev/UCDC-Mod-API
   assetSharing:
     sharedAssetBundlePath: Resources/Editor/ModToolsSharedAssets.modbundle
     sharedAssets: []

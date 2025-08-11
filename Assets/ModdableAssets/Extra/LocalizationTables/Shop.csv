@@ -1,0 +1,85 @@
+Key,Id,Shared Comments,English(en),English(en) Comments,Polish(pl),Polish(pl) Comments
+"Shop_Eb_Theme_Name",623112908800,"","EB Approved UI theme","","Motyw polecany przez EB",""
+"Shop_Eb_Theme_Description",744823222272,"","More futuristic colors, fitting the warrior's Unity-Chan skin. But what does the EB stand for...?","","Bardziej futurystyczna kolorystyka, pasująca do stroju wojowniczki. Ale co może znaczyć EB...?",""
+"Shop_Futuristic_Skin_Name",798975881216,"","Unity-Chan
+futuristic warrior outfit","","Unity-Chan
+futurystyczna wojowniczka",""
+"Shop_Futuristic_Skin_Description",803799330816,"","One time Unity-chan had a dream, where she was living in futuristic simulation. She was a warrior, holding a mighty sword and fighting robots. She also had a special power of rewinding time during that dream. This costume is a custom order she made to remind her of this vision.","","Pewnej nocy Unity-chan miała sen, w którym żyła w symulacji z przyszłości. Była wojowniczką, dzierżącą potężny miecz i zwalczającą roboty. Posiadała też moc cofania czasu w trakcie tego snu. Ten kostium był stworzony jako specjalne zlecenie by przypominać jej o tej wizji.",""
+"Shop_Love_Theme_Name",920375816192,"","Sweetness UI theme","","Motyw - słodycz",""
+"Shop_Love_Theme_Description",1181781618688,"","Mix of purple and white makes the UI more vivid and cute.","","Mieszanka fioletu i białego sprawia, że interfejs jest bardziej żywy i uroczy.",""
+"Shop_SchoolGirl_Skin_Name",1343014858752,"","Unity-Chan school uniform","","Mundurek szkolny Unity-chan",""
+"Shop_SchoolGirl_Skin_Description",1465803108352,"","Kohaku's high school uniform. While she is not the perfect student (her grades are mostly slightly above average), she always gives all her energy into learning new things. She has troubles improving her grades in Art, but she really enjoys drawing doodles. Her favorite school subject is Physical Education!","","Mundurek Kohaku z jej liceum. O ile nie jest ona najlepszą uczennicą (jej oceny zą w najlepszym wypadku nieco powyżej średniej), zawsze daje z siebie wszystko by nauczyć się nowych rzeczy. Ma kłopoty z poprawieniem swoich ocen ze Sztuki, mimo to lubi sobie mazać proste rysunki. Jej ulubionym przedmiotem jest W-F!",""
+"Shop_Witch_Skin_Name",1497033895936,"","Unity-Chan witch outfit","","Strój wiedźmy Unity-chan",""
+"Shop_WItch_Skin_Description",1529988542464,"","The costume Unity-Chan uses during Halloween. She often wonders if magic truly exists. Her dad's friend Holger Graefenberg has a wife named Mariabelle. There are rumors that Mariabelle is so pale because she is a vampire! What is the truth, noone knows for certain...","","Kostium który Unity-chan używa na Halloween. Kohaku czasem zastanawia się, czy magia na prawdę istnieje. Przyjaciel jej taty Holger Graefenberg ma żonę imieniem Mariabelle. Unity-chan słyszała plotki, że Mariabelle ma tak jasną cerę dlatego, że jest wampirzycą! Ale jaka jest prawda, nikt nie jest całkowicie pewien...",""
+"Shop_Virus_Damage_Name",1576104914944,"","Damage Bonus","","Premia obrażeń",""
+"Shop_Virus_Damage_Description",1686796791808,"","Increases your and Unity-Chan's damage dealt with weapons
+Level 1: +10%
+Level 2: +20%
+Level 3: +30%","","Zwiększa obrażenia twoje i Unity-chan zadane bronią
+Poziom 1: +10%
+Poziom 2: +20%
+Poziom 3: +30%",""
+"Shop_Virus_FireRate_Name",1750386634752,"","Fire Rate","","Predkość ataku",""
+"Shop_Virus_FireRate_Description",1801028661248,"","Decreases the delay between your and Unity-Chan's weapon shot
+Level 1: 5%
+Level 2: 10%
+Level 3: 15%","","Zmniejsza opóźnienie strzałów twoich i Unity-chan
+Poziom 1: 5%
+Poziom 2: 10%
+Poziom 3: 15%",""
+"Shop_Virus_IntegrityBoostRate_Name",1843961556992,"","Integrity Boosts Drop Rate","","Szansa wypadnięcia Wzmacniacza Integralności",""
+"Shop_Virus_IntegrityBoostRate_Description",1916288135168,"","Increases chance of dropping Integrity Boosters on enemies death that heal some of your Integrity Points.
+Level 1: 1,5%
+Level 2: 3%
+Level 3: 5%","","Zwiększa szansę wypadnięcia Wzmacniaczy Integralności na śmierć przeciwnika, które mogą przywrócić twoje Punkty Integralności
+Poziom 1: 1,5%
+Poziom 2: 3%
+Poziom 3: 5%",""
+"Shop_Virus_MaxIntegrity_Name",1936009752576,"","Max Integrity","","Maksymalna Integralność",""
+"Shop_Virus_MaxIntegrity_Description",10706966310912,"","Increases your and Unity-Chan's starting and max Integrity Points
+Level 1: +30 points
+Level 2: +60 points
+Level 3: +100 points","","Zwiększa początkowe Punkty Integralności twoje i Unity-chan
+Poziom 1: +30 punktów
+Poziom 2: +60 punktów
+Poziom 3: +100 punktów",""
+"Shop_Virus_PickupRange_Name",10728948658176,"","Pickup Range","","Zasięg podniesienia",""
+"Shop_Virus_PickupRange_Description",10767406231552,"","Increases your and Unity-Chan's range of picking up any items
+Level 1: +30% radius
+Level 2: +60% radius
+Level 3: +100% radius","","Zwiększa zasię podnoszenia przedmiotów przez ciebie i Unity-chan
+Poziom 1: +30% promień
+Poziom 2: +60% promień
+Poziom 3: +100% promień",""
+"Shop_Virus_ReloadSpeed_Name",10808288112640,"","Reload Speed","","Prędkość przeładowania",""
+"Shop_Virus_ReloadSpeed_Description",10840009633792,"","Decresases your and Unity-Chan's time to reload weapons
+Level 1: -10%
+Level 2: -17,5%
+Level 3: -25%","","Skraca czas przeładowania broni u ciebie i Unity-chan
+Poziom 1: -10%
+Poziom 2: -17,5%
+Poziom 3: -25%",""
+"Shop_Virus_RunSpeed_Name",10892245495808,"","Running Speed","","Szybkość ruchu",""
+"Shop_Virus_RunSpeed_Description",10923111378944,"","Increases your and Unity-Chan's movement speed
+Level 1: 10%
+Level 2: 15%
+Level 3: 20%","","Zwiększa twoją i Unity-chan prędkość poruszania się 
+Poziom 1: 10%
+Poziom 2: 15%
+Poziom 3: 20%",""
+"Shop_Virus_SpDropRate_Name",10956154105856,"","SP Drop Rate","","Szansa wypadnięcia SP",""
+"Shop_Virus_SpDropRate_Description",10989033254912,"","Increases chance of dropping SP particles on enemies death.
+Level 1: 25%
+Level 2: 32%
+Level 3: 40%","","Zwiększa szansę wypanięcia cząsteczek SP na śmierć przeciwników
+Poziom 1: 25%
+Poziom 2: 32%
+Poziom 3: 40%",""
+"Shop_Virus_StartIntegrity_Name",11021761409024,"","Start Integrity Boosters","","Początkowe Wzmacniacze Integralności",""
+"Shop_Virus_StartIntegrity_Description",11048474931200,"","Integrity Boosters are special items you and Unity-Chan can use to heal. This upgrade adds extra Integrity Boosters at the start of level.
+Level 1: 1 Integrity Boosters
+Level 2: 2 Integrity Boosters
+Level 3: 3 Integrity Boosters","","Wzmacniacze Integralności to specjalne przedmioty które ty i Unity-chan możecie użyć by się uzdrowić. To ulepszenie dodaje Wzmacniacze Integralności na początek poziomu.
+Poziom 1: 1 Wzmacniacz Integralności
+Poziom 2: 2 Wzmacniacze Integralności
+Poziom 3: 3 Wzmacniacze Integralności",""
