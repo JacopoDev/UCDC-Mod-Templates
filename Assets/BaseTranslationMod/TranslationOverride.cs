@@ -18,7 +18,6 @@ public class TranslationOverride : ModScript, ITranslationsOverrider
     {
         TranslationInfo translationInfo = new TranslationInfo()
         {
-            Source = ModHost,
             LoadingMessage = "Loading Test Translations...",
             Translations = new TranslationTable()
         };

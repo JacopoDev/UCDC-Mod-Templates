@@ -114,6 +114,12 @@
             Those buttons can be accessed in game via Menu->Settings->Mods submenu<br />
             </summary>
         </member>
+        <member name="T:UCDC_Mod_Api.ModInterfaces.ISceneDatabaseAccessor">
+            <summary>
+            Implement this if you want to add new sceneries to the game <br /><br />
+            Create your own scene, and then add it by calling AddOutdoorScene or OverrideHomeScene of the provider
+            </summary>
+        </member>
         <member name="T:UCDC_Mod_Api.ModInterfaces.ISettingsAccessor">
             <summary>
             Implement this if you want your script to get access to global mod settings <br /> <br />

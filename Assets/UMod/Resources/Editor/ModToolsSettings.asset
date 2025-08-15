@@ -15,7 +15,7 @@ MonoBehaviour:
   toolsIconSmall: {fileID: 2800000, guid: a29ca2909d70c0b4a8d3550732e0e842, type: 3}
   toolsIconLarge: {fileID: 2800000, guid: 2997d09a18e316e4f93a35cdfe826ee7, type: 3}
   toolsName: UCDC Mod Toolset
-  toolsVersion: 1.1.0
+  toolsVersion: 1.2.0
   firstRunWindow:
     assemblyQualifiedName: 
   developerName: JacopoDev
