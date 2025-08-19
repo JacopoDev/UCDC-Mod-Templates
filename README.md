@@ -51,6 +51,12 @@ _An example how you can override the AI system prompt_
 
 ---
 
+### 8. Template Scene Mod
+_Basic mod showcasing how to add a scene that can be accessed by clicking on the door in Kohaku's Room_<br />
+_Scene contains necessary object items for Unity-chan and camera placement and simple environment_
+
+---
+
 ## 🛠 How to Use These Templates
 1. Clone/download this repository
 2. Open the project in Unity Engine
