@@ -18,7 +18,7 @@ public class SceneAdder : ModScript, ISceneDatabaseAccessor
             LocationName = "Empty Test Scene",
             LocationDescription = "Template Description",
             AiContext =
-                "You are on an empty scenery, probably a place for testing purposes. It feels a bit boring and plain here.",
+                "Unity-chan and {0} are on an empty scenery, probably a place for testing purposes. It feels a bit boring and plain here.",
             Preview = tex,
             Scene = ModScenes.Find("TemplateScene")
         };

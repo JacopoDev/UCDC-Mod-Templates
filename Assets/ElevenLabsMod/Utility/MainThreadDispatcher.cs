@@ -9,6 +9,11 @@ namespace ElevenLabsMod.Utility
     {
         private static readonly ConcurrentQueue<Action> actions = new ConcurrentQueue<Action>();
 
+        private void Awake()
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+
         public static void Enqueue(Action action)
         {
             actions.Enqueue(action);
