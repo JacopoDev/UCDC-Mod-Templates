@@ -5,7 +5,9 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using ChatGptMod.GptApi;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using UCDC_Mod_Api.Models;
 using UCDC_Mod_Api.Models.TextGen;
 using UnityEngine;
@@ -25,11 +27,11 @@ namespace ChatGptMod
             _sender = messageSender;
         }
         
-        public async Task<TextResult> SendPrompt(List<Message> messages)
+        public async Task<TextResult> SendPrompt(List<Message> messages, [CanBeNull] string outputFormat)
         {
             OpenAiRequestData data = LoadRequestData(messages);
 
-            var returnStatus = await SendPrompt(data, messages);
+            var returnStatus = await SendPrompt(data, messages, outputFormat);
             return returnStatus;
         }
 
@@ -47,13 +49,13 @@ namespace ChatGptMod
                 top_p = GptSettings.Instance.GetFloat(EGptSettings.TopP, 1.0f),
                 frequency_penalty = GptSettings.Instance.GetFloat(EGptSettings.FrequencyPenalty, 2.0f),
                 presence_penalty = GptSettings.Instance.GetFloat(EGptSettings.PresencePenalty, 2.0f),
-                stop = GptSettings.Instance.GetStopStrings()
+                stop = GptSettings.Instance.GetStopStrings(),
             };
 
             return requestData;
         }
         
-        public virtual async Task<TextResult> SendPrompt(OpenAiRequestData requestData, List<Message> messages)
+        public virtual async Task<TextResult> SendPrompt(OpenAiRequestData requestData, List<Message> messages, [CanBeNull] string outputFormat)
         {
             TextResult apiResult = new TextResult();
             apiResult.Code = (int)HttpStatusCode.NotFound;
@@ -66,7 +68,18 @@ namespace ChatGptMod
                 return apiResult;
             }
 
-            var requestJson = JsonConvert.SerializeObject(requestData);
+            string requestJson;
+            if (outputFormat != null)
+            {
+                var jsonData = JObject.FromObject(requestData);
+                var extraSettings = JObject.Parse(outputFormat);
+                jsonData.Add("response_format", extraSettings);
+                requestJson = jsonData.ToString();
+            }
+            else
+            {
+                requestJson = JsonConvert.SerializeObject(requestData);
+            }
             
             var client = new HttpClient();
             client.DefaultRequestHeaders.Clear();
@@ -98,7 +111,7 @@ namespace ChatGptMod
                     messages.RemoveAt(1);
     
                     apiResult.Code = (int)HttpStatusCode.BadRequest;
-                    apiResult = await SendPrompt(requestData, messages);
+                    apiResult = await SendPrompt(requestData, messages, outputFormat);
                     return apiResult;
                 }
                     
