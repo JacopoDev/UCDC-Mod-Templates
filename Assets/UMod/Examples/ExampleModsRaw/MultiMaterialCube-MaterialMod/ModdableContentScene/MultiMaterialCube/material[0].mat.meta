@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b12c8a11a66a6184a897e98284d44ef7
+timeCreated: 1579266528
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Examples/ExampleModsRaw/MultiMaterialCube-MaterialMod/ModdableContentScene/MultiMaterialCube/material[0].mat
+  uploadId: 782332

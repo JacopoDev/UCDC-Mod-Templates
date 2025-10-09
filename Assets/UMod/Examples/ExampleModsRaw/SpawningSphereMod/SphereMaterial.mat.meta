@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 8435b2a2a7493194c91ccd47341fd612
+timeCreated: 1556112368
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Examples/ExampleModsRaw/SpawningSphereMod/SphereMaterial.mat
+  uploadId: 782332

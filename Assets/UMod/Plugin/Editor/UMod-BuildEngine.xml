@@ -1,0 +1,822 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UMod-BuildEngine</name>
+    </assembly>
+    <members>
+        <member name="T:UMod.BuildEngine.BuildContext">
+            <summary>
+            Build engine context passed to build processors.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.BuildContext.ModAssetsPath">
+            <summary>
+            The mod asset path pointing to the folder to export relative to the Unity project.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.BuildContext.ToolSettings">
+            <summary>
+            The mod tools settings used for the build.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.BuildContext.ExportSettings">
+            <summary>
+            The user export settings used for the build.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.BuildContext.ExportProfile">
+            <summary>
+            The target user export profile used to export the mod.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.BuildContext.ModIdentity">
+            <summary>
+            The generated mod identifier.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.BuildContext.BuildScripts">
+            <summary>
+            The registered build scripts.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.BuildContext.BuildAssemblies">
+            <summary>
+            The registered build assemblies.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.BuildContext.BuildReferences">
+            <summary>
+            The target referenced mods for the build.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.BuildContext.ProcessorStage">
+            <summary>
+            The current processor stage.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.BuildScripts">
+            <summary>
+            A collection of CSharp source files registered for the build.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.BuildScripts.ScriptCount">
+            <summary>
+            Get the number of source files registered.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.BuildScripts.HasScripts">
+            <summary>
+            Returns true if there are one or more source files registered.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.BuildScripts.SourceFiles">
+            <summary>
+            Get an array of source file paths.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildEngine.BuildScripts.RegisterScriptForBuild(System.String)">
+            <summary>
+            Add the specified source file to the build.
+            </summary>
+            <param name="scriptFile">The CSharp source file path</param>
+            <returns>True if the source file was added or false if not</returns>
+        </member>
+        <member name="T:UMod.BuildEngine.Build.Linker.Components.BehaviourComponentLinker">
+            <summary>
+            Responsible for ensuring that all custom mono behaviours get serialized into mod format and that the Mod Identiy component is present.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.Build.Linker.PrefabLinkBehaviour">
+            <summary>
+            Responsible for managing all link behavious that are assigned to prefabs.
+            These scripts need special treatment as their link references need to be serialized as assets before export.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.Build.Linker.PrefabLinker">
+            <summary>
+            Responsible for ensuring that all scripts attached to a specific prefab are linked correctly and that the changes to the prefab are applied.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.Build.Linker.SceneLinker">
+            <summary>
+            Responsible for ensuring that all scripts in a scene are linked correctly.
+            Scripts attached to prefab instances are not linked by the scene linker.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.Build.BuildAssemblies">
+            <summary>
+            A collection of assemblies that are included in the build.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.Build.BuildAssemblies.AssemblyCount">
+            <summary>
+            Get the number of assemblies registered.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.Build.BuildAssemblies.HasAssemblies">
+            <summary>
+            Returns true if one or more assemblies are registered.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.Build.BuildAssemblies.Assemblies">
+            <summary>
+            Get an array of assembly entries.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildEngine.Build.BuildAssemblies.Clear">
+            <summary>
+            Remove all reistered assemblies.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildEngine.Build.BuildAssemblies.RegisterAssemblyForBuild(System.Byte[],System.Boolean)">
+            <summary>
+            Add an assembly to the build for export.
+            </summary>
+            <param name="assemblyData">The managed assembly data</param>
+            <param name="isUModCompiled">Is the assembly compiled by uMod</param>
+            <returns>True if the assembly was added to the build</returns>
+        </member>
+        <member name="M:UMod.BuildEngine.Build.BuildAssemblies.RegisterSymbolsForBuild(System.String,System.Byte[])">
+            <summary>
+            Add assembly debug symbols to the build.
+            </summary>
+            <param name="assemblyName">The name of the assembly</param>
+            <param name="symbolData">The mdb symbol data image</param>
+            <returns>True if the symbols were added or false if not</returns>
+        </member>
+        <member name="M:UMod.BuildEngine.Build.BuildAssemblies.RegisterMetaDataForBuild(System.String,System.Byte[])">
+            <summary>
+            Add assembly meta data to the build.
+            </summary>
+            <param name="assemblyName">The name of the assembly</param>
+            <param name="metaData">The .meta data for the assembly image</param>
+            <returns>True if the meta dat was added or false if not</returns>
+        </member>
+        <member name="M:UMod.BuildEngine.Build.BuildAssemblies.RemoveFromBuild(UMod.Shared.Resources.ModAssemblyEntry)">
+            <summary>
+            Remove the specfieid assembly entry.
+            </summary>
+            <param name="entry">The entry instance to remove</param>
+        </member>
+        <member name="M:UMod.BuildEngine.Build.BuildAssemblies.FindBuildAssemblyForType(System.Type)">
+            <summary>
+            Attempt to find the registered assembly that contains the specified type.
+            </summary>
+            <param name="type">The type to search for</param>
+            <returns>An assembly if found or null</returns>
+        </member>
+        <member name="T:UMod.BuildEngine.BuildEndStatus">
+            <summary>
+            Represents the end status of a build and indicates whether the build was successfuly or not.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.BuildEndStatus.Unknown">
+            <summary>
+            An unknown error occurred while performing the build.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.BuildEndStatus.Invalid">
+            <summary>
+            A build was attempted with an invalid configuration.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.BuildEndStatus.Success">
+            <summary>
+            The build succeeded without error.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.BuildEndStatus.Failed">
+            <summary>
+            The build failed.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.InvalidModFolderReason">
+            <summary>
+            A value indicating why a folder path is an invalid mod assets path.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.InvalidModFolderReason.None">
+            <summary>
+            The path is valid (No error).
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.InvalidModFolderReason.EmptyPath">
+            <summary>
+            The specified mod folder path is either null or empty.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.InvalidModFolderReason.NotFound">
+            <summary>
+            The specified mod folder could not be found.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.InvalidModFolderReason.IsAssets">
+            <summary>
+            The specified mod folder is set to the 'Assets' folder. This is not allowed.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.InvalidModFolderReason.NotChildOfAssets">
+            <summary>
+            The specified folder does no point to a valid 'Assets' sub folder.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.InvalidModOutputReason">
+            <summary>
+            An enum value indicating why the specified output is not valid
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.InvalidModOutputReason.None">
+            <summary>
+            The ourput is valid (No error).
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.InvalidModOutputReason.EmptyName">
+            <summary>
+            The mod name is either null or empty.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.InvalidModOutputReason.VersionFormat">
+            <summary>
+            The mod version is incorrectly formatted.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.BuildEngineProcessor">
+            <summary>
+            Override this class and decorate with the <see cref="T:UMod.BuildPipeline.UModBuildProcessorAttribute"/> in order to create a custom build asset processor.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.BuildEngineService">
+            <summary>
+            The main class for interacting with the uMod build engine.
+            Use this class to compile a asset directory into mod format for loading at runtime.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.BuildEngineService.BuildProcessorStage">
+            <summary>
+            An enum value representing the current build processor stage
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.BuildEngineService.BuildProcessorStage.BeforeCompile">
+            <summary>
+            Build processors are running before scripts have been compiled.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.BuildEngineService.BuildProcessorStage.AfterCompile">
+            <summary>
+            Build processors are running after scripts have been compiled.
+            </summary>
+        </member>
+        <member name="E:UMod.BuildEngine.BuildEngineService.OnGenerateModIdentifier">
+            <summary>
+            An event that is triggered when the build engine requires a mod identifier to be created. You can add a listener to this event in order to manually generate mod identifiers.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.BuildEngineService.LogLocation">
+            <summary>
+            Get the build engine log file location.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildEngine.BuildEngineService.BuildMod(UMod.ModTools.Export.ExportSettings)">
+            <summary>
+            Start building a mod with the specified export settings.
+            </summary>
+            <param name="exportSettings">The export settings to use to build a mod. The settings must incldue atleast one valid and active export profile</param>
+            <returns>A <see cref="T:UMod.BuildEngine.ModBuildResult"/> containing information about the build</returns>
+        </member>
+        <member name="M:UMod.BuildEngine.BuildEngineService.RunProcessors">
+            <summary>
+            Run all build engine processors on their target assets.
+            Should only be called when a build is in progress.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildEngine.BuildEngineService.RunPipelineBuild">
+            <summary>
+            The main build engine sequence.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildEngine.BuildEngineService.RunPipelineCleanup">
+            <summary>
+            The build engine cleanup sequence.
+            This will run after a build regardless of the build result to ensure that the project is returned to its prior state.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildEngine.BuildEngineService.ReportException(System.Exception,UMod.BuildPipeline.BuildPipelineService{UMod.BuildEngine.BuildContext,UMod.BuildPipeline.Build.BuildPipelineAsset}.BuildExceptionContext)">
+            <summary>
+            Log an exception to the current log output stream.
+            </summary>
+            <param name="e">The exception to log</param>
+            <param name="exceptionContext">The build engine exception context</param>
+        </member>
+        <member name="M:UMod.BuildEngine.BuildEngineService.IsValidModFolder(System.String)">
+            <summary>
+            Attempts to validate a mod folder path.
+            The specified folder must be inside the assets folder in order to be valid.
+            </summary>
+            <param name="modFolderPath">The folder path to valdiate</param>
+            <returns>True if the specified path is valid or false if not</returns>
+        </member>
+        <member name="M:UMod.BuildEngine.BuildEngineService.IsValidOutput(UMod.ModTools.Export.ExportProfileSettings)">
+            <summary>
+            Attempts to valdiate the specified export profile.
+            </summary>
+            <param name="exportProfile">The export profile to validate</param>
+            <returns>True if the specfied export profile is valid or false if not</returns>
+        </member>
+        <member name="M:UMod.BuildEngine.BuildEngineService.GetInvalidModFolderReason(System.String)">
+            <summary>
+            Get the reason that the specified mod folder is invalid.
+            </summary>
+            <param name="modFolderPath">The folder path to get the invalid reason for</param>
+            <returns>An <see cref="T:UMod.BuildEngine.InvalidModFolderReason"/> indicating why the folder path is not valid</returns>
+        </member>
+        <member name="M:UMod.BuildEngine.BuildEngineService.GetInvalidModOutputReason(UMod.ModTools.Export.ExportProfileSettings)">
+            <summary>
+            Get the reason that the specified mod export profile is invalid.
+            </summary>
+            <param name="exportProfile">The mod export profile to get the invalid reason for</param>
+            <returns>An <see cref="T:UMod.BuildEngine.InvalidModFolderReason"/> indicating why the export profile is not valid</returns>
+        </member>
+        <member name="M:UMod.BuildEngine.BuildEngineService.GetLogFileStream(System.IO.FileMode,System.IO.FileAccess)">
+            <summary>
+            Open the build engine log file for reading or writing.
+            </summary>
+            <param name="mode">The read or write mod</param>
+            <param name="access">The file access mode</param>
+            <returns>The build engine log file stream</returns>
+        </member>
+        <member name="T:UMod.BuildEngine.ModBuild">
+            <summary>
+            Represents a build mod that can be accessed in memory.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.ModCreateArgs">
+            <summary>
+            Contains information used when generating new mods.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.ModCreateArgs.exportProfile">
+            <summary>
+            The <see cref="T:UMod.ModTools.Export.ExportProfileSettings"/> for the new mod. 
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.ModCreateArgs.fullPath">
+            <summary>
+            The full path to the newly created mod folder.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.ModCreateArgs.relativePath">
+            <summary>
+            The path relative to the project folder of the newly created mod folder.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.ModCreateArgs.modName">
+            <summary>
+            The name of the newly created mod.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.ModCreate">
+            <summary>
+            Helper class responsible for creating new mod folders.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.ModCreate.OnModCreated">
+            <summary>
+            Called when a new mod has been created in the project folder.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildEngine.ModCreate.CreateNewMod(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a new mod folder in the project folder at the specified path.
+            </summary>
+            <param name="modFolderPath">The relative or full path to the mod folder</param>
+            <param name="makeActiveProfile">Should the mod be made active in the export settings once created</param>
+            <param name="pingProjectWindow">Should the mod folder be highlighted in the project panel once created</param>
+        </member>
+        <member name="M:UMod.BuildEngine.ModToolsUtil.StartBuildAndRun(UMod.ModTools.Export.ExportSettings,System.Action)">
+            <summary>
+            Build a mod with the specified export settings and launch the mod in game when finished.
+            The active mod export profile of the specified settings will be used to build the mod.
+            You can load the current export settings for the project by calling 'ExportSettings.Load'.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The specified export settings are null</exception>
+            <exception cref="T:System.ArgumentException">The specified export settings does not have a valid and active export profile</exception>
+            <exception cref="T:UMod.BuildEngine.ModToolsException">The mod tools package is corrupt</exception>
+            <exception cref="T:UMod.BuildEngine.ModBuildException">There was a critical error when build the mod and exporting cannot continue. The exception will contain detailed information</exception>
+            <exception cref="T:UMod.ModNotLoadedException">The build engine failed to load or resolve one or more referenced mods while building the active export profile</exception>
+            <param name="settings">The export settings that will be used to build the mod</param>
+            <param name="invalidExportSettingsCallback">A method that will be called when invalid export settings have been provided</param>
+            <returns>A <see cref="T:UMod.BuildEngine.ModBuildResult"/> generated by the build engine</returns>
+        </member>
+        <member name="M:UMod.BuildEngine.ModToolsUtil.ShowToolsWindow(System.Type)">
+            <summary>
+            Show a mod tools editor window.
+            Tools windows must inherit from <see cref="T:UnityEditor.EditorWindow"/>.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The specified type is null</exception>
+            <exception cref="T:System.InvalidOperationException">The specified type does not inherit from <see cref="T:UnityEditor.EditorWindow"/></exception>
+            <param name="windowType">The type of the window to show</param>
+        </member>
+        <member name="M:UMod.BuildEngine.ModToolsUtil.RebuildReferenceCache">
+            <summary>
+            Force the build engine to reimport reference mod assemblies for the active export profile.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildEngine.ModToolsUtil.CreateSharedGameAssetInActiveScene(UnityEngine.GameObject,System.String)">
+            <summary>
+            Create an instance of the shared game asset with the specified guid.
+            You can also specify a target game object which may be required for assets such as materials or textures. 
+            For prefab shared assets the target object will become the parent object.
+            </summary>
+            <exception cref="T:UMod.BuildEngine.ModToolsException">The mod tools package is corrupt</exception>
+            <exception cref="T:UMod.BuildEngine.ModToolsException">The specified asset guid does not exist</exception>
+            <param name="targetObject">The target game object which will act as the parent or container object depending upon the shared asset type. Specifying null is allowed for shared assets which are of type <see cref="!:GameObject>"/></param>
+            <param name="assetGUID">The guid of the shared asset to create an instance of</param>
+        </member>
+        <member name="M:UMod.BuildEngine.ModToolsUtil.GetSharedAssetWithName(System.String,UMod.ModTools.ModToolsAssetSharing.SharedAsset@)">
+            <summary>
+            Attempt to get the shared asset information for an asset with the specified name.
+            </summary>
+            <param name="assetName">The name of the asset to search for as displayed in the game assets window</param>
+            <param name="sharedAsset">The shared asset information if found or an invalid object if not</param>
+            <returns>True if a matching shared asset was found or false if not</returns>
+        </member>
+        <member name="M:UMod.BuildEngine.ModToolsUtil.HasSharedGameAsset(System.String)">
+            <summary>
+            Get a value indicating whether a shared game asset with the specified asset guid exists in the mod tools package.
+            </summary>
+            <exception cref="T:UMod.BuildEngine.ModToolsException">The mod tools package is corrupt</exception>.
+            <param name="assetGUID">The unique guid of the shared game asset</param>
+            <returns>True if the mod tools package contains a shared game asset with the specified guid or false if not</returns>
+        </member>
+        <member name="M:UMod.BuildEngine.ModToolsUtil.GetSharedAssetType(System.String)">
+            <summary>
+            Get the type of a shared game asset with the specified guid.
+            Game assets can only be types derived from UnityEngine.Object.
+            </summary>
+            <exception cref="T:UMod.BuildEngine.ModToolsException">The mod tools package is corrupt</exception>
+            <exception cref="T:UMod.BuildEngine.ModToolsException">The specified asset guid does not exist</exception>
+            <param name="assetGUID">The unique guid of the shared game asset to retrieve the type of</param>
+            <returns>A <see cref="T:System.Type"/> of the shared game asset with the specified guid</returns>
+        </member>
+        <member name="M:UMod.BuildEngine.ModToolsUtil.GetAllSharedGameAssets">
+            <summary>
+            Get an array of asset guids which represent all available game assets which are available to the modder.
+            All shared game assets are referenced via unique guids which are relinked when the mod scene is loaded in game.
+            </summary>
+            <exception cref="T:UMod.BuildEngine.ModToolsException">The mod tools package is corrupt</exception>
+            <returns>An array of shared game asset guids</returns>
+        </member>
+        <member name="T:UMod.BuildEngine.ReferenceAssemblyLoader">
+            <summary>
+            Responsible for managing reference assemblies for the active export profile.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildEngine.ReferenceAssemblyLoader.LoadReferencedAssemblies(System.Boolean)">
+            <summary>
+            Attempts to load all assembly references required by the active export profile.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.ScriptCompiler.CompiledAssembly">
+            <summary>
+            Generated by the compiler and represents the loaded assembly.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.CompiledAssembly.RawAssembly">
+            <summary>
+            Gets the raw bytes of the assembly ready for output to the file system.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.CompiledAssembly.Compiled">
+            <summary>
+            Gets the loaded assembly ready for reflection.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.CompiledAssembly.AssemblyName">
+            <summary>
+            Gets the name of the compiled assembly as specified (Or generated).
+            </summary>
+        </member>
+        <member name="M:UMod.BuildEngine.ScriptCompiler.CompiledAssembly.WriteToFile(System.String)">
+            <summary>
+            Attempt to write the compiled assembly to the file system.
+            </summary>
+            <param name="filepath">The filepath to save the file to</param>
+            <returns>True if the write is successful</returns>
+        </member>
+        <member name="T:UMod.BuildEngine.ScriptCompiler.ScriptCompileOutputInfo">
+            <summary>
+            Allows the user to specify the name and version used when compiling.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.ScriptCompileOutputInfo.OutputName">
+            <summary>
+            The name of the ouput assembly.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.ScriptCompileOutputInfo.TargetNetVersion">
+            <summary>
+            The .Net framework version to target when compiling, Default is v3.5 (Unity Compatibly).
+            </summary>
+        </member>
+        <member name="M:UMod.BuildEngine.ScriptCompiler.ScriptCompileOutputInfo.#ctor(System.String,System.String)">
+            <summary>
+            Create an instance of the output info wusing the specified name and version
+            </summary>
+            <param name="outputName">The name of the assembly</param>
+            <param name="targetNetVersion">The .Net framework version to use when compiling</param>
+        </member>
+        <member name="T:UMod.BuildEngine.ScriptCompiler.CompileStatus">
+            <summary>
+            The current state of the compiler and compilation task.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.ScriptCompiler.CompileStatus.Failure">
+            <summary>
+            The compile failed. Check the compile output for more details.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.ScriptCompiler.CompileStatus.Success">
+            <summary>
+            The compile was successful.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.ScriptCompiler.CompileStatus.Idle">
+            <summary>
+            The compiler is currently not performing any action and is waiting for a task.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.ScriptCompiler.CompileStatus.Compiling">
+            <summary>
+            The compiler is currently compiling.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.ScriptCompiler.CompileStatus.NoSourceSupplied">
+            <summary>
+            There was no source code provided to the compiler.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.ScriptCompiler.CompilerContext">
+            <summary>
+            Contains contextual data for the build engine compiler.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.ScriptCompiler.CompilerContext.status">
+            <summary>
+            The compile statis of the active compiler service.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.ScriptCompiler.CompilerContext.report">
+            <summary>
+            The compiler report generated by the last compile request.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildEngine.ScriptCompiler.CompilerContext.result">
+            <summary>
+            The compiler result generated by the last compile request.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.CompilerContext.Status">
+            <summary>
+            The compiler status as a result of the last build.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.CompilerContext.Report">
+            <summary>
+            The compiler log for the last build.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.CompilerContext.Result">
+            <summary>
+            The compiled assembly generated by the last build.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.ScriptCompiler.CompilerFiles">
+            <summary>
+            Common files and extensions used during builds.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.ScriptCompiler.CompilerLog">
+            <summary>
+            Contains the errors and warnings generated by the compiler duing a build.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.CompilerLog.FullLog">
+            <summary>
+            Get the compile log as a full string value for easy output.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.CompilerLog.Warnings">
+            <summary>
+            A string collection representing all of the compile warnings.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.CompilerLog.Errors">
+            <summary>
+            A string collection representing all of the compile errors.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.CompilerLog.WarningCount">
+            <summary>
+            The number of warnings this log contains.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.CompilerLog.ErrorCount">
+            <summary>
+            The number of errors this log contains.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.CompilerLog.HasWarnings">
+            <summary>
+            Returns true if there are 1 or more warnings in the last compile.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.CompilerLog.HasErrors">
+            <summary>
+            Returns true if there are 1 or more errors in the last compile
+            </summary>
+        </member>
+        <member name="M:UMod.BuildEngine.ScriptCompiler.CompilerLog.AddWarning(System.String,System.String)">
+            <summary>
+            Adds a compiler warning to the <see cref="T:UMod.BuildEngine.ScriptCompiler.CompilerLog"/>. 
+            </summary>
+            <param name="warning">The warning message</param>
+            <param name="warningCode">The warning code</param>
+        </member>
+        <member name="M:UMod.BuildEngine.ScriptCompiler.CompilerLog.AddError(System.String,System.String)">
+            <summary>
+            Adds a compiler error to the <see cref="T:UMod.BuildEngine.ScriptCompiler.CompilerLog"/> 
+            </summary>
+            <param name="error">The error message</param>
+            <param name="errorCode">The error code</param>
+        </member>
+        <member name="M:UMod.BuildEngine.ScriptCompiler.CompilerLog.Clear">
+            <summary>
+            Clears all errors and warnings from the current log.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.ScriptCompiler.ScriptCompilerService">
+            <summary>
+            The main class used to compile C# assembles using the specified info classes to pass source files and references to the compiler.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildEngine.ScriptCompiler.ScriptCompilerService.Compile(UMod.BuildEngine.ScriptCompiler.ScriptCompileSource,UMod.BuildEngine.ScriptCompiler.ScriptCompileOutputInfo)">
+            <summary>
+            Begin compiling using the specified source info.
+            </summary>
+            <param name="source">Information that specifies the source files to compile</param>
+            <param name="output">Information that determines how the assembly will be compiled</param>
+            <returns></returns>
+        </member>
+        <member name="M:UMod.BuildEngine.ScriptCompiler.ScriptCompilerService.Compile(UMod.BuildEngine.ScriptCompiler.Project.ProjectFile,UMod.BuildEngine.ScriptCompiler.ScriptCompileOutputInfo)">
+            <summary>
+            Begin compiling the specified project file.
+            </summary>
+            <param name="project">The project file containing source and reference information</param>
+            <param name="output">Information that determines how the assembly will be compiled</param>
+            <returns></returns>
+        </member>
+        <member name="T:UMod.BuildEngine.ScriptCompiler.ScriptCompileSource">
+            <summary>
+            Allows the source files and project references to be passed to the compiler without relying on a project file.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.ScriptCompileSource.SourceFiles">
+            <summary>
+            All the source files for this source info.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.ScriptCompileSource.References">
+            <summary>
+            All the references for this source info.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.ScriptCompileSource.Defines">
+            <summary>
+            All the define symbols for the source.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildEngine.ScriptCompiler.ScriptCompileSource.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Create a new source info from a collection of source file paths.
+            </summary>
+            <param name="sourceFiles">A collection of strings representing paths to C# source files</param>
+        </member>
+        <member name="M:UMod.BuildEngine.ScriptCompiler.ScriptCompileSource.#ctor(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Create a new source info from a collection of source file paths with specified project references.
+            </summary>
+            <param name="sourceFiles">A collection of strings representing paths to C# source files</param>
+            <param name="references">A collection of project references</param>
+        </member>
+        <member name="M:UMod.BuildEngine.ScriptCompiler.ScriptCompileSource.#ctor(System.IO.DirectoryInfo,System.Boolean)">
+            <summary>
+            Create a new source info by searching the specified directory for C# source files.
+            </summary>
+            <param name="sourceDirectory">The directory info representing the directory to search</param>
+            <param name="deepSearch">When true, source files in child directories will also be added</param>
+        </member>
+        <member name="M:UMod.BuildEngine.ScriptCompiler.ScriptCompileSource.#ctor(System.IO.DirectoryInfo,System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+            Create a new source info by searching the specified directory for C# source files. also adds the specified project references.
+            </summary>
+            <param name="sourceDirectory">The directory info representing the directory to search</param>
+            <param name="references">A collection of project references</param>
+            <param name="deepSearch">When true, source files in child directories will also be added</param>
+        </member>
+        <member name="M:UMod.BuildEngine.ScriptCompiler.ScriptCompileSource.AddSourceFile(System.String)">
+            <summary>
+            Add a source file to the collection of filed to be compiled.
+            </summary>
+            <param name="file">A full path to the C# source file</param>
+        </member>
+        <member name="M:UMod.BuildEngine.ScriptCompiler.ScriptCompileSource.AddSourceFile(System.String,System.Boolean)">
+            <summary>
+            Add a source file to the collection of files to be compiled.
+            </summary>
+            <param name="file">The full path to the C# source file</param>
+            <param name="validate">When true the compiler will ensure that the file exists</param>
+        </member>
+        <member name="M:UMod.BuildEngine.ScriptCompiler.ScriptCompileSource.AddReference(System.String)">
+            <summary>
+            Add a reference to the collection of project references.
+            </summary>
+            <param name="reference">The string path or name representing the reference, For example: 'System'</param>
+        </member>
+        <member name="M:UMod.BuildEngine.ScriptCompiler.ScriptCompileSource.AddDefine(System.String)">
+            <summary>
+            Adds a project wide define symbol.
+            </summary>
+            <param name="define">he define symbol to add. For example, 'DEBUG'.</param>
+        </member>
+        <member name="T:UMod.BuildEngine.ScriptCompiler.Project.ProjectFile">
+            <summary>
+            Represents a C# project file containing source files and references.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.Project.ProjectFile.AssemblyName">
+            <summary>
+            The name of the assembly as specified in the project.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.Project.ProjectFile.SourceFiles">
+            <summary>
+            All source files associated with this project file.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.Project.ProjectFile.References">
+            <summary>
+            All references associated with the project.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.ScriptCompiler.Project.ProjectFile.Defines">
+            <summary>
+            All the compilation define symbols for the project. For example, 'DEBUG'.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildEngine.ScriptCompiler.Project.ProjectFile.#ctor(System.String)">
+            <summary>
+            Create and parse the C# project file located at the specified path.
+            </summary>
+            <param name="file">The path to the project file</param>
+        </member>
+        <member name="T:UMod.BuildEngine.ScriptCompiler.Project.ProjectLocator">
+            <summary>
+            Helper class used to locate project files within a directory.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildEngine.ScriptCompiler.Project.ProjectLocator.FindProject(System.String,System.String[],System.String[])">
+            <summary>
+            Attempts to locate a project file that contains the specified key words and does not contain the specified exclusions.
+            </summary>
+            <param name="directory">The directory to search for the project file, Top level only</param>
+            <param name="keyWords">An array of string values that must be present in the file name</param>
+            <param name="exclusions">An array of string values that cannot be present in the file name</param>
+            <returns></returns>
+        </member>
+        <member name="T:UMod.BuildEngine.ScriptCompiler.Project.ProjectParser">
+            <summary>
+            Parses microsoft visual studio project files
+            </summary>
+        </member>
+        <member name="T:UMod.BuildEngine.UModBuildEngineVersion">
+            <summary>
+            The version of the core UMod build engine for compatibility with the host.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.UModBuildEngineVersion.MajorVersion">
+            <summary>
+            The major version for the uMod build engine.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.UModBuildEngineVersion.MinorVersion">
+            <summary>
+            The minor version for the uMod build engine.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildEngine.UModBuildEngineVersion.RevisionVersion">
+            <summary>
+            The revision version for the uMod build engine.
+            </summary>
+        </member>
+    </members>
+</doc>

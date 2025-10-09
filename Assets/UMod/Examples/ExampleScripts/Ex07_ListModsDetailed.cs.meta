@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 8b1fec0bd580f5d4aa7e601513c846ef
+timeCreated: 1465052833
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Examples/ExampleScripts/Ex07_ListModsDetailed.cs
+  uploadId: 782332

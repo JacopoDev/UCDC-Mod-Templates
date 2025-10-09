@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 541f0a7b48b87794cbd0aadaa2142765
+timeCreated: 1556112404
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Examples/ExampleModsRaw/SpawningSphereMod/SpawningSphere.cs
+  uploadId: 782332

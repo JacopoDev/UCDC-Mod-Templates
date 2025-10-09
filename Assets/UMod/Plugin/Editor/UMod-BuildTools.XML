@@ -1,0 +1,278 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UMod-BuildTools</name>
+    </assembly>
+    <members>
+        <member name="T:UMod.BuildTools.BuildContext">
+            <summary>
+            Build context passed to processors and major build tasks.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildContext.OutputFile">
+            <summary>
+            The target export folder where the mod tools package should be created or null if export in project was true.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildContext.ModToolsName">
+            <summary>
+            The name of the mod tools package.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildContext.ToolSettings">
+            <summary>
+            The tools settings for the mod tools package.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildContext.ToolContent">
+            <summary>
+            The tools user content for the mod tools package.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildContext.ToolSharedContent">
+            <summary>
+            The tools shared game content for the mod tools package.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildContext.ProjectSettings">
+            <summary>
+            The tools project settings that should be included in the tools package.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildTools.BuildToolsContent">
+            <summary>
+            Used to register user specified content to be included in a mod tools package.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildTools.BuildToolsContent.IncludeExecutableType">
+            <summary>
+            Used to specify whether the content is runtime or editor only.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildTools.BuildToolsContent.IncludeExecutableType.Runtime">
+            <summary>
+            The content is for runeim use.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildTools.BuildToolsContent.IncludeExecutableType.Editor">
+            <summary>
+            The content is editor only and must be placed inside an editor folder.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildToolsContent.CollectScriptDependencies">
+            <summary>
+            Should the tools builder search for script dependencies.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildToolsContent.CollectAssemblyDependencies">
+            <summary>
+            Should the tools builder search for assembly dependencies.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildToolsContent.ModIncludeScripts">
+            <summary>
+            Get a list of included CSharp scripts that will be automatically referenced by all mods created with the built tools package.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildToolsContent.AdditionalScripts">
+            <summary>
+            Get a list of included CSharp script assets.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildToolsContent.AdditionalEditorScripts">
+            <summary>
+            Get a list of included CSharp editor script assets.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildToolsContent.AdditionalAssemblies">
+            <summary>
+            Get a list of included managed assembly assets.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildToolsContent.AdditionalEditorAssemblies">
+            <summary>
+            Get a list of included managed editor assembly assets.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildToolsContent.AdditionalContents">
+            <summary>
+            Get a list of included extra asset content.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildTools.BuildToolsContent.AddIncludeScript(System.String)">
+            <summary>
+            Add a CSharp source script to the tools build.
+            The specified source file will be added to the mod tools package and will then be automatically referenced by all mods created with the tools package.
+            </summary>
+            <param name="cSharpSourceFile">The path to the C# source file</param>
+            <returns>True if the source file was added or false if not</returns>
+        </member>
+        <member name="M:UMod.BuildTools.BuildToolsContent.AddAdditionalScript(UMod.BuildTools.BuildToolsContent.IncludeExecutableType,System.String)">
+            <summary>
+            Add a CSharp script to the toold build.
+            </summary>
+            <param name="scriptType">The type of script</param>
+            <param name="cSharpSourceFile">The script file path</param>
+            <returns>True if the script was added or false if not</returns>
+        </member>
+        <member name="M:UMod.BuildTools.BuildToolsContent.AddAdditionalScripts(UMod.BuildTools.BuildToolsContent.IncludeExecutableType,System.String[])">
+            <summary>
+            Add a collection of CSharp script files to the tools build.
+            </summary>
+            <param name="scriptType">The type of script</param>
+            <param name="cSharpSourceFiles">An array fo script file paths</param>
+            <returns>The number of scripts that were successfully added to the build</returns>
+        </member>
+        <member name="M:UMod.BuildTools.BuildToolsContent.AddAdditionalAssembly(UMod.BuildTools.BuildToolsContent.IncludeExecutableType,System.String)">
+            <summary>
+            Add a managed assembly to the tools build.
+            </summary>
+            <param name="assemblyType">The type of assembly</param>
+            <param name="managedAssemblyFile">The assembly file path</param>
+            <returns>True if the assembly was added or false if not</returns>
+        </member>
+        <member name="M:UMod.BuildTools.BuildToolsContent.AddAdditionalAssemblies(UMod.BuildTools.BuildToolsContent.IncludeExecutableType,System.String[])">
+            <summary>
+            Add a collection of managed assemblies to the tools build.
+            </summary>
+            <param name="assemblyType">The assembly types</param>
+            <param name="managedAssemblyFiles">An array of managed assembly file paths</param>
+            <returns>The number of assemblies that were added to the build</returns>
+        </member>
+        <member name="M:UMod.BuildTools.BuildToolsContent.AddAdditonalContent(System.String)">
+            <summary>
+            Add an additional asset to the tools build.
+            </summary>
+            <param name="contentFile">The asset file path</param>
+            <returns>True if the asset was added or false if not</returns>
+        </member>
+        <member name="T:UMod.BuildTools.BuildToolsService">
+            <summary>
+            The main uMod service for building a mod tools package.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildTools.BuildToolsService.BuildModTools(System.String,UMod.ModTools.ModToolsSettings,UMod.BuildTools.BuildToolsContent,UMod.BuildTools.BuildToolsSharedContent,UMod.BuildTools.BuildToolsProjectSettings)">
+            <summary>
+            Build a mod tools package using the specified tool settings and content.
+            This will generate a .unitypackage that can be used to create mods for your game.
+            </summary>
+            <param name="outputFile">The path to create the package at</param>
+            <param name="toolsSettings">The tool settings that will be used to build the package</param>
+            <param name="additionalContent">The additional content that should be included in the package</param>
+            <param name="sharedContent">The shared game content that will be built into asset bundles and distributed with the tools paths</param>
+            <param name="projectSettings">The project settings which determines which project assets will be included in the package</param>
+        </member>
+        <member name="M:UMod.BuildTools.BuildToolsService.RunProcessors">
+            <summary>
+            Override implementation of <see cref="M:UMod.BuildPipeline.BuildPipelineService`2.RunProcessors"/>.
+            Not implemented by this build service.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildTools.BuildToolsService.RunPipelineBuild">
+            <summary>
+            Override implementation of <see cref="M:UMod.BuildPipeline.BuildPipelineService`2.RunPipelineBuild"/>.
+            Builds the mod tools package using the specified settings.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildTools.BuildToolsService.RunPipelineCleanup">
+            <summary>
+            Override implementation of <see cref="M:UMod.BuildPipeline.BuildPipelineService`2.RunPipelineCleanup"/>.
+            Cleans the project of any assets that were created or copied in order to create the mod tools package.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildTools.Build.AssetDependencies">
+            <summary>
+            Holds a main asset and a collection of assets which are referenced by the main asset.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildTools.Build.AssetDependencies.assetPath">
+            <summary>
+            The path of the main asset relative to the project folder.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildTools.Build.AssetDependencies.assetDependencies">
+            <summary>
+            A list of asset paths which are referenced by the main asset.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.Build.AssetDependencies.IsEditorOnly">
+            <summary>
+            Returns a value indicating whether the main asset is located inside an editor folder.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.Build.AssetDependencies.HasDependenciesOnOtherAssets">
+            <summary>
+            Returns a value indicating whether the main asset has one or more dependencies on other assets.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildTools.Build.AssetDependencies.#ctor(System.String)">
+            <summary>
+            Create a new instance.
+            </summary>
+            <param name="assetPath">The path of the main asset</param>
+        </member>
+        <member name="M:UMod.BuildTools.Build.AssetDependencies.CollectDependencies">
+            <summary>
+            Causes the dependencies of the main asset to be discovered and stored in the dependencies list.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildTools.Build.AssetDependencies.AddAssetsToBuild(UMod.BuildTools.BuildContext)">
+            <summary>
+            Attempts to add the main asset and all dependencies to the specified build context if thy have not already been added.
+            </summary>
+            <param name="context">The build context to add the assets to</param>
+        </member>
+        <member name="T:UMod.BuildTools.BuildToolsProjectSettings">
+            <summary>
+            Sub category of the build tools settings asset.
+            Contains settings information about the UNity prject settings assets.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildTools.BuildToolsProjectSettings.ProjectSettingsAsset">
+            <summary>
+            Represents a single project settings asset.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildTools.BuildToolsProjectSettings.ProjectSettingsAsset.assetName">
+            <summary>
+            The name of the project settings asset including file extension.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildTools.BuildToolsProjectSettings.ProjectSettingsAsset.assetPath">
+            <summary>
+            The path to the project settings asset.
+            </summary>
+        </member>
+        <member name="F:UMod.BuildTools.BuildToolsProjectSettings.ProjectSettingsAsset.included">
+            <summary>
+            Is the asset included in the build tools package.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildToolsProjectSettings.SettingsAssets">
+            <summary>
+            Get a list of <see cref="T:UMod.BuildTools.BuildToolsProjectSettings.ProjectSettingsAsset"/> containing each asset in the project.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildToolsProjectSettings.AvailableCount">
+            <summary>
+            Get the number of project assets that are in the project.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildToolsProjectSettings.IncludedCount">
+            <summary>
+            Get the number of project assets that will be included in the build tools package.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildTools.BuildToolsProjectSettings.IncludeProjectSettings">
+            <summary>
+            A value indicating whether project settings will be included in the build. 
+            This value will override per-project asset include settings.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildTools.BuildToolsProjectSettings.GatherProjectSettings">
+            <summary>
+            Rebuild the list of project settings assets found in the project.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 985890521, guid: 3f09449115d51f34f92446e64c2ec898, type: 3}
+  m_Name: ModToolsGameLock
+  m_EditorClassIdentifier: 
+  lockInfo:
+    companyName: DefaultCompany
+    gameName: Unity - uMod 2.0
+    gameVersion: 1.0.0
+    guid: 1f9f1ed4-0958-490b-b9d5-52ad22728513
+    lockFlags: 15

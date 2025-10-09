@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e4e04842353bfdc4f80cad55b175f86b
+timeCreated: 1552044541
+licenseType: Store
+TextScriptImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Resources/Source/Usage.txt
+  uploadId: 782332

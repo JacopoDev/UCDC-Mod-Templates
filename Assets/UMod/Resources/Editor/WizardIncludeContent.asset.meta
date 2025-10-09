@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: a15d9dc95075f6643b159851f0314e51
+timeCreated: 1572444135
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Resources/Editor/WizardIncludeContent.asset
+  uploadId: 782332

@@ -1,0 +1,1300 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UMod-Interface</name>
+    </assembly>
+    <members>
+        <member name="T:UMod.ModGameAssetReference">
+            <summary>
+            A serializable refernce to a shared game asset which can be used in mod scripts to reference specific shared game assets.
+            </summary>
+        </member>
+        <member name="P:UMod.ModGameAssetReference.GameAssetReference">
+            <summary>
+            Get the serialized guid reference to the assigned game asset.
+            This reference can be set via the inspector using the game assets selection window.
+            </summary>
+        </member>
+        <member name="P:UMod.ModGameAssetReference.IsReferenceAssigned">
+            <summary>
+            Returns a value indicating whether this reference points to a valid game asset.
+            This value will be false when the game asset reference has not been assigned (None).
+            Note that this value will be true for references to game asset that no longer exist (Missing).
+            </summary>
+        </member>
+        <member name="M:UMod.ModGameAssetReference.GetLoadedAsset">
+            <summary>
+            Return the pre-loaded asset instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UMod.ModGameAssetReference.GetLoadedAsset``1">
+            <summary>
+            Return the pre-loaded asset instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UMod.ModGameAssetReference.Instantiate(UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Attempts to instatiate the referenced game asset at the specified location.
+            Note that a valid game asset must be selected from the editor.
+            </summary>
+            <param name="position">The position to instantiate the game asset instance at</param>
+            <param name="rotation">The rotation to give to the created instance</param>
+            <returns>An object instantiated from the referenced game asset</returns>
+            <exception cref="T:System.InvalidOperationException">A game asset reference has not been set (Game asset reference is set to '(None'))</exception>
+            <exception cref="T:UnityEngine.MissingReferenceException">The referenced game asset could not be resolved at runtime. This usually indicates a problem asset sharing configuration in the game project</exception>
+        </member>
+        <member name="M:UMod.ModGameAssetReference.Instantiate``1(UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Attempts to instatiate the referenced game asset at the specified location.
+            Note that a valid game asset must be selected from the editor.
+            </summary>
+            <param name="position">The position to instantiate the game asset instance at</param>
+            <param name="rotation">The rotation to give to the created instance</param>
+            <returns>An object instantiated from the referenced game asset</returns>
+            <exception cref="T:System.InvalidOperationException">A game asset reference has not been set (Game asset reference is set to '(None'))</exception>
+            <exception cref="T:UnityEngine.MissingReferenceException">The referenced game asset could not be resolved at runtime. This usually indicates a problem asset sharing configuration in the game project</exception>
+        </member>
+        <member name="P:UMod.Interface.Runtime.HostContext.ModHost">
+            <summary>
+            A reference to the <see cref="T:UMod.IModHost"/> interface that allows access to the host that is handling this mod. 
+            </summary>
+        </member>
+        <member name="P:UMod.Interface.Runtime.HostContext.ModAssets">
+            <summary>
+            A reference to the <see cref="T:UMod.IModAssets"/> interface that allows access to the loading API.
+            </summary>
+        </member>
+        <member name="P:UMod.Interface.Runtime.HostContext.GameAssets">
+            <summary>
+            A reference to the <see cref="T:UMod.IGameAssets"/> interface that allows access to shared game assets.
+            </summary>
+        </member>
+        <member name="P:UMod.Interface.Runtime.HostContext.ModScenes">
+            <summary>
+            A reference to the <see cref="T:UMod.IModScenes"/> interface that allows access to the mod scenes. 
+            </summary>
+        </member>
+        <member name="P:UMod.Interface.Runtime.HostContext.ModSecurity">
+            <summary>
+            A reference to the <see cref="T:UMod.IModSecurity"/> interface that allows access to the mod security permissions at runtime.
+            This is useful for determining whether the mod has permission to perform an action before hand.
+            </summary>
+        </member>
+        <member name="P:UMod.Interface.Runtime.HostContext.ModPersistentData">
+            <summary>
+            A reference to the <see cref="T:UMod.IModPersistentData"/> interface that allows data to be stored between sessions.
+            This is useful for storing mod configuration values and then loading them back at a later date.
+            </summary>
+        </member>
+        <member name="P:UMod.Interface.Runtime.HostContext.ModDebug">
+            <summary>
+            A reference to the <see cref="T:UMod.IModDebug"/> interface that allows access to the mod debug API. 
+            </summary>
+        </member>
+        <member name="T:UMod.Interface.CommonNode`1">
+            <summary>
+            Common base class for all nodes that offer substitution behaviour at runtime.
+            </summary>
+        </member>
+        <member name="F:UMod.Interface.CommonNode`1.onNodeCreated">
+            <summary>
+            Event that is triggered when the node script activates allowing the correct replacement asset to be substituted.
+            </summary>
+        </member>
+        <member name="F:UMod.Interface.CommonNode`1.nodeLink">
+            <summary>
+            The name of the prefab to replace this node when loaded.
+            </summary>
+        </member>
+        <member name="M:UMod.Interface.CommonNode`1.OnLinkAsset(`0)">
+            <summary>
+            Called at runtime when the node should be linked.
+            The overriding method should restore the state of the node.
+            </summary>
+            <param name="value">The value to link against</param>
+        </member>
+        <member name="T:UMod.Interface.MaterialNode">
+            <summary>
+            A material node is used to mark which material should be applied to a surface when the material is not available.
+            </summary>
+        </member>
+        <member name="M:UMod.Interface.MaterialNode.OnLinkAsset(UnityEngine.Material)">
+            <summary>
+            Called when the asset node should be relinked.
+            </summary>
+            <param name="value">The material instance to relink with</param>
+        </member>
+        <member name="T:UMod.Interface.PrefabNode">
+            <summary>
+            A prefab node is used to mark the location that a prefab will appear in the scene when the actual prefab is not available.
+            </summary>
+        </member>
+        <member name="M:UMod.Interface.PrefabNode.OnLinkAsset(UnityEngine.GameObject)">
+            <summary>
+            Called when the prefab node is spawned and allows the node to be replaced with the correct game object.
+            </summary>
+            <param name="value">The game object prefab that this prefab node is referencing</param>
+        </member>
+        <member name="T:UMod.Interface.PrefabGoReference">
+            <summary>
+            Represents a reference link for a Unity game object. 
+            </summary>
+        </member>
+        <member name="T:UMod.Interface.PrefabReference`1">
+            <summary>
+            Represents a reference to a mod prefab that is accessed via mod code.
+            This method has been replaced with direct references within the Unity editor.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:UMod.Interface.PrefabReference`1.Prefab">
+            <summary>
+            Get the prefab asset that is referenced.
+            </summary>
+        </member>
+        <member name="M:UMod.Interface.PrefabReference`1.Instantiate">
+            <summary>
+            Create an instance of the refernced prefab asset.
+            </summary>
+            <returns>An instantiated unity object</returns>
+        </member>
+        <member name="M:UMod.Interface.PrefabReference`1.Instantiate(UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Create an instance of the references prefab asset with the specified positon and rotation.
+            </summary>
+            <param name="position">The position to create the asset at</param>
+            <param name="rotation">The orientation to create the asset with</param>
+            <returns></returns>
+        </member>
+        <member name="M:UMod.IGameAssets.Instantiate(System.String)">
+            <summary>
+            Attempts to instantiate an asset with the specified name.
+            The asset will be loaded before instantiation if necessary.
+            </summary>
+            <param name="nameOrPath">The name or path of the asset to instantiate</param>
+            <returns>An instantiated object or null if the asset could not be instantiated</returns>
+        </member>
+        <member name="M:UMod.IGameAssets.Instantiate(System.String,UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Attempts to instantiate an asset with the specified name with the given position and rotation.
+            The asset will be loaded before instantiation if necessary.
+            </summary>
+            <param name="nameOrPath">The name or path of the asset to instantiate</param>
+            <param name="position">The position to give the object</param>
+            <param name="rotation">The rotation to give the object</param>
+            <returns>An instantiated asset or null if the asset could not be instantiated</returns>
+        </member>
+        <member name="M:UMod.IGameAssets.Instantiate(System.Int32)">
+            <summary>
+            Attempts to instantiate an asset with the specified id.
+            The asset will be loaded before instantiation if necessary.
+            </summary>
+            <param name="assetID">The id of the asset to instantiate</param>
+            <returns>An instantiated asset or null if the asset could not be instantiated</returns>
+        </member>
+        <member name="M:UMod.IGameAssets.Instantiate(System.Int32,UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Attempts to instantiate an asset with the specified id with the given position and rotation.
+            The asset will be loaded before instantiation if necessary.
+            </summary>
+            <param name="assetID">The id of the asset to instantiate</param>
+            <param name="position">The position to give the object</param>
+            <param name="rotation">The rotation to give the object</param>
+            <returns>An instantiated object or null if the asset could not be instantiated</returns>
+        </member>
+        <member name="M:UMod.IGameAssets.Instantiate``1(System.String)">
+            <summary>
+            Attempts to instantiate an asset with the specified name or path as the genric type.
+            The asset will be loaded before instantiation if necessary.
+            </summary>
+            <typeparam name="T">The generic type to return the asset as</typeparam>
+            <param name="nameOrPath">The name or path of the asset to instantiate</param>
+            <returns>An instantiated object as the specified generic type or null if the asset could not be instantiated</returns>
+        </member>
+        <member name="M:UMod.IGameAssets.Instantiate``1(System.String,UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Attempts to instantiate an asset with the specified name or path as the generic type with the given position and rotation.
+            The asset will be loaded before instantiation if necessary.
+            </summary>
+            <typeparam name="T">The generic type to return the asset as</typeparam>
+            <param name="nameOrPath">The name or path of the asset to instantiate</param>
+            <param name="position">The position to give the object</param>
+            <param name="rotation">The rotation to give the object</param>
+            <returns>An instantiated object as the specified generic type or null if the asset could not be instantiated</returns>
+        </member>
+        <member name="M:UMod.IGameAssets.Instantiate``1(System.Int32)">
+            <summary>
+            Attempts to instantiate an asset with the specified id as the genric type.
+            The asset will be loaded before instantiation if necessary.
+            </summary>
+            <typeparam name="T">The generic type to return the asset as</typeparam>
+            <param name="assetID">The id of the asset to instantiate</param>
+            <returns>An instantiated object as the specified generic type or null if the asset could not be instantiated</returns>
+        </member>
+        <member name="M:UMod.IGameAssets.Instantiate``1(System.Int32,UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Attempts to instantiate an asset with the specified id as the generic type with the given position and rotation.
+            The asset will be loaded before instantiation if necessary.
+            </summary>
+            <typeparam name="T">The generic type to return the asset as</typeparam>
+            <param name="assetID">The id of the asset to instantiate</param>
+            <param name="position">The position to give the object</param>
+            <param name="rotation">The rotation to give the object</param>
+            <returns>An instantiated object as the specified genric type or null if the asset could not be instantiated</returns>
+        </member>
+        <member name="M:UMod.IModAssetsIndex`1.AssetNameToID(System.String)">
+            <summary>
+            Get the unique id for the mod asset with the specified name or path.
+            Full paths with extensions, relative paths and names are accepted.
+            A relative or full path should be used when there may be one or more assets in the mod with the same name.
+            </summary>
+            <param name="nameOrPath">The name or path of the asset</param>
+            <returns>The unique id of the asset or -1 if the asset was not found</returns>
+        </member>
+        <member name="M:UMod.IModAssetsIndex`1.Exists(System.String)">
+            <summary>
+            Checks whether an asset with the specified name or path exists in the mod.
+            Full paths with extensions, relative paths and names are accepted.
+            A relative or full path should be used when there may be one or more assets in the mod with the same name.
+            </summary>
+            <param name="nameOrPath">The name or path of the asset</param>
+            <returns>True if the asset exists or false if not</returns>
+        </member>
+        <member name="M:UMod.IModAssetsIndex`1.ExistsIndexed(System.String)">
+            <summary>
+            Checks wether an asset with the specified name or path with optional array indexing syntax exists in the mod.
+            Full paths with extensions, relative paths and names are accepted all with optional array indexing syntax at the end of the file name. For example: 'myAsset[0]'.
+            </summary>
+            <param name="nameOrPath">The name or path of the asset</param>
+            <returns>True if the asset exists or with or without array indexing syntax or false if not</returns>
+        </member>
+        <member name="M:UMod.IModAssetsIndex`1.Exists(System.Int32)">
+            <summary>
+            Checks whether an asset with the specified id exists in the mod.
+            Asset id's are generated at runtime and can be retrieved using one of the 'Find...' methods.
+            </summary>
+            <param name="AssetID">The unique id for the asset</param>
+            <returns>True if the asset exists or false if not</returns>
+        </member>
+        <member name="M:UMod.IModAssetsIndex`1.FindAllNames">
+            <summary>
+            Gets an array of asset names that are in the mod.
+            Only the asset name will be returned with no extension or path structure.
+            As a result it is possible for multiple entries with the same name to exist which represent identically names assets at different folder levels. 
+            </summary>
+            <returns>An array of asset names</returns>
+        </member>
+        <member name="M:UMod.IModAssetsIndex`1.FindAllRelativeNames">
+            <summary>
+            Gets an array of asset relative names that are in the mod.
+            A relative name contains the folder structure of the asset relative to the mod export folder without the file extension.
+            </summary>
+            <returns>An array of asset relative names</returns>
+        </member>
+        <member name="M:UMod.IModAssetsIndex`1.FindAll">
+            <summary>
+            Attempts to return all assets in the mod.
+            An <see cref="T:UMod.IModAssetInfo"/> contains detailed structure information about the asset. 
+            </summary>
+            <returns>An array of <see cref="T:UMod.IModAssetInfo"/> representing each asset in the mod or an empty array if no assets are found</returns>
+        </member>
+        <member name="M:UMod.IModAssetsIndex`1.FindAllWithName(System.String)">
+            <summary>
+            Attempts to return all assets in the mod that has the specified asset name.
+            Multiple assets with the same name can exist at different folder levels within the mod.
+            An <see cref="T:UMod.IModAssetInfo"/> contains detailed structure information about the asset.
+            </summary>
+            <param name="name">The name of the asset to search for</param>
+            <returns>An array of matching <see cref="T:UMod.IModAssetInfo"/> or an empty array if no matches are found</returns>
+            <exception cref="T:System.ArgumentException">The specified name is null or empty</exception>
+        </member>
+        <member name="M:UMod.IModAssetsIndex`1.FindAllWithExtension(System.String)">
+            <summary>
+            Attempts to return all assets in the mod that has the specified asset extension.
+            An <see cref="T:UMod.IModAssetInfo"/> contains detailed structure information about the asset.
+            </summary>
+            <param name="extension">The file extension to find. The extension must begin with a '.', For example: '.prefab'</param>
+            <returns>An array of matching <see cref="T:UMod.IModAssetInfo"/> or an empty array if no matches are found</returns>
+            <exception cref="T:System.ArgumentException">The specified extension is null, empty or incorrectly formatted</exception>
+        </member>
+        <member name="M:UMod.IModAssetsIndex`1.FindAllInFolder(System.String)">
+            <summary>
+            Attempts to return all assets that are inside a specific mod sub folder.
+            The specified path should be relative to the mod export folder and should only contain forward slashes '/'.
+            An <see cref="T:UMod.IModAssetInfo"/> contains detailed structure information about the asset.
+            </summary>
+            <param name="path">The folder path relative to the mod export folder to look in</param>
+            <returns>An array of matching <see cref="T:UMod.IModAssetInfo"/> or an empty array if no matches are found</returns>
+        </member>
+        <member name="M:UMod.IModAssetsIndex`1.FindAllInFolderWithExtension(System.String,System.String)">
+            <summary>
+            Attempts to return all assets that are inside the specified mod subfolder and have the specified asset extension.
+            The specified path should be relative to the mod export folder and should only contain forward slashes '/'.
+            An <see cref="T:UMod.IModAssetInfo"/> contains detailed structure information about the asset.
+            </summary>
+            <param name="path">The folder path relative to the mod export folder to look in</param>
+            <param name="extension">The file extension to find. The extension must begin with a '.', for example '.prefab'</param>
+            <returns>An array of matching <see cref="T:UMod.IModAssetInfo"/> or an empty array if no matches are found</returns>
+            <exception cref="T:System.ArgumentException">The specified extension is null, empty or incorrectly formatted</exception>
+        </member>
+        <member name="M:UMod.IModAssetsIndex`1.Find(System.String)">
+            <summary>
+            Attempts to find an asset with the specified path or name.
+            Full paths, relative paths and names are accepted however when using a full path the extension must also be specified.
+            An <see cref="T:UMod.IModAssetInfo"/> contains detailed structure information about the asset.
+            </summary>
+            <param name="nameOrPath">The path or name of the asset</param>
+            <returns>A matching <see cref="T:UMod.IModAssetInfo"/> or null if no match was found</returns>
+        </member>
+        <member name="M:UMod.IModAssetsIndex`1.FindIndexed(System.String)">
+            <summary>
+            Attempts to return all assets in the mod that has the specified asset name or the specified asset name plus array indexing syntax. For example: 'myMaterialAsset[0]'.
+            All assets that match the 'myMaterialAsset' name that append the array indexing syntax will be returned.
+            Note that explicit matching asset names with no array indexing syntax will also be returned.
+            Multiple assets with the same name can exist at different folder levels within the mod.
+            </summary>
+            <param name="nameOrPath">The name of the asset to search for</param>
+            <returns>An array of matching <see cref="T:UMod.IModAssetInfo"/> or an empty array if no matched are found</returns>
+            <exception cref="T:System.ArgumentException">The specified name is null or empty</exception>
+        </member>
+        <member name="M:UMod.IModAssetsIndex`1.Find(System.Int32)">
+            <summary>
+            Attempts to find an asset with the specified asset id.
+            Asset id's are generated at runtime and can be retrieved using one of the 'Find...' methods.
+            An <see cref="T:UMod.IModAssetInfo"/> contains detailed structure information about the asset.
+            </summary>
+            <param name="assetID">The unique id for the asset</param>
+            <returns>A matching <see cref="T:UMod.IModAssetInfo"/> or null if no match was found</returns>
+        </member>
+        <member name="T:UMod.IModAsset">
+            <summary>
+            Represents an asset included in a mod.
+            </summary>
+        </member>
+        <member name="P:UMod.IModAsset.AssetObject">
+            <summary>
+            Get the object associated with this asset.
+            This value will try to ensure a valid object is returned which may result in automatic loading of the asset, however this may not be possible if the asset is not alive.
+            </summary>
+        </member>
+        <member name="M:UMod.IModAsset.Load(System.Boolean)">
+            <summary>
+             Attempts to load this <see cref="T:UMod.IModAsset"/> from the mod.
+             </summary>
+             <param name="allowCaching">When true, if the asset has already been loaded then a cached instance will be returned to avoid reloading</param>
+             <returns>The loaded asset</returns>
+             <exception cref="T:UMod.ModNotLoadedException">The mod that owns the assets has been unloaded</exception>
+        </member>
+        <member name="M:UMod.IModAsset.Load``1(System.Boolean)">
+            <summary>
+            Attempts to load this <see cref="T:UMod.IModAsset"/> from the mod as the specified generic type. 
+            </summary>
+            <typeparam name="T">The generic type to load the asset as</typeparam>
+            <param name="allowCaching">When true, if the asset has already been loaded then a cached instance will be returned to avoid reloading</param>
+            <returns>The loaded asset as the generic type</returns>
+            <exception cref="T:UMod.ModNotLoadedException">The mod that owns the assets has been unloaded</exception>
+        </member>
+        <member name="M:UMod.IModAsset.LoadWithSubAssets(System.Boolean)">
+            <summary>
+            Attempts to load this <see cref="T:UMod.IModAsset"/> with all associated sub assets. 
+            The main asset will be loaded into <see cref="P:UMod.IModAsset.AssetObject"/> and the return value is an array of sub assets. 
+            </summary>
+            <param name="allowCaching">When true, if the assets have already been loaded then a cached array will be returned to avoid reloading the sub assets</param>
+            <returns>An array of sub assets for this asset</returns>
+        </member>
+        <member name="M:UMod.IModAsset.LoadWithSubAssets``1(System.Boolean)">
+            <summary>
+            Attempts to load this <see cref="T:UMod.IModAsset"/> with all associated sub assets. 
+            The main asset will be loaded into <see cref="P:UMod.IModAsset.AssetObject"/> and the return value is an array of sub assets. 
+            This overload will only return assets that are of the specified generic type such as 'Mesh'.
+            </summary>
+            <typeparam name="T">The generic asset type to retrun</typeparam>
+            <param name="allowCaching">When true, if the assets have already been loaded then a cached array will be returned to avoid reloading the sub assets</param>
+            <returns>An array of sub assets for this asset</returns>
+        </member>
+        <member name="M:UMod.IModAsset.LoadAsync(System.Boolean)">
+            <summary>
+            Attempts to load this <see cref="T:UMod.IModAsset"/> from the mod asynchronously. 
+            This method returns a <see cref="T:UMod.ModAsyncOperation"/> object which is yieldable and containg information about the loading progress and status. 
+            </summary>
+            <param name="allowCaching">When true, if the asset has already been loaded then a cached instance will be reused</param>
+            <returns>A yieldable <see cref="T:UMod.ModAsyncOperation"/> object</returns>
+            <exception cref="T:UMod.ModNotLoadedException">The mod that owns the assets has been unloaded</exception>
+        </member>
+        <member name="M:UMod.IModAsset.LoadAsync``1(System.Boolean)">
+            <summary>
+            Attempts to load this <see cref="T:UMod.IModAsset"/> from the mod asynchronously. 
+            This method returns a <see cref="T:UMod.ModAsyncOperation"/> object which is yieldable and containg information about the loading progress and status. 
+            </summary>
+            <typeparam name="T">The generic type to load the asset as</typeparam>
+            <param name="allowCaching">When true, if the asset has already been loaded than a cached instance will be reused</param>
+            <returns>A yieldable <see cref="T:UMod.ModAsyncOperation"/> object</returns>
+            <exception cref="T:UMod.ModNotLoadedException">The mod that owns the assets has been unloaded</exception>
+        </member>
+        <member name="M:UMod.IModAsset.LoadWithSubAssetsAsync(System.Boolean)">
+            <summary>
+            Attempts to load this <see cref="T:UMod.IModAsset"/> with all associated sub assets from the mod asynchronously.
+            This method returns a <see cref="T:UMod.ModAsyncOperation"/> object which is yieldable and containg information about the loading progress and status. 
+            The main asset will be loaded into <see cref="P:UMod.IModAsset.AssetObject"/>. 
+            </summary>
+            <param name="allowCaching">When true, if the asset has already been loaded than a cached instance will be reused</param>
+            <returns>A yieldable <see cref="T:UMod.ModAsyncOperation"/> object</returns>
+            <exception cref="T:UMod.ModNotLoadedException">The mod that owns the assets has been unloaded</exception>
+        </member>
+        <member name="M:UMod.IModAsset.LoadWithSubAssetsAsync``1(System.Boolean)">
+            <summary>
+            Attempts to load this <see cref="T:UMod.IModAsset"/> with all associated sub assets from the mod asynchronously.
+            This method returns a <see cref="T:UMod.ModAsyncOperation"/> object which is yieldable and containg information about the loading progress and status. 
+            The main asset will be loaded into <see cref="P:UMod.IModAsset.AssetObject"/>. 
+            </summary>
+            <typeparam name="T">The generic asset type used to specify which sub asset types to load</typeparam>
+            <param name="allowCaching">When true, if the asset has already been loaded than a cached instance will be reused</param>
+            <returns>A yieldable <see cref="T:UMod.ModAsyncOperation"/> object</returns>
+            <exception cref="T:UMod.ModNotLoadedException">The mod that owns the assets has been unloaded</exception>
+        </member>
+        <member name="M:UMod.IModAsset.Instantiate">
+            <summary>
+            Attempts to load this <see cref="T:UMod.IModAsset"/> and then create an instance of the object for use in game.
+            Combines the behaviour of an asset load request and instantiate call into one for ease of use.
+            </summary>
+            <returns>An instance of the Object class representing the instantiated asset</returns>
+            <exception cref="T:UMod.ModNotLoadedException">The mod that owns the asset has been unloaded</exception>
+        </member>
+        <member name="M:UMod.IModAsset.Instantiate``1">
+            <summary>
+            Attempts to load this <see cref="T:UMod.IModAsset"/> and then create an instance of the object for use in game.
+            Combines the behaviour of an asset load request and instantiate call into one for ease of use
+            </summary>
+            <typeparam name="T">The generic type to instantiate the asset as</typeparam>
+            <returns>An instance of the Object class representing the instantiated asset</returns>
+            <exception cref="T:UMod.ModNotLoadedException">The mod that owns the asset has been unloaded</exception>
+        </member>
+        <member name="M:UMod.IModAsset.Instantiate(UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Attempts to load this <see cref="T:UMod.IModAsset"/> and then create an instance of the object with the specified position and rotation.
+            Combines the behaviour of an asset load request and instantiate call into one for ease of use
+            </summary>
+            <param name="position">The world position to create the object at</param>
+            <param name="rotation">The initial rotation of the object</param>
+            <returns>An instance of the Object class representing the instantiated asset</returns>
+            <exception cref="T:UMod.ModNotLoadedException">The mod that owns the asset has been unloaded</exception>
+        </member>
+        <member name="M:UMod.IModAsset.Instantiate``1(UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Attempts to load this <see cref="T:UMod.IModAsset"/> and then create an instance of the object with the specified position and rotation. 
+            Combines the behaviour of an asset load request and instantiate call into one for ease of use
+            </summary>
+            <typeparam name="T">The generic type to create the asset as</typeparam>
+            <param name="position">The world position to create the object at</param>
+            <param name="rotation">The initial rotation of the object</param>
+            <returns>An instance of the object class representing the instantiated asset</returns>
+            <exception cref="T:UMod.ModNotLoadedException">The mod that owns the asset has been unloaded</exception>
+        </member>
+        <member name="T:UMod.IModAssetInfo">
+            <summary>
+            Represents common asset data for assets included in a mod
+            </summary>
+        </member>
+        <member name="P:UMod.IModAssetInfo.AssetID">
+            <summary>
+            The unique id for this asset.
+            This is guarenteed to be unique during the current session.
+            Id's are not persistent.
+            </summary>
+        </member>
+        <member name="P:UMod.IModAssetInfo.AssetIndexValue">
+            <summary>
+            Get the array indexing value for the mod asset.
+            This value is only set when array indexing syntax is appended to the asset name. For example: 'myMaterialAsset[3]'.
+            In this example the returned value would be '3'.
+            If array indexing syntax is not present in the asset name then a default value of '-1' will be returned.
+            </summary>
+        </member>
+        <member name="P:UMod.IModAssetInfo.FullName">
+            <summary>
+            Get the full name of the asset.
+            The full name is defined as the asset path relative the the export project folder including the asset extension, For example: 'assets/examplemod/subfolder/cube.prefab'.
+            </summary>
+        </member>
+        <member name="P:UMod.IModAssetInfo.RelativeName">
+            <summary>
+            Get the relative name of the asset.
+            The relative name is defined as the asset path relative to the mod folder without the asset extension, For example: 'subfolder/cube'.
+            If the asset is not in a sub folder then the value wil be equal to <see cref="P:UMod.IModAssetInfo.Name"/>. 
+            </summary>
+        </member>
+        <member name="P:UMod.IModAssetInfo.Name">
+            <summary>
+            Get the name of the asset.
+            </summary>
+        </member>
+        <member name="P:UMod.IModAssetInfo.Extension">
+            <summary>
+            Get the extension of the asset, For example: '.prefab'.
+            The extension will always begin with a '.'.
+            </summary>
+        </member>
+        <member name="P:UMod.IModAssetInfo.IsLoaded">
+            <summary>
+            Check whether this asset is currently loaded.
+            </summary>
+        </member>
+        <member name="P:UMod.IModAssetInfo.IsAlive">
+            <summary>
+            It is possible for a <see cref="T:UMod.IModAsset"/> to outlive a mod host in which case the asset it was referencing becomes unavailable.
+            This property will return true if the asset is alive and loadable indicating that the mod host owning the assets is also still loaded.
+            Load requests issued while an asset is not alive will result in a exception being thrown.
+            </summary>
+        </member>
+        <member name="P:UMod.IModContext.ModHost">
+            <summary>
+            A reference to the <see cref="T:UMod.IModHost"/> interface that allows access to the host that is handling this mod. 
+            </summary>
+        </member>
+        <member name="P:UMod.IModContext.ModAssets">
+            <summary>
+            A reference to the <see cref="T:UMod.IModAssets"/> interface that allows access to the loading API.
+            </summary>
+        </member>
+        <member name="P:UMod.IModContext.GameAssets">
+            <summary>
+            A reference to the <see cref="T:UMod.IGameAssets"/> interface that allows access to shared game assets.
+            </summary>
+        </member>
+        <member name="P:UMod.IModContext.ModScenes">
+            <summary>
+            A reference to the <see cref="T:UMod.IModScenes"/> interface that allows access to the mod scenes. 
+            </summary>
+        </member>
+        <member name="P:UMod.IModContext.ModSecurity">
+            <summary>
+            A reference to the <see cref="T:UMod.IModSecurity"/> interface that allows access to the mod security permissions at runtime.
+            This is useful for determining whether the mod has permission to perform an action before hand.
+            </summary>
+        </member>
+        <member name="P:UMod.IModContext.ModPersistentData">
+            <summary>
+            A reference to the <see cref="T:UMod.IModPersistentData"/> interface that allows data to be stored between sessions.
+            This is useful for storing mod configuration values and then loading them back at a later date.
+            </summary>
+        </member>
+        <member name="P:UMod.IModContext.ModDebug">
+            <summary>
+            A reference to the <see cref="T:UMod.IModDebug"/> interface that allows access to the mod debug API. 
+            </summary>
+        </member>
+        <member name="T:UMod.IModPersistentData">
+            <summary>
+            Allows primitive data types to be stored persistently inbetween mod loads.
+            This is useful if the mod needs to store settings or other persistent information.
+            Most games will disallow access to System.IO by default and as a result this interface is usually the only way to create persistent data.
+            The interface is designed to mimic Unity's PlayerPres class as close as possible with a couple of extra features.
+            </summary>
+        </member>
+        <member name="P:UMod.IModPersistentData.HasData">
+            <summary>
+            Returns true if there is any data stored for this mod.
+            </summary>
+        </member>
+        <member name="P:UMod.IModPersistentData.AllKeys">
+            <summary>
+            Enumerates all saved keys for this mod.
+            </summary>
+        </member>
+        <member name="M:UMod.IModPersistentData.ClearAll">
+            <summary>
+            Clears all saved data for this mod.
+            </summary>
+        </member>
+        <member name="M:UMod.IModPersistentData.Exists(System.String)">
+            <summary>
+            Checks whether a value exists for the specified key.
+            </summary>
+            <param name="key">The key to check for</param>
+            <returns>True if the key was found or false if not</returns>
+        </member>
+        <member name="M:UMod.IModPersistentData.SaveInt(System.String,System.Int32)">
+            <summary>
+            Save an integer value to the persistent data store.
+            </summary>
+            <param name="key">A key identifier that will be used to retreive this value at a later date</param>
+            <param name="value">The integer value to save</param>
+        </member>
+        <member name="M:UMod.IModPersistentData.SaveFloat(System.String,System.Single)">
+            <summary>
+            Save a floating point value to the persistent data store.
+            </summary>
+            <param name="key">A key identifier that will be used to retreive this value at a later date</param>
+            <param name="value">The floating point value to save</param>
+        </member>
+        <member name="M:UMod.IModPersistentData.SaveBool(System.String,System.Boolean)">
+            <summary>
+            Save a boolean value to the persistent data store.
+            </summary>
+            <param name="key">A key identifier that will be used to retreive this value at a later date</param>
+            <param name="value">The boolean value to save</param>
+        </member>
+        <member name="M:UMod.IModPersistentData.SaveString(System.String,System.String)">
+            <summary>
+            Save a string value to the persistent data store.
+            </summary>
+            <param name="key">A key identifier that will be used to retreive this value at a later date</param>
+            <param name="value">The string value to save</param>
+        </member>
+        <member name="M:UMod.IModPersistentData.LoadInt(System.String,System.Int32)">
+            <summary>
+            Attempt to load an integer value from the persistent store.
+            </summary>
+            <param name="key">The key identifier as given when the data was saved</param>
+            <param name="errorValue">The value to return if the specified key does not exist</param>
+            <returns>A loaded integer value or the specified error value if the key was not found</returns>
+        </member>
+        <member name="M:UMod.IModPersistentData.LoadFloat(System.String,System.Single)">
+            <summary>
+            Attempts to load a floating point value from the persistent store.
+            </summary>
+            <param name="key">The key identifier as given when the data was saved</param>
+            <param name="errorValue">The value to return if the specified key does not exist</param>
+            <returns>A loaded floating point value or the specified error value if the key was not found</returns>
+        </member>
+        <member name="M:UMod.IModPersistentData.LoadBool(System.String,System.Boolean)">
+            <summary>
+            Attempts to load a boolean value from the persistent store.
+            </summary>
+            <param name="key">The key identifier as given when the data was saved</param>
+            <param name="errorValue">The value to return if the specified key does not exist</param>
+            <returns>A loaded boolean value or the specified error value if the key was not found</returns>
+        </member>
+        <member name="M:UMod.IModPersistentData.LoadString(System.String,System.String)">
+            <summary>
+            Attempts to load a string value from the persistent store.
+            </summary>
+            <param name="key">The key identifier as given when the data was saved</param>
+            <param name="errorValue">The value to return if the specified key does not exist</param>
+            <returns>A loaded string value or the specified error value if the key was not found</returns>
+        </member>
+        <member name="T:UMod.IModReference">
+            <summary>
+            Represents a reference to another mod that the current mod depends upon.
+            </summary>
+        </member>
+        <member name="P:UMod.IModReference.NameInfo">
+            <summary>
+            Get the <see cref="T:UMod.IModNameInfo"/> for the reference. 
+            </summary>
+        </member>
+        <member name="P:UMod.IModReference.ReferenceAssets">
+            <summary>
+            Get the <see cref="T:UMod.IModAssets"/> for the referenced mod. 
+            </summary>
+        </member>
+        <member name="P:UMod.IModReference.ReferenceScenes">
+            <summary>
+            Get the <see cref="T:UMod.IModScenes"/> for the referenced mod. 
+            </summary>
+        </member>
+        <member name="T:UMod.IModReferences">
+            <summary>
+            Represents references to other mods that this mod depends upon.
+            </summary>
+        </member>
+        <member name="P:UMod.IModReferences.HasReferences">
+            <summary>
+            Returns true if the current mod references one or more mods.
+            </summary>
+        </member>
+        <member name="P:UMod.IModReferences.ReferenceCount">
+            <summary>
+            Get the number of mods that the current mod references.
+            </summary>
+        </member>
+        <member name="M:UMod.IModReferences.Exists(System.String)">
+            <summary>
+            Checks whether the current mod references a mod with the specified name.
+            </summary>
+            <param name="referenceName">The reference name to search for</param>
+            <returns>True if the specified name is referenced by this mod or false if not</returns>
+        </member>
+        <member name="M:UMod.IModReferences.FindAllNames">
+            <summary>
+            Attempts to get an array of <see cref="T:UMod.IModNameInfo"/> representing the names of all referenced mods.
+            </summary>
+            <returns>An array of <see cref="T:UMod.IModNameInfo"/> or an empty array if there are no references</returns>
+        </member>
+        <member name="M:UMod.IModReferences.FindAll">
+            <summary>
+            Attempts to get an array of <see cref="T:UMod.IModReference"/> representing all referenced mods. 
+            A <see cref="T:UMod.IModReference"/> contains runtime information for the referenced mod. 
+            </summary>
+            <returns>An array of <see cref="T:UMod.IModReference"/> or an empty array if there are no references</returns>
+        </member>
+        <member name="M:UMod.IModReferences.Find(System.String)">
+            <summary>
+            Attempts to find a <see cref="T:UMod.IModReference"/> with the specified name.
+            A <see cref="T:UMod.IModReference"/> contains runtime information for the referenced mod. 
+            </summary>
+            <param name="referenceName">The name of the reference to search for</param>
+            <returns>A <see cref="T:UMod.IModReference"/> if the reference was found or null if not</returns>
+        </member>
+        <member name="M:UMod.IModReferences.FindPrimary">
+            <summary>
+            Attempts to find the primary <see cref="T:UMod.IModReference"/> for this mod.
+            The primary reference is useually the first referenced mod.
+            A <see cref="T:UMod.IModReference"/> contains runtime information for the referenced mod. 
+            </summary>
+            <returns>A <see cref="T:UMod.IModReference"/> if there is a primary reference or null if not</returns>
+        </member>
+        <member name="T:UMod.IModScene">
+            <summary>
+            Represents a special scene asset included in a mod.
+            </summary>
+        </member>
+        <member name="M:UMod.IModScene.Load(System.Boolean)">
+            <summary>
+            Load the <see cref="T:UMod.IModScene"/>. 
+            </summary>
+            <param name="aditive">Should the scene be additivley loaded into the current scene</param>
+        </member>
+        <member name="M:UMod.IModScene.LoadAsync(System.Boolean)">
+            <summary>
+            Load the <see cref="T:UMod.IModScene"/> asyncronously. 
+            </summary>
+            <param name="additive">Should the scene be additivley loaded into the current scene</param>
+            <returns>An awaitable <see cref="T:UMod.ModAsyncOperation"/> object containing progress and status information</returns>
+        </member>
+        <member name="T:UMod.IModScenes">
+            <summary>
+            Interface exposed to the modder for loading scene content from the mod package.
+            Modders may want to make use of this interface if their mod contains scene assets.
+            </summary>
+        </member>
+        <member name="P:UMod.IModScenes.CanLoadScenes">
+            <summary>
+            Returns true if the modder has permission to load scenes from the mod package, otherwise false.
+            </summary>
+        </member>
+        <member name="P:UMod.IModScenes.SceneCount">
+            <summary>
+            Returns the number of scenes that are included in the mod.
+            </summary>
+        </member>
+        <member name="P:UMod.IModScenes.DefaultScene">
+            <summary>
+            Get the default <see cref="T:UMod.IModScene"/> for the mod or null if there are no scenes in the mod.
+            </summary>
+        </member>
+        <member name="M:UMod.IModScenes.Load(System.String,System.Boolean)">
+            <summary>
+            Attempts to load a scene with the specified name or path from the mod.
+            Note that if the scene is not found then this method does nothing.
+            You can use <see cref="!:Exists(string)"/> before calling this method to ensure that the scene will be loaded. 
+            </summary>
+            <param name="nameOrPath">The name or path of the scene to load</param>
+            <param name="additive">Should the scene be loaded additivley</param>
+        </member>
+        <member name="M:UMod.IModScenes.Load(System.Int32,System.Boolean)">
+            <summary>
+            Attempts to load a scene with the specified name or path from the mod.
+            Note that if the scene is not found then this method does nothing.
+            You can use <see cref="!:Exists(int)"/> before calling this method to ensure that the scene will be loaded.
+            </summary>
+            <param name="sceneID">The id of the scene to load</param>
+            <param name="additive">Should the scene be loaded additivley</param>
+        </member>
+        <member name="M:UMod.IModScenes.LoadAsync(System.String,System.Boolean)">
+            <summary>
+            Attempts to load a scene with the specified name or path from the mod asynchronously.
+            Note that if the scene is not found then this method does nothing.
+            You can use <see cref="!:Exists(string)"/> before calling this method to ensure that the scene will be loaded. 
+            </summary>
+            <param name="nameOrPath">The name or path of the scene to load</param>
+            <param name="additive">Should the scene be loaded additivley</param>
+            <returns>An awaitable <see cref="T:UMod.ModAsyncOperation"/> object containing progress and status information</returns>
+        </member>
+        <member name="M:UMod.IModScenes.LoadAsync(System.Int32,System.Boolean)">
+            <summary>
+            Attempts to load a scene with the specified name or path from the mod asynchronously.
+            Note that if the scene is not found then this method does nothing.
+            You can use <see cref="!:Exists(int)"/> before calling this method to ensure that the scene will be loaded. 
+            </summary>
+            <param name="sceneID">The id of the scene to load</param>
+            <param name="additive">Should the scene be loaded additivley</param>
+            <returns>An awaitable <see cref="T:UMod.ModAsyncOperation"/> object containing progress and status information></returns>
+        </member>
+        <member name="T:UMod.ModInheritFromAttribute">
+            <summary>
+            This attribute should be used by modded code to indicate that a specific class should provide inheritance like behaviour from a game script.
+            </summary>
+        </member>
+        <member name="P:UMod.ModInheritFromAttribute.TargetClass">
+            <summary>
+            The name of the game class to inherit from.
+            The game class should be exposed be the developer and available to modders.
+            </summary>
+        </member>
+        <member name="M:UMod.ModInheritFromAttribute.#ctor(System.String)">
+            <summary>
+            Apply the attribute to a class.
+            </summary>
+            <param name="inheritFromClass">The name of the game class to inherit from</param>
+        </member>
+        <member name="T:UMod.ModInherit">
+            <summary>
+            Allows modder to create scripts that inherits from a game script (ModBehaviour).
+            The inheriting class may define trigger methods based on the game's documentaiton as callback methods for game events.
+            Modders should inherit from this class when they require inheritance type behaviour from a game defined script.
+            </summary>
+        </member>
+        <member name="M:UMod.ModInherit.Invoke(System.String)">
+            <summary>
+            Call a method with the specified name on the inherited class.
+            </summary>
+            <param name="message">The name of the method to call</param>
+        </member>
+        <member name="M:UMod.ModInherit.Invoke(System.String,System.Object)">
+            <summary>
+            Call a method with the specified name on the inherited class.
+            </summary>
+            <param name="message">The name of the method to call</param>
+            <param name="param">A single parameter of any type to pass to the method</param>
+        </member>
+        <member name="M:UMod.ModInherit.Invoke(System.String,System.Object[])">
+            <summary>
+            Call a method with the specified name on the inherited class.
+            </summary>
+            <param name="message">The name of the method to call</param>
+            <param name="param">An array of parameters of any type to pass to the method</param>
+        </member>
+        <member name="M:UMod.ModInherit.InvokeReturn(System.String)">
+            <summary>
+            Call a method with the specified name on the inherited class.
+            </summary>
+            <param name="message">The name of the method to call</param>
+            <returns>A value returned from the method</returns>
+        </member>
+        <member name="M:UMod.ModInherit.InvokeReturn(System.String,System.Object)">
+            <summary>
+            Call a method with the specified name on the inherited class.
+            </summary>
+            <param name="message">The name of the method to call</param>
+            <param name="param">A single parameter of any type to pass to the method</param>
+            <returns>A value returned from the method</returns>
+        </member>
+        <member name="M:UMod.ModInherit.InvokeReturn(System.String,System.Object[])">
+            <summary>
+            Call a method with the specified name on the inherited class.
+            </summary>
+            <param name="message">The name of the method to call</param>
+            <param name="param">An array of parameters of any type to pass to the method</param>
+            <returns>A value returned from the method</returns>
+        </member>
+        <member name="M:UMod.ModInherit.InvokeReturn``1(System.String)">
+            <summary>
+            Call a method with the specified name on the inherited class.
+            </summary>
+            <typeparam name="T">The type of value to return</typeparam>
+            <param name="message">The name of the method to call</param>
+            <returns>A value of specified type returned from the method</returns>
+        </member>
+        <member name="M:UMod.ModInherit.InvokeReturn``1(System.String,System.Object)">
+            <summary>
+            Call a method with the specified name on the inherited class.
+            </summary>
+            <typeparam name="T">The type of value to return</typeparam>
+            <param name="message">The name of the method to call</param>
+            <param name="param">A single parameter of any type to pass to the method</param>
+            <returns>A value of specified type returned from the method</returns>
+        </member>
+        <member name="M:UMod.ModInherit.InvokeReturn``1(System.String,System.Object[])">
+            <summary>
+            Call a method with the specified name on the inherited class.
+            </summary>
+            <typeparam name="T">The type of value to return</typeparam>
+            <param name="message">The name of the method to call</param>
+            <param name="param">An array of parameters of any type to pass to the method</param>
+            <returns>A value of specified type returned from the method</returns>
+        </member>
+        <member name="T:UMod.IMod">
+            <summary>
+            Basic interface for the UMod api and allows for mod events to raised. 
+            Most mod scripts should inherit this class.
+            </summary>
+        </member>
+        <member name="M:UMod.IMod.OnModLoaded">
+            <summary>
+            Event method triggered when the mod has been successfully loaded.
+            Use this method for mod setup code, similar to Unity's Start method.
+            </summary>
+        </member>
+        <member name="M:UMod.IMod.OnModUpdate">
+            <summary>
+            Event method triggered when the mod will be updated.
+            Typically will be the frame rate of the game however excessive time spent in mod methods may result in throttling of this method.
+            Use this method for mod update code, similar to Unity'S Update method
+            </summary>
+        </member>
+        <member name="M:UMod.IMod.OnModUnload">
+            <summary>
+            Event method triggered just before the mod will be unloaded from the game.
+            Use this method for mod cleanup code, similar to Unity's OnDestroy method.
+            Note that you are not required to unload asset created by this mod as they will be cleaned up automatically.        /// 
+            </summary>
+        </member>
+        <member name="T:UMod.ModScriptBehaviour">
+            <summary>
+            Provides the same functionality as the mono behaviour class but adds access to the modding interface for ease of use.
+            Provides similar functionality to the <see cref="T:UMod.ModScript"/> class but also inherits from MonoBehaviour.
+            Modders should inherit from this class to access the uMod API.
+            </summary>
+        </member>
+        <member name="P:UMod.ModScriptBehaviour.ModHost">
+            <summary>
+            A reference to the <see cref="T:UMod.IModHost"/> interface that allows access to the host that is handling this mod. 
+            You should not access this property from 'Awake'. Instead use 'Start' or 'OnModLoaded'.
+            </summary>
+        </member>
+        <member name="P:UMod.ModScriptBehaviour.ModAssets">
+            <summary>
+            A reference to the <see cref="T:UMod.IModAssets"/> interface that allows access to the loading API.
+            You should not access this property from 'Awake'. Instead use 'Start' or 'OnModLoaded'.
+            </summary>
+        </member>
+        <member name="P:UMod.ModScriptBehaviour.GameAssets">
+            <summary>
+            A reference to the <see cref="T:UMod.IGameAssets"/> interface that allows access to shared game assets.
+            </summary>
+        </member>
+        <member name="P:UMod.ModScriptBehaviour.ModScenes">
+            <summary>
+            A reference to the <see cref="T:UMod.IModScenes"/> interface that allows access to the mod scenes.
+            You should not access this property from 'Awake'. Instead use 'Start' or 'OnModLoaded'.
+            </summary>
+        </member>
+        <member name="P:UMod.ModScriptBehaviour.ModSecurity">
+            <summary>
+            A reference to the <see cref="T:UMod.IModSecurity"/> interface that allows access to the mod security permissions at runtime.
+            This is useful for determining whether the mod has permission to perform an action before hand.
+            You should not access this property from 'Awake'. Instead use 'Start' or 'OnModLoaded'.
+            </summary>
+        </member>
+        <member name="P:UMod.ModScriptBehaviour.ModPersistentData">
+            <summary>
+            A reference to the <see cref="T:UMod.IModPersistentData"/> interface that allows data to be stored between sessions.
+            This is useful for storing mod configuration values and then loading them back at a later date.
+            </summary>
+        </member>
+        <member name="P:UMod.ModScriptBehaviour.ModDebug">
+            <summary>
+            A reference to the <see cref="T:UMod.IModDebug"/> interface that allows access to the mod debug API. 
+            </summary>
+        </member>
+        <member name="M:UMod.ModScriptBehaviour.OnModLoaded">
+            <summary>
+            Event method triggered when the mod has been successfully loaded.
+            Use this method for mod setup code, similar to Unity's Start method.
+            </summary>
+        </member>
+        <member name="M:UMod.ModScriptBehaviour.OnModUnload">
+            <summary>
+            Event method triggered just before the mod will be unloaded from the game.
+            Use this method for mod cleanup code, similar to Unity's OnDestroy method.
+            Note that you are not required to unload asset created by this mod as they will be cleaned up automatically.        /// 
+            </summary>
+        </member>
+        <member name="M:UMod.ModScriptBehaviour.OnModUpdate">
+            <summary>
+            Event method triggered when the mod will be updated.
+            Typically will be the frame rate of the game however excessive time spent in mod methods may result in throttling of this method.
+            Use this method for mod update code, similar to Unity'S Update method
+            </summary>
+        </member>
+        <member name="T:UMod.ModScript">
+            <summary>
+            Provides a base class for modded scripts that allows access to the uMod API.
+            Modders should inherit from this class when they require access to the uMod API but do not need the behaviour of the MonoBehaviour component.
+            See also <see cref="T:UMod.ModScriptBehaviour"/> for identical functionality with MonoBehaviour base class.
+            </summary>
+        </member>
+        <member name="P:UMod.ModScript.ModHost">
+            <summary>
+            A reference to the <see cref="T:UMod.IModHost"/> interface that allows access to the host that is handling this mod. 
+            </summary>
+        </member>
+        <member name="P:UMod.ModScript.ModAssets">
+            <summary>
+            A reference to the <see cref="T:UMod.IModAssets"/> interface that allows access to the loading API.
+            </summary>
+        </member>
+        <member name="P:UMod.ModScript.GameAssets">
+            <summary>
+            A reference to the <see cref="T:UMod.IGameAssets"/> interface that allows access to shared game assets.
+            </summary>
+        </member>
+        <member name="P:UMod.ModScript.ModScenes">
+            <summary>
+            A reference to the <see cref="T:UMod.IModScenes"/> interface that allows access to the mod scenes. 
+            </summary>
+        </member>
+        <member name="P:UMod.ModScript.ModSecurity">
+            <summary>
+            A reference to the <see cref="T:UMod.IModSecurity"/> interface that allows access to the mod security permissions at runtime.
+            This is useful for determining whether the mod has permission to perform an action before hand.
+            </summary>
+        </member>
+        <member name="P:UMod.ModScript.ModPersistentData">
+            <summary>
+            A reference to the <see cref="T:UMod.IModPersistentData"/> interface that allows data to be stored between sessions.
+            This is useful for storing mod configuration values and then loading them back at a later date.
+            </summary>
+        </member>
+        <member name="P:UMod.ModScript.ModDebug">
+            <summary>
+            A reference to the <see cref="T:UMod.IModDebug"/> interface that allows access to the mod debug API. 
+            </summary>
+        </member>
+        <member name="M:UMod.ModScript.OnModLoaded">
+            <summary>
+            Event method triggered when the mod has been successfully loaded.
+            Use this method for mod setup code, similar to Unity's Start method.
+            </summary>
+        </member>
+        <member name="M:UMod.ModScript.OnModUnload">
+            <summary>
+            Event method triggered just before the mod will be unloaded from the game.
+            Use this method for mod cleanup code, similar to Unity's OnDestroy method.
+            Note that you are not required to unload asset created by this mod as they will be cleaned up automatically.        /// 
+            </summary>
+        </member>
+        <member name="M:UMod.ModScript.OnModUpdate">
+            <summary>
+            Event method triggered when the mod will be updated.
+            Typically will be the frame rate of the game however excessive time spent in mod methods may result in throttling of this method.
+            Use this method for mod update code, similar to Unity'S Update method
+            </summary>
+        </member>
+        <member name="T:UMod.IModAssets">
+            <summary>
+            Interface exposed to the modder for loading content from the mod package.
+            Modders should make use of this interface where the mod type includes asset prefabs.
+            </summary>
+        </member>
+        <member name="P:UMod.IModAssets.CanLoadAssets">
+            <summary>
+            Returns true if the modder has permission to load from the mod package, otherwise false.
+            </summary>
+        </member>
+        <member name="P:UMod.IModAssets.AssetCount">
+            <summary>
+            Returns the number of assets that are included in the mod.
+            </summary>
+        </member>
+        <member name="M:UMod.IModAssets.Load(System.String)">
+            <summary>
+            Attempts to load an asset with the specified name or path from the mod.
+            Note that this method will simply load the asset without creating an instance.
+            </summary>
+            <param name="nameOrPath">The name or path of the asset to load</param>
+            <returns>A reference to the newly loaded object or null if the load failed</returns>
+        </member>
+        <member name="M:UMod.IModAssets.Load(System.Int32)">
+            <summary>
+            Attempts to load an asset with the specified id from the mod.
+            Note that this method will simply load the asset without creating an instance.
+            </summary>
+            <param name="assetID">The id of the asset to load</param>
+            <returns>A reference to the newly loaded object or null if the load failed</returns>
+        </member>
+        <member name="M:UMod.IModAssets.Load``1(System.String)">
+            <summary>
+            Attempts to load an asset with the specified name or path from the mod.
+            Note that this method will simply load the asset without creating an instance.
+            </summary>
+            <typeparam name="T">The generic type to return the asset as</typeparam>
+            <param name="nameOrPath">The name or path of the asset to load</param>
+            <returns>A reference to the newly loaded object or null if the load failed</returns>
+        </member>
+        <member name="M:UMod.IModAssets.Load``1(System.Int32)">
+            <summary>
+            Attempts to load an asset with the specified id from the mod.
+            Note that this method will simply load the asset without creating an instance.
+            </summary>
+            <typeparam name="T">The generic type to return the asset as</typeparam>
+            <param name="assetID">The id of the asset to load</param>
+            <returns>A reference to the newly loaded object or null if the load failed</returns>
+        </member>
+        <member name="M:UMod.IModAssets.LoadWithSubAssets(System.String)">
+            <summary>
+            Attempts to load an asset with the specified name or path from the mod along with all sub assets.
+            The return array represents all sub assets of the specified parent asset.
+            </summary>
+            <param name="nameOrPath">The name or path of the asset whose sub assets should be loaded</param>
+            <returns>An array of all sub assets for the specified parent asset</returns>
+        </member>
+        <member name="M:UMod.IModAssets.LoadWithSubAssets(System.Int32)">
+            <summary>
+            Attempts to load an asset with the specified id from the mod along with all sub assets.
+            The return array represents all sub assets of the specfied parent asset.
+            </summary>
+            <param name="assetID">The id of the asset whose sub assets should be loaded</param>
+            <returns>An array of all sub assets for the specified parent asset</returns>
+        </member>
+        <member name="M:UMod.IModAssets.LoadWithSubAssets``1(System.String)">
+            <summary>
+            Attempts to load an asset with the specified name or path from the mod along with all sub assets of the specified generic type. 
+            The return array represents all sub assets of the specified parent asset
+            </summary>
+            <typeparam name="T">The generic type used to determine which type of sub assets should be loaded</typeparam>
+            <param name="nameOrPath">The name of path of the asset whose sub assets should be loaded</param>
+            <returns>An array of all sub assets for the specified parent asset</returns>
+        </member>
+        <member name="M:UMod.IModAssets.LoadWithSubAssets``1(System.Int32)">
+            <summary>
+            Attempts to load an asset with the specified id from the mod along with all sub assets of the specified generic type.
+            The return array represents all sub assets of the specified parent asset.
+            </summary>
+            <typeparam name="T">The generic type used to determine which type of sub assets should be loaded</typeparam>
+            <param name="assetID">The id of the asset whose sub assets should be loaded</param>
+            <returns>An array of all sub assets for the specified parent asset</returns>
+        </member>
+        <member name="M:UMod.IModAssets.LoadAsync(System.String)">
+            <summary>
+            Attempts to load an asset with the specified name or path from the mod asynchronously.
+            Note that this method will simple load the asset without creating an instance.
+            </summary>
+            <param name="nameOrPath">the name or path of the asset to load</param>
+        </member>
+        <member name="M:UMod.IModAssets.LoadAsync(System.Int32)">
+            <summary>
+            Attempts to load an asset with the specified id from the mod asynchronously.
+            Note that this method will simple load the asset without creating an instance.
+            </summary>
+            <param name="assetID">The id of the asset to load</param>
+        </member>
+        <member name="M:UMod.IModAssets.LoadAsync``1(System.String)">
+            <summary>
+            Attempts to load an asset with the specified name or path from the mod asynchronously.
+            Note that this method will simple load the asset without creating an instance.
+            </summary>
+            <typeparam name="T">The generic type to load the asset as</typeparam>
+            <param name="nameOrPath">The name or path of the asset to load</param>
+        </member>
+        <member name="M:UMod.IModAssets.LoadAsync``1(System.Int32)">
+            <summary>
+            Attempts to load an asset with the specified id from the mod asynchronously.
+            Note that this method will simple load the asset without creating an instance.
+            </summary>
+            <typeparam name="T">The generic type to load the asset as</typeparam>
+            <param name="assetID">The id or the asset to load</param>
+        </member>
+        <member name="M:UMod.IModAssets.Instantiate(System.String)">
+            <summary>
+            Attempts to instantiate an asset with the specified name.
+            The asset will be loaded before instantiation if necessary.
+            </summary>
+            <param name="nameOrPath">The name or path of the asset to instantiate</param>
+            <returns>An instantiated object or null if the asset could not be instantiated</returns>
+        </member>
+        <member name="M:UMod.IModAssets.Instantiate(System.String,UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Attempts to instantiate an asset with the specified name with the given position and rotation.
+            The asset will be loaded before instantiation if necessary.
+            </summary>
+            <param name="nameOrPath">The name or path of the asset to instantiate</param>
+            <param name="position">The position to give the object</param>
+            <param name="rotation">The rotation to give the object</param>
+            <returns>An instantiated asset or null if the asset could not be instantiated</returns>
+        </member>
+        <member name="M:UMod.IModAssets.Instantiate(System.Int32)">
+            <summary>
+            Attempts to instantiate an asset with the specified id.
+            The asset will be loaded before instantiation if necessary.
+            </summary>
+            <param name="assetID">The id of the asset to instantiate</param>
+            <returns>An instantiated asset or null if the asset could not be instantiated</returns>
+        </member>
+        <member name="M:UMod.IModAssets.Instantiate(System.Int32,UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Attempts to instantiate an asset with the specified id with the given position and rotation.
+            The asset will be loaded before instantiation if necessary.
+            </summary>
+            <param name="assetID">The id of the asset to instantiate</param>
+            <param name="position">The position to give the object</param>
+            <param name="rotation">The rotation to give the object</param>
+            <returns>An instantiated object or null if the asset could not be instantiated</returns>
+        </member>
+        <member name="M:UMod.IModAssets.Instantiate``1(System.String)">
+            <summary>
+            Attempts to instantiate an asset with the specified name or path as the genric type.
+            The asset will be loaded before instantiation if necessary.
+            </summary>
+            <typeparam name="T">The generic type to return the asset as</typeparam>
+            <param name="nameOrPath">The name or path of the asset to instantiate</param>
+            <returns>An instantiated object as the specified generic type or null if the asset could not be instantiated</returns>
+        </member>
+        <member name="M:UMod.IModAssets.Instantiate``1(System.String,UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Attempts to instantiate an asset with the specified name or path as the generic type with the given position and rotation.
+            The asset will be loaded before instantiation if necessary.
+            </summary>
+            <typeparam name="T">The generic type to return the asset as</typeparam>
+            <param name="nameOrPath">The name or path of the asset to instantiate</param>
+            <param name="position">The position to give the object</param>
+            <param name="rotation">The rotation to give the object</param>
+            <returns>An instantiated object as the specified generic type or null if the asset could not be instantiated</returns>
+        </member>
+        <member name="M:UMod.IModAssets.Instantiate``1(System.Int32)">
+            <summary>
+            Attempts to instantiate an asset with the specified id as the genric type.
+            The asset will be loaded before instantiation if necessary.
+            </summary>
+            <typeparam name="T">The generic type to return the asset as</typeparam>
+            <param name="assetID">The id of the asset to instantiate</param>
+            <returns>An instantiated object as the specified generic type or null if the asset could not be instantiated</returns>
+        </member>
+        <member name="M:UMod.IModAssets.Instantiate``1(System.Int32,UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Attempts to instantiate an asset with the specified id as the generic type with the given position and rotation.
+            The asset will be loaded before instantiation if necessary.
+            </summary>
+            <typeparam name="T">The generic type to return the asset as</typeparam>
+            <param name="assetID">The id of the asset to instantiate</param>
+            <param name="position">The position to give the object</param>
+            <param name="rotation">The rotation to give the object</param>
+            <returns>An instantiated object as the specified genric type or null if the asset could not be instantiated</returns>
+        </member>
+        <member name="T:UMod.IModHost">
+            <summary>
+            The base interface for requesting actions from modded content.
+            This interface is passed to the IMod interface when 'onModLoaded' is called.
+            </summary>
+        </member>
+        <member name="M:UMod.IModHost.UnloadMod">
+            <summary>
+            Request the host to unload the mod and return to its previous state.
+            </summary>
+        </member>
+        <member name="M:UMod.IModHost.DestroyModObjects">
+            <summary>
+            Destroys all game object in the scene that were created by this mod.
+            Any object that have any mod script components will have the 'OnModUnloaded' event called.
+            </summary>
+        </member>
+        <member name="T:UMod.IModSecurity">
+            <summary>
+            Get the security polivy for the mod.
+            </summary>
+        </member>
+        <member name="P:UMod.IModSecurity.CanLoadAssets">
+            <summary>
+            Returns true if the modder is allwed to load prefab assets.
+            </summary>
+        </member>
+        <member name="P:UMod.IModSecurity.CanLoadScenes">
+            <summary>
+            Returns true if the modder is allowed to load scenes.
+            </summary>
+        </member>
+    </members>
+</doc>

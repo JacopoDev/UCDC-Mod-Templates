@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 00c429b4fd8b16944b6db62a96e96633
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Resources/UModSettings.asset
+  uploadId: 782332

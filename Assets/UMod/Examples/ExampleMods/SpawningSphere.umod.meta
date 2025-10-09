@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a16e12ceb6f029547826e0ea4624b82b
+timeCreated: 1558529031
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Examples/ExampleMods/SpawningSphere.umod
+  uploadId: 782332

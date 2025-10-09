@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 2da49a6fb8fed7543a8c5007382908f3
+timeCreated: 1550484036
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Examples/ExampleModsRaw/SpinningCubeMod/SpinningCube.cs
+  uploadId: 782332

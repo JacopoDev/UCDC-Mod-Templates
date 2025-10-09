@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 29337c0875a15b646b5ab25d675c37a3
+timeCreated: 1579266639
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Examples/ExampleMods/MultiMaterialCube-MaterialMod.umod
+  uploadId: 782332

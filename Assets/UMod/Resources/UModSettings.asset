@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -561517237, guid: 9addc921c5fd54d4bb3127c1b495c531, type: 3}
+  m_Name: UModSettings
+  m_EditorClassIdentifier: 
+  exampleModDirectory: Assets/UMod/Examples/ExampleMods
+  allowCommandLine: 1
+  commandLineFormat: +mod=$(PATH)
+  allowSceneChanges: 1
+  autoLoadModScenes: 1
+  allowModsCreatedByOlderUnityVersions: 1
+  cleanupModObjects: 1
+  logLevel: 3
+  memoryBudgetBytes: 104857600
+  discoverNonPublicScriptTypes: 1
+  discoverNonPublicScriptMembers: 1
+  caseSensitiveScriptNames: 1
+  preloadSharedGameAssets: 1
+  disableDebugStackTrace: 0
+  moddableSettings:
+    conflictBehaviour: 0
+    unloadBehaviour: 0
+    allowAssetIndexing: 1
+    revertContentOnDestroy: 1
+  moddableNamingSettings:
+    overrideAssetTypeNamingScheme:
+    - moddableAssetType: 1
+      moddableAssetName: model
+    - moddableAssetType: 2
+      moddableAssetName: material
+    - moddableAssetType: 0
+      moddableAssetName: mesh
+    - moddableAssetType: 3
+      moddableAssetName: texture
+    assetNamingSchemes:
+    - doNoModify: 0
+      assetFolder: Content/Cube
+      objectString: MultiMaterialCube
+      moddableObject:
+        referenceID: 6516786814029682538
+      assetNames:
+      - moddableAssetType: 1
+        moddableAssetName: material
+      - moddableAssetType: 2
+        moddableAssetName: texture
+    - doNoModify: 0
+      assetFolder: moddabletest
+      objectString: Cube
+      moddableObject:
+        referenceID: -6095024628120354892
+      assetNames:
+      - moddableAssetType: 2
+        moddableAssetName: material
+  securityRestrictions: {fileID: 11400000, guid: ec48e15fce9a35846964f190f066079d,
+    type: 2}
+  logSecurityIllegalReferences: 1
+  logSecurityIllegalReferenceOccurences: 1
+  runtimeSecurityCheck: 1

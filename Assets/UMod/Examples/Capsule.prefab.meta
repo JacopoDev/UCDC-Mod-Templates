@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9c713348055b886408b6fcf1f5a03059
+timeCreated: 1519725646
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Examples/Capsule.prefab
+  uploadId: 782332

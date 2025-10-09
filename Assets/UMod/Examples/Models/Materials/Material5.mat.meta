@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ec5491dfba239864490f26bae7e38425
+timeCreated: 1579361500
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Examples/Models/Materials/Material5.mat
+  uploadId: 782332

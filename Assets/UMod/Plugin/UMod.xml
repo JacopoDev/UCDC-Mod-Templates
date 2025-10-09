@@ -1,0 +1,2935 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UMod</name>
+    </assembly>
+    <members>
+        <member name="T:UMod.Bridge.ModAsset">
+            <summary>
+            A mod asset represents a loadable asset type that has been built into the mod.
+            Assets can be anything from prefabs to texures or materials.
+            </summary>
+        </member>
+        <member name="P:UMod.Bridge.ModAsset.AssetID">
+            <summary>
+            Get the unique asset id for this mod asset.
+            </summary>
+        </member>
+        <member name="P:UMod.Bridge.ModAsset.FullName">
+            <summary>
+            Returns the full path of the asset relative to the project folder of the exporter.
+            Note that the extension of the asset is also included.
+            A valid example path would be: 'assets/testmod/cube.prefab', where 'testmod' represents the export mod folder.
+            </summary>
+        </member>
+        <member name="P:UMod.Bridge.ModAsset.RelativeName">
+            <summary>
+            Returns the asset path relative to the export mod folder without the extension.
+            For example: An asset with the full name 'assets/testmod/sub/cube.prefab' will have the relative name 'sub/cube'.
+            </summary>
+        </member>
+        <member name="P:UMod.Bridge.ModAsset.Name">
+            <summary>
+            Returns the name of the asset.
+            </summary>
+        </member>
+        <member name="P:UMod.Bridge.ModAsset.Extension">
+            <summary>
+            Returns the file extension for the asset, For example '.prefab'.
+            </summary>
+        </member>
+        <member name="P:UMod.Bridge.ModAsset.IsLoaded">
+            <summary>
+            Returns true if this asset is currently loaded or false if it is not.
+            </summary>
+        </member>
+        <member name="P:UMod.Bridge.ModAsset.IsAlive">
+            <summary>
+            It is possible for a <see cref="T:UMod.Bridge.ModAsset"/> to outlive a mod host in which case the asset it was referencing becomes unavailable.
+            This property will return true if the asset is alive and loadable indicating that the mod host owning the assets is also still loaded.
+            </summary>
+        </member>
+        <member name="P:UMod.Bridge.ModAsset.AssetObject">
+            <summary>
+            Returns the <see cref="T:UnityEngine.Object"/> associated with this asset.
+            If the asset is not loaded then it will be loaded automatically meaning the return value should never be null.
+            </summary>
+        </member>
+        <member name="M:UMod.Bridge.ModAsset.ToString">
+            <summary>
+            Override ToString.
+            </summary>
+            <returns>A string representation of the mod asset including the relative name</returns>
+        </member>
+        <member name="M:UMod.Bridge.ModAsset.Load(System.Boolean)">
+            <summary>
+            Attempts to load this <see cref="T:UMod.Bridge.ModAsset"/> from the mod.
+            </summary>
+            <param name="allowCaching">When true, if the asset has already been loaded then a cached instance will be returned to avoid reloading</param>
+            <returns>The loaded asset</returns>
+            <exception cref="T:UMod.ModNotLoadedException">The mod that owns the assets has been unloaded</exception>
+        </member>
+        <member name="M:UMod.Bridge.ModAsset.Load``1(System.Boolean)">
+            <summary>
+            Attempts to load this <see cref="T:UMod.Bridge.ModAsset"/> as the specified generic type. 
+            </summary>
+            <typeparam name="T">The generic type to load the asset as</typeparam>
+            <param name="allowCaching">When true, if the asset has already been loaded then a cached instance will be returned to avoid reloading</param>
+            <returns>The loaded asset as the generic type</returns>
+            <exception cref="T:UMod.ModNotLoadedException">The mod that owns the assets has been unloaded</exception>
+        </member>
+        <member name="M:UMod.Bridge.ModAsset.LoadAsync(System.Boolean)">
+            <summary>
+            Attempts to load this <see cref="T:UMod.IModAsset"/> from the mod asynchronously. 
+            </summary>
+            <param name="allowCaching">When true, if the asset has already been loaded then a cached instance will be reused</param>
+            <exception cref="T:UMod.ModNotLoadedException">The mod that owns the assets has been unloaded</exception>
+        </member>
+        <member name="M:UMod.Bridge.ModAsset.LoadAsync``1(System.Boolean)">
+            <summary>
+            Attempts to load this <see cref="T:UMod.IModAsset"/> from the mod asynchronously and pass the result to the callback method as the specified generic type. 
+            </summary>
+            <typeparam name="T">The generic type to load the asset as</typeparam>
+            <param name="allowCaching">When true, if the asset has already been loaded than a cached instance will be reused</param>
+            <exception cref="T:UMod.ModNotLoadedException">The mod that owns the assets has been unloaded</exception>
+        </member>
+        <member name="T:UMod.Bridge.ModAssets">
+            <summary>
+                Responsible for handling loading requests by the modder as well as loading requests issues directly through the mod
+                host
+            </summary>
+        </member>
+        <member name="T:UMod.Bridge.ScriptSecurityHandler">
+            <summary>
+                Represents the loaded permissions as assigned by the develope in the unity editor
+            </summary>
+        </member>
+        <member name="T:UMod.Debugging.ModDebugLogType">
+            <summary>
+            An enum value representing the type of log message.
+            </summary>
+        </member>
+        <member name="F:UMod.Debugging.ModDebugLogType.Message">
+            <summary>
+            The log is information.
+            </summary>
+        </member>
+        <member name="F:UMod.Debugging.ModDebugLogType.Warning">
+            <summary>
+            The log is a warning.
+            </summary>
+        </member>
+        <member name="F:UMod.Debugging.ModDebugLogType.Error">
+            <summary>
+            The log is an error.
+            </summary>
+        </member>
+        <member name="F:UMod.Debugging.ModDebugLogType.Exception">
+            <summary>
+            The log is an exception.
+            </summary>
+        </member>
+        <member name="T:UMod.Debugging.IModDebugReceiver">
+            <summary>
+            This interface should be implemented when a custom log handler is required.
+            Use <see cref="M:UMod.Debugging.ModDebugHandler.AddReceiver(UMod.Debugging.IModDebugReceiver)"/> to register the implementation with a <see cref="P:UMod.ModHost.DebugHandler"/>. 
+            </summary>
+        </member>
+        <member name="M:UMod.Debugging.IModDebugReceiver.OnModDebugLog(System.DateTime,UMod.IModNameInfo,UMod.Debugging.ModDebugLogType,UMod.Debugging.ModDebugLogMessage)">
+            <summary>
+            Called by the active <see cref="T:UMod.Debugging.ModDebugHandler"/> for the current mod when a message should be logged. 
+            </summary>
+            <param name="logTime">The time that the log message was generated</param>
+            <param name="mod">The name info for the mod that generated the log</param>
+            <param name="type">The type of the log message</param>
+            <param name="msg">The content of the message</param>
+        </member>
+        <member name="T:UMod.Debugging.ModDebugHandler">
+            <summary>
+            A <see cref="T:UMod.Debugging.ModDebugHandler"/> is a dedicated log handler which is associated with a <see cref="T:UMod.ModHost"/> and can be used to log messages in a mod specific context.  
+            You are also able to register any number of log receivers to handle how the logged data is used.
+            </summary>
+        </member>
+        <member name="P:UMod.Debugging.ModDebugHandler.Receivers">
+            <summary>
+            Get an enumerable collection of all registered <see cref="T:UMod.Debugging.IModDebugReceiver"/> instances. 
+            </summary>
+        </member>
+        <member name="P:UMod.Debugging.ModDebugHandler.ReceiverCount">
+            <summary>
+            Get the number of <see cref="T:UMod.Debugging.IModDebugReceiver"/> registered with this handler. 
+            </summary>
+        </member>
+        <member name="P:UMod.Debugging.ModDebugHandler.UseStackTrace">
+            <summary>
+            Should the handler generate a stack trace for each logged message.
+            By default, stack traces are enabled.
+            note that generating a stack trace for each log message will have an small impact on performance.
+            </summary>
+        </member>
+        <member name="M:UMod.Debugging.ModDebugHandler.AddReceiver(UMod.Debugging.IModDebugReceiver)">
+            <summary>
+            Add the specified <see cref="T:UMod.Debugging.IModDebugReceiver"/> to this handler in order to recieve logged messages. 
+            </summary>
+            <param name="receiver">The <see cref="T:UMod.Debugging.IModDebugReceiver"/> instance to add</param>
+        </member>
+        <member name="M:UMod.Debugging.ModDebugHandler.RemoveReceiver(UMod.Debugging.IModDebugReceiver)">
+            <summary>
+            Remove the specified <see cref="T:UMod.Debugging.IModDebugReceiver"/> from this handler. 
+            </summary>
+            <param name="receiver">The <see cref="T:UMod.Debugging.IModDebugReceiver"/> instance to remove</param>
+        </member>
+        <member name="M:UMod.Debugging.ModDebugHandler.RemoveAllReceivers">
+            <summary>
+            Causes all registered <see cref="T:UMod.Debugging.IModDebugReceiver"/> instances to be removed from this handler. 
+            </summary>
+        </member>
+        <member name="M:UMod.Debugging.ModDebugHandler.LogMessage(System.String)">
+            <summary>
+            Log a message to the debug handler.
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:UMod.Debugging.ModDebugHandler.LogMessage(System.String,System.Object[])">
+            <summary>
+            Log a message to the debug handler.
+            </summary>
+            <param name="format">The format of the message</param>
+            <param name="args">The arguments to be formatted</param>
+        </member>
+        <member name="M:UMod.Debugging.ModDebugHandler.LogWarning(System.String)">
+            <summary>
+            Log a warning to the debug handler.
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:UMod.Debugging.ModDebugHandler.LogWarning(System.String,System.Object[])">
+            <summary>
+            Log a warning to the debug handler.
+            </summary>
+            <param name="format">The format of the message</param>
+            <param name="args">The arguments to be formatted</param>
+        </member>
+        <member name="M:UMod.Debugging.ModDebugHandler.LogError(System.String)">
+            <summary>
+            Log an error to the debug handler.
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:UMod.Debugging.ModDebugHandler.LogError(System.String,System.Object[])">
+            <summary>
+            Log an error to the debug handler.
+            </summary>
+            <param name="format">The format of the message</param>
+            <param name="args">The arguments to be formatted</param>
+        </member>
+        <member name="M:UMod.Debugging.ModDebugHandler.LogException(System.Exception)">
+            <summary>
+            Log an exception to the debug handler.
+            </summary>
+            <param name="e">The exception to log</param>
+        </member>
+        <member name="T:UMod.Debugging.ModDebugLogMessage">
+            <summary>
+            Represents a message that has been logged by a <see cref="T:UMod.Debugging.ModDebugHandler"/>. 
+            </summary>
+        </member>
+        <member name="P:UMod.Debugging.ModDebugLogMessage.Type">
+            <summary>
+            Get the type of the message.
+            </summary>
+        </member>
+        <member name="P:UMod.Debugging.ModDebugLogMessage.Message">
+            <summary>
+            Get the content of the message.
+            </summary>
+        </member>
+        <member name="P:UMod.Debugging.ModDebugLogMessage.StackTrace">
+            <summary>
+            Get the stack trace for the message.
+            If a stack trace was not generated then this value will be null.
+            </summary>
+        </member>
+        <member name="P:UMod.Debugging.ModDebugLogMessage.ThrownException">
+            <summary>
+            Get the exception that was thrown.
+            If an exception was not thrown then this value will be null.
+            </summary>
+        </member>
+        <member name="P:UMod.Debugging.ModDebugLogMessage.HasStackTrace">
+            <summary>
+            Returns true if this message has a stack trace available.
+             Use <see cref="P:UMod.Debugging.ModDebugLogMessage.StackTrace"/> to access the stack trace. 
+            </summary>
+        </member>
+        <member name="P:UMod.Debugging.ModDebugLogMessage.HasException">
+            <summary>
+            Returns true if this message has an exception available.
+            use <see cref="P:UMod.Debugging.ModDebugLogMessage.ThrownException"/> to access the exception.
+            </summary>
+        </member>
+        <member name="M:UMod.Debugging.ModDebugLogMessage.ToString">
+            <summary>
+            Override implementation of <see cref="M:UMod.Debugging.ModDebugLogMessage.ToString"/>. 
+            </summary>
+            <returns>A string representation of this instance</returns>
+        </member>
+        <member name="T:UMod.Moddable.ModdableComponentContent">
+            <summary>
+            Moddable content info that is used to store or retrieve component asset information.
+            </summary>
+        </member>
+        <member name="P:UMod.Moddable.ModdableComponentContent.Content">
+            <summary>
+            The asset content for the target component.
+            </summary>
+        </member>
+        <member name="P:UMod.Moddable.ModdableComponentContent.ContentIndex">
+            <summary>
+            The index for the asset content indicating where the asset should be stored in the target components asset array.
+            This value will be set to '-1' for components that only accept a single source asset.
+            </summary>
+        </member>
+        <member name="P:UMod.Moddable.ModdableComponentContent.ContentHasIndex">
+            <summary>
+            Returns a value indicating whether the content should be applied at a specific index.
+            </summary>
+        </member>
+        <member name="M:UMod.Moddable.ModdableComponentContent.#ctor(UnityEngine.Object)">
+            <summary>
+            Create new moddable component content from the specified source asset
+            </summary>
+            <param name="content">The asset content</param>
+        </member>
+        <member name="M:UMod.Moddable.ModdableComponentContent.#ctor(UnityEngine.Object,System.Int32)">
+            <summary>
+            Create new moddable component content for the specified source asset with a target array index value.
+            </summary>
+            <param name="content">The asset content</param>
+            <param name="contentIndex">The asset array index or '-1' if the asset should be assigned to the default asset slot</param>
+        </member>
+        <member name="M:UMod.Moddable.ModdableComponentContent.GetContentAs``1">
+            <summary>
+            Try to get the asset content as the specified generic type.
+            </summary>
+            <typeparam name="T">The generic type to return the asset content as</typeparam>
+            <returns>The asset content as the specified generic type or null if the asset content could not be converted to the generic type</returns>
+        </member>
+        <member name="T:UMod.Moddable.ModdableContent">
+            <summary>
+            A <see cref="T:UMod.Moddable.ModdableContent"/> component can be attached to a scene game object or a prefab and allows a single component to be moddable be swapping its source asset(s) with equivilent modded content.
+            Modders are able to create new asset content in their mods such as materials, textures and more. These assets can then be placed in specific folders with specific names relating to the target game object/prefab that they intend to modify.
+            The target folder and asset name is dictated by the <see cref="T:UMod.Settings.NamingSettings"/> naming scheme which is auto generated when moddable content components are added to the scene. 
+            The developer will have the option to modify the naming scheme via the UMod Settings window.
+            </summary>
+        </member>
+        <member name="T:UMod.Moddable.ModdableContent.ModdableSettingsSource">
+            <summary>
+            Where the moddable component should get its configuration settings from.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.ModdableSettingsSource.UseSettings">
+            <summary>
+            Use the global uMod moddable settings accessible via the UModSettings window.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.ModdableSettingsSource.Custom">
+            <summary>
+            Use custom settings as defined on the individual component.
+            </summary>
+        </member>
+        <member name="T:UMod.Moddable.ModdableContent.ModdableAssetType">
+            <summary>
+            The type of asset that is moddable on the target component.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.ModdableAssetType.Mesh">
+            <summary>
+            The mesh asset of the target component is moddable.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.ModdableAssetType.Model">
+            <summary>
+            The mesh asset of the target component is moddable via a modded prefab mesh.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.ModdableAssetType.Material">
+            <summary>
+            The material asset of the target componet is moddable.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.ModdableAssetType.Texture">
+            <summary>
+            The texture asset of the target component is moddable.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.ModdableAssetType.AnimatorController">
+            <summary>
+            The animator controller asset of the target component is moddable.
+            </summary>
+        </member>
+        <member name="T:UMod.Moddable.ModdableContent.ModdableConflictBehaviour">
+            <summary>
+            Conflit behaviour that specifies what should happen when one or more mods with identical moddable content are loaded.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.ModdableConflictBehaviour.FirstLoaded">
+            <summary>
+            The first mod loaded with the matching moddable content will obtain the right to modify the game object content.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.ModdableConflictBehaviour.LastLoaded">
+            <summary>
+            Any mods that are loaded after the content has already been modified will obtain the right to modify the game object content.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.ModdableConflictBehaviour.RevertDefault">
+            <summary>
+            Revert to the default asset that was used when the game loaded prior to applying any mod content.
+            </summary>
+        </member>
+        <member name="T:UMod.Moddable.ModdableContent.ModdableUnloadBehaviour">
+            <summary>
+            Unload behaviour that specifies what should happen when the mod owning the moddable content will be unloaded.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.ModdableUnloadBehaviour.RevertDefault">
+            <summary>
+            When the owning mod is unloaded any modded content will be reverted to the initial asset.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.ModdableUnloadBehaviour.RevertConflictingModOrDefault">
+            <summary>
+            When the owning mod is unloaded, any modded content will be reverted and any previously conflicting content from another mod with the same assets references will be loaded in place.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.ModdableUnloadBehaviour.DoNothing">
+            <summary>
+            Leave all asset references as they are. This may cause objects to be rendered in magenta as materials and shareds are unloaded etc.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.moddableSettings">
+            <summary>
+            Detemrines whether this component will use the global settings for moddable behaviour of use custom settings as defined on the component.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.conflictBehaviour">
+            <summary>
+            The <see cref="T:UMod.Moddable.ModdableContent.ModdableConflictBehaviour"/> that should occur when one or more mods with the same target moddable content are loaded.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:UMod.Moddable.ModdableContent.unloadBehaviour" -->
+        <member name="F:UMod.Moddable.ModdableContent.allowAssetIndexing">
+            <summary>
+            When enabled, mod assets can append array indexing syntax '[...]' to the end of thier file names in order to indicate that a certain asset should be assigned to the specified index. 
+            This can be useful for material and texture assets where more that one asset could be assinged to a single object.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.revertContentOnDestroy">
+            <summary>
+            When enabled, any moddable content that was applied via this component will be reverted to the original asset when the component is destroyed.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.assetType">
+            <summary>
+            The <see cref="T:UMod.Moddable.ModdableContent.ModdableAssetType"/> that can be modified on the target component. 
+            This asset type must match the componentes accepted asset type. For example: A mesh filter component could accept a Mesh asset.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.targetModdableComponent">
+            <summary>
+            The target component that can be modified.
+            The specified component must be compatible with the target asset type.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.autoApplyContent">
+            <summary>
+            When enabled, the moddable content will automatically be applied when the scene is loaded or when a new mod is loaded.
+            </summary>
+        </member>
+        <member name="F:UMod.Moddable.ModdableContent.loadContentAsync">
+            <summary>
+            When enabled, all content loading will be performed asynchronously to prevent blocking the main thread.
+            </summary>
+        </member>
+        <member name="P:UMod.Moddable.ModdableContent.ObjectReference">
+            <summary>
+            The <see cref="T:UMod.Moddable.ModdableObjectReference"/> that uniquley identifies the parent gamne object in the moddable naming scheme.
+            </summary>
+        </member>
+        <member name="P:UMod.Moddable.ModdableContent.ConflictBehaviour">
+            <summary>
+            Return the conflict behaviour for this component based on <see cref="F:UMod.Moddable.ModdableContent.moddableSettings"/> value.
+            When in editor mode (Not playing), this property will always return the value of <see cref="F:UMod.Moddable.ModdableContent.conflictBehaviour"/>.
+            </summary>
+        </member>
+        <member name="P:UMod.Moddable.ModdableContent.UnloadBehaviour">
+            <summary>
+            Return the unload behaviour for this component based on <see cref="F:UMod.Moddable.ModdableContent.moddableSettings"/> value.
+            When in editor mode (Not playing), this proeprty will always return the value of <see cref="F:UMod.Moddable.ModdableContent.unloadBehaviour"/>.
+            </summary>
+        </member>
+        <member name="P:UMod.Moddable.ModdableContent.AllowAssetIndexing">
+            <summary>
+            Return a value indicating whether asset indexing is allowed for this component based on <see cref="F:UMod.Moddable.ModdableContent.moddableSettings"/> value.
+            When in editor mode (Not playing), this property will always return the value of <see cref="F:UMod.Moddable.ModdableContent.allowAssetIndexing"/>.
+            </summary>
+        </member>
+        <member name="P:UMod.Moddable.ModdableContent.RevertContentOnDestroy">
+            <summary>
+            Return a value indicating whether modded content should be reverted to default for this component when it is destroyed base on <see cref="F:UMod.Moddable.ModdableContent.moddableSettings"/> value.
+            When in editor mode (Not playing), this property will always return the value of <see cref="F:UMod.Moddable.ModdableContent.revertContentOnDestroy"/>.
+            </summary>
+        </member>
+        <member name="M:UMod.Moddable.ModdableContent.Awake">
+            <summary>
+            Called by Unity.
+            </summary>
+        </member>
+        <member name="M:UMod.Moddable.ModdableContent.Start">
+            <summary>
+            Called by Unity.
+            </summary>
+        </member>
+        <member name="M:UMod.Moddable.ModdableContent.OnDestroy">
+            <summary>
+            Called by Unity.
+            </summary>
+        </member>
+        <member name="M:UMod.Moddable.ModdableContent.Reset">
+            <summary>
+            Called by Unity editor.
+            </summary>
+        </member>
+        <member name="M:UMod.Moddable.ModdableContent.OnValidate">
+            <summary>
+            Called by Unity editor.
+            </summary>
+        </member>
+        <member name="M:UMod.Moddable.ModdableContent.OnModLoaded(UMod.ModHost)">
+            <summary>
+            Called when a new mod has been loaded by uMod.
+            </summary>
+            <param name="host">The <see cref="T:UMod.ModHost"/> of the newly loaded mod</param>
+        </member>
+        <member name="M:UMod.Moddable.ModdableContent.OnModWillUnload(UMod.ModHost)">
+            <summary>
+            Called when then owning mod host is about to be unloaded.
+            </summary>
+        </member>
+        <member name="M:UMod.Moddable.ModdableContent.ApplyModdableContent">
+            <summary>
+            Attempt to apply moddable content from any loaded mods with matching mod content.
+            Conflicts will be handled based on the <see cref="P:UMod.Moddable.ModdableContent.ConflictBehaviour"/> value.
+            </summary>
+        </member>
+        <member name="M:UMod.Moddable.ModdableContent.ApplyModdableContent(UMod.ModHost[])">
+            <summary>
+            Attempt to apply moddable content from the specified loaded mods wtih matching content.
+            All mod hosts passed to this method should have a valid mod loaded otherwise they will be ignored.
+            Conflicts will be handled based on the <see cref="P:UMod.Moddable.ModdableContent.ConflictBehaviour"/> value.
+            </summary>
+            <param name="targetMods">An array of <see cref="T:UMod.ModHost"/> to check for suitable moddable content</param>
+        </member>
+        <member name="M:UMod.Moddable.ModdableContent.RevertModdableContent">
+            <summary>
+            Attempt to revert any applied moddable content to use the original game assets.
+            </summary>
+        </member>
+        <member name="M:UMod.Moddable.ModdableContent.GetAppliedContent">
+            <summary>
+            Return the first applied moddable content for the target component or null if no moddable content has been applied.
+            </summary>
+            <returns>A <see cref="T:UMod.Moddable.AppliedModdableContent"/> representing the applied mod content</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:UMod.Moddable.ModdableContent.GetAppliedContentWithIndex(System.Int32)" -->
+        <member name="M:UMod.Moddable.ModdableContent.GetAllAppliedContent">
+            <summary>
+            Return an array of all applied moddable content.
+            </summary>
+            <returns>An array of <see cref="T:UMod.Moddable.AppliedModdableContent"/> representing all applied content or an empty array if no moddable content has been applied</returns>
+        </member>
+        <member name="M:UMod.Moddable.ModdableContent.GetInitialComponentContent(System.Int32)">
+            <summary>
+            Attempt to get the original initial game asset that was assigned to the target component on startup at the specified array index.
+            Use '-1' when the target component does not support more than one asset or to get the default asset for the component.
+            </summary>
+            <param name="index">The array index value where the content was retrieved from</param>
+            <returns>A <see cref="T:UMod.Moddable.ModdableComponentContent"/> instance representing the initial content of the target component for the specified index value</returns>
+        </member>
+        <member name="M:UMod.Moddable.ModdableContent.OnWillReplaceContent(UnityEngine.Component,UMod.Moddable.ModdableComponentContent)">
+            <summary>
+            Called when the target component will have its asset content modded.
+            </summary>
+            <param name="targetComponent">The target component that will be modified</param>
+            <param name="content">The new moddable content that will be applied to the component</param>
+        </member>
+        <member name="M:UMod.Moddable.ModdableContent.OnWillRevertContent(UnityEngine.Component,UMod.Moddable.ModdableComponentContent)">
+            <summary>
+            Called when the target component will have its asset reverted to default.
+            </summary>
+            <param name="targetComponent">The target component that will be reverted</param>
+            <param name="content">The original game asset content that will be re-applied to the component to revert back to the original asset</param>
+        </member>
+        <member name="M:UMod.Moddable.ModdableContent.GetOrCreateModdableReferenceForObject(UnityEngine.GameObject)">
+            <summary>
+            Get or create a unique <see cref="T:UMod.Moddable.ModdableObjectReference"/> that identifies the specified game object in the moddable asset naming scheme.
+            </summary>
+            <param name="gameObject">The game object to get or create a unique reference for</param>
+            <returns>A <see cref="T:UMod.Moddable.ModdableObjectReference"/> instance for the specified game object</returns>
+        </member>
+        <member name="T:UMod.Moddable.ModdableObjectReference">
+            <summary>
+            Represents a unique reference to a moddable game object identified by a 64-bit Id value.
+            Note that the reference is to the game object and not the <see cref="T:UMod.Moddable.ModdableContent"/> component.
+            </summary>
+        </member>
+        <member name="P:UMod.Moddable.ModdableObjectReference.IsValid">
+            <summary>
+            Returns a value indicationg whether this object reference has been assigned a value.
+            </summary>
+        </member>
+        <member name="M:UMod.Moddable.ModdableObjectReference.Equals(System.Object)">
+            <summary>
+            Override implementation.
+            Checks for equality based on the inner <see cref="F:UMod.Moddable.ModdableObjectReference.referenceID"/> value.
+            </summary>
+            <param name="obj">The object to check for equality</param>
+            <returns>True if the objects are equal</returns>
+        </member>
+        <member name="M:UMod.Moddable.ModdableObjectReference.GetHashCode">
+            <summary>
+            Override implementation.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UMod.Moddable.ModdableObjectReference.OnBeforeSerialize">
+            <summary>
+            Called by Unity.
+            </summary>
+        </member>
+        <member name="M:UMod.Moddable.ModdableObjectReference.OnAfterDeserialize">
+            <summary>
+            Called by Unity.
+            </summary>
+        </member>
+        <member name="M:UMod.Moddable.ModdableObjectReference.CreateNew">
+            <summary>
+            Create new moddable object reference and generate a unique reference Id.
+            </summary>
+            <returns>A new unique moddable object reference</returns>
+        </member>
+        <member name="M:UMod.Moddable.ModdableObjectReference.op_Implicit(UMod.Moddable.ModdableObjectReference)~System.Int64">
+            <summary>
+            Implicit conversion to inner 64-bit Id value.
+            </summary>
+            <param name="reference">The object reference to convert</param>
+        </member>
+        <member name="T:UMod.ModDirectory">
+            <summary>
+                Helper class used to manage a local directory where mods are located.
+                Helps developers to manage a specific directory where mods should be installed.
+            </summary>
+        </member>
+        <member name="P:UMod.ModDirectory.Location">
+            <summary>
+            Get the DirectoryInfo for this current <see cref="T:UMod.ModDirectory"/>. 
+            </summary>
+        </member>
+        <member name="P:UMod.ModDirectory.AllowSubDirectories">
+            <summary>
+            Should sub folders of <see cref="P:UMod.ModDirectory.Location"/> also be detected.
+            When true, sub folders will be checked reccursivley as well as the target  folder.
+            </summary>
+        </member>
+        <member name="P:UMod.ModDirectory.CaseSensitive">
+            <summary>
+            Are mod name searches case sensitive.
+            Default is false.
+            </summary>
+        </member>
+        <member name="P:UMod.ModDirectory.HasMods">
+            <summary>
+                Allows the developer to determine whether any mods are installed.
+                This property will return true if there are any mods located in the <see cref="P:UMod.ModDirectory.Location" /> directory.
+            </summary>
+        </member>
+        <member name="P:UMod.ModDirectory.Exists">
+            <summary>
+            Check whether the target mod directory actually exists.
+            The directory should exists otherwise you may receive <see cref="T:System.IO.DirectoryNotFoundException"/> when calling associated methods. 
+            </summary>
+        </member>
+        <member name="P:UMod.ModDirectory.ModCount">
+            <summary>
+            Allows the devloper to determine how many mods are installed.
+            Get the number of mods that are inside the directory.
+            </summary>
+        </member>
+        <member name="M:UMod.ModDirectory.Create">
+            <summary>
+            Attempts to create the mod directory at the file system <see cref="P:UMod.ModDirectory.Location"/>.
+            The mod directory should exist before calling other associated methods.
+            </summary>
+        </member>
+        <member name="M:UMod.ModDirectory.Refresh">
+            <summary>
+            Refreshes the directory location in order to detect newly added mods.
+            If you add a new mod into the directory location then you will need to call this method in order for it to be detcted and returned by all other methods.
+            </summary>
+        </member>
+        <member name="M:UMod.ModDirectory.IsModInstalled(System.String,System.String)">
+            <summary>
+            Attempts to search through the mod directory looking for a mod with the specified name and version.
+            If a mod with the specified name and version was found then the return value will be true. 
+            </summary>
+            <param name="name">The name of the mod to look for</param>
+            <param name="version">The version of the mod to look for in the format 'x.x.x'. You can specify null as the version in which case only the name of the mod will be used in the search</param>
+            <returns>True if a matching mod is installed or false if not</returns>
+        </member>
+        <member name="M:UMod.ModDirectory.IsModFile(System.IO.FileInfo)">
+            <summary>
+            Returns true if the specified FileInfo is a valid mod file.
+            </summary>
+            <param name="file">The file to check</param>
+            <returns>True if the specified file is a mod or false if not</returns>
+        </member>
+        <member name="T:UMod.ModLoadResult">
+            <summary>
+            Contains useful error information for a mod load attempts.
+            </summary>
+        </member>
+        <member name="P:UMod.ModLoadResult.ElapsedLoadTime">
+            <summary>
+            Get the elapsed time of the load.
+            </summary>
+        </member>
+        <member name="P:UMod.ModLoadResult.ThrownException">
+            <summary>
+            Get the exception that was thrown during the load or null if no exception was thrown.
+            </summary>
+        </member>
+        <member name="P:UMod.ModLoadResult.Error">
+            <summary>
+            Get the <see cref="T:UMod.ModLoadError"/> that occurred during the load. 
+            </summary>
+        </member>
+        <member name="P:UMod.ModLoadResult.Success">
+            <summary>
+            Was the load successful.
+            </summary>
+        </member>
+        <member name="P:UMod.ModLoadResult.Message">
+            <summary>
+            Get the error message for the load error.
+            </summary>
+        </member>
+        <member name="T:UMod.Scripting.Runtime.ScriptExecutionContext">
+            <summary>
+            An excecution context contains information about all current executing mod scripts.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.Runtime.ScriptExecutionContext.IsExecutingScripts">
+            <summary>
+            Returns true if the script engine is currently executing one or more scripts.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.Runtime.ScriptExecutionContext.ExecutingScripts">
+            <summary>
+            Get all currently executing scripts via their proxy objects.
+            </summary>
+        </member>
+        <member name="M:UMod.Scripting.Runtime.ScriptExecutionContext.ActivateAssembly(UMod.Scripting.ScriptAssembly)">
+            <summary>
+            Attempt to activate the specified <see cref="T:UMod.Scripting.ScriptAssembly"/>.
+            Activation will cause all mod types to be created and have their <see cref="M:UMod.IMod.OnModLoaded"/> event called. 
+            </summary>
+            <param name="assembly">The assembly to activate</param>
+            <returns>An array of proxy objects represented all the mod types that were created</returns>
+        </member>
+        <member name="M:UMod.Scripting.Runtime.ScriptExecutionContext.ActivateType(UMod.Scripting.ScriptType,UnityEngine.GameObject)">
+            <summary>
+            Attempt to activate the specified <see cref="T:UMod.Scripting.ScriptType"/>.
+            Activation will cause an instance of the type to be constructed and initialized in the current <see cref="T:UMod.Scripting.ScriptDomain"/>. 
+            </summary>
+            <param name="type">The <see cref="T:UMod.Scripting.ScriptType"/> to activate</param>
+            <param name="parent">The parent game object fo the script. Only applicable if the scripts derives from <see cref="T:UnityEngine.MonoBehaviour"/></param>
+            <returns>A proxy object representing the created type</returns>
+        </member>
+        <member name="M:UMod.Scripting.Runtime.ScriptExecutionContext.BroadcastMessage(System.String)">
+            <summary>
+            Broadcasts a message to all running mod scripts.        
+            </summary>
+            <param name="methodName">The name of the method to call on mod scripts</param>
+        </member>
+        <member name="M:UMod.Scripting.Runtime.ScriptExecutionContext.BroadcastMessage(System.String,System.Object[])">
+            <summary>
+            Broadcasts a message to all running mod scripts passing the specified arguments.
+            </summary>
+            <param name="methodName">The name of the method to call on mod scripts</param>
+            <param name="args">An array of arguments to pass to the method</param>
+        </member>
+        <member name="M:UMod.Scripting.Runtime.ScriptExecutionContext.Kill">
+            <summary>
+            Immediatley stop any executing mod scripts that are currently running.
+            All executing scripts will be terminated correctly and will receive the <see cref="M:UMod.IMod.OnModUnload"/> event if applicable. 
+            </summary>
+        </member>
+        <member name="T:UMod.Scripting.ScriptAssembly">
+            <summary>
+            A <see cref="T:UMod.Scripting.ScriptAssembly"/> represents a managed assembly that has been loaded into a <see cref="T:UMod.Scripting.ScriptDomain"/> at runtime.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptAssembly.Name">
+            <summary>
+            Get the name of the assembly.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptAssembly.Version">
+            <summary>
+            Get the version of the wrapped assembly.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptAssembly.FullName">
+            <summary>
+            Get the full name of the wrapped assembly.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptAssembly.Domain">
+            <summary>
+            Get the <see cref="T:UMod.Scripting.ScriptDomain"/> that this <see cref="T:UMod.Scripting.ScriptAssembly"/> is currently loaded in.  
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptAssembly.MainType">
+            <summary>
+            Gets the main type for the assembly. This will always return the first defined type in the assembly which is especially useful for assemblies that only define a single type.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptAssembly.RawAssembly">
+            <summary>
+            Get the <see cref="T:System.Reflection.Assembly"/> that this <see cref="T:UMod.Scripting.ScriptAssembly"/> wraps.  
+            </summary>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.#ctor(System.Reflection.Assembly)">
+            <summary>
+            Create a new <see cref="T:UMod.Scripting.ScriptAssembly"/> wrapper for the specified loaded <see cref="T:System.Reflection.Assembly"/>.
+            </summary>
+            <param name="rawAssembly"></param>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.SecurityCheckAssembly(Trivial.CodeSecurity.CodeSecurityRestrictions)">
+            <summary>
+            Run security verification on this assembly using the specified security restrictions.
+            </summary>
+            <param name="restrictions">The restrictions used to verify the assembly</param>
+            <returns>True if the assembly passes security verification or false if it fails</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.SecurityCheckAssembly(Trivial.CodeSecurity.CodeSecurityRestrictions,Trivial.CodeSecurity.CodeSecurityReport@)">
+            <summary>
+            Run security verification on this assembly using the specified security restrictions and output a security report
+            </summary>
+            <param name="restrictions">The restrictions used to verify the assembly</param>
+            <param name="report">The security report generated by the assembly checker</param>
+            <returns>True if the assembly passes security verification or false if it fails</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.HasType(System.String)">
+            <summary>
+            Returns true if this <see cref="T:UMod.Scripting.ScriptAssembly"/> defines a type with the specified name.
+            Depending upon settings, name comparison may or may not be case sensitive.
+            </summary>
+            <param name="name">The name of the type to look for</param>
+            <returns>True if a type with the specified name is defined</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.HasSubtypeOf(System.Type)">
+            <summary>
+            Returns true if this <see cref="T:UMod.Scripting.ScriptAssembly"/> defines one or more types that inherit from the specified type.
+            The specified type may be a base class or interface type.
+            </summary>
+            <param name="baseType">The type to check for in the inheritace chain</param>
+            <returns>True if there are one or more defined types that inherit from the specified type</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.HasSubtypeOf(System.Type,System.String)">
+            <summary>
+            Returns true if this <see cref="T:UMod.Scripting.ScriptAssembly"/> defines a type that inherits from the specified type and matches the specified name.
+            Depending upon settings, name comparison may or may not be case sensitive.
+            </summary>
+            <param name="baseType">The type to check for in the inheritance chain</param>
+            <param name="name">The name of the type to look for</param>
+            <returns>True if a type that inherits from the specified type and has the specified name is defined</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.HasSubtypeOf``1">
+            <summary>
+            Returns true if this <see cref="T:UMod.Scripting.ScriptAssembly"/> defined one or more types that inherit from the specified generic type.
+            The specified generic type may be a base class or interface type.
+            </summary>
+            <typeparam name="T">The generic type to check for in the inheritance chain</typeparam>
+            <returns>True if there are one or more defined types that inherit from the specified generic type</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.HasSubtypeOf``1(System.String)">
+            <summary>
+            Returns true if this <see cref="T:UMod.Scripting.ScriptAssembly"/> defines a type that inherits from the specified genric type and matches the specified name.
+            Depending upon settings, name comparison may or may not be case sensitive.
+            </summary>
+            <typeparam name="T">The generic type to check for in the inheritance chain</typeparam>
+            <param name="name">The name of the type to look for</param>
+            <returns>True if a type that inherits from the specified type and has the specified name is defined</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.FindType(System.String)">
+            <summary>
+            Attempts to find a type defined in this <see cref="T:UMod.Scripting.ScriptAssembly"/> with the specified name.
+            Depending upon settings, name comparison may or may not be case sensitive.
+            </summary>
+            <param name="name">The name of the type to look for</param>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptType"/> representing the found type or null if the type could not be found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.FindSubTypeOf(System.Type,System.Boolean)">
+            <summary>
+            Attempts to find a type defined in this <see cref="T:UMod.Scripting.ScriptAssembly"/> that inherits from the specified base type.
+            If there is more than one type that inherits from the specified base type, then the first matching type will be returned.
+            If you want to find all types then use <see cref="M:UMod.Scripting.ScriptAssembly.FindAllSubTypesOf(System.Type,System.Boolean)"/>. 
+            </summary>
+            <param name="subType">The type to check for in the inheritance chain</param>
+            <param name="includeNonPublic">Should the search include non public types</param>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptType"/> representing the found type or null if the type could not be found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.FindSubTypeOf(System.Type,System.String)">
+            <summary>
+            Attempts to find a type defined in this <see cref="T:UMod.Scripting.ScriptAssembly"/> that inherits from the specified base type and matches the specified name.
+            Depending upon settings, name comparison may or may not be case sensitive.
+            </summary>
+            <param name="subType">The type to check for in the inheritance chain</param>
+            <param name="name">The name of the type to look for</param>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptType"/> representing the found type or null if the type could not be found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.FindSubTypeOf``1(System.Boolean)">
+            <summary>
+            Attempts to find a type defined in this <see cref="T:UMod.Scripting.ScriptAssembly"/> that inherits from the specified generic type. 
+            If there is more than one type that inherits from the specified generic type, then the first matching type will be returned.
+            If you want to find all types then use <see cref="M:UMod.Scripting.ScriptAssembly.FindAllSubTypesOf``1(System.Boolean)"/>.
+            </summary>
+            <param name="includeNonPublic">Should the search include non public types</param>
+            <typeparam name="T">The generic type to check for in the inheritance chain</typeparam>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptType"/> representing the found type or null if the type could not be found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.FindSubTypeOf``1(System.String)">
+            <summary>
+            Attempts to find a type defined in this <see cref="T:UMod.Scripting.ScriptAssembly"/> that inherits from the specified generic type and matches the specified name. 
+            Depending upon settings, name comparison may or may not be case sensitive.
+            </summary>
+            <typeparam name="T">The generic type to check for in the inheritance chain</typeparam>
+            <param name="name">The name of the type to look for</param>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptType"/> representing the found type or null if the type could not be found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.FindAllSubTypesOf(System.Type,System.Boolean)">
+            <summary>
+            Attempts to find all types defined in this <see cref="T:UMod.Scripting.ScriptAssembly"/> that inherits from the specified type.
+            If there are no types that inherit from the specified type then the return value will be an empty array.
+            </summary>
+            <param name="subType">The type to check for in the inheritance chain</param>
+            <param name="includeNonPublic">Should the search include non public types</param>
+            <returns>(Not Null) An array of <see cref="T:UMod.Scripting.ScriptType"/> or an empty array if no matching type was found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.FindAllSubTypesOf``1(System.Boolean)">
+            <summary>
+            Attempts to find all types defined in this <see cref="T:UMod.Scripting.ScriptAssembly"/> that inherit from the specified generic type.
+            If there are no types that inherit from the specified type then the return value will be an empty array.
+            </summary>
+            <typeparam name="T">The generic type to check for in the inheritance chain</typeparam>
+            <returns>(Not Null) An array of <see cref="T:UMod.Scripting.ScriptType"/> or an empty array if no matching type was found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.FindAllTypes(System.Boolean)">
+            <summary>
+            Returns an array of all defined types in this <see cref="T:UMod.Scripting.ScriptAssembly"/>. 
+            </summary>
+            <returns>An array of <see cref="T:UMod.Scripting.ScriptType"/> representing all types defined in this <see cref="T:UMod.Scripting.ScriptAssembly"/></returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.FindAllUnityTypes(System.Boolean)">
+            <summary>
+            Attempts to find all types defined in this <see cref="T:UMod.Scripting.ScriptAssembly"/> that inherit from <see cref="T:UnityEngine.Object"/>.  
+            If there are no types that inherit from <see cref="T:UnityEngine.Object"/> then the return value will be an empty array.
+            </summary>
+            <returns>(Not Null) An array of <see cref="T:UMod.Scripting.ScriptType"/> or an empty array if no matching type was found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.FindAllMonoBehaviourTypes(System.Boolean)">
+            <summary>
+            Attempts to find all types defined in this <see cref="T:UMod.Scripting.ScriptAssembly"/> that inherit from <see cref="T:UnityEngine.MonoBehaviour"/>.  
+            If there are no types that inherit from <see cref="T:UnityEngine.MonoBehaviour"/> then the return value will be an empty array.
+            </summary>
+            <returns>(Not Null) An array of <see cref="T:UMod.Scripting.ScriptType"/> or an empty array if no matching type was found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.FindAllScriptableObjectTypes(System.Boolean)">
+            <summary>
+            Attempts to find all types defined in this <see cref="T:UMod.Scripting.ScriptAssembly"/> that inherit from <see cref="T:UnityEngine.ScriptableObject"/>.  
+            If there are no types that inherit from <see cref="T:UnityEngine.ScriptableObject"/> then the return value will be an empty array.
+            </summary>
+            <returns>(Not Null) An array of <see cref="T:UMod.Scripting.ScriptType"/> or an empty array if no matching type was found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.EnumerateAllSubTypesOf(System.Type,System.Boolean)">
+            <summary>
+            Enumerate all types defined in this <see cref="T:UMod.Scripting.ScriptAssembly"/> that inherits from the specified type.
+            </summary>
+            <param name="subType">The type to check for in the inheritance chain</param>
+            <param name="includeNonPublic">Should the search include non public types</param>
+            <returns>Enumerable of matching results</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.EnumerateAllSubTypesOf``1(System.Boolean)">
+            <summary>
+            Enumerate all types defined in this <see cref="T:UMod.Scripting.ScriptAssembly"/> that inherit from the specified generic type.
+            </summary>
+            <typeparam name="T">The generic type to check for in the inheritance chain</typeparam>
+            <returns>Enumerable of matching results</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.EnumerateAllTypes(System.Boolean)">
+            <summary>
+            Enumerate all defined types in this <see cref="T:UMod.Scripting.ScriptAssembly"/>. 
+            </summary>
+            <returns>Enumerable of all results</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.EnumerateAllUnityTypes(System.Boolean)">
+            <summary>
+            Enumerate all types defined in this <see cref="T:UMod.Scripting.ScriptAssembly"/> that inherit from <see cref="T:UnityEngine.Object"/>.  
+            </summary>
+            <returns>Enumerable of matching results</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.EnumerateAllMonoBehaviourTypes(System.Boolean)">
+            <summary>
+            Enumerate all types defined in this <see cref="T:UMod.Scripting.ScriptAssembly"/> that inherit from <see cref="T:UnityEngine.MonoBehaviour"/>.  
+            </summary>
+            <returns>Enumerable of matching results</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptAssembly.EnumerateAllScriptableObjectTypes(System.Boolean)">
+            <summary>
+            Enumerate all types defined in this <see cref="T:UMod.Scripting.ScriptAssembly"/> that inherit from <see cref="T:UnityEngine.ScriptableObject"/>.  
+            </summary>
+            <returns>Enumerable of matching results</returns>
+        </member>
+        <member name="T:UMod.Scripting.ScriptDomain">
+            <summary>
+            A <see cref="T:UMod.Scripting.ScriptDomain"/> acts as a container for all code that is loaded dynamically at runtime.
+            Despite the name, the code is not actually loaded into an isolated domain but is instead loaded into the main application domain. This is due to unity restrictions.
+            The main responsiblility of the domin is to separate pre-compiled game code from runtime-loaded code. 
+            As a result, you will only be able to access types from the domain that were loaded at runtime.
+            Any pre-compiled game code will be ignored.
+            Any assemblies or scripts that are loaded into the domain at runtime will remain until the application exits so you should be careful to avoid loading too many assemblies.
+            You would typically load user code at statup in a 'Load' method which would then exist and execute until the game exits.
+            Multiple domain instances may be created but you should note that all runtime code will be loaded into the current application domain. The <see cref="T:UMod.Scripting.ScriptDomain"/> simply masks the types that are visible.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptDomain.Assemblies">
+            <summary>
+            Get all assemblies loaded into this domain.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptDomain.EnumerateAssemblies">
+            <summary>
+            Enumerate all assemblies loaded into this domain.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptDomain.IsDisposed">
+            <summary>
+            Has this domain been disposed.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptDomain.ExecutionContext">
+            <summary>
+            Get the <see cref="T:UMod.Scripting.Runtime.ScriptExecutionContext"/> for this domain. 
+            </summary>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.LoadAssemblyFromResources(System.String,System.Byte[])">
+            <summary>
+            Attempts to load a managed assembly from the specified resources path into the sandbox app domain.
+            The target asset must be a <see cref="T:UnityEngine.TextAsset"/> in order to be loaded successfully. 
+            </summary>
+            <param name="resourcePath">The file name of path relative to the 'Resources' folder without the file extension</param>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if an error occurs</returns>
+            <exception cref="T:System.Security.SecurityException">The assembly breaches the imposed security restrictions</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.LoadAssembly(System.String,System.Byte[])">
+            <summary>
+            Attempts to load the specified managed assembly into the sandbox app domain.
+            </summary>
+            <param name="fullPath">The full path the the .dll file</param>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if an error occurs</returns>
+            <exception cref="T:System.Security.SecurityException">The assembly breaches the imposed security restrictions</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.LoadAssembly(System.Reflection.AssemblyName,System.Byte[])">
+            <summary>
+            Attempts to load the specified managed assembly into the sandbox app domain.
+            </summary>
+            <param name="name">The <see cref="T:System.Reflection.AssemblyName"/> representing the assembly to load</param>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if an error occurs</returns>
+            <exception cref="T:System.Security.SecurityException">The assembly breaches the imposed security restrictions</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.LoadAssembly(System.Byte[],System.Byte[])">
+            <summary>
+            Attempts to load a managed assembly from the specified raw bytes.
+            </summary>
+            <param name="data">The raw data representing the file structure of the managed assembly, The result of <see cref="M:System.IO.File.ReadAllBytes(System.String)"/> for example.</param>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if an error occurs</returns>
+            <exception cref="T:System.Security.SecurityException">The assembly breaches the imposed security restrictions</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.LoadAssemblyWithSymbols(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Attempts to load a managed assembly from the specified raw bytes.
+            The debug symbols for the assembly will also be loaded from the specified symbol data.
+            </summary>
+            <param name="data">The raw data representing the file structure of the managed assembly, The result of <see cref="M:System.IO.File.ReadAllBytes(System.String)"/> for example</param>
+            <param name="mdbSymbols">The mono debugging symbols for the assembly</param>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if an error occurs</returns>
+            <exception cref="T:System.Security.SecurityException">The assembly breaches the imposed security restrictions</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.TryLoadAssembly(System.String,UMod.Scripting.ScriptAssembly@,System.Byte[])">
+            <summary>
+            Attempts to load the managed assembly at the specified location.
+            Any exceptions throw while loading will be caught.
+            </summary>
+            <param name="fullPath">The full path to the .dll file</param>
+            <param name="result">An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if the load failed</param>
+            <returns>True if the assembly was loaded successfully or false if an error occurred</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.TryLoadAssembly(System.Reflection.AssemblyName,UMod.Scripting.ScriptAssembly@,System.Byte[])">
+            <summary>
+            Attempts to load a managed assembly with the specified name.
+            Any exceptions thrown while loading will be caught.
+            </summary>
+            <param name="name">The <see cref="T:System.Reflection.AssemblyName"/> of the assembly to load</param>
+            <param name="result">An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if the load failed</param>
+            <returns>True if the assembly was loaded successfully or false if an error occurred</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.TryLoadAssembly(System.Byte[],UMod.Scripting.ScriptAssembly@,System.Byte[])">
+            <summary>
+            Attempts to load a managed assembly from the raw assembly data.
+            Any exceptions thrown while loading will be caught.
+            </summary>
+            <param name="data">The raw data representing the file structure of the managed assembly, The result of <see cref="M:System.IO.File.ReadAllBytes(System.String)"/> for example.</param>
+            <param name="result">An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if the load failed</param>
+            <returns>True if the assembly was loaded successfully or false if an error occured</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.TryLoadAssemblyWithSymbols(System.Byte[],System.Byte[],UMod.Scripting.ScriptAssembly@,System.Byte[])">
+            <summary>
+            Attempts to load a managed assembly from the raw assembly data.
+            The debug symbols for the assembly will also be loaded from the specified symbol data.
+            Any exceptions thrown while loading will be caught.
+            </summary>
+            <param name="data">The raw data representing the file structure of the managed assembly, The result of <see cref="M:System.IO.File.ReadAllBytes(System.String)"/> for example.</param>
+            <param name="mdbSymbols">The mono debugging symbols for the assembly</param>
+            <param name="result">An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if the load failed</param>
+            <param name="securityHash">The security hash of the assembly used to avoid security checks</param>
+            <returns>True if the assembly was loaded successfully or false if an error occured</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.LoadAndActivateAssemblyFromResources(System.String,System.Byte[])">
+            <summary>
+            Attempts to load and activate a managed assembly from the resources folder.
+            The resource asset must be a TextAsset in order to be loaded successfully.
+            The assembly will also be activated using meaning that all mod script types will be created and will start receiving events.
+            </summary>
+            <param name="resourcePath">The resources path of the asset to load</param>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if an error occurs</returns>
+            <exception cref="T:System.Security.SecurityException">The assembly breaches the imposed security restrictions</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.LoadAndActivateAssembly(System.String,System.Byte[])">
+            <summary>
+            Attempts to load and activate a managed assembly from the specified path.
+            The assembly will also be activated using meaning that all mod script types will be created and will start receiving events.
+            </summary>
+            <param name="fullpath">The filepath or name of the assembly to load</param>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if an error occurs</returns>
+            <exception cref="T:System.Security.SecurityException">The assembly breaches the imposed security restrictions</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.LoadAndActivateAssembly(System.Reflection.AssemblyName,System.Byte[])">
+            <summary>
+            Attempts to load and activate a managed assembly with the specified <see cref="T:System.Reflection.AssemblyName"/>.
+            The assembly will also be activated using meaning that all mod script types will be created and will start receiving events.
+            Note that security checks cannot be performed when using this load method. If security checks are required then use one of the other overloads.
+            </summary>
+            <param name="name">The name of the assembly to load</param>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if an error occurs</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.LoadAndActivateAssembly(System.Byte[],System.Byte[])">
+            <summary>
+            Attempts to load and activate a managed assembly for the specified raw bytes.
+            The assembly will also be activated using meaning that all mod script types will be created and will start receiving events.
+            </summary>
+            <param name="bytes">The 'byte[]' representing the raw assembly data</param>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if an error occurs</returns>
+            <exception cref="T:System.Security.SecurityException">The assembly breaches the imposed security restrictions</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.LoadAndActivateAssemblyWithSymbols(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Attempts to load and activate a managed assembly from the specified raw bytes along with the debugging symbols.
+            The assembly will also be activated using meaning that all mod script types will be created and will start receiving events.
+            </summary>
+            <param name="bytes">The 'byte[]' representing the raw assembly data</param>
+            <param name="mdbSymbols">The 'byte[]' representing the raw debugging symbol data</param>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if an error occurs</returns>
+            <exception cref="T:System.Security.SecurityException">The assembly breaches the imposed security restrictions</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.TryLoadAndActivateAssembly(System.String,UMod.Scripting.ScriptAssembly@,System.Byte[])">
+            <summary>
+            Attempts to load and activate a managed assembly from the specified path.
+            The assembly will also be activated using meaning that all mod script types will be created and will start receiving events.
+            Any exceptions that are thrown during loading will be caught and cause a load failure.
+            </summary>
+            <param name="fullpath">The filepath or name of the assembly to load</param>
+            <param name="assembly">An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if the assembly could not be loaded</param>
+            <returns>True if the assembly was loaded and activated successfully or false if not</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.TryLoadAndActivateAssembly(System.Reflection.AssemblyName,UMod.Scripting.ScriptAssembly@,System.Byte[])">
+            <summary>
+            Attempts to load and activate a managed assembly with the specified <see cref="T:System.Reflection.AssemblyName"/>.
+            The assembly will also be activated using meaning that all mod script types will be created and will start receiving events.
+            Note that security checks cannot be performed when using this load method. If security checks are required then use one of the other overloads.
+            Any exceptions that are thrown during loading will be caught and cause a load failure.
+            </summary>
+            <param name="name">The name of the assembly to load</param>
+            <param name="assembly">An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if the assembly could not be loaded</param>
+            <returns>True if the assembly was loaded and activated successfully or false if not</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.TryLoadAndActivateAssembly(System.Byte[],UMod.Scripting.ScriptAssembly@,System.Byte[])">
+            <summary>
+            Attempts to load and activate a managed assembly with the specified raw bytes.
+            The assembly will also be activated using meaning that all mod script types will be created and will start receiving events.
+            Note that security checks cannot be performed when using this load method. If security checks are required then use one of the other overloads.
+            Any exceptions that are thrown during loading will be caught and cause a load failure.
+            </summary>
+            <param name="bytes">The 'byte[]' representing the raw assembly data</param>
+            <param name="assembly">An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if the assembly could not be loaded</param>
+            <returns>True if the assembly was loaded and activated successfully or false if not</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.TryLoadAndActivateAssemblyWithSymbols(System.Byte[],System.Byte[],UMod.Scripting.ScriptAssembly@,System.Byte[])">
+            <summary>
+            Attempts to load and activate managed assembly from the specified raw bytes.
+            The debug symbols for the assembly will also be loaded from the specified symbol data.
+            Any exceptions that are thrown during loading will be caught and cause a load failure.
+            </summary>
+            <param name="bytes">The raw data representing the file structure of the managed assembly, The result of <see cref="M:System.IO.File.ReadAllBytes(System.String)"/> for example</param>
+            <param name="mdbSymbols">The mono debugging symbols for the assembly</param>
+            <param name="assembly">An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if the assembly could not be loaded</param>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptAssembly"/> representing the loaded assembly or null if an error occurs</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.SecurityCheckAssembly(System.String,System.Reflection.Assembly@,Trivial.CodeSecurity.CodeSecurityEngine@,Trivial.CodeSecurity.CodeSecurityReport@,System.Boolean,System.Byte[])">
+            <summary>
+            Attempts to perform security validation on the assembly at the specified location.
+            Failure to load the data will result in a fail result.
+            </summary>
+            <param name="fullpath">The fullpath to the managed assembly</param>
+            <param name="validatedAssembly">The security validated and laoded assembly</param>
+            <param name="securityEngine">The security engine used to validate the code</param>
+            <param name="securityReport">The security report generated by the code security engine if code validate was run</param>
+            <param name="throwOnError">Should the checker throw an exception on error</param>
+            <returns>True if the assembly passed security checks or false if the assembly breaches security or another error occured</returns>
+            <exception cref="T:System.Security.SecurityException">The code does not meet the security restrictions defined in the settings menu</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.SecurityCheckAssembly(System.Reflection.AssemblyName,System.Reflection.Assembly@,Trivial.CodeSecurity.CodeSecurityEngine@,Trivial.CodeSecurity.CodeSecurityReport@,System.Boolean,System.Byte[])">
+            <summary>
+            Attempts to perform security validation on the specified assembly name.
+            Failure to load the data will result in a fail result.
+            </summary>
+            <param name="name">The name of the assembly to check</param>
+            <param name="validatedAssembly">The security validated and laoded assembly</param>
+            <param name="securityEngine">The security engine used to validate the code</param>
+            <param name="securityReport">The security report generated by the code security engine if code validate was run</param>
+            <param name="throwOnError">Should the checker throw an exception on error</param>
+            <returns>True if the assembly passed security checks or false if the assembly breaches security or another error occured</returns>
+            <exception cref="T:System.Security.SecurityException">The code does not meet the security restrictions defined in the settings menu</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.SecurityCheckAssembly(System.Byte[],System.Reflection.Assembly@,Trivial.CodeSecurity.CodeSecurityEngine@,Trivial.CodeSecurity.CodeSecurityReport@,System.Boolean,System.Byte[])">
+            <summary>
+            Attempts to perform security validation on the specified assembly data.
+            Failure to load the data will result in a fail result.
+            </summary>
+            <param name="assemblyData">The raw data of the managed assembly</param>
+            <param name="validatedAssembly">The security validated and laoded assembly</param>
+            <param name="securityEngine">The security engine used to validate the code</param>
+            <param name="securityReport">The security report generated by the code security engine if code validate was run</param>
+            <param name="throwOnError">Should the checker throw an exception on error</param>
+            <returns>True if the assembly passed security checks or false if the assembly breaches security or another error occured</returns>
+            <exception cref="T:System.Security.SecurityException">The code does not meet the security restrictions defined in the settings menu</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptDomain.Kill">
+            <summary>
+            Destroy the script domain and any mod code that is currently executing.
+            If you just want to stop running mod scripts then use <see cref="M:UMod.Scripting.Runtime.ScriptExecutionContext.Kill"/>. 
+            </summary>
+        </member>
+        <member name="T:UMod.Scripting.IScriptMemberProxy">
+            <summary>
+            Represents a member group collection that allows access to all members of a specific type.
+            The members data may be accessed via its member name which means that non-concrete communication is possible.
+            </summary>
+            <seealso cref="T:UMod.Scripting.ScriptFieldProxy"/>"/>
+            <seealso cref="T:UMod.Scripting.ScriptPropertyProxy"/>
+        </member>
+        <member name="P:UMod.Scripting.IScriptMemberProxy.Item(System.String)">
+            <summary>
+            Attempt to read from or write to a member of the managed type.
+            </summary>
+            <param name="name">The name of the member to find</param>
+            <returns>The value for the specified member</returns>
+        </member>
+        <member name="T:UMod.Scripting.ScriptFieldProxy">
+            <summary>
+            A <see cref="T:UMod.Scripting.ScriptFieldProxy"/> allows access to the fields of a type using a string identifier to lookup the field name"/> 
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptFieldProxy.Item(System.String)">
+            <summary>
+            Attempt to read from or write to a field on the managed type with the specified name.
+            The object value will need to be cast to the desired type when reading the value.
+            </summary>
+            <param name="name">The name of the field to modify</param>
+            <returns>The value of the field witht he specified name</returns>
+            <exception cref="T:System.Reflection.TargetException">The target field could not be found on the managed type</exception>
+        </member>
+        <member name="T:UMod.Scripting.ScriptPropertyProxy">
+            <summary>
+            A <see cref="T:UMod.Scripting.ScriptPropertyProxy"/> allows access to the properties of a type using a string identifier to lookup the field name"/> 
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptPropertyProxy.Item(System.String)">
+            <summary>
+            Attempt to read from or write to a field on the managed type with the specified name.
+            Any exceptions thrown by the set or get accessor will not be handled.
+            The object value will need to be cast to the desired type when reading the value.
+            </summary>
+            <param name="name">The name of the property to find</param>
+            <returns>The value of the field witht he specified name</returns>
+            <exception cref="T:System.Reflection.TargetException">The target property could not be found on the managed type</exception>
+            <exception cref="T:System.Reflection.TargetException">Attempted to read from the property but a get accessor could not be found</exception>
+            <exception cref="T:System.Reflection.TargetException">Attempted to write to the property but a set accessor could not be found</exception>
+        </member>
+        <member name="T:UMod.Scripting.ProxyCallConvention">
+            <summary>
+            The method calling convention used when invoking a method.
+            </summary>
+        </member>
+        <member name="F:UMod.Scripting.ProxyCallConvention.StandardMethod">
+            <summary>
+            Call the method as normal.
+            </summary>
+        </member>
+        <member name="F:UMod.Scripting.ProxyCallConvention.UnityCoroutine">
+            <summary>
+            Call the method as a Unity coroutine. 
+            The method should return an 'IEnumerator' to be invoked as a coroutine.
+            The method will be invoked and managed by a game object and updated every frame.
+            </summary>
+        </member>
+        <member name="F:UMod.Scripting.ProxyCallConvention.Any">
+            <summary>
+            Call the method based on its return type. 
+            Methods that return 'IEnumerator' will be automatically invoked as a Unity coroutine.
+            </summary>
+        </member>
+        <member name="T:UMod.Scripting.ScriptProxy">
+            <summary>
+            A <see cref="T:UMod.Scripting.ScriptProxy"/> acts as a wrapper for a type instance and allows non-concrete communication if the type is unknown at compile time. 
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptProxy.ScriptType">
+            <summary>
+            Get the <see cref="P:UMod.Scripting.ScriptProxy.ScriptType"/> of this proxy object.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">The proxy has already been disposed</exception>
+        </member>
+        <member name="P:UMod.Scripting.ScriptProxy.Fields">
+            <summary>
+            Returns the <see cref="T:UMod.Scripting.IScriptMemberProxy"/> that provides access to the fields of the wrapped type. 
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">The proxy has already been disposed</exception>
+        </member>
+        <member name="P:UMod.Scripting.ScriptProxy.Properties">
+            <summary>
+            Returns the <see cref="T:UMod.Scripting.IScriptMemberProxy"/> that provides access to the properties of the wrapped type. 
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">The proxy has already been disposed</exception>
+        </member>
+        <member name="P:UMod.Scripting.ScriptProxy.Instance">
+            <summary>
+            Get the instance of the script as an object.
+            Use this property to access the managed instance.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">The proxy has already been disposed</exception>
+        </member>
+        <member name="P:UMod.Scripting.ScriptProxy.UnityInstance">
+            <summary>
+            Access the wrapped instance as a unity <see cref="T:UnityEngine.Object"/>.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">The proxy has already been disposed</exception>
+        </member>
+        <member name="P:UMod.Scripting.ScriptProxy.BehaviourInstance">
+            <summary>
+            Get the instance of the script as a <see cref="T:UnityEngine.MonoBehaviour"/>.
+            This property will return null if the wrapped type does not inherit from <see cref="T:UnityEngine.MonoBehaviour"/>. 
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">The proxy has already been disposed</exception>
+        </member>
+        <member name="P:UMod.Scripting.ScriptProxy.ScriptableInstance">
+            <summary>
+            Get the instance of the script as a <see cref="T:UnityEngine.ScriptableObject"/>.
+            This property will return null if the wrapped type does not inherit from <see cref="T:UnityEngine.ScriptableObject"/>.  
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">The proxy has already been disposed</exception>
+        </member>
+        <member name="P:UMod.Scripting.ScriptProxy.IsUnityObject">
+            <summary>
+            Returns true if the <see cref="P:UMod.Scripting.ScriptProxy.ScriptType"/> inherits from <see cref="T:UnityEngine.Object"/>.
+            If this value is true then it is safe to cast this proxy into a <see cref="T:UMod.Scripting.ScriptProxy"/> for Unity specific operations. 
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">The proxy has already been disposed</exception>
+        </member>
+        <member name="P:UMod.Scripting.ScriptProxy.IsMonoBehaviour">
+            <summary>
+            Returns true if the managed type inherits from <see cref="T:UnityEngine.MonoBehaviour"/>.
+            This is equivilent of calling <see cref="P:UMod.Scripting.ScriptType.IsMonoBehaviour"/>.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">The proxy has already been disposed</exception>
+        </member>
+        <member name="P:UMod.Scripting.ScriptProxy.IsScriptableObject">
+            <summary>
+            Returns true if the managed type inherits from <see cref="T:UnityEngine.ScriptableObject"/>.
+            This is equivilent of calling <see cref="P:UMod.Scripting.ScriptType.IsScriptableObject"/>. 
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">The proxy has already been disposed</exception>
+        </member>
+        <member name="P:UMod.Scripting.ScriptProxy.IsDisposed">
+            <summary>
+            Returns true if the proxy has been disposed. 
+            Be careful, the proxy can become disposed automatically if the managed type is destroyed by Unity. 
+            This can occur during scene changes for MonoBehaviour components and cause the proxy to become invalid.
+            If you want to make sure the wrapped type is not dispoed automatically then you can call <see cref="M:UMod.Scripting.ScriptProxy.MakePersistent"/>.
+            </summary>
+        </member>
+        <member name="M:UMod.Scripting.ScriptProxy.#ctor(UMod.Scripting.ScriptType,System.Object)">
+            <summary>
+            Create a new instance of a <see cref="T:UMod.Scripting.ScriptProxy"/>. 
+            </summary>
+            <param name="scriptType">The <see cref="P:UMod.Scripting.ScriptProxy.ScriptType"/> to create an instance from</param>
+            <param name="instance">The raw instance</param>
+        </member>
+        <member name="M:UMod.Scripting.ScriptProxy.Call(System.String)">
+            <summary>
+            Attempt to call a method on the managed type with the specified name.
+            This works in a similar way as <see cref="M:UnityEngine.GameObject.SendMessage(System.String)"/> where the method name is specified.
+            The target method must not accept any arguments.
+            </summary>
+            <param name="methodName">The name of the method to call</param>
+            <returns>The value returned from the target method or null if the target method does not return a value</returns>
+            <exception cref="T:System.ObjectDisposedException">The proxy has already been disposed</exception>
+            <exception cref="T:System.Reflection.TargetException">The target method could not be found on the managed type</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptProxy.Call(System.String,UMod.Scripting.ProxyCallConvention)">
+            <summary>
+            Attempt to call a method on the managed instance with the specified name.
+            This works in a similar way as <see cref="M:UnityEngine.GameObject.SendMessage(System.String)"/> where the method name is specified.
+            The target method must not accept any arguments.
+            </summary>
+            <param name="methodName">The name of the method to call</param>
+            <param name="callConvention">The method calling convention</param>
+            <returns>The value returned from the target method or null if the target method does not return a value</returns>
+            <exception cref="T:System.ObjectDisposedException">The proxy has already been disposed</exception>
+            <exception cref="T:System.Reflection.TargetException">The target method could not be found on the managed type</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptProxy.Call(System.String,System.Object[])">
+            <summary>
+            Attempt to call a method on the managed type with the specified name and arguments.
+            This works in a similar was as <see cref="M:UnityEngine.GameObject.SendMessage(System.String)"/> where the method name is specified.
+            Any number of arguments may be specified but the target method must expect the arguments.
+            </summary>
+            <param name="methodName">The name of the method to call</param>
+            <param name="arguments">The arguments passed to the method</param>
+            <returns>The value returned from the target method or null if the target method does not return a value</returns>
+            <exception cref="T:System.ObjectDisposedException">The proxy has already been disposed</exception>
+            <exception cref="T:System.Reflection.TargetException">The target method could not be found on the managed type</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptProxy.Call(System.String,UMod.Scripting.ProxyCallConvention,System.Object[])">
+            <summary>
+            Attempt to call a method on the managed instance with the specified name and arguments.
+            This works in a similar was as <see cref="M:UnityEngine.GameObject.SendMessage(System.String)"/> where the method name is specified.
+            Any number of arguments may be specified but the target method must expect the arguments.
+            </summary>
+            <param name="methodName">The name of the method to call</param>
+            <param name="callConvention">The method calling convention</param>
+            <param name="arguments">The arguments passed to the method</param>
+            <returns>The value returned from the target method or null if the target method does not return a value</returns>
+            <exception cref="T:System.ObjectDisposedException">The proxy has already been disposed</exception>
+            <exception cref="T:System.Reflection.TargetException">The target method could not be found on the managed type</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptProxy.SafeCall(System.String)">
+            <summary>
+            Attempt to call a method on the managed type with the specified name.
+            Any exceptions thrown as a result of location or calling the method will be caught silently.
+            This works in a similar was as <see cref="M:UnityEngine.GameObject.SendMessage(System.String)"/> where the target method name is specified.
+            The target method must not accept any arguments.
+            </summary>
+            <param name="method">The name of the method to call</param>
+            <returns>The value returned from the target method or null if the target method does not return a value</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptProxy.SafeCall(System.String,UMod.Scripting.ProxyCallConvention)">
+            <summary>
+            Attempt to call a method on the managed instance with the specified name.
+            Any exceptions thrown as a result of locating or calling the method will be caught silently.
+            This works in a similar was as <see cref="M:UnityEngine.GameObject.SendMessage(System.String)"/> where the target method name is specified.
+            The target method must not accept any arguments.
+            </summary>
+            <param name="method">The name of the method to call</param>
+            <param name="callConvention">The method calling convention</param>
+            <returns>The value returned from the target method or null if the target method does not return a value</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptProxy.SafeCall(System.String,System.Object[])">
+            <summary>
+            Attempt to call a method on the managed type with the specified name.
+            Any exceptions thrown as a result of location or calling the method will be caught silently.
+            This works in a similar was as <see cref="M:UnityEngine.GameObject.SendMessage(System.String)"/> where the target method name is specified.
+            Any number of arguments may be specified but the target method must expect the arguments.
+            </summary>
+            <param name="method">The name of the method to call</param>
+            <param name="arguments">The arguments passed to the method</param>
+            <returns>The value returned from the target method or null if the target method does not return a value</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptProxy.SafeCall(System.String,UMod.Scripting.ProxyCallConvention,System.Object[])">
+            <summary>
+            Attempt to call a method on the managed instance with the specified name.
+            Any exceptions thrown as a result of locating or calling the method will be caught silently.
+            This works in a similar was as <see cref="M:UnityEngine.GameObject.SendMessage(System.String)"/> where the target method name is specified.
+            Any number of arguments may be specified but the target method must expect the arguments.
+            </summary>
+            <param name="method">The name of the method to call</param>
+            <param name="callConvention">The method calling convention</param>
+            <param name="arguments">The arguments passed to the method</param>
+            <returns>The value returned from the target method or null if the target method does not return a value</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptProxy.GetInstanceType">
+            <summary>
+            Get the system type of the managed script type.
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.ObjectDisposedException">The proxy has already been disposed</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptProxy.GetInstanceAs``1(System.Boolean)">
+            <summary>
+            Attempts to get the managed instance as the specified generic type.
+            </summary>
+            <typeparam name="T">The generic type to return the instance as</typeparam>
+            <param name="throwOnError">When false, any exceptions caused by the conversion will be caught and will result in a default value being returned. When true, any exceptions will not be handled.</param>
+            <returns>The managed instance as the specified generic type or the default value for the generic type if an error occured</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptProxy.Dispose">
+            <summary>
+            Dispose of the proxy and its managed script instance.
+            Once disposed, the proxy should never be accessed again.
+            Only call this method once you are sure you will never need the instance again.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">The proxy has already been disposed</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptProxy.MakePersistent">
+            <summary>
+            If the managed object is a Unity type then this method will call 'DontDestroyOnLoad' to ensure that the object is able to survie scene loads.
+            </summary>
+        </member>
+        <member name="M:UMod.Scripting.ScriptProxy.CheckDisposed">
+            <summary>
+            Checks whether the object has already been disposed and raises and exception if it has.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">The proxy has already been disposed</exception>
+        </member>
+        <member name="T:UMod.Scripting.ScriptType">
+            <summary>
+            Represents a type that may or may not derive from MonoBehaviour.
+            A <see cref="T:UMod.Scripting.ScriptType"/> is a wrapper for <see cref="T:System.Type"/> that contains methods for Unity specific operations.
+            The type may also be used to create instances of objects.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptType.RawType">
+            <summary>
+            Get the <see cref="T:System.Type"/> that this <see cref="T:UMod.Scripting.ScriptType"/> wraps.   
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptType.Name">
+            <summary>
+            Get the name of the wrapped type excluding the namespace.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptType.Namespace">
+            <summary>
+            Get the namespace of the wrapped type.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptType.FullName">
+            <summary>
+            Get the full name of the wrapped type including namespace.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptType.IsPublic">
+            <summary>
+            Returns true if the wrapped type is public or false if not.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptType.Assembly">
+            <summary>
+            Get the <see cref="T:UMod.Scripting.ScriptAssembly"/> that this <see cref="T:UMod.Scripting.ScriptType"/> is defined in.  
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptType.FieldsStatic">
+            <summary>
+            Returns the <see cref="T:UMod.Scripting.IScriptMemberProxy"/> that provides access to the static fields of the wrapped type. 
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptType.SafeFieldsStatic">
+            <summary>
+            Returns the <see cref="T:UMod.Scripting.IScriptMemberProxy"/> that provides access to the static fields of the wrapped type.
+            Any exceptions thrown by locating or accessing the property will be handled.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptType.PropertiesStatic">
+            <summary>
+            Returns the <see cref="T:UMod.Scripting.IScriptMemberProxy"/> that provides access to the static properties of the wrapped type. 
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptType.SafePropertiesStatic">
+            <summary>
+            Returns the <see cref="T:UMod.Scripting.IScriptMemberProxy"/> that provides access to the static properties of the wrapped type.
+            Any exceptions thrown by locating or accessing the property will be handled.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptType.IsUnityObject">
+            <summary>
+            Returns true if this type inherits from <see cref="T:UnityEngine.Object"/>.
+            See also <see cref="P:UMod.Scripting.ScriptType.IsMonoBehaviour"/>.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptType.IsMonoBehaviour">
+            <summary>
+            Returns true if this type inherits from <see cref="T:UnityEngine.MonoBehaviour"/>.
+            </summary>
+        </member>
+        <member name="P:UMod.Scripting.ScriptType.IsScriptableObject">
+            <summary>
+            Returns true if this type inherits from <see cref="T:UnityEngine.ScriptableObject"/> 
+            </summary>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.#ctor(System.Type)">
+            <summary>
+            Create a <see cref="T:UMod.Scripting.ScriptType"/> from a <see cref="T:System.Type"/>.  
+            </summary>
+            <param name="type">The <see cref="T:System.Type"/> to create the <see cref="T:UMod.Scripting.ScriptType"/> from</param>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.CreateInstance(UnityEngine.GameObject,UMod.Scripting.Runtime.ScriptExecutionContext)">
+            <summary>
+            Creates an instance of this type.
+            The type will be constructed using the appropriate method (AddComponent, CreateInstance, new).
+            </summary>
+            <param name="parent">The <see cref="T:UnityEngine.GameObject"/> to attach the instance to or null if the type is not a <see cref="T:UnityEngine.MonoBehaviour"/></param>
+            <param name="executionContext">The execution context to activate the script in. The execution context is required if the instance should recieve mod events such as <see cref="M:UMod.IMod.OnModLoaded"></see>/></param>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptProxy"/></returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.CreateInstance(UnityEngine.GameObject,UMod.Scripting.Runtime.ScriptExecutionContext,System.Object[])">
+            <summary>
+            Creates an instance of this type.
+            The type will be constructed using the appropriate method (AddComponent, CreateInstance, new).
+            </summary>
+            <param name="parent">The <see cref="T:UnityEngine.GameObject"/> to attach the instance to or null if the type is not a <see cref="T:UnityEngine.MonoBehaviour"/></param>
+            <param name="executionContext">The execution context to activate the script in. The execution context is required if the instance should recieve mod events such as <see cref="M:UMod.IMod.OnModLoaded"></see>/></param>
+            <param name="parameters">The parameter list for the desired constructor. only used when the type does not inherit from <see cref="T:UnityEngine.Object"/></param>
+            <returns>An instance of <see cref="T:UMod.Scripting.ScriptProxy"/></returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.CreateRawInstance(UnityEngine.GameObject,UMod.Scripting.Runtime.ScriptExecutionContext)">
+            <summary>
+            Creates a raw instance of this type.
+            A raw instance will return the actual instance of the type as opposed to a <see cref="T:UMod.Scripting.ScriptProxy"/> which allows for more control. 
+            The type will be constructed using the appropriate method (AddComponent, CreateInstance, new).
+            </summary>
+            <param name="parent">The <see cref="T:UnityEngine.GameObject"/> to attach the instance to or null if the type is not a <see cref="T:UnityEngine.MonoBehaviour"/></param>
+            <param name="executionContext">The execution context to activate the script in. The execution context is required if the instance should recieve mod events such as <see cref="M:UMod.IMod.OnModLoaded"></see>/></param>
+            <returns>A raw instance that can be cast to the desired type</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.CreateRawInstance(UnityEngine.GameObject,UMod.Scripting.Runtime.ScriptExecutionContext,System.Object[])">
+            <summary>
+            Creates a raw instance of this type.
+            A raw instance will return the actual instance of the type as opposed to a <see cref="T:UMod.Scripting.ScriptProxy"/> which allows for more control. 
+            The type will be constructed using the appropriate method (AddComponent, CreateInstance, new).
+            </summary>
+            <param name="parent">The <see cref="T:UnityEngine.GameObject"/> to attach the instance to or null if the type is not a <see cref="T:UnityEngine.MonoBehaviour"/></param>
+            <param name="executionContext">The execution context to activate the script in. The execution context is required if the instance should recieve mod events such as <see cref="M:UMod.IMod.OnModLoaded"></see>/></param>
+            <param name="parameters">The parameter list for the desired constructor. only used when the type does not inherit from <see cref="T:UnityEngine.Object"/></param>
+            <returns>A raw instance that can be cast to the desired type</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.CreateRawInstance``1(UnityEngine.GameObject,UMod.Scripting.Runtime.ScriptExecutionContext)">
+            <summary>
+            Creates an instance of this type and returns the result as the specified generic type.
+            A raw instance will return the actual instance of the type as opposed to a <see cref="T:UMod.Scripting.ScriptProxy"/> which allows for more control. 
+            The type will be constructed using the appropriate method (AddComponent, CreateInstance, new).
+            </summary>
+            <typeparam name="T">The generic type to return the instance as</typeparam>
+            <param name="parent">The <see cref="T:UnityEngine.GameObject"/> to attach the instance to or null if the type is not a <see cref="T:UnityEngine.MonoBehaviour"/></param>
+            <param name="executionContext">The execution context to activate the script in. The execution context is required if the instance should recieve mod events such as <see cref="M:UMod.IMod.OnModLoaded"></see>/></param>
+            <returns>A raw instance as the specified generic type</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.CreateRawInstance``1(UnityEngine.GameObject,UMod.Scripting.Runtime.ScriptExecutionContext,System.Object[])">
+            <summary>
+            Creates an instance of this type and returns the result as the specified generic type.
+            A raw instance will return the actual instance of the type as opposed to a <see cref="T:UMod.Scripting.ScriptProxy"/> which allows for more control. 
+            The type will be constructed using the appropriate method (AddComponent, CreateInstance, new).
+            </summary>
+            <typeparam name="T">The generic type to return the instance as</typeparam>
+            <param name="parent">The <see cref="T:UnityEngine.GameObject"/> to attach the instance to or null if the type is not a <see cref="T:UnityEngine.MonoBehaviour"/></param>
+            <param name="executionContext">The execution context to activate the script in. The execution context is required if the instance should recieve mod events such as <see cref="M:UMod.IMod.OnModLoaded"></see>/></param>
+            <param name="parameters">The parameter list for the desired constructor. only used when the type does not inherit from <see cref="T:UnityEngine.Object"/></param>
+            <returns>A raw instance as the specified generic type</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.IsSubTypeOf(System.Type)">
+            <summary>
+            Returns true if this type inherits from the specified type.
+            </summary>
+            <param name="baseClass">The base type</param>
+            <returns>True if this type inherits from the specified type</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.IsSubTypeOf``1">
+            <summary>
+            Returns true if this type inherits from the specified type.
+            </summary>
+            <typeparam name="T">The base type</typeparam>
+            <returns>True if this type inherits from the specified type</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.FindCachedField(System.String,System.Boolean)">
+            <summary>
+            Finds a field with the specified name from the cache if possible.
+            If the field is not present in the cache then it will be added automatically so that subsequent calls will be quicker.
+            </summary>
+            <param name="name">The name of the field to find</param>
+            <param name="isStatic">Is the target field a static or instance field</param>
+            <returns>The <see cref="T:System.Reflection.FieldInfo"/> for the specified field</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.FindCachedProperty(System.String,System.Boolean)">
+            <summary>
+            Finds a property with the specified name from the cache if possible.
+            If the property is not present in the cache then it will be added automatically so that subsequent calls will be quicker.
+            </summary>
+            <param name="name">The name of the property to find</param>
+            <param name="isStatic">Is the target property a static or instance property</param>
+            <returns>The <see cref="T:System.Reflection.PropertyInfo"/> for the specified property</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.FindCachedMethod(System.String,System.Boolean)">
+            <summary>
+            Finds a method with the specified name from the cache if possible.
+            If the method is not present in the cache then it will be added automatically so that subsequent calls will be quicker.
+            </summary>
+            <param name="name">The name of the method to find</param>
+            <param name="isStatic">Is the target method a static or instance method</param>
+            <returns>The <see cref="T:System.Reflection.MethodInfo"/> for the specified method</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.CallStatic(System.String)">
+            <summary>
+            Attempts to call a static method on this <see cref="T:UMod.Scripting.ScriptType"/> with the specified name.
+            This works in a similar way as <see cref="M:UnityEngine.GameObject.SendMessage(System.String)"/> where the method name is specified.
+            The target method must be static and not accept any arguments.
+            </summary>
+            <param name="methodName">The name of the static method to call</param>
+            <returns>The value returned from the target method or null if the target method does not return a value</returns>
+            <exception cref="T:System.Reflection.TargetException">The target method could not be found on the managed type</exception>
+            <exception cref="T:System.Reflection.TargetException">The target method is not static</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.CallStatic(System.String,System.Object[])">
+            <summary>
+            Attempts to call a static method on this <see cref="T:UMod.Scripting.ScriptType"/> with the specified name.
+            This works in a similar way as <see cref="M:UnityEngine.GameObject.SendMessage(System.String)"/> where the method name is specified.
+            The target method must be static and not accept any arguments.
+            </summary>
+            <param name="methodName">The name of the static method to call</param>
+            <param name="arguments">The arguemnts passed to the method</param>
+            <returns>The value returned from the target method or null if the target method does not return a value</returns>
+            <exception cref="T:System.Reflection.TargetException">The target method could not be found on the managed type</exception>
+            <exception cref="T:System.Reflection.TargetException">The target method is not static</exception>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.SafeCallStatic(System.String)">
+            <summary>
+            Attempts to call a static method on this <see cref="T:UMod.Scripting.ScriptType"/> with the specified name.
+            Any exceptions throw as a result of locating or calling the method will be caught silently
+            This works in a similar way as <see cref="M:UnityEngine.GameObject.SendMessage(System.String)"/> where the method name is specified.
+            The target method must be static and not accept any arguments.
+            </summary>
+            <param name="method">The name of the static method to call</param>
+            <returns>The value returned from the target method or null if the target method does not return a value</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.SafeCallStatic(System.String,System.Object[])">
+            <summary>
+            Attempts to call a static method on this <see cref="T:UMod.Scripting.ScriptType"/> with the specified name.
+            Any exceptions throw as a result of locating or calling the method will be caught silently
+            This works in a similar way as <see cref="M:UnityEngine.GameObject.SendMessage(System.String)"/> where the method name is specified.
+            The target method must be static and not accept any arguments.
+            </summary>
+            <param name="method">The name of the static method to call</param>
+            <param name="arguments">The arguments passed to the method</param>
+            <returns>The value returned from the target method or null if the target method does not return a value</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.ToString">
+            <summary>
+            Override ToString implementation.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.FindType(System.String,UMod.Scripting.ScriptDomain)">
+            <summary>
+            Attempt to find a type with the specified name in the specified <see cref="T:UMod.Scripting.ScriptDomain"/>.
+            </summary>
+            <param name="typeName">The name of the type to find</param>
+            <param name="searchDomain">The domain to search or null if the active domain should be used</param>
+            <returns>A <see cref="T:UMod.Scripting.ScriptType"/> matching the specified type name or null if the type was not found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.FindSubTypeOf(System.String,System.Type,UMod.Scripting.ScriptDomain)">
+            <summary>
+            Attempt to find a type with the specified name in the specified <see cref="T:UMod.Scripting.ScriptDomain"/> that inherits from the specified base type.
+            </summary>
+            <param name="typeName">The name of the type to find</param>
+            <param name="subType">The base type that the type must inherit from</param>
+            <param name="searchDomain">The domain to search or null if the active domain should be used</param>
+            <returns>A <see cref="T:UMod.Scripting.ScriptType"/> matching the specified type name and inheritance constraints or null if the type was not found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.FindSubTypeOf``1(System.String,UMod.Scripting.ScriptDomain)">
+            <summary>
+            Attempt to find a type with the specified name in the specified <see cref="T:UMod.Scripting.ScriptDomain"/> that inherits from the specified generic base type.
+            </summary>
+            <typeparam name="T">The generic type that the type must inherit from</typeparam>
+            <param name="typeName">The name of the type to find</param>
+            <param name="searchDomain">The domain to search or null if the active domain should be used</param>
+            <returns>A <see cref="T:UMod.Scripting.ScriptType"/> matching the specified type name and inheritance constranints or null if the type was not found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.FindSubTypeOf(System.Type,UMod.Scripting.ScriptDomain)">
+            <summary>
+            Attempt to find the first type that inherits from the specfieid sub type.
+            </summary>
+            <param name="subType">The base type that the type should inherit from</param>
+            <param name="searchDomain">The domain to search or null if the active domain should be used</param>
+            <returns>A <see cref="T:UMod.Scripting.ScriptType"/> matching the specified inheritance constraints or null if the type was not found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.FindSubTypeOf``1(UMod.Scripting.ScriptDomain)">
+            <summary>
+            Attempt to find the first type that inherits from the specified generic sub type.
+            </summary>
+            <typeparam name="T">The generic type that the type must inherit from</typeparam>
+            <param name="searchDomain">The domain to search or null if the active domain should be used</param>
+            <returns>A <see cref="T:UMod.Scripting.ScriptType"/> matching the specified inheritance constraints or null if the type was not found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.FindAllSubTypesOf(System.Type,System.Boolean,UMod.Scripting.ScriptDomain)">
+            <summary>
+            Attempt to find all types that inherit from the specified sub type.
+            </summary>
+            <param name="subType">The base type that the types must inherit from</param>
+            <param name="includeNonPublic">Should non-public types be included in the search</param>
+            <param name="searchDomain">The domain to search or null if the active domain should be used</param>
+            <returns>An array of <see cref="T:UMod.Scripting.ScriptType"/> that inherit from the specified base type or an empty array if no types were found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.FindAllSubTypesOf``1(System.Boolean,UMod.Scripting.ScriptDomain)">
+            <summary>
+            Attempt to find all the types that inherit from the specified generic sub type.
+            </summary>
+            <typeparam name="T">The generic base type that the types must inherit from</typeparam>
+            <param name="includeNonPublic">Should non-public types be included in the search</param>
+            <param name="searchDomain">The domain to search or null if the active domain should be used</param>
+            <returns>An array of <see cref="T:UMod.Scripting.ScriptType"/> that inherit from the specified base type or an empty array if no types were found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.FindAllTypes(System.Boolean,UMod.Scripting.ScriptDomain)">
+            <summary>
+            Attempt to find all types in the specified domain.
+            </summary>
+            <param name="includeNonPublic">Should non-public types be included in the search</param>
+            <param name="searchDomain">The domai to search or null if the active domain should be used</param>
+            <returns>An array of <see cref="T:UMod.Scripting.ScriptType"/> that exist in the specified domain or an empty array if no types were found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.FindAllUnityTypes(System.Boolean,UMod.Scripting.ScriptDomain)">
+            <summary>
+            Attempts to find all types in the specified domain that inherit from <see cref="T:UnityEngine.Object"/>.
+            </summary>
+            <param name="includeNonPublic">Should non-public types be included in the search</param>
+            <param name="searchDomain">The domain to search or null if the active domain should be used</param>
+            <returns>An array of <see cref="T:UMod.Scripting.ScriptType"/> that inherit from <see cref="T:UnityEngine.Object"/> or an empty array if no types were found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.FindAllMonoBehaviourTypes(System.Boolean,UMod.Scripting.ScriptDomain)">
+            <summary>
+            Attempts to find all types in the specified domain that inherit from <see cref="T:UnityEngine.MonoBehaviour"/>.
+            </summary>
+            <param name="includeNonPublic">Should non-public types be included in the search</param>
+            <param name="searchDomain">The domain to search or null if the active domain should be used</param>
+            <returns>An array of <see cref="T:UMod.Scripting.ScriptType"/> that inherit from <see cref="T:UnityEngine.MonoBehaviour"/> or an empty array if no types were found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.FindAllScriptableObjectTypes(System.Boolean,UMod.Scripting.ScriptDomain)">
+            <summary>
+            Attempts to find all types in the specified domain that inherit from <see cref="T:UnityEngine.ScriptableObject"/>.
+            </summary>
+            <param name="includeNonPublic">Should non-public types be included in the search</param>
+            <param name="searchDomain">The domain to search or null if the active domain should be used</param>
+            <returns>An array of <see cref="T:UMod.Scripting.ScriptType"/> that inherit from <see cref="T:UnityEngine.ScriptableObject"/> or an empty array if no types were found</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.EnumerateAllSubTypesOf(System.Type,System.Boolean,UMod.Scripting.ScriptDomain)">
+            <summary>
+            Enumerates all types that inherit from the specified sub type.
+            </summary>
+            <param name="subType">The base type that the types must inherit from</param>
+            <param name="includeNonPublic">Should non-public types be included in the search</param>
+            <param name="searchDomain">The domain to search or null if the active domain should be used</param>
+            <returns>Enumerable of matching results</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.EnumerateAllSubTypesOf``1(System.Boolean,UMod.Scripting.ScriptDomain)">
+            <summary>
+            Enumerate all types that inherit from the specified generic sub type.
+            </summary>
+            <typeparam name="T">The generic base type that the types must inherit from</typeparam>
+            <param name="includeNonPublic">Should non-public types be included in the search</param>
+            <param name="searchDomain">The domain to search or null if the active domain should be used</param>
+            <returns>Enumerable of matching results</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.EnumerateAllTypes(System.Boolean,UMod.Scripting.ScriptDomain)">
+            <summary>
+            Enumerate all types in the specified domain.
+            </summary>
+            <param name="includeNonPublic">Should non-public types be included in the search</param>
+            <param name="searchDomain">The domain to search or null if the active domain should be used</param>
+            <returns>Enumerable of matching results</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.EnumerateAllUnityTypes(System.Boolean,UMod.Scripting.ScriptDomain)">
+            <summary>
+            Enumerate all types in the specified domain that inherit from <see cref="T:UnityEngine.Object"/>.
+            </summary>
+            <param name="includeNonPublic">Should non-public types be include in the search</param>
+            <param name="searchDomain">The domain to search or null if the active domain should be used</param>
+            <returns>Enumerable of matching results</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.EnumerateAllMonoBehaviourTypes(System.Boolean,UMod.Scripting.ScriptDomain)">
+            <summary>
+            Enumerate all types in the specified domain that inherit from <see cref="T:UnityEngine.MonoBehaviour"/>.
+            </summary>
+            <param name="includeNonPublic">Should non-public types be included in the search</param>
+            <param name="searchDomain">The domain to search or null if the active domain should be used</param>
+            <returns>Enumerable of matching results</returns>
+        </member>
+        <member name="M:UMod.Scripting.ScriptType.EnumerateAllScriptableObjectTypes(System.Boolean,UMod.Scripting.ScriptDomain)">
+            <summary>
+            Enumerate all types in the specified domain that inherit from <see cref="T:UnityEngine.ScriptableObject"/>.
+            </summary>
+            <param name="includeNonPublic">Should non-public types be include in the search</param>
+            <param name="searchDomain">The domain to search or null if the active domain should be used</param>
+            <returns>Enumerable of matching results</returns>
+        </member>
+        <member name="T:UMod.Mod">
+            <summary>
+                Mod class that allows developers to trigger messages that get sent to the mod as well as access running mod hosts.
+                See also the <see cref="T:UMod.ModBehaviour" /> component for mono behaviour functionality with added mod events and
+                methods.
+            </summary>
+        </member>
+        <member name="E:UMod.Mod.OnLoadComplete">
+            <summary>
+            Triggered when any mod host has completed the loading process even if the load failed.
+            The <see cref="T:UMod.ModHost"/> that triggered the event will be passed as an argument.
+            If multiple load requests are issued, this event will be triggered for each load request.
+            </summary>
+        </member>
+        <member name="E:UMod.Mod.OnResolveReference">
+            <summary>
+            Called during mod loading when a reference needs to be loaded but cant be resolved automatically by the loader.
+            This allows you to manually specify the <see cref="T:System.Uri"/> location of the referenced mod. 
+            </summary>
+        </member>
+        <member name="P:UMod.Mod.CommandLine">
+            <summary>
+            Access the mod command line arguments.
+            This allows for parsing the command line into Uri path objects for each mod specified.
+            </summary>
+        </member>
+        <member name="P:UMod.Mod.DefaultDirectory">
+            <summary>
+            Get the uMod default directory where mods can be installed.
+            This is equivilent to 'Application.persistentDataPath + "/Mods"'.
+            This directory will be used by default to load references and command line mods.
+            </summary>
+        </member>
+        <member name="P:UMod.Mod.PersistentDataDirectory">
+            <summary>
+            The folder location where uMod will store persistent data for mods.
+            By default this directory will be set to 'Application.persistentDataPath + "/Data/UMod"' but can be changed using the property setter.
+            </summary>
+        </member>
+        <member name="P:UMod.Mod.Logger">
+            <summary>
+            Get the log receiver for umod. All loaded mods will log to this receiver.
+            </summary>
+        </member>
+        <member name="P:UMod.Mod.IsTrialVersion">
+            <summary>
+                Returns true if the current version of uMod is running in trial mode.
+                When in trial mode, uMod 2.0 cannot be used in release builds and the scripting system is disabled.
+            </summary>
+        </member>
+        <member name="P:UMod.Mod.IsPlatformSupported">
+            <summary>
+                Returns true if the current runtime platform is supported by uMod.
+                When in editor play mode, this value will return true.
+                Only desktop platforms are supported (Windows, Mac linux).
+            </summary>
+        </member>
+        <member name="P:UMod.Mod.IsRunningMods">
+            <summary>
+                Allows the developer to determine whether any mods are currently running.
+                Atleast one mod host must be successfully loaded for this property to be true.
+            </summary>
+        </member>
+        <member name="P:UMod.Mod.RunningModCount">
+            <summary>
+                Allows the developer to get the exact number of mods that are currently running.
+                The mod host must be succesfully loaded to be counted.
+            </summary>
+        </member>
+        <member name="M:UMod.Mod.ParseAndLoadCommandLine">
+            <summary>
+            Parse all mod paths from the command line and load all mods.
+            </summary>
+            <returns>An array of mod hosts representing each attempted command line load</returns>
+        </member>
+        <member name="M:UMod.Mod.ParseAndLoadCommandLineAsync">
+            <summary>
+            Parse all mods from the command line and load asll asynchronously.
+            </summary>
+            <returns>An async operation that can be yielded and contains infomration about the current loading progress</returns>
+        </member>
+        <member name="M:UMod.Mod.Load(System.Uri,System.Boolean)">
+            <summary>
+            Load a mod from the specified <see cref="T:System.Uri"/>.
+            A <see cref="T:UMod.ModHost"/> will be created to manage the mod and returned as the result. 
+            If the mod is already loaded then this method will simply return the <see cref="T:UMod.ModHost"/> for the loaded mod.  
+            </summary>
+            <param name="path">The <see cref="T:System.Uri"/> to load the mod from</param>
+            <param name="autoActivate">Should the mod be automatially activated once loaded. See <see cref="M:UMod.ModHost.Activate"/></param>
+            <returns>The <see cref="T:UMod.ModHost"/> that is managing the mod</returns>
+        </member>
+        <member name="M:UMod.Mod.LoadBatch(System.Uri[],System.Boolean)">
+            <summary>
+            Load all mods from the specified paths.
+            A <see cref="T:UMod.ModHost"/> will be created for each path specified.
+            </summary>
+            <param name="paths">An array of <see cref="T:System.Uri"/> to load from</param>
+            <param name="autoActivate">Should the mods be automatially activated once loaded. See <see cref="M:UMod.ModHost.Activate"/></param>
+            <returns>An array of <see cref="T:UMod.ModHost"/> representing the managers for each load request</returns>
+        </member>
+        <member name="M:UMod.Mod.LoadAll(System.Boolean,UMod.ModDirectory)">
+            <summary>
+            Loads all mods that are installed in the <see cref="T:UMod.ModDirectory"/>.
+            A <see cref="T:UMod.ModHost"/> will be created for each path specified. 
+            If no mods are installed then this method will return an empty array.
+            </summary>
+            <param name="autoActivate">Should the mods be automatially activated once loaded. See <see cref="M:UMod.ModHost.Activate"/></param>
+            <param name="modDirectory">The <see cref="T:UMod.ModDirectory"/> used to locate all installed mods. Passing null will cause the <see cref="P:UMod.Mod.DefaultDirectory"/> to be used as the target search directory</param>
+            <returns>An array of <see cref="T:UMod.ModHost"/> representing the managers for each mod loaded. The length or the array can be used to determine the amount of load requests issued</returns>
+        </member>
+        <member name="M:UMod.Mod.LoadAsync(System.Uri,System.Boolean)">
+            <summary>
+            Load all mods from the specified paths asynchronously.
+            A <see cref="T:UMod.ModHost"/> array will be created to manage the mod and returned as the result of the async operation. 
+            </summary>
+            <param name="path">The <see cref="T:System.Uri"/> to load the mod from</param>
+            <param name="autoActivate">Should the mod be automatially activated once loaded. See <see cref="M:UMod.ModHost.Activate"/>. Note that activation must be performed on the main thread which will block until completed</param>
+            <returns>An awaitable object containing progress and status information whose <see cref="P:UMod.ModAsyncOperation.Result"/> value will be the host managing the load</returns>
+        </member>
+        <member name="M:UMod.Mod.LoadBatchAsync(System.Uri[],System.Boolean)">
+            <summary>
+            Load a mod from the specified <see cref="T:System.Uri"/> asynchronously.
+            A <see cref="T:UMod.ModHost"/> will be created to manage the mod and returned as the result of the async operation. 
+            The async operation will not be complete until all mods have finished loading.
+            </summary>
+            <param name="paths">An array of <see cref="T:System.Uri"/> to load from</param>
+            /// <param name="autoActivate">Should the mods be automatially activated once loaded. See <see cref="M:UMod.ModHost.Activate"/>. Note that activation must be performed on the main thread which will block until completed</param>
+            <returns>An awaitable object containing progress and status information whose <see cref="P:UMod.ModAsyncOperation.Result"/> value will be an array of hosts managing the load requests</returns>
+        </member>
+        <member name="M:UMod.Mod.LoadAllAsync(System.Boolean,UMod.ModDirectory)">
+            <summary>
+            Loads all mods that are installed in the <see cref="T:UMod.ModDirectory"/> asynchronously.
+            A <see cref="T:UMod.ModHost"/> will be created to manage the mod and returned as the result of the async operation. 
+            If no mods are installed then this method will return an empty array.
+            The async operation will not be complete until all mods have finished loading.
+            </summary>
+            /// <param name="autoActivate">Should the mods be automatially activated once loaded. See <see cref="M:UMod.ModHost.Activate"/>. Note that activation must be performed on the main thread which will block until completed</param>
+            <param name="modDirectory">The <see cref="T:UMod.ModDirectory"/> used to locate all installed mods. Passing null will cause the <see cref="P:UMod.Mod.DefaultDirectory"/> to be used as the target search directory</param>
+            <returns>An awaitable object containing progress and status information whose <see cref="P:UMod.ModAsyncOperation.Result"/> value will be an array of hosts managing the load requests</returns>
+        </member>
+        <member name="M:UMod.Mod.UnloadAllMods(System.Boolean)">
+            <summary>
+                Accesses all loaded mods and calls <see cref="M:UMod.ModHost.UnloadMod(System.Boolean)" /> to free the host.
+                Helper method to quickly unload all loaded mods.
+            </summary>
+            <param name="destroyHosts">When true, all mod host game obejcts will also be destroyed</param>
+        </member>
+        <member name="M:UMod.Mod.IsModLoaded(System.Uri)">
+            <summary>
+            Checks whether the mod at the specified path is currently loaded by any <see cref="T:UMod.ModHost"/>. 
+            </summary>
+            <param name="modPath">The Uri path to the mod</param>
+            <returns>True if a mod with the same path is currently loaded or false if not</returns>
+        </member>
+        <member name="M:UMod.Mod.IsModLoaded(System.String)">
+            <summary>
+            Checks whether a mod with the specified name is currently loaded by any <see cref="T:UMod.ModHost"/>. 
+            </summary>
+            <param name="modName">The name of the mod</param>
+            <returns>True if a mod with a matching name is currently loaded or false if not</returns>
+        </member>
+        <member name="M:UMod.Mod.IsModLoaded(System.String,System.String)">
+            <summary>
+            Checks whether a mod with the specified name and version is currently loaded by any <see cref="T:UMod.ModHost"/>.
+            If a mod with a matching name is found but the version is not the same then the return value will be false.
+            </summary>
+            <param name="modName">The name of the mod</param>
+            <param name="modVersion">The version string of the mod e.g '1.0.0'</param>
+            <returns>True if a mod with a matching name and version is currently loaded or false if not</returns>
+        </member>
+        <member name="M:UMod.Mod.GetLoadedMod(System.Uri)">
+            <summary>
+            Attempts to get the <see cref="T:UMod.ModHost"/> for a loaded mod at the specified path.
+            If the mod is not loaded then the return value will be null.
+            </summary>
+            <param name="modPath">The path of the mod to look for</param>
+            <returns>A <see cref="T:UMod.ModHost"/> or null if the mod is not loaded</returns>
+        </member>
+        <member name="M:UMod.Mod.GetLoadedMod(System.String)">
+            <summary>
+            Attempts to get the <see cref="T:UMod.ModHost"/> for a loaded mod with the specified name.
+            If the mod is not loaded then the return value will be null.
+            </summary>
+            <param name="modName">The name of the mod to look for</param>
+            <returns>A <see cref="T:UMod.ModHost"/> or null if the mod is not loaded</returns>
+        </member>
+        <member name="M:UMod.Mod.GetLoadedMod(System.String,System.String)">
+            <summary>
+            Attempts to get the <see cref="T:UMod.ModHost"/> for a loaded mod with the specified name and version.
+            If a mod with the same name but different version is loaded then the return value will still be null (Explicit match).
+            If the mod is not loaded then the return value will be null.
+            </summary>
+            <param name="modName">The name of the mod to look for</param>
+            <param name="modVersion">The required version of the mod</param>
+            <returns>A <see cref="T:UMod.ModHost"/> or null if the mod is not loaded</returns>
+        </member>
+        <member name="M:UMod.Mod.BroadcastMessage(System.String)">
+            <summary>
+                Allows the developer to trigger an event that mod classes may listen to.
+                Works in a similar way to the 'SendMessage' method of Unity but the message will only be sent to modded scripts.
+                Allows the developer to implement event callbacks similar to mono behaviour messages such as OnTriggerEnter.
+            </summary>
+            <param name="methodName">The name of the method to trigger</param>
+        </member>
+        <member name="M:UMod.Mod.BroadcastMessage(System.String,System.Object)">
+            <summary>
+                Allows the developer to trigger an event that mod classes may listen to.
+                Works in a similar way to the 'SendMessage' method of Unity but the message will only be sent to modded scripts.
+                Allows the developer to implement event callbacks similar to mono behaviour messages such as OnTriggerEnter.
+                This overload allows a single value to be passed as an argument.
+            </summary>
+            <param name="methodName">The name of the method to trigger</param>
+            <param name="arg">A value to be passed as an argument, Referenced Unity types are allowed</param>
+        </member>
+        <member name="M:UMod.Mod.BroadcastMessage(System.String,System.Object[])">
+            <summary>
+                Allows the developer to trigger an event that mod classes may listen to.
+                Works in a similar way to the 'SendMessage' method of Unity but the message will only be sent to modded scripts.
+                Allows the developer to implement event callbacks similar to mono behaviour messages such as OnTriggerEnter.
+                This overload allows an undefined number of values to be apssed as arguments.
+            </summary>
+            <param name="methodName">The name of the method to trigger</param>
+            <param name="args">A param list of arguments to pass to the method, Referenced Unity types are allowed</param>
+        </member>
+        <member name="T:UMod.ModAssets">
+            <summary>
+                Allows developers to request assets loads from any running mod host.
+                Allows pre-compiled mod assets to be loaded at runtime for any running <see cref="T:UMod.ModHost" /> that contains an
+                asset with the specified name.
+            </summary>
+        </member>
+        <member name="M:UMod.ModAssets.HasAsset(System.String)">
+            <summary>
+                Returns true if any loaded mod conatins an asset with the specified name.
+            </summary>
+            <param name="name">The name of the asset to look for</param>
+            <returns>True if the asset exists</returns>
+        </member>
+        <member name="M:UMod.ModAssets.Load(System.String)">
+            <summary>
+                Attempts to load an asset from a loaded mod.
+                This method will check all loaded mods for an asset with the specified name.
+            </summary>
+            <param name="name">The name of the asset to load</param>
+            <returns>The loaded asset or null if the asset was not found</returns>
+        </member>
+        <member name="M:UMod.ModAssets.Load``1(System.String)">
+            <summary>
+                Attempts to load an asset from a loaded mod and return the value as the specified generic type.
+                This method will check all loaded mods for an asset with the specified name.
+            </summary>
+            <typeparam name="T">The generic type to return the asset as</typeparam>
+            <param name="name">The name of the asset to load</param>
+            <returns>The loaded asset as the specified generic type or null if the asset was not found</returns>
+        </member>
+        <member name="M:UMod.ModAssets.LoadAsync(System.String)">
+            <summary>
+            Attempts to load an asset from a loaded mod asynchronously.
+            This method will check all loaded mods for an asset with the specified name.
+            </summary>
+            <param name="nameOrPath">The name or path of the asset to load</param>
+            <returns>A yieldable object containting load progress information</returns>
+        </member>
+        <member name="M:UMod.ModAssets.LoadAsync``1(System.String)">
+            <summary>
+            Attempts to load an asset from a loaded mod asynchronously and return the result as the specified generic type.
+            This method will check all loaded mods for an asset with the specified name.
+            </summary>
+            <typeparam name="T">The generic type to return the asset as</typeparam>
+            <param name="nameOrPath">The name or path of the asset to load</param>
+            <returns>A yieldable object containgin load progress information</returns>
+        </member>
+        <member name="T:UMod.ModBehaviour">
+            <summary>
+                The mod behaviour class is a substitue for the mono behaviour class that provides additional information to the
+                developer.
+                By default all public members of the inheriting class will be exposed to modders.
+                The developer must inherit from this class if they want to support inheritance.
+            </summary>
+        </member>
+        <member name="P:UMod.ModBehaviour.IsModLoaded">
+            <summary>
+                Returns true if a valid host exists in the scene and currently has a mod loaded.
+            </summary>
+        </member>
+        <member name="P:UMod.ModBehaviour.Hosts">
+            <summary>
+                Returns an array of mod hosts that are currently in the scene.
+            </summary>
+        </member>
+        <member name="P:UMod.ModBehaviour.ActiveHost">
+            <summary>
+                Returns a reference to the active <see cref="T:UMod.ModHost" /> instance in the scene. Always the first host created.
+            </summary>
+        </member>
+        <member name="M:UMod.ModBehaviour.OnModLoaded(UMod.ModHost)">
+            <summary>
+                Event method triggered when a mod host has successfully loaded a mod.
+                This method provides the same callback behaviour as subscribing to the <see cref="E:UMod.Mod.OnLoadComplete" />
+                event.
+            </summary>
+        </member>
+        <member name="M:UMod.ModBehaviour.OnModUnloaded(UMod.ModHost)">
+            <summary>
+                Event method triggered when a mod host has successfully un-loaded a mod.
+                This method provides the same callback behaviour as subscribing to the <see cref="E:UMod.ModHost.OnModUnloaded" /> event.
+            </summary>
+        </member>
+        <member name="M:UMod.ModBehaviour.VirtualMessage(System.String)">
+            <summary>
+                Allows the developer to trigger a callback that inheriting mod classes may listen for.
+                Works in a similar way to the 'SendMessage' method of Unity except that only mod classes inheriting from this class
+                can be triggered.
+                An example would be triggering a damage message to indicate to modders that this object is taking damage.
+            </summary>
+            <param name="methodName">The name of the method to trigger</param>
+        </member>
+        <member name="M:UMod.ModBehaviour.VirtualMessage(System.String,System.Object)">
+            <summary>
+                Allows the developer to trigger a callback that inheriting mod classes may listen for.
+                Works in a similar way to the 'SendMessage' method of Unity except that only mod classes inheriting from this class
+                can be triggered.
+                This overload allows a single argument to be passed.
+                An example would be triggering a damage message to indicate to modders that this object is taking damage.
+            </summary>
+            <param name="methodName">The name of the method to trigger</param>
+            <param name="arg">A value to pass as an argument. Referenced Unity types are allowed</param>
+        </member>
+        <member name="M:UMod.ModBehaviour.VirtualMessage(System.String,System.Object[])">
+            <summary>
+                Allows the developer to trigger a callback that inheriting mod classes may listen for.
+                Works in a similar way to the 'SendMessage' method of Unity except that only mod classes inheriting from this class
+                can be triggered.
+                This overload allows an undefined number of arguments to be passed.
+                An example would be triggering a damage message to indicate to modders that this object is taking damage.
+            </summary>
+            <param name="methodName">The name of the method to trigger</param>
+            <param name="args">A params list of arguiments to pass to the method, Referenced Unity types are allowed</param>
+        </member>
+        <member name="M:UMod.ModBehaviour.BroadcastModMessage(System.String)">
+            <summary>
+                Allows the developer to trigger an event that mod classes may listen to.
+                Works in a similar way to the 'SendMessage' method of Unity.
+                An example would be triggering a game over message to inform the mod that the game has ended.
+            </summary>
+            <param name="methodName">The name of the method to trigger</param>
+        </member>
+        <member name="M:UMod.ModBehaviour.BroadcastModMessage(System.String,System.Object)">
+            <summary>
+                Allows the developer to trigger an event that mod classes may listen to.
+                Works in a similar way to the 'SendMessage' method of Unity.
+                This overload allows a single value to be passed as an argument.
+                An example would be triggering a game over message to inform the mod that the game has ended.
+            </summary>
+            <param name="methodName">The name of the method to trigger</param>
+            <param name="arg">A value to be passed as an argument, Referenced Unity types are allowed</param>
+        </member>
+        <member name="M:UMod.ModBehaviour.BroadcastModMessage(System.String,System.Object[])">
+            <summary>
+                Allows the developer to trigger an event that mod classes may listen to.
+                Works in a similar way to the 'SendMessage' method of Unity.
+                This overload allows an any number of values to be passed as arguments, Referenced Unity types are allowed.
+                An example would be triggering a game over message to inform the mod that the game has ended.
+            </summary>
+            <param name="methodName">The name of the method to trigger</param>
+            <param name="args">A param list of arguments to pass to the method, Referenced Unity types are allowed</param>
+        </member>
+        <member name="T:UMod.ModCommandLine">
+            <summary>
+                Responsible for accessing and parsing the applications command line in order to locate the specified command line
+                token.
+                Allows support for command line launching from the UMod Exporter for quick mod testing.
+            </summary>
+        </member>
+        <member name="P:UMod.ModCommandLine.HasMods">
+            <summary>
+                Returns true if the command line contains any mod paths;
+                This property may result in the command line being parsed automatically.
+            </summary>
+        </member>
+        <member name="P:UMod.ModCommandLine.SingleMod">
+            <summary>
+                Attempts to access a single mod path from the command line if one exists.
+                This property will always return the first found path within the command line and any other paths will be ignored.
+                This property may result in the command line being parsed automatically.
+            </summary>
+        </member>
+        <member name="P:UMod.ModCommandLine.AllMods">
+            <summary>
+                Attempts to enumerate all paths found in the command line.
+                This property may result in the command line being parsed automatically.
+            </summary>
+        </member>
+        <member name="E:UMod.ModCommandLine.OnModCommandLine">
+            <summary>
+                This event is called when the command line is being parsed and detects a mod path.
+                The mod path is passed to this delegate and can then be loaded.
+            </summary>
+        </member>
+        <member name="M:UMod.ModCommandLine.Parse">
+            <summary>
+                Begins parsing the application command line as provided by <see cref="M:UMod.ModCommandLine.GetEnvironmentString(System.Boolean)" /> to find any
+                mod paths specified for loading.
+                This method may result in the <see cref="E:UMod.ModCommandLine.OnModCommandLine" /> event being triggered if any mod paths are found.
+            </summary>
+        </member>
+        <member name="M:UMod.ModCommandLine.ParseString(System.String)">
+            <summary>
+                Attempts to parse a user provided string to find any mod paths specified for loading.
+                This method may result in the <see cref="E:UMod.ModCommandLine.OnModCommandLine" /> event being triggered if any mod paths are found.
+            </summary>
+            <param name="input">A user string to parse, typically the command line string</param>
+        </member>
+        <member name="M:UMod.ModCommandLine.GetEnvironmentString(System.Boolean)">
+            <summary>
+                Attempts to access the command line string generated by the application and combines it into a single space
+                separated string.
+            </summary>
+            <param name="skipExecutionPath">
+                When true, the application startup path that is always present in the command line will
+                be excluded from the result
+            </param>
+            <returns>A string value representing the applications command line</returns>
+        </member>
+        <member name="T:UMod.ModLoadStatus">
+            <summary>
+                Used to indicate the current loading state of the mod host
+            </summary>
+        </member>
+        <member name="F:UMod.ModLoadStatus.NotLoaded">
+            <summary>
+                No loading is occuring.
+            </summary>
+        </member>
+        <member name="F:UMod.ModLoadStatus.DownloadingInProgress">
+            <summary>
+                One or more files are currenlty being downloaded from a remote server.
+            </summary>
+        </member>
+        <member name="F:UMod.ModLoadStatus.LoadingInProgress">
+            <summary>
+                The specified files are loading.
+            </summary>
+        </member>
+        <member name="F:UMod.ModLoadStatus.LoadingComplete">
+            <summary>
+                The load operation has completed.
+            </summary>
+        </member>
+        <member name="T:UMod.ModLoadError">
+            <summary>
+                Used to indicate the type of error that occurred while loading a mod
+            </summary>
+        </member>
+        <member name="F:UMod.ModLoadError.NoError">
+            <summary>
+                The mod loaded without error.
+            </summary>
+        </member>
+        <member name="F:UMod.ModLoadError.UnknownError">
+            <summary>
+                An unknown error occurred during loading that prevented the mod from runnning.
+            </summary>
+        </member>
+        <member name="F:UMod.ModLoadError.LocalStreamingFailed">
+            <summary>
+                An error occirred while attempting to retrieve files from the local file system, Usually an IO excption.
+            </summary>
+        </member>
+        <member name="F:UMod.ModLoadError.RemoteStreamingFailed">
+            <summary>
+                An error occurred while attempting to retrieve files from a remote server.
+            </summary>
+        </member>
+        <member name="F:UMod.ModLoadError.InvalidMod">
+            <summary>
+                The mod failed to load because required files are missing or corrupt.
+            </summary>
+        </member>
+        <member name="F:UMod.ModLoadError.InvalidPath">
+            <summary>
+                The mod failed to load because the specified path does not point to a valid mod folder structre.
+            </summary>
+        </member>
+        <member name="F:UMod.ModLoadError.ModNotFound">
+            <summary>
+                The mod file coould not be found at the path specified.
+            </summary>
+        </member>
+        <member name="F:UMod.ModLoadError.MissingResources">
+            <summary>
+                The mod could not be loaded because it is missing the essential resource file.
+            </summary>
+        </member>
+        <member name="F:UMod.ModLoadError.MissingReferences">
+            <summary>
+            One or more of the mod references could not be loaded.
+            </summary>
+        </member>
+        <member name="F:UMod.ModLoadError.UModVersionIncompatibility">
+            <summary>
+                The mod could not be loaded because it was created with a newer version of the uMod Build Engine.
+            </summary>
+        </member>
+        <member name="F:UMod.ModLoadError.UModGameIncompatibility">
+            <summary>
+            The mod could not be loaded because it targets a different game.
+            </summary>
+        </member>
+        <member name="F:UMod.ModLoadError.UnityVersionIncompatibility">
+            <summary>
+            The mod could not be loaded because it was created with a different version of Unity.
+            </summary>
+        </member>
+        <member name="F:UMod.ModLoadError.SecurityError">
+            <summary>
+                The mod could not be loaded because it breaches the security policy imposed by the host.
+            </summary>
+        </member>
+        <member name="T:UMod.ModHost">
+            <summary>
+                The main mod component that provides access to loading and running a user created mod.
+            </summary>
+        </member>
+        <member name="E:UMod.ModHost.OnModWillUnload">
+            <summary>
+            This event is triggered just before a mod is about to be unloaded.
+            This allows you to perform cleanup tasks or similar before the mod is destroyed.
+            Only triggered when the host actually has a mod loaded.
+            </summary>
+        </member>
+        <member name="E:UMod.ModHost.OnModUnloaded">
+            <summary>
+            This event is triggered after a host has unloaded an existing mod from memory.
+            Only triggered when the host actually has a mod loaded.
+            </summary>
+        </member>
+        <member name="P:UMod.ModHost.IsModActivated">
+            <summary>
+            Returns true if this mod host has been activated.
+            Activation causes the mod content to be initialized. Without activation, the content is not accessible.
+            </summary>
+        </member>
+        <member name="P:UMod.ModHost.CanBeReclaimed">
+            <summary>
+                When true, existing mod hosts that are in an idle state (Unloaded and not loading) may be reclaimed for reuse by
+                another mod load.
+                Calls to <see cref="M:UMod.ModHost.CreateNewHost" /> or <see cref="M:UMod.Mod.Load(System.Uri,System.Boolean)" /> may result in host reclaims.
+                By default, this value is true.
+            </summary>
+        </member>
+        <member name="P:UMod.ModHost.HasScenes">
+            <summary>
+            Returns true if the current loaded mod contains any scenes.
+            </summary>
+            <exception cref="T:UMod.ModNotLoadedException">The mod host does not have a mod loaded. Use <see cref="P:UMod.ModHost.IsModLoaded"/> to check if a mod is loaded before accessing the property</exception>
+        </member>
+        <member name="P:UMod.ModHost.HasAssets">
+            <summary>
+            Returns true if the current loaded mod contains any prefab assets.
+            </summary>
+            <exception cref="T:UMod.ModNotLoadedException">The mod host does not have a mod loaded. Use <see cref="P:UMod.ModHost.IsModLoaded"/> to check if a mod is loaded before accessing the property</exception>
+        </member>
+        <member name="P:UMod.ModHost.HasScripts">
+            <summary>
+            Returns true if the current loaded mod contains any code assets.
+            Code assets can be in the form of C# scripts or managed assemblies and both will be treated as 'Scripts'
+            </summary>
+            <exception cref="T:UMod.ModNotLoadedException">The mod host does not have a mod loaded. Use <see cref="P:UMod.ModHost.IsModLoaded"/> to check if a mod is loaded before accessing the property</exception>
+        </member>
+        <member name="P:UMod.ModHost.HasDependencies">
+            <summary>
+            Returns true if the current mod is dependant upon any other mods.
+            </summary>
+            <exception cref="T:UMod.ModNotLoadedException">The mod host does not have a mod loaded. Use <see cref="P:UMod.ModHost.IsModLoaded"/> to check if a mod is loaded before accessing the property</exception>
+        </member>
+        <member name="P:UMod.ModHost.CurrentModPath">
+            <summary>
+            Returns the current mod path representing the loaded mod location as specified in the <see cref="M:UMod.Mod.Load(System.Uri,System.Boolean)" /> method.
+            If no mod is loaded then the return value will be null.
+            Note that the mod path may be set before the host has actually loaded the mod so it is reccommended that you also check <see cref="P:UMod.ModHost.IsModLoading" />
+            </summary>
+        </member>
+        <member name="P:UMod.ModHost.CurrentMod">
+            <summary>
+            Returns the <see cref="T:UMod.IModInfo" /> interface for the the current mod allowing access to values such as mod name and version.
+            </summary>
+            <exception cref="T:UMod.ModNotLoadedException">Thrown when the property is accessed but a mod is not currently loaded</exception>
+        </member>
+        <member name="P:UMod.ModHost.ReferencedMods">
+            <summary>
+            Get and array of <see cref="T:UMod.IModInfo"/> that the current mod references. 
+            </summary>
+        </member>
+        <member name="P:UMod.ModHost.HostDependencies">
+            <summary>
+            Get an array of <see cref="T:UMod.ModHost"/> that this host is dependant upon in order to function correclty.
+            This array will only be populated once this host has finished loading its hosted mod.
+            </summary>
+        </member>
+        <member name="P:UMod.ModHost.CurrentIdentity">
+            <summary>
+            Returns an instance of the <see cref="T:UMod.Shared.ModIdentity" />y class representing the current loaded mod or null if no mod is loaded.
+            </summary>
+            <exception cref="T:UMod.ModNotLoadedException">Thrown when the property is accessed but a mod is not currently loaded</exception>
+        </member>
+        <member name="P:UMod.ModHost.Assets">
+            <summary>
+            Returns the <see cref="T:UMod.IModAssets" /> interface for the current mod allowing asset loaading from the mod via the host.
+            </summary>
+            <exception cref="T:UMod.ModNotLoadedException">The host does not have a valid mod loaded</exception>
+            <exception cref="T:UMod.ModNotActivatedException">The host has a valid mod loaded but it has not yet been activated. Mod assets will not be available until activation is completed</exception>
+        </member>
+        <member name="P:UMod.ModHost.SharedAssets">
+            <summary>
+            Returns the <see cref="T:UMod.IModAssets"/> interface for the current mod allowing shared asset loading from the mod via the host.
+            Shared assets include all referenced mod assets reccursivley as well as this mods assets.
+            </summary>
+            <exception cref="T:UMod.ModNotLoadedException">The host does not have a valid mod loaded</exception>
+            <exception cref="T:UMod.ModNotActivatedException">The host has a valid mod loaded but it has not yet been activated. Mod assets will not be available until activation is completed</exception>
+        </member>
+        <member name="P:UMod.ModHost.Scenes">
+            <summary>
+            Returns the <see cref="T:UMod.IModScenes"/> interface for the current mod allowing scene loading from the mod via the host. 
+            </summary>
+            <exception cref="T:UMod.ModNotLoadedException">The host does not have a valid mod loaded</exception>
+            <exception cref="T:UMod.ModNotActivatedException">The host has a valid mod loaded but it has not yet been activated. Mod scenes will not be available until activation is completed</exception>
+        </member>
+        <member name="P:UMod.ModHost.SharedScenes">
+            <summary>
+            Returns the <see cref="T:UMod.IModScenes"/> interface for the current mod allowing scene loading from the mod via the host. 
+            Shared scenes include all referenced mod scenes reccursivley as well as this mods scenes.
+            </summary>
+            <exception cref="T:UMod.ModNotLoadedException">The host does not have a valid mod loaded</exception>
+            <exception cref="T:UMod.ModNotActivatedException">The host has a valid mod loaded but it has not yet been activated. Mod scenes will not be available until activation is completed</exception>
+        </member>
+        <member name="P:UMod.ModHost.DebugHandler">
+            <summary>
+            Returns the <see cref="T:UMod.Debugging.ModDebugHandler"/> for the current mod and can be used to log useful debug messages. 
+            </summary>
+        </member>
+        <member name="P:UMod.ModHost.ScriptDomain">
+            <summary>
+            Access the script domain for this mod. 
+            If the host does not have a mod loaded then the return value will be null.
+            </summary>
+            <exception cref="T:UMod.ModNotLoadedException">The host does not have a valid mod loaded</exception>
+            <exception cref="T:UMod.ModNotActivatedException">The host has a valid mod loaded but it has not yet been activated. The mod script domain will not be available until activation is completed</exception>
+        </member>
+        <member name="P:UMod.ModHost.AllModHosts">
+            <summary>
+            Returns an array of references to all mod hosts currently in the scene regardless of their load state.
+            </summary>
+        </member>
+        <member name="M:UMod.ModHost.Awake">
+            <summary>
+            Called by Unity.
+            </summary>
+        </member>
+        <member name="M:UMod.ModHost.OnDestroy">
+            <summary>
+            Called by Unity.
+            </summary>
+        </member>
+        <member name="M:UMod.ModHost.DestroyModObjects">
+            <summary>
+            Destroys all active game objects that have been created by this mod.
+            This may be called automatically as a result of calling <see cref="M:UMod.ModHost.UnloadMod"/> depending upon the value of <see cref="F:UMod.Settings.UModSettings.cleanupModObjects"/>.
+            This method needs the mod to be loaded in order to succeed. If the mod has been unloaded and this method is called then it will fail silently.
+            </summary>
+        </member>
+        <member name="M:UMod.ModHost.UnloadMod">
+            <summary>
+            Attempts to unload the mod owned by this host.
+            If the host does not have a mod loaded then no action is taken.
+            </summary>
+        </member>
+        <member name="M:UMod.ModHost.UnloadMod(System.Boolean)">
+            <summary>
+                Attempts to unload the mod owned by this host. Depending on settings this may cause all mod related game objects to
+                also be destroyed.
+                If the host does not have a mod loaded then no action is taken.
+            </summary>
+            <param name="destroyHost">
+                When true, the host owning the mod will also be destroyed otherwise it will remain in the
+                scene for re-use
+            </param>
+        </member>
+        <member name="M:UMod.ModHost.Activate">
+            <summary>
+            Activates all mod content.
+            All mod asset and scene information will become available.
+            The default scene may be loaded depending upon the mod settings.
+            All mod entry point scripts will be security checked, initialized and executed.
+            </summary>
+        </member>
+        <member name="M:UMod.ModHost.CreateNewHost">
+            <summary>
+                Static methods that provides a quick and simple method of creating a new mod host component in the scene.
+                The method will create associated game objects and dependant components automatically to ensure that the created
+                host is valid.
+            </summary>
+            <returns>A reference to a newly created <see cref="T:UMod.ModHost" /> class</returns>
+        </member>
+        <member name="M:UMod.ModHost.IsModInUse(System.Uri)">
+            <summary>
+            Returns true if any mod host currently has the specified mod loaded.
+            This method is used to avoid shared memory corruption which orrurs when the shared mod data is accessed by 2 different mod hosts.
+            </summary>
+            <param name="path">The mod path to check for</param>
+            <returns>True if the mod path is loaded by any existing mod host</returns>
+        </member>
+        <member name="P:UMod.ModHost.LoadResult">
+            <summary>
+            Returns the <see cref="T:UMod.ModLoadResult"/> for the last load attempt. 
+            </summary>
+        </member>
+        <member name="P:UMod.ModHost.DownloadSpeed">
+            <summary>
+            Get the current <see cref="P:UMod.ModHost.DownloadSpeed"/> for this mod host.
+            This value will only be used when <see cref="P:UMod.ModHost.IsModDownloading"/> is true. 
+            </summary>
+        </member>
+        <member name="P:UMod.ModHost.IsModLoaded">
+            <summary>
+                Returns true if this mod host currently has a mod loaded otherwise returns false.
+            </summary>
+        </member>
+        <member name="P:UMod.ModHost.IsModLoading">
+            <summary>
+                Returns true if this mod host is currently loading a mod otherwise returns false.
+            </summary>
+        </member>
+        <member name="P:UMod.ModHost.IsModDownloading">
+            <summary>
+            Returns true if this mod host is currently downloading from a remote server or reading from the local file system.
+            </summary>
+        </member>
+        <member name="T:UMod.Settings.AssetData">
+            <summary>
+                Represents a single asset item containing a lookup name and Object reference.
+            </summary>
+        </member>
+        <member name="F:UMod.Settings.AssetData.lookupName">
+            <summary>
+                The name assigned by the developer and used for lookup.
+            </summary>
+        </member>
+        <member name="F:UMod.Settings.AssetData.value">
+            <summary>
+                The actual value of the object.
+            </summary>
+        </member>
+        <member name="M:UMod.Settings.AssetData.#ctor">
+            <summary>
+                Default constructor.
+            </summary>
+        </member>
+        <member name="M:UMod.Settings.AssetData.#ctor(UnityEngine.Object)">
+            <summary>
+                Parameter constructor
+            </summary>
+            <param name="value">The Object reference assigned to the data. The lookup name will be generated from this reference</param>
+        </member>
+        <member name="T:UMod.Settings.AssetSettings">
+            <summary>
+                Responsible to maintaining and managing settings related to compiled mod assets.
+            </summary>
+        </member>
+        <member name="F:UMod.Settings.AssetSettings.allowAssetSharing">
+            <summary>
+                Can game assets be used by mods.
+            </summary>
+        </member>
+        <member name="F:UMod.Settings.AssetSettings.materialAssets">
+            <summary>
+                Materials that mods can access.
+            </summary>
+        </member>
+        <member name="F:UMod.Settings.AssetSettings.prefabAssets">
+            <summary>
+                Prefabs that mods can access.
+            </summary>
+        </member>
+        <member name="P:UMod.Settings.ModdableSettings.ConflictBehaviour">
+            <summary>
+            The <see cref="T:UMod.Moddable.ModdableContent.ModdableConflictBehaviour"/> that should occur when one or more mods with the same target moddable content are loaded.
+            </summary>
+        </member>
+        <member name="P:UMod.Settings.ModdableSettings.UnloadBehaviour">
+            <summary>
+            The <see cref="T:UMod.Moddable.ModdableContent.ModdableUnloadBehaviour"/> that should occur when the mod owning the moddable content is about to be unloaded.
+            </summary>
+        </member>
+        <member name="P:UMod.Settings.ModdableSettings.AllowAssetIndexing">
+            <summary>
+            When enabled, mod assets can append array indexing syntax '[...]' to the end of thier file names in order to indicate that a certain asset should be assigned to the specified index. 
+            This can be useful for material and texture assets where more that one asset could be assinged to a single object.
+            </summary>
+        </member>
+        <member name="P:UMod.Settings.ModdableSettings.RevertContentOnDestroy">
+            <summary>
+            When enabled, any moddable content that was applied via this component will be reverted to the original asset when the component is destroyed.
+            </summary>
+        </member>
+        <member name="F:UMod.Settings.ModRuntimeSecurityCheck.NoCodeValidation">
+            <summary>
+            No runtime code validation will be performed. This could allow potentially unsafe code to run.
+            </summary>
+        </member>
+        <member name="F:UMod.Settings.ModRuntimeSecurityCheck.OnlyValidateUncheckedCode">
+            <summary>
+            Only runtime code that has not been validated when building the mod will be checked. This may offer better load performance as the validation checks are performed at build time.
+            Note that any code that was not checked at build time or has an invalid security hash will be validated at runtime.
+            </summary>
+        </member>
+        <member name="F:UMod.Settings.ModRuntimeSecurityCheck.AlwaysValidateCode">
+            <summary>
+            All mod code will be validated prior to loading regardless of whether it was valdiated at build time.
+            </summary>
+        </member>
+        <member name="T:UMod.Settings.UModSettings">
+            <summary>
+                The global settings used by all mod hosts.
+            </summary>
+        </member>
+        <member name="P:UMod.Settings.UModSettings.AllowCommandLine">
+            <summary>
+                Can mods be loaded from the command line.
+            </summary>
+        </member>
+        <member name="P:UMod.Settings.UModSettings.CommandLineFormat">
+            <summary>
+                The variable used when launching mods from the command line.
+            </summary>
+        </member>
+        <member name="P:UMod.Settings.UModSettings.AllowLoadAssets">
+            <summary>
+                Is the modder allowed to load assets from the mod (Prefabs).
+            </summary>
+        </member>
+        <member name="P:UMod.Settings.UModSettings.AllowSceneChanges">
+            <summary>
+                Is the modder allowed to request scene changes.
+            </summary>
+        </member>
+        <member name="P:UMod.Settings.UModSettings.AutoLoadModScenes">
+            <summary>
+                Should mod scenes be loaded automatically when a mod is loaded. Not recommended when multiple mods are used.
+            </summary>
+        </member>
+        <member name="P:UMod.Settings.UModSettings.AllowModsCreatedByOlderUnityVersions">
+            <summary>
+            Should mods created with older versions of Unity be loadable by the standalone game.
+            Note that there may be issues when loading mods created by older Unity version such as material or shader errors. 
+            We always recommend that this option is disabled however you can enable it if you understand there may be potential issues.
+            </summary>
+        </member>
+        <member name="P:UMod.Settings.UModSettings.CleanupModObjects">
+            <summary>
+                Should the host cleanup all objects it created when its associated mod is unloaded.
+            </summary>
+        </member>
+        <member name="P:UMod.Settings.UModSettings.LogLevel">
+            <summary>
+                The current log level defining the amount of detail that is logged to the console.
+            </summary>
+        </member>
+        <member name="P:UMod.Settings.UModSettings.MemoryBudgetBytes">
+            <summary>
+            The maximum number of bytes per resource that uMod will allow in memory per host.
+            If this amount is exceeded then uMod will download remote files to the file system and then stream the data from file.
+            </summary>
+        </member>
+        <member name="P:UMod.Settings.UModSettings.DiscoverNonPublicScriptTypes">
+            <summary>
+            When true, uMod will locate mod scripts that are private, protected or internal.
+            </summary>
+        </member>
+        <member name="P:UMod.Settings.UModSettings.DiscoverNonPublicScriptMembers">
+            <summary>
+            When true, uMod will locate members in mod scripts that are private, protected or internal.
+            </summary>
+        </member>
+        <member name="P:UMod.Settings.UModSettings.CaseSensitiveScriptNames">
+            <summary>
+            Should script find methods use case sensitive names.
+            </summary>
+        </member>
+        <member name="P:UMod.Settings.UModSettings.SecurityRestrictions">
+            <summary>
+            The security restrictions used to validate mod code.
+            </summary>
+        </member>
+        <member name="T:UMod.Streaming.DownloadUnit">
+            <summary>
+                Represents the download unit used by the download speed.
+            </summary>
+        </member>
+        <member name="F:UMod.Streaming.DownloadUnit.Bytes">
+            <summary>
+                Represents a download speed measured in bytes per second.
+            </summary>
+        </member>
+        <member name="F:UMod.Streaming.DownloadUnit.KiloBytes">
+            <summary>
+                Represents a download speed measured in kilo bytes per second.
+            </summary>
+        </member>
+        <member name="F:UMod.Streaming.DownloadUnit.MegaBytes">
+            <summary>
+                Represents a download speed measured in mega bytes per second.
+            </summary>
+        </member>
+        <member name="T:UMod.Streaming.DownloadSpeed">
+            <summary>
+                Represents a download speed value.
+            </summary>
+        </member>
+        <member name="F:UMod.Streaming.DownloadSpeed.zero">
+            <summary>
+                Represents a donwload speed of 0 Bytes per second.
+            </summary>
+        </member>
+        <member name="P:UMod.Streaming.DownloadSpeed.Unit">
+            <summary>
+                The current unit of measurement used by this download speed.
+            </summary>
+        </member>
+        <member name="P:UMod.Streaming.DownloadSpeed.Speed">
+            <summary>
+                The current speed represented by this instance.
+                The measurment unit depends on <see cref="P:UMod.Streaming.DownloadSpeed.Unit" />
+            </summary>
+        </member>
+        <member name="M:UMod.Streaming.DownloadSpeed.Equals(UMod.Streaming.DownloadSpeed)">
+            <summary>
+                Additional equals.
+            </summary>
+            <param name="other">The <see cref="T:UMod.Streaming.DownloadSpeed" /> object to compare against</param>
+            <returns>True if the objects are equal</returns>
+        </member>
+        <member name="M:UMod.Streaming.DownloadSpeed.ToString">
+            <summary>
+                Get the current downlaod speed as a string value.
+            </summary>
+            <returns>A string representation of this download speed</returns>
+        </member>
+        <member name="M:UMod.Streaming.DownloadSpeed.ToString(System.Boolean)">
+            <summary>
+                Get the current downlod speed as a string value.
+            </summary>
+            <param name="showUnit">When true, the download speed will include the measurement unit</param>
+            <returns>A string representation of this download speed</returns>
+        </member>
+        <member name="M:UMod.Streaming.DownloadSpeed.GetHashCode">
+            <summary>
+                Overriden hash code.
+            </summary>
+            <returns>Hash code for the current download speed</returns>
+        </member>
+        <member name="M:UMod.Streaming.DownloadSpeed.Equals(System.Object)">
+            <summary>
+                Overriden equals.
+            </summary>
+            <param name="obj">The object to compare against</param>
+            <returns>True if the objects are considered equal</returns>
+        </member>
+        <member name="M:UMod.Streaming.DownloadSpeed.UnitString(UMod.Streaming.DownloadUnit)">
+            <summary>
+                Get a string value representing the current units used by the download speed.
+                See also <see cref="T:UMod.Streaming.DownloadUnit" />
+            </summary>
+            <param name="unit">The unit to convert</param>
+            <returns>A string representation of the specified <see cref="T:UMod.Streaming.DownloadUnit" /></returns>
+        </member>
+        <member name="M:UMod.Streaming.DownloadSpeed.StartMeasuring">
+            <summary>
+            Resets all measue data so that new measures can be taken from the current time.
+            </summary>
+        </member>
+        <member name="M:UMod.Streaming.DownloadSpeed.Measure(System.Int64)">
+            <summary>
+            Get the <see cref="T:UMod.Streaming.DownloadSpeed"/> for the downloaded data based on the last measure time.
+            </summary>
+            <param name="currentBytes">The number of bytes that were processed during the time passed</param>
+            <returns>A <see cref="T:UMod.Streaming.DownloadSpeed"/> representing the transfer speed of the data</returns>
+        </member>
+        <member name="M:UMod.Streaming.DownloadSpeed.MeasureAverage(System.Int64)">
+            <summary>
+            Get the average <see cref="T:UMod.Streaming.DownloadSpeed"/> for the downloaded data based on the last measure time.
+            </summary>
+            <param name="currentBytes">The number of bytes that were processed during the time passed</param>
+            <returns>A <see cref="T:UMod.Streaming.DownloadSpeed"/> representing the average transfer speed of the data</returns>
+        </member>
+        <member name="M:UMod.Streaming.DownloadSpeed.FromBytesPerSecond(System.Int64)">
+            <summary>
+            Convert the specified number of bytes to a <see cref="T:UMod.Streaming.DownloadSpeed"/> representing the transfer rate per second.
+            </summary>
+            <param name="bytesPerSecond">The number of bytes that were transferred per second</param>
+            <returns>A <see cref="T:UMod.Streaming.DownloadSpeed"/> representing the transfer speed per second</returns>
+        </member>
+        <member name="T:UMod.UModVersion">
+            <summary>
+                Used to access the current version of uMod.
+            </summary>
+        </member>
+        <member name="P:UMod.UModVersion.MajorVersion">
+            <summary>
+                The major version for uMod.
+            </summary>
+        </member>
+        <member name="P:UMod.UModVersion.MinorVersion">
+            <summary>
+                The minor verison for uMod.
+            </summary>
+        </member>
+        <member name="P:UMod.UModVersion.RevisionVersion">
+            <summary>
+                The revision version for uMod.
+            </summary>
+        </member>
+    </members>
+</doc>

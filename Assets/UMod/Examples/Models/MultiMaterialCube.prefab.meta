@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 9cefabf6702209d49b70a4a1e07193ea
+timeCreated: 1579101520
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Examples/Models/MultiMaterialCube.prefab
+  uploadId: 782332

@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 7ccc866b4f4aa934b8cbdccbc96ee5a0
+timeCreated: 1475585492
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Examples/ExampleScripts/Ex12_LoadModAsyncProgress.cs
+  uploadId: 782332

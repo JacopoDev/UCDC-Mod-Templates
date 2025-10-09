@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2e96b9b6a8a00db4f8ded783768fd79e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Resources/ModToolsGameLock.asset
+  uploadId: 782332

@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UMod-BuildPipeline</name>
+    </assembly>
+    <members>
+        <member name="T:UMod.BuildPipeline.BuildFiles">
+            <summary>
+            Common files and extensions used during builds.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildPipeline.BuildProgress">
+            <summary>
+            Represents the amount of progress a build task is at.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildPipeline.BuildProgress.CurrentTask">
+            <summary>
+            Get the task that is currently being performed by the build engine.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildPipeline.BuildProgress.CurrentProgress">
+            <summary>
+            Get the current progress value for the build.
+            The valud is normalized between 0-1 where 0 represents no progress and 1 represents a completed build.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildPipeline.BuildProgress.CurrentPercentage">
+            <summary>
+            Get the current percentage value for the build.
+            </summary>
+        </member>
+        <member name="P:UMod.BuildPipeline.BuildProgress.IsCancelled">
+            <summary>
+            Returns true if the user has cancelled the export via the progress dialog window.
+            This value will remain true after the initial cancel.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildPipeline.BuildProgress.SetCurrentProgress(System.Single)">
+            <summary>
+            Set the current progress value for the current progress task.
+            The progress window will be automatically shown as a result of calling this method.
+            </summary>
+            <param name="progress">The normalized progress value between 0-1 where 0 is not progress and 1 is 100% progress</param>
+        </member>
+        <member name="M:UMod.BuildPipeline.BuildProgress.SetCurrentProgress(System.Int32,System.Int32)">
+            <summary>
+            Set the current progress values for a task that has a number of steps.
+            This method will automatically calculate the progress value using the provided information.
+            The progress window will be automatically shown as a result of calling this method.
+            </summary>
+            <param name="numberOfTasks">The maximum number of tasks</param>
+            <param name="currentTask">The current task</param>
+        </member>
+        <member name="M:UMod.BuildPipeline.BuildProgress.SetCurrentTask(System.String)">
+            <summary>
+            Set the info of the current progress action.
+            The progress window will be automatically shown as a result of calling this method.
+            </summary>
+            <param name="taskName">The display info for the current progress task</param>
+        </member>
+        <member name="M:UMod.BuildPipeline.BuildProgress.Reset">
+            <summary>
+            Reset the build progress.
+            </summary>
+        </member>
+        <member name="M:UMod.BuildPipeline.BuildProgress.DisplayProgressWindow">
+            <summary>
+            Force the progress dialog to be shown using the current progress values.
+            The progress window will be automatically displayed as a result of calling <see cref="M:UMod.BuildPipeline.BuildProgress.SetCurrentProgress(System.Single)"/>, <see cref="M:UMod.BuildPipeline.BuildProgress.SetCurrentProgress(System.Int32,System.Int32)"/> or <see cref="M:UMod.BuildPipeline.BuildProgress.SetCurrentTask(System.String)"/>.
+            Use <see cref="M:UMod.BuildPipeline.BuildProgress.CloseProgressWindow"/> to hide the progress window if required. 
+            </summary>
+        </member>
+        <member name="T:UMod.BuildPipeline.Build.BuildPipelineAsset">
+            <summary>
+            Represents an asset that may or may not be included in the final output.
+            </summary>
+        </member>
+        <member name="T:UMod.BuildPipeline.Build.BuildPipelineAssets`1">
+            <summary>
+            Maintains a list of all assets that need to be included in the build.
+            Custom assets are assets that need to be imported into the unity project before they can be included in the build.
+            </summary>
+        </member>
+    </members>
+</doc>

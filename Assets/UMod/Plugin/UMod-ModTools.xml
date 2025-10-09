@@ -1,0 +1,538 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UMod-ModTools</name>
+    </assembly>
+    <members>
+        <member name="T:UMod.ModTools.Export.ExportProfileSettings">
+            <summary>
+            Represents an export profile for a mod containing all settings relative to that mod.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.Export.ExportProfileSettings.ReferencedMods">
+            <summary>
+            An enumerable collection fo referenced mod paths.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.Export.ExportProfileSettings.ModName">
+            <summary>
+            The name of the mod.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.Export.ExportProfileSettings.ModAuthor">
+            <summary>
+            The creator of the mod.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.Export.ExportProfileSettings.ModVersion">
+            <summary>
+            The version of the mod in the format 'x.x.x'.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.Export.ExportProfileSettings.ModDescription">
+            <summary>
+            The description for the mod.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.Export.ExportProfileSettings.ModAssetsPath">
+            <summary>
+            The path pointing the the 'ModDirectory' containing all the mod assets that should be exported.
+            This value cannot be set to the root 'Assets' folder or to the 'UModExporter' folder otherwise the build will fail.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.Export.ExportProfileSettings.ModExportPath">
+            <summary>
+            The path pointing to the export directory for the mod.
+            The mod will be created as a subfolder of this directory with the <see cref="F:UMod.ModTools.Export.ExportProfileSettings.modName"/>. 
+            </summary>
+        </member>
+        <member name="M:UMod.ModTools.Export.ExportProfileSettings.AddReferencedMod(System.String)">
+            <summary>
+            Adds a mod reference to the export profile.
+            </summary>
+            <param name="referencePath">The path of the referenced mod</param>
+        </member>
+        <member name="M:UMod.ModTools.Export.ExportProfileSettings.RemoveReferencedMod(System.String)">
+            <summary>
+            Removes a mod reference from the export profile.
+            </summary>
+            <param name="referencePath">The path of the referenced mod</param>
+        </member>
+        <member name="T:UMod.ModTools.Export.BuildOptimizeMode">
+            <summary>
+            How should the build engine optimize the content of the mod.
+            </summary>
+        </member>
+        <member name="F:UMod.ModTools.Export.BuildOptimizeMode.BuildTime">
+            <summary>
+            The mod will be optimized for faster build times and load times but may result in much larger file sizes.
+            </summary>
+        </member>
+        <member name="F:UMod.ModTools.Export.BuildOptimizeMode.FileSize">
+            <summary>
+            The mod will be optimized for smallest filesize but build times and load times may increase.
+            </summary>
+        </member>
+        <member name="T:UMod.ModTools.Export.ExportSettings">
+            <summary>
+            The settings used by the build engine when exporing a mod.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.Export.ExportSettings.ExportProfiles">
+            <summary>
+            Represents all export profiles in the exporter project.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.Export.ExportSettings.LogLevel">
+            <summary>
+            The log level used by the build engine during export.
+            By default, only warnings and errors are displayed to keep the console clear.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.Export.ExportSettings.OptimizeMode">
+            <summary>
+            The mode used for optimizing the mod.
+            During development you will want to optimize for <see cref="F:UMod.ModTools.Export.BuildOptimizeMode.BuildTime"/> to get the fastest build times. 
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.Export.ExportSettings.ClearConsoleOnBuild">
+            <summary>
+            Should the console window be cleared before a build starts (Just like enterning game mode).
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.Export.ExportSettings.ShowOutputDirectory">
+            <summary>
+            Should the exporter open the output directory when a build has successfully completed.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.Export.ExportSettings.CommandLineExecutable">
+            <summary>
+            The full path to the game executable that you are building a mod for.
+            This is used to launch the game when build and run is used.
+            </summary>
+        </member>
+        <member name="M:UMod.ModTools.Export.ExportSettings.#ctor">
+            <summary>
+            Converted to internal use only.
+            </summary>      
+        </member>
+        <member name="P:UMod.ModTools.Export.ExportSettings.ActiveExportProfileIndex">
+            <summary>
+            Get the index of the active export profile or -1 if there are no export profiles.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.Export.ExportSettings.ActiveExportProfile">
+            <summary>
+            Get the <see cref="T:UMod.ModTools.Export.ExportProfileSettings"/> for the active export profile. 
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.Export.ExportSettings.ExportProfileCount">
+            <summary>
+            Get the number of profiles that are in this project.
+            </summary>
+        </member>
+        <member name="M:UMod.ModTools.Export.ExportSettings.SetActiveExportProfile(System.Int32)">
+            <summary>
+            Set the active export profile to the specified profile index.
+            </summary>
+            <param name="index">The index of the export profile</param>
+        </member>
+        <member name="M:UMod.ModTools.Export.ExportSettings.SetActiveExportProfile(UMod.ModTools.Export.ExportProfileSettings)">
+            <summary>
+            Set the specified <see cref="T:UMod.ModTools.Export.ExportProfileSettings"/> as the active export profile. 
+            </summary>
+            <param name="exportSettings">The profile to make active</param>
+        </member>
+        <member name="M:UMod.ModTools.Export.ExportSettings.CreateNewExportProfile(System.Boolean)">
+            <summary>
+            Create a new export profile.
+            </summary>
+            <param name="makeActive">Should the new profile be set as the active export profile</param>
+            <returns>A new <see cref="T:UMod.ModTools.Export.ExportProfileSettings"/> that has been added to the export settings</returns>
+        </member>
+        <member name="M:UMod.ModTools.Export.ExportSettings.DeleteExportProfile(System.Int32)">
+            <summary>
+            Delete the export profile at the specified index.
+            </summary>
+            <param name="index">The index of the export profile to delete</param>
+        </member>
+        <member name="M:UMod.ModTools.Export.ExportSettings.DeleteExportProfile(UMod.ModTools.Export.ExportProfileSettings)">
+            <summary>
+            Delete the specified export profile.
+            </summary>
+            <param name="exportSettings">The <see cref="T:UMod.ModTools.Export.ExportProfileSettings"/> to delete</param>
+        </member>
+        <member name="M:UMod.ModTools.Export.ExportSettings.RemoveDuplicateProfiles">
+            <summary>
+            Attempts to remove any profiles that share the same name so that only unique profile names remain.
+            </summary>
+        </member>
+        <member name="M:UMod.ModTools.Export.ExportSettings.ValidateRequiredValues">
+            <summary>
+            Checks whether all required settings have been assigned with a valid value.
+            </summary>
+            <returns>True if all required fields are valid or false if one or more required fields are not valid</returns>
+        </member>
+        <member name="M:UMod.ModTools.Export.ExportSettings.ValidateName">
+            <summary>
+            Checks whether the <see cref="F:UMod.ModTools.Export.ExportProfileSettings.modName"/> value is a valid name. 
+            </summary>
+            <returns>True if the name is valid or false if it is not</returns>
+        </member>
+        <member name="M:UMod.ModTools.Export.ExportSettings.ValidateAssetPath">
+            <summary>
+            Checks whether the <see cref="F:UMod.ModTools.Export.ExportProfileSettings.modAssetPath"/> is a valid asset path. 
+            </summary>
+            <returns>true if the path is valid or false if it is not</returns>
+        </member>
+        <member name="M:UMod.ModTools.Export.ExportSettings.ValidateVersion">
+            <summary>
+            Checks whether the <see cref="F:UMod.ModTools.Export.ExportProfileSettings.modVersion"/> is a valid version string.
+            The string must be formatted like : 'x.x.x' where an 'x' represents a whole number.
+            </summary>
+            <returns>True if the version is valid or false if it is not</returns>
+        </member>
+        <member name="M:UMod.ModTools.Export.ExportSettings.ValidateBuildAndRun">
+            <summary>
+            Checks whether the <see cref="F:UMod.ModTools.Export.ExportSettings.commandLineExecutable"/> is a valid path. 
+            </summary>
+            <returns>True if the exe path is valid or false if it is not</returns>
+        </member>
+        <member name="T:UMod.ModTools.Export.ModExportVersion">
+            <summary>
+            Helper version class used only to verify version strings in the exporter window
+            </summary>
+        </member>
+        <member name="T:UMod.ModTools.ModToolsGameLock">
+            <summary>
+            Represents the mod tools game lock properties.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsGameLock.AllowGameLocking">
+            <summary>
+            Should game locking be allowed.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsGameLock.AllowGameVersionLocking">
+            <summary>
+            Should game version locking be used.
+            Requires <see cref="P:UMod.ModTools.ModToolsGameLock.AllowGameLocking"/> to also be enabled. 
+            </summary>
+        </member>
+        <member name="T:UMod.ModTools.ModToolsOptions">
+            <summary>
+            Represents all the mod tools properties.
+            </summary>
+        </member>
+        <member name="T:UMod.ModTools.ModToolsOptions.ModToolsMenuAction">
+            <summary>
+            Represents a mod tools menu action that indicates what should happen when a menu entry item is clicked.
+            </summary>
+        </member>
+        <member name="F:UMod.ModTools.ModToolsOptions.ModToolsMenuAction.CreateNewMod">
+            <summary>
+            Create a new mod with default properties.
+            </summary>
+        </member>
+        <member name="F:UMod.ModTools.ModToolsOptions.ModToolsMenuAction.CreatePrefabNode">
+            <summary>
+            Create a scene prefab node object.
+            </summary>
+        </member>
+        <member name="F:UMod.ModTools.ModToolsOptions.ModToolsMenuAction.CreateMaterialNode">
+            <summary>
+            Create a scene material node object.
+            </summary>
+        </member>
+        <member name="F:UMod.ModTools.ModToolsOptions.ModToolsMenuAction.Build">
+            <summary>
+            Start building the active mod export profile.
+            </summary>
+        </member>
+        <member name="F:UMod.ModTools.ModToolsOptions.ModToolsMenuAction.BuildAndRun">
+            <summary>
+            Start building the active mod export profile and launch the mod in game upon successful build.
+            </summary>
+        </member>
+        <member name="F:UMod.ModTools.ModToolsOptions.ModToolsMenuAction.ShowWindow">
+            <summary>
+            Show an editor window marked with the <see cref="!:UModToolsWindowAttribute"/> attribute. 
+            </summary>
+        </member>
+        <member name="F:UMod.ModTools.ModToolsOptions.ModToolsMenuAction.RebuildReferenceCache">
+            <summary>
+            Forces uMod to rebuild the assembly reference cache that is generated when a mod references another pre-build mod to allow access to types.
+            </summary>
+        </member>
+        <member name="T:UMod.ModTools.ModToolsOptions.ModToolsMenuEntry">
+            <summary>
+            Represents a single menu item entry.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsOptions.ModToolsMenuEntry.MenuEntryName">
+            <summary>
+            The name of the menu item.
+            Forward slashes '/' can be used to create sub menu items.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsOptions.ModToolsMenuEntry.MenuAction">
+            <summary>
+            The <see cref="T:UMod.ModTools.ModToolsOptions.ModToolsMenuAction"/> that is performed when this menu item is clicked. 
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsOptions.ModToolsMenuEntry.Enabled">
+            <summary>
+            Is this menu item enabled.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsOptions.ModToolsMenuEntry.IsSeparator">
+            <summary>
+            Is this menu item a separator.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsOptions.ModToolsMenuEntry.WindowType">
+            <summary>
+            The serialized window type that is used when <see cref="P:UMod.ModTools.ModToolsOptions.ModToolsMenuEntry.MenuAction"/> is set to <see cref="F:UMod.ModTools.ModToolsOptions.ModToolsMenuAction.ShowWindow"/>.  
+            </summary>
+        </member>
+        <member name="M:UMod.ModTools.ModToolsOptions.ModToolsMenuEntry.#ctor">
+            <summary>
+            Create a new instance.
+            </summary>
+        </member>
+        <member name="M:UMod.ModTools.ModToolsOptions.ModToolsMenuEntry.#ctor(System.String,UMod.ModTools.ModToolsOptions.ModToolsMenuAction,System.Boolean,System.Boolean)">
+            <summary>
+            Create a new instance.
+            </summary>
+            <param name="menuName">The menu item name</param>
+            <param name="action">The menu action to perform when clicked</param>
+            <param name="enabled">Is this menu item enabled</param>
+            <param name="separatorAfter">Is this menu item a separator</param>
+        </member>
+        <member name="M:UMod.ModTools.ModToolsOptions.ModToolsMenuEntry.#ctor(System.String,UMod.ModTools.ModToolsOptions.ModToolsMenuAction,System.Boolean,System.Boolean,UMod.Shared.ModSerializedType)">
+            <summary>
+            Create a new instance.
+            </summary>
+            <param name="menuName">The menu item name</param>
+            <param name="action">The menu action to perform when clicked</param>
+            <param name="enabled">The menu action to perform when clicked</param>
+            <param name="separatorAfter">Is this menu item a separator</param>
+            <param name="windowType">The window type to show</param>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsOptions.AllowAssetsInMods">
+            <summary>
+            Are mods allowed to include shared assets.
+            Shared assets are defined as assets that are not scene or scripts/assembly assets.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsOptions.AllowScenesInMods">
+            <summary>
+            Are mods allowed to include scene assets.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsOptions.AllowScriptsInMods">
+            <summary>
+            Are mods allowed to include script assets.
+            Managed assemblies are also considered script assets.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsOptions.AllowMultipleModsPerProject">
+            <summary>
+            Does the mod tools package support multiple mod export profiles per Unity project.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsOptions.AllowModReferences">
+            <summary>
+            Does the mod tools support referencing other mods.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsOptions.AllowDotNet4X">
+            <summary>
+            Does the mod tools allow .Net 4.x to be used for script assets.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsOptions.IncludeMenu">
+            <summary>
+            Does the mod tools package include a menu.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsOptions.MenuRoot">
+            <summary>
+            The menu root path of the mod tools package menu.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsOptions.MenuEntries">
+            <summary>
+            Get all menu entries for the mod tools package.
+            </summary>
+        </member>
+        <member name="T:UMod.ModTools.ModToolsSecurityInfo">
+            <summary>
+            Represents the mod tools secuirty properties.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSecurityInfo.PerformBuildSecurityChecks">
+            <summary>
+            Should the build engine perform code security checks when building a mod.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSecurityInfo.AllowScriptsInMods">
+            <summary>
+            Should the build engine allow CSharp script assets to be compiled and included in mods.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSecurityInfo.AllowAssembliesInMods">
+            <summary>
+            Should the build engine allow managed assemblies to be included in mods.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSecurityInfo.SecurityRestrictions">
+            <summary>
+            The security restrictions asset that contains the code valdiation rules.
+            </summary>
+        </member>
+        <member name="T:UMod.ModTools.ModToolsSettings">
+            <summary>
+            Represent the main mod tools properties.
+            </summary>
+        </member>
+        <member name="T:UMod.ModTools.ModToolsSettings.ValidateSetting">
+            <summary>
+            A value used to specify which setting to validate.
+            </summary>
+        </member>
+        <member name="F:UMod.ModTools.ModToolsSettings.ValidateSetting.ToolsName">
+            <summary>
+            Validate the tools name.
+            </summary>
+        </member>
+        <member name="F:UMod.ModTools.ModToolsSettings.ValidateSetting.ToolsVersion">
+            <summary>
+            Validate the tools version.
+            </summary>
+        </member>
+        <member name="F:UMod.ModTools.ModToolsSettings.ValidateSetting.DeveloperName">
+            <summary>
+            Validate the developer name.
+            </summary>
+        </member>
+        <member name="F:UMod.ModTools.ModToolsSettings.ValidateSetting.GameName">
+            <summary>
+            Valdiate the game name.
+            </summary>
+        </member>
+        <member name="F:UMod.ModTools.ModToolsSettings.ValidateSetting.GameVersion">
+            <summary>
+            Validate the game version.
+            </summary>
+        </member>
+        <member name="F:UMod.ModTools.ModToolsSettings.ValidateSetting.ModFileExtension">
+            <summary>
+            Validate the target file extension.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSettings.ToolsIconSmall">
+            <summary>
+            The mod tools small icon.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSettings.ToolsIconLarge">
+            <summary>
+            The mod tools large icon.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSettings.ToolsName">
+            <summary>
+            The mod tools package name.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSettings.ToolsVersion">
+            <summary>
+            The mod tools package version formatted as 'x.x.x'.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSettings.FirstRunWindow">
+            <summary>
+            The mod tools window type that is shown when the package is first imported.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSettings.DeveloperName">
+            <summary>
+            The name of the game developer.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSettings.GameName">
+            <summary>
+            The name of the game that this mod tools package targets.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSettings.GameVersion">
+            <summary>
+            The version of the game that this mod tools package targets.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSettings.ModFileExtension">
+            <summary>
+            The file extension used by this mod tools package.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSettings.CommandLineLaunchFormat">
+            <summary>
+            The command line launching convention of the game.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSettings.TargetUnityVersion">
+            <summary>
+            The Unity version required by this tools package.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSettings.DeveloperWebsiteURL">
+            <summary>
+            A URL link to the developers website.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSettings.OnlineDocumentationURL">
+            <summary>
+            A URL link to the online modding documentation.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSettings.OnlineScriptingReferenceURL">
+            <summary>
+            A URL link to the online modding scripting reference.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSettings.Options">
+            <summary>
+            The mod tools build engine options.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSettings.Security">
+            <summary>
+            The mod tools security options.
+            </summary>
+        </member>
+        <member name="P:UMod.ModTools.ModToolsSettings.GameLocking">
+            <summary>
+            The mod tools game locking options.
+            </summary>
+        </member>
+        <member name="M:UMod.ModTools.ModToolsSettings.SetupDefaults">
+            <summary>
+            Reset values to defaults.
+            </summary>
+        </member>
+        <member name="M:UMod.ModTools.ModToolsSettings.AllSettingsValid">
+            <summary>
+            Check whether all required settings are valid.
+            </summary>
+            <returns>True if all settings are valid or false if not</returns>
+        </member>
+        <member name="M:UMod.ModTools.ModToolsSettings.IsSettingValid(UMod.ModTools.ModToolsSettings.ValidateSetting)">
+            <summary>
+            Check whether the specified setting is valid.
+            </summary>
+            <param name="setting">The target setting to check</param>
+            <returns>True if the setting is valid or false if not</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 31dd3541daf6f7b49a13673900eacfb2
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Plugin/Editor/UMod-BuildPipeline.xml
+  uploadId: 782332

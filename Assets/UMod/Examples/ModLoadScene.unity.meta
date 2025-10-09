@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: fa137b3a95fd7dc428791b82df3714b4
+labels:
+- uMod2.0
+- Modding
+- ModSupport
+- Mod
+timeCreated: 1470058511
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Examples/ModLoadScene.unity
+  uploadId: 782332

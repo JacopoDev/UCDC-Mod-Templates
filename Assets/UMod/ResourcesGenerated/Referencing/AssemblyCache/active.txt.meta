@@ -1,7 +1,15 @@
 fileFormatVersion: 2
-guid: 005095f0cfa6a874fa1857f8bbd45020
+guid: c3b2d8b0a3f80304589aa50d50d30d83
+timeCreated: 1556616043
+licenseType: Store
 TextScriptImporter:
-  externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/ResourcesGenerated/Referencing/AssemblyCache/active.txt
+  uploadId: 782332

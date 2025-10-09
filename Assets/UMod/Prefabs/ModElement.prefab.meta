@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 1a368a1370613314584da01826092921
+labels:
+- uMod2.0
+- Modding
+- ModSupport
+- Mod
+timeCreated: 1481223050
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Prefabs/ModElement.prefab
+  uploadId: 782332

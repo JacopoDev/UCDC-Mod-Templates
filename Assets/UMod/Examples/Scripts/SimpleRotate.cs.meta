@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 4a7da94cb90601741b4e92209d6b6e27
+timeCreated: 1579170314
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 58293
+  packageName: uMod 2.0
+  packageVersion: 2.9.9a
+  assetPath: Assets/UMod/Examples/Scripts/SimpleRotate.cs
+  uploadId: 782332

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -445634915, guid: 280c438764db88947882b3aca51a723c, type: 3}
+  m_Name: WizardResources
+  m_EditorClassIdentifier: 
+  errorIcon: {fileID: 2800000, guid: 02ae554fad960ca47bdbb6e860f568b3, type: 3}
+  packageIcon: {fileID: 2800000, guid: 810dcf6797bec374faccd0d636e177b4, type: 3}
+  projectIcon: {fileID: 2800000, guid: fad3459b850963142a29fcdf0da715ac, type: 3}
+  projectSettingsIcon: {fileID: 2800000, guid: 225c148a7bd62e94eaa81593762e3f11, type: 3}
+  modToolsIcon: {fileID: 2800000, guid: 87d47bdf039e02d48b01dd67b0ab70ba, type: 3}
+  gameIcon: {fileID: 2800000, guid: b65d2b16cf49f2d438ee192cba674e0f, type: 3}
+  packageContentIcon: {fileID: 2800000, guid: 7b6d9337f5e28964b8f8839a678548f4, type: 3}
+  buildEngineIcon: {fileID: 2800000, guid: c448fdc3e88b8c041ac7510ed442ba42, type: 3}
+  optionsIcon: {fileID: 2800000, guid: b587d27c2f6aa1046a360c82cd252e58, type: 3}
+  menusIcon: {fileID: 2800000, guid: 68775162b04857e4c8e0ef193facd69e, type: 3}
+  securityIcon: {fileID: 2800000, guid: 54c240180e93c7e42942da1c7fc1a488, type: 3}
+  codeIcon: {fileID: 2800000, guid: de29b434b391d9b4ba0bf7aebc740fa9, type: 3}
+  gameLockingIcon: {fileID: 2800000, guid: 6010a658ed46c04428b16406fb009d12, type: 3}
+  assetSharingIcon: {fileID: 0}
+  buildIcon: {fileID: 2800000, guid: 91b42e999a47fd546a16cecd0e7fecce, type: 3}
+  visibleIcon: {fileID: 2800000, guid: 4039f0079e02e47448ba325e58744911, type: 3}
+  hiddenIcon: {fileID: 2800000, guid: 7838e55a9b814984a8387928e99cc705, type: 3}
+  separatorOnIcon: {fileID: 2800000, guid: 11c86729669342a43ba1309fecd0d982, type: 3}
+  separatorOffIcon: {fileID: 2800000, guid: 6a01e940f5fe03c46b8e9c28617b2764, type: 3}
+  upArrow: {fileID: 2800000, guid: f169ec595bd97e64c84144c550c68068, type: 3}
+  downArrow: {fileID: 2800000, guid: 3533ad92b35a64c4bb363d1f897fff0f, type: 3}
+  syncIcon: {fileID: 2800000, guid: bd19ec4469c390d4caef15e7db776a93, type: 3}
