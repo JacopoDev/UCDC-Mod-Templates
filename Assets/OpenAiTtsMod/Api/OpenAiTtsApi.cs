@@ -54,8 +54,8 @@ namespace OpenAiTtsMod.Api
 
                 if (response.IsSuccessStatusCode)
                 {
-                    byte[] mp3Data = await response.Content.ReadAsByteArrayAsync();
-                    _result.Voice = TextToSpeech.Instance.ConvertSound(mp3Data, SetVoiceResult);
+                    byte[] wavData = await response.Content.ReadAsByteArrayAsync();
+                    _result.Voice = TextToSpeech.Instance.ConvertSound(wavData, SetVoiceResult);
                 }
                 else
                 {

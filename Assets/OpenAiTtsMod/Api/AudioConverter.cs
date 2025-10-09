@@ -23,47 +23,51 @@ namespace OpenAiTtsMod.Api
             
             return null;
         }
-        
-        public static async Task<AudioClip> ParseWav(byte[] data, string clipName = "wav_clip")
+
+         public static async Task<AudioClip> ParseWav(byte[] data, string clipName = "wav_clip")
+         {
+             int channels;
+             int sampleRate;
+             float[] samples = ToFloatArray(data, out channels, out sampleRate);
+             
+             int sampleCount = samples.Length / channels;
+             AudioClip clip = await MainThreadDispatcher.EnqueueAsync(() =>
+             {
+                 AudioClip clip = AudioClip.Create(clipName, sampleCount, channels, sampleRate, false);
+                 clip.SetData(samples, 0);
+                 return clip;
+             });
+             
+             return clip;
+         }
+
+         public static float[] ToFloatArray(byte[] wavData, out int channels, out int sampleRate)
         {
-            var reader = new ByteReader(data);
+            // WAV header parsing
+            // [0-3] "RIFF"
+            // [22-23] channels (ushort)
+            // [24-27] sample rate (uint)
+            // [34-35] bits per sample (ushort)
+            // [44...] data
+            channels = BitConverter.ToUInt16(wavData, 22);
+            sampleRate = BitConverter.ToInt32(wavData, 24);
+            int bitsPerSample = BitConverter.ToUInt16(wavData, 34);
+            int dataStart = 44; // assuming PCM header without extra chunks
 
-            if (reader.ReadString(4) != "RIFF") throw new Exception("Missing RIFF");
-            reader.ReadInt32(); // Chunk size
-            if (reader.ReadString(4) != "WAVE") throw new Exception("Missing WAVE");
+            if (bitsPerSample != 16)
+                throw new Exception($"Unsupported WAV bit depth: {bitsPerSample}");
 
-            if (reader.ReadString(4) != "fmt ") throw new Exception("Missing fmt ");
-            int subChunk1Size = reader.ReadInt32();
-            short audioFormat = reader.ReadInt16();
-            short numChannels = reader.ReadInt16();
-            int sampleRate = reader.ReadInt32();
-            reader.ReadInt32(); // byteRate
-            reader.ReadInt16(); // blockAlign
-            short bitsPerSample = reader.ReadInt16();
+            int sampleCount = (wavData.Length - dataStart) / 2;
+            float[] samples = new float[sampleCount];
 
-            if (subChunk1Size > 16)
-                reader.Skip(subChunk1Size - 16); // Skip any extra data in fmt chunk
-
-            // Skip until we find the "data" chunk
-            while (reader.ReadString(4) != "data")
+            int offset = 0;
+            for (int i = dataStart; i < wavData.Length; i += 2)
             {
-                int chunkSize = reader.ReadInt32();
-                reader.Skip(chunkSize);
+                short sample16 = BitConverter.ToInt16(wavData, i);
+                samples[offset++] = sample16 / 32768f; // normalize to [-1, 1]
             }
 
-            int dataSize = reader.ReadInt32();
-            byte[] pcmBytes = reader.ReadBytes(dataSize);
-            float[] samples = ConvertPCMToFloats(pcmBytes, bitsPerSample);
-
-            int sampleCount = samples.Length / numChannels;
-            AudioClip clip = await MainThreadDispatcher.EnqueueAsync(() =>
-            {
-                AudioClip clip = AudioClip.Create(clipName, sampleCount, numChannels, sampleRate, false);
-                clip.SetData(samples, 0);
-                return clip;
-            });
-            
-            return clip;
+            return samples;
         }
 
         private static float[] ConvertPCMToFloats(byte[] pcm, int bitsPerSample)
